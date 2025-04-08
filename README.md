@@ -21,7 +21,7 @@ $ git clone https://github.com/Cyberistic/Kuwait-University-Computer-Engineering
 
 ## Structure
 
-![Official topics list](Official-Topics-List.png)
+![Official topics list](attachments/Official-Topics-List.png)
 Following the official list from the university: 
 1. Each subject will have its own folder
 2. Each topic will live in its own note, containing all subtopics within the topic (to help with studying topic by topic)
