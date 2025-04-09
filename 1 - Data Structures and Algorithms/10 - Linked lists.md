@@ -260,166 +260,66 @@ This function traverses both linked lists, compares the exponents, and adds the 
 
 #### Sparse Matrices
 
-A sparse matrix is a matrix where most elements are zero, like:
+A sparse matrix is a matrix where most elements are zero. For example:
 
 $$
-\begin{vmatrix} 1337 & 420 & 0 \\
-42 & 0 & 0 \\
-0 & 1 & 0 \\
+\begin{vmatrix}
+0 & 0 & 420 \\
 0 & 0 & 0 \\
-0 & 0 & 2 \\
+1337 & 0 & 0
 \end{vmatrix}
 $$
 
-Rather than using a 2D array (which wastes space storing 0s), we use a linked list (or list of linked lists) to only store non-zero elements, along with their row and column positions
+Rather than using a 2D array (which wastes space storing zeros), we can use a linked list to store only non-zero elements along with their positions. Each node stores:
 
-We can represent sparse matrices using different linked list approaches:
+- Row index
+- Column index
+- Value
 
-1. **Array of Linked Lists (Row-wise)**:
+The matrix above would be stored as:
+
+```
+(0,2,420) → (2,0,1337)
+```
+
+This means:
+
+- First node: Value 3 at position (row=0, col=2)
+- Second node: Value 5 at position (row=2, col=0)
+
+This is much more effecient than if we were to use a 2D array like this:
+
+```ts
+const matrix = [
+  [0, 0, 420],
+  [0, 0, 0],
+  [1337, 0, 0]
+];
+```
+
+The linked list representation of a sparse matrix can be implemented as follows:
 
 ```ts
 type MatrixNode = {
-  col: number; // column index
-  value: number; // non-zero value
+  row: number;
+  col: number;
+  value: number;
   next: MatrixNode | null;
 };
 
 type SparseMatrix = {
   rows: number; // total number of rows
   cols: number; // total number of columns
-  rowHeads: (MatrixNode | null)[]; // array of row headers
+  head: MatrixNode | null;
 };
 ```
-
-For example, the matrix above would be represented as:
-
-```
-Row 0: (0,1337) → (1,420)
-Row 1: (0,42)
-Row 2: (1,1)
-Row 3: [empty]
-Row 4: (2,2)
-```
-
-2. **Triple Node List**:
-
-```ts
-type TripleNode = {
-  row: number;
-  col: number;
-  value: number;
-  next: TripleNode | null;
-};
-
-type SparseMatrix = {
-  rows: number;
-  cols: number;
-  head: TripleNode | null;
-};
-```
-
-The same matrix would be stored as:
-
-```
-(0,0,1337) → (0,1,420) → (1,0,42) → (2,1,1) → (4,2,2)
-```
-
-Here's an implementation of matrix addition using the Triple Node approach:
-
-```ts
-function addSparseMatrices(m1: SparseMatrix, m2: SparseMatrix): SparseMatrix {
-  if (m1.rows !== m2.rows || m1.cols !== m2.cols) {
-    throw new Error("Matrix dimensions must match");
-  }
-
-  const result: SparseMatrix = {
-    rows: m1.rows,
-    cols: m1.cols,
-    head: null
-  };
-
-  let curr1 = m1.head;
-  let curr2 = m2.head;
-  let last: TripleNode | null = null;
-
-  while (curr1 && curr2) {
-    let newNode: TripleNode = {
-      row: 0,
-      col: 0,
-      value: 0,
-      next: null
-    };
-
-    // Compare positions
-    const pos1 = curr1.row * m1.cols + curr1.col;
-    const pos2 = curr2.row * m2.cols + curr2.col;
-
-    if (pos1 < pos2) {
-      // Copy from matrix 1
-      newNode = { ...curr1, next: null };
-      curr1 = curr1.next;
-    } else if (pos2 < pos1) {
-      // Copy from matrix 2
-      newNode = { ...curr2, next: null };
-      curr2 = curr2.next;
-    } else {
-      // Same position - add values
-      newNode = {
-        row: curr1.row,
-        col: curr1.col,
-        value: curr1.value + curr2.value,
-        next: null
-      };
-      curr1 = curr1.next;
-      curr2 = curr2.next;
-    }
-
-    // Add to result if value isn't zero
-    if (newNode.value !== 0) {
-      if (!result.head) {
-        result.head = newNode;
-      } else {
-        last!.next = newNode;
-      }
-      last = newNode;
-    }
-  }
-
-  // Copy remaining elements
-  while (curr1) {
-    const newNode = { ...curr1, next: null };
-    if (!result.head) {
-      result.head = newNode;
-    } else {
-      last!.next = newNode;
-    }
-    last = newNode;
-    curr1 = curr1.next;
-  }
-
-  while (curr2) {
-    const newNode = { ...curr2, next: null };
-    if (!result.head) {
-      result.head = newNode;
-    } else {
-      last!.next = newNode;
-    }
-    last = newNode;
-    curr2 = curr2.next;
-  }
-
-  return result;
-}
-```
-
-The time complexity is $O(n_1 + n_2)$ where $n_1$ and $n_2$ are the number of non-zero elements in the matrices. This is much more efficient than the $O(rows \times cols)$ complexity needed for regular matrix addition when most elements are zero.
 
 > [!tip] Space Efficiency
-> For a matrix with dimensions $m \times n$ where only $k$ elements are non-zero:
+> For an $m \times n$ matrix with $k$ non-zero elements:
 >
-> - Regular 2D array uses $O(m \times n)$ space
-> - Linked list representation uses $O(k)$ space
->   If $k \ll m \times n$, the linked list approach is much more space-efficient.
+> - Regular 2D array: $O(m \times n)$ space
+> - Linked list: $O(k)$ space
+>   When $k$ is much smaller than $m \times n$, the linked list approach is significantly more efficient.
 
 ## Circular Linked List
 
