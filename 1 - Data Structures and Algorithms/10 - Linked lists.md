@@ -36,9 +36,11 @@ So in this implementation, adding or removing nodes should be straightforward:
 
 ```ts
 // Complexity: O(1)
-let newNode = new Node();
-newNode.next = linkedlist.head;
-linkedlist.head = newNodel;
+function addToHead(linkedList: LinkedList, newNode: Node) {
+  newNode.next = linkedList.head;
+  linkedList.head = newNode;
+  linkedList.count++;
+}
 ```
 
 2. Add at end (tail):
@@ -46,17 +48,21 @@ linkedlist.head = newNodel;
 ```ts
 // Case 1: We are keeping track of tail
 // Complexity: O(1)
-let newNode = new Node();
-linkedlist.tail.next = newNode;
-linkedlist.tail = newNode;
+function addToTail(linkedList: LinkedList, newNode: Node) {
+  linkedList.tail.next = newNode;
+  linkedList.tail = newNode;
+  linkedList.count++;
+}
 
 // Case 2: Not keeping track of tail
-let current = linkedList.head;
-while (current.next) {
-  current = current.next;
+function addToTail(linkedList: LinkedList, newNode: Node) {
+  let current = linkedList.head;
+  while (current.next) {
+    current = current.next;
+  }
+  current.next = newNode;
+  linkedList.count++;
 }
-let newNode = new Node();
-current.next = newNode;
 ```
 
 3. Add in the middle:
@@ -64,32 +70,50 @@ current.next = newNode;
 ```ts
 // let's say we want to search for id and add after it
 // Complexity: O(n)
-while (current) {
-  if (current.id === id) {
-    break;
+function addAfterId(linkedList: LinkedList, id: string, newNode: Node) {
+  let current = linkedList.head;
+  while (current) {
+    if (current.id === id) {
+      break;
+    }
+    current = current.next;
   }
-  current = current.next;
+  newNode.next = current.next;
+  current.next = newNode;
 }
-let newNode = new Node();
-newNode.next = current.next;
-current.next = newNode;
 ```
 
 Removing nodes is a bit more tricky, because we need to keep track of the previous node as well. So we can do something like this:
 
 ```ts
 // Complexity: O(n)
-let current = linkedList.head;
-let previous = null;
-while (current) {
-  if (current.id === id) {
-    break;
+function removeById(linkedList: LinkedList, id: string) {
+  if (linkedList.head === null) {
+    return;
   }
-  previous = current;
-  current = current.next;
+  linkedList.count--;
+  // if we are keeping track of tail, we need to check if we are removing the last node
+  if (linkedList.tail === linkedList.head) {
+    linkedList.tail = null;
+  }
+  // if we are removing the head
+  if (linkedList.head.id === id) {
+    linkedList.head = linkedList.head.next;
+    return;
+  }
+  // if we are removing a middle or tail node
+  let current = linkedList.head;
+  let previous = null;
+  while (current) {
+    if (current.id === id) {
+      break;
+    }
+    previous = current;
+    current = current.next;
+  }
+  previous.next = current.next;
+  current = null; // or use a garbage collector, or implement a destructor, or just let it live in memory forever lol
 }
-previous.next = current.next;
-current = null; // or use a garbage collector, or implement a destructor, or just let it live in memory forever lol
 ```
 
 Same thing with other remove operations, just do the addition operation "backwards" so to speak.
@@ -97,16 +121,38 @@ So for example, removing the head would look like this:
 
 ```ts
 // Complexity: O(1)
-let current = linkedList.head;
-linkedList.head = current.next;
+function removeHead(linkedList: LinkedList) {
+  if (linkedList.head === null) {
+    return;
+  }
+  linkedList.count--; // if we are keeping track of tail, we need to check if we are removing the last node
+  if (linkedList.tail === linkedList.head) {
+    linkedList.tail = null;
+  }
+  linkedList.head = linkedList.head.next;
+}
 ```
 
 ### Applications
 
 #### Stack
 
-A stack is a data structure that follows the Last In First Out (LIFO) principle. It can be implemented using a singly linked list. The top of the stack corresponds to the head of the linked list, and we can add or remove elements from the top of the stack in constant time.
+A stack is a data structure that follows the _Last In First Out (LIFO)_ principle. It can be implemented using a singly linked list. The top of the stack corresponds to the head of the linked list, and we can add or remove elements from the top of the stack in constant time.
 
 ```ts
-
+// to push to stack
+function push(linkedList: LinkedList, newNode: Node) {
+  addToHead(linkedList, newNode);
+}
+// to pop from stack
+function pop(linkedList: LinkedList) {
+  if (linkedList.head === null) {
+    return null;
+  }
+  const poppedNode = linkedList.head;
+  removeHead(linkedList);
+  return poppedNode;
+}
 ```
+
+I added full code for [[Implementing A Stack using Python]], take a quick look at it.
