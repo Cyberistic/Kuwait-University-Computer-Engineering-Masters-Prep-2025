@@ -1,3 +1,56 @@
-```py class LinkedStack: 2 ”””LIFO Stack implementation using a singly linked list for storage.””” 3 4 #-------------------------- nested Node class -------------------------- 5 class Node: 6 ”””Lightweight, nonpublic class for storing a singly linked node.””” 7 slots = _element , _next # streamline memory usage 8 9 def init (self, element, next): # initialize node’s fields 10 self. element = element # reference to user’s element 11 self. next = next # reference to next node 12 13 #------------------------------- stack methods ------------------------------- 14 def init (self): 15 ”””Create an empty stack.””” 16 self. head = None # reference to the head node 17 self. size = 0 # number of stack elements 18 19 def len (self): 20 ”””Return the number of elements in the stack.””” 21 return self. size 22 23 def is empty(self): 24 ”””Return True if the stack is empty.””” 25 return self. size == 0 26 27 def push(self, e): 28 ”””Add element e to the top of the stack.””” 29 self. head = self. Node(e, self. head) # create and link a new node 30 self. size += 1 31 32 def top(self): 33 ”””Return (but do not remove) the element at the top of the stack. 34 35 Raise Empty exception if the stack is empty. 36 ””” 37 if self.is empty( ): 38 raise Empty( Stack is empty ) 39 return self. head. element # top of stack is at head of list Code Fragment 7.5: Implementation of a stack ADT using a singly linked list (con- tinued in Code Fragment 7.6). 7.1. Singly Linked Lists 263 40 def pop(self): 41 ”””Remove and return the element from the top of the stack (i.e., LIFO). 42 43 Raise Empty exception if the stack is empty. 44 ””” 45 if self.is empty( ): 46 raise Empty( Stack is empty ) 47 answer = self. head. element 48 self. head = self. head. next # bypass the former top node 49 self. size −= 1 50 return answer
+```python
+# Reference: Michael T. Goodrich, Roberto Tamassia, Michael H. Goldwasser - Data Structures and Algorithms in Python-Wiley (2013)
+# Page: 262
 
+class LinkedStack:
+    """LIFO Stack implementation using a singly linked list for storage."""
+
+    # -------------------------- nested Node class ----------------------
+    class Node:
+        """Lightweight, nonpublic class for storing a singly linked node."""
+        __slots__ = '_element', '_next'  # streamline memory usage
+
+        def __init__(self, element, next):  # initialize node’s fields
+            self._element = element  # reference to user’s element
+            self._next = next  # reference to next node
+
+    # ------------------------------- stack methods ----------------------
+    def __init__(self):
+        """Create an empty stack."""
+        self._head = None  # reference to the head node
+        self._size = 0  # number of stack elements
+
+    def __len__(self):
+        """Return the number of elements in the stack."""
+        return self._size
+
+    def is_empty(self):
+        """Return True if the stack is empty."""
+        return self._size == 0
+
+    def push(self, e):
+        """Add element e to the top of the stack."""
+        self._head = self.Node(e, self._head)  # create and link a new node
+        self._size += 1
+
+    def top(self):
+        """Return (but do not remove) the element at the top of the stack.
+
+        Raise Empty exception if the stack is empty.
+        """
+        if self.is_empty():
+            raise Exception('Stack is empty')
+        return self._head._element  # top of stack is at head of list
+
+    def pop(self):
+        """Remove and return the element from the top of the stack (i.e., LIFO).
+
+        Raise Empty exception if the stack is empty.
+        """
+        if self.is_empty():
+            raise Exception('Stack is empty')
+        answer = self._head._element
+        self._head = self._head._next  # bypass the former top node
+        self._size -= 1
+        return answer
 ```

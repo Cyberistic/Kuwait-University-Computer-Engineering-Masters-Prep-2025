@@ -137,7 +137,7 @@ function removeHead(linkedList: LinkedList) {
 
 #### Stack
 
-A stack is a data structure that follows the _Last In First Out (LIFO)_ principle. It can be implemented using a singly linked list. The top of the stack corresponds to the head of the linked list, and we can add or remove elements from the top of the stack in constant time.
+A stack is a data structure that follows the _Last In First Out (LIFO)_ principle. It can be implemented using a singly linked list. The top of the stack corresponds to the head of the linked list, and we can add or remove elements from the top of the stack in constant time _O(1)_.
 
 ```ts
 // to push to stack
@@ -156,3 +156,23 @@ function pop(linkedList: LinkedList) {
 ```
 
 I added full code for [[Implementing A Stack using Python]], take a quick look at it.
+
+#### Queue
+
+A queue is a data structure that follows the _First In First Out (FIFO)_ principle. It can be implemented using a singly linked list. The front of the queue corresponds to the head of the linked list, and we can add elements to the end of the queue in constant time O(1).
+
+```ts
+// to enqueue
+function enqueue(linkedList: LinkedList, newNode: Node) {
+  addToTail(linkedList, newNode);
+}
+// to dequeue
+function dequeue(linkedList: LinkedList) {
+  if (linkedList.head === null) {
+    return null;
+  }
+  const dequeuedNode = linkedList.head;
+  removeHead(linkedList);
+  return dequeuedNode;
+}
+```
