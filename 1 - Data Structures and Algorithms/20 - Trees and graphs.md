@@ -98,16 +98,18 @@ function postorder(node: TreeNode | null) {
 
 ---
 
-## Tree → Binary Tree Representation
+## Normal Tree → Binary Tree Representation
+
+*Prepare for a headache, this is a bit confusing but bear with me*
 
 Any general tree (where a node can have more than 2 children) can be represented as a **binary tree** using the **Left-Child Right-Sibling** technique:
 
 - Left child → first child
-    
 - Right child → next sibling
-    
 
-This keeps binary tree operations usable while representing n-ary trees.
+
+
+
 
 ---
 
