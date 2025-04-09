@@ -22,8 +22,8 @@ $ git clone https://github.com/Cyberistic/Kuwait-University-Computer-Engineering
 ## Structure
 
 
-![Official-List.jpeg](Official-List.jpeg)
-![Official-List-1.jpeg](Official-List-1.jpeg)
+![Official-List.jpeg](attachments/Official-List.jpeg)
+![Official-List-1.jpeg](attachments/Official-List-1.jpeg)
 ![Official-List-2.jpeg](Official-List-2.jpeg)
 
 Following the official list from the university: 
