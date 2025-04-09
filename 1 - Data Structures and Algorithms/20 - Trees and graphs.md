@@ -4,7 +4,8 @@ Trees and graphs: Binary trees; binary tree representation; binary tree traversa
 Before you get started, make sure you remember the following:
 1. [[Calculating Height & Width of a Tree]]
 2. The meaning of `root`, `child`, `leaf`, `edge`, `siblings`
-
+3. An **ordered tree** is a tree where the **children of each node have a specific order** — like first child, second child, third child, and so on.
+	We usually show this by drawing the children **from left to right** in the order they belong.
 
 ## Trees and Graphs
 ## Binary Trees
@@ -36,7 +37,11 @@ type TreeNode = {
 };
 ```
 
-The **root** node is the entry point. Leaves are nodes with no children.
+More boring facts:
+- The **root** node is the entry point. Leaves are nodes with no children.
+- A binary tree is _proper_ if each node has either zero or two children. 
+- The recursive definition: a binary tree has a root, the root has 0 to 2 binary trees as children 
+
 
 > [!tip] Binary Search Trees  
 > A **Binary Search Tree (BST)** is a special kind of binary tree where:
