@@ -106,12 +106,50 @@ Any general tree (where a node can have more than 2 children) can be represented
 
 In other non-confusing words:
 
+start with root:
 
 - The first child (let's call it `1st`) of a node stays in the same place on the left.
-- The next child becomes the right child of the f
+- The next child (`2nd`) becomes the right child of `1st`.
+- The next child (`3rd`) becomes the right child of `2nd`.
+  and so on.. once there are no more children, do the same for the other nodes, starting with `1st`.
+
+Let's see an example:
+
+Original tree:
+
+```mermaid
+graph TD
+    A[5] --> B[8]
+    A --> C[2]
+    A --> D[1]
+    B --> E[3]
+    B --> F[4]
+```
+
+Converted to binary tree using Left-Child Right-Sibling representation:
+
+```mermaid
+graph TD
+    A((A)) --> B((B))
+    B --> E((E))
+    E --> F((F))
+    B -.-> C((C))
+    C --> G((G))
+    C -.-> D((D))
 
 
+```
 
+Notice how:
+
+1. B (first child of A) stays as left child of A
+2. C (second child of A) becomes right child of B
+3. D (third child of A) becomes right child of C
+4. E (first child of B) stays as left child of B
+5. F (second child of B) becomes right child of E
+6. G (first child of C) stays as left child of C
+
+Dotted lines represent sibling relationships, solid lines represent parent-child relationships.
 
 ---
 
