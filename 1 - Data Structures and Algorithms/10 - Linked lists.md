@@ -20,7 +20,6 @@ type Node = {
   id: string; // (optional) if you want to search by id
   value: number;
   next: Node | null; // if null then it's tail
-
 };
 
 type LinkedList = {
@@ -182,12 +181,12 @@ function dequeue(linkedList: LinkedList) {
 > A fun application of a queue is the "Round Robin" scheduler, where you enqueue a dequeue'd process in a sort of loop.
 
 ## Circular Linked List
+
 ![[Circularly-Linked-List.png]]
 
 Instead of keeping track of head and tail, the last element points to the first, forming a loop.
 
-All operations are O(n) since we are not keeping track of any head or tail. Adding and removing is usually done with id. 
-
+All operations are O(n) since we are not keeping track of any head or tail. Adding and removing is usually done with id.
 
 ```ts
 type LinkedList = {
@@ -198,9 +197,118 @@ type LinkedList = {
 ```
 
 > [!tip] Fun fact
-> If a list has a single node, it literally points to itself. 
+> If a list has a single node, it literally points to itself.
 > ![[Single-Node-Circular-List.png|100]]
 
 Here is a fun challenge, implement the _Round Robin Scheduler_ with a Circular linked list.
 
+## Doubly Linked List
 
+![[Doubly-Linked-List.png]]
+A doubly linked list is a linked list where each node has a reference to both the next and previous nodes. This allows for more efficient traversal in both directions.
+
+```ts
+type Node = {
+  id: string; // (optional) if you want to search by id
+  value: number;
+  next: Node | null; // if null then it's tail
+  prev: Node | null; // if null then it's head
+};
+type LinkedList = {
+  head: Node | null;
+  tail: Node | null;
+  count: number; // Always nice to have the total number of nodes
+  // + Rest of functions like add, etc.
+};
+```
+
+### Adding and Removing Nodes
+
+Adding and removing nodes is similar to a singly linked list, but we need to keep track of the previous node as well. So we can do something like this:
+
+1. Add at start (Head):
+
+```ts
+// Complexity: O(1)
+function addToHead(linkedList: LinkedList, newNode: Node) {
+  newNode.next = linkedList.head;
+  if (linkedList.head) {
+    linkedList.head.prev = newNode;
+  }
+  linkedList.head = newNode;
+  linkedList.count++;
+}
+```
+
+2. Add at end (tail):
+
+```ts
+// Complexity: O(1)
+function addToTail(linkedList: LinkedList, newNode: Node) {
+  if (linkedList.tail) {
+    linkedList.tail.next = newNode;
+    newNode.prev = linkedList.tail;
+  }
+  linkedList.tail = newNode;
+  linkedList.count++;
+}
+```
+
+3. Add in the middle:
+
+```ts
+// Complexity: O(n)
+// Much nicer than singly linked list, this is where it shines
+function addAfterId(linkedList: LinkedList, id: string, newNode: Node) {
+  let current = linkedList.head;
+  while (current) {
+    if (current.id === id) {
+      break;
+    }
+    current = current.next;
+  }
+  newNode.next = current.next;
+  newNode.prev = current;
+  if (current.next) {
+    current.next.prev = newNode;
+  }
+  current.next = newNode;
+}
+```
+
+4. Removing
+
+```ts
+// Complexity: O(n)
+// much nicer than singly linked list
+function removeById(linkedList: LinkedList, id: string) {
+  if (linkedList.head === null) {
+    return;
+  }
+  linkedList.count--;
+  // if we are keeping track of tail, we need to check if we are removing the last node
+  if (linkedList.tail === linkedList.head) {
+    linkedList.tail = null;
+  }
+  // if we are removing the head
+  if (linkedList.head.id === id) {
+    linkedList.head = linkedList.head.next;
+    linkedList.head.prev = null;
+    return;
+  }
+  // if we are removing a middle or tail node
+  let current = linkedList.head;
+  while (current) {
+    if (current.id === id) {
+      break;
+    }
+    current = current.next;
+  }
+  current.prev.next = current.next;
+  if (current.next) {
+    current.next.prev = current.prev;
+  }
+}
+```
+
+Everything else is almost the same as singly linked lists.
