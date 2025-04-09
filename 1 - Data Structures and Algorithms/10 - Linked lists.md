@@ -176,3 +176,6 @@ function dequeue(linkedList: LinkedList) {
   return dequeuedNode;
 }
 ```
+
+> [!tip] Fun fact
+> A fun application of a queue is the "Round Robin" scheduler, where you enqueue a dequeue'd process in a sort of loop.
