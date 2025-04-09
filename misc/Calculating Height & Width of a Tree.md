@@ -6,6 +6,8 @@
 
 - **Height of the tree**: Height of the root node.
 
+###  Depth and Height in a Tree 
+
 ```mermaid
 graph TD
     A1[1]
@@ -26,22 +28,37 @@ graph TD
 ```
 
 
-###  Depth and Height in a Tree 
+- Height of node: how many nodes are below it (longest path).
+- Depth of node: how many nodes are above it (longest path).
 
-####  **Depth of a Node**
-
-The **depth** of a node is _how far it is from the root_ — in other words, the number of steps (or edges) you take to reach it from the root.
-
+Boring facts:
 - The **root node** always has a depth of `0`.
-    
 - If a node has a parent, its depth is **1 more than its parent’s depth**.
-    
-
-Example:  
-If a node has a parent at depth `2`, then its own depth is `3`.
 
 
-You can also define depth using this rule:
+#### Implementation 
+```ts
+type TreeNode = {
+  val: number;
+  left?: TreeNode;
+  right?: TreeNode;
+};
 
-- **If the node is the root**, its depth is `0`.
-- **Otherwise**, depth = `1 + depth of its parent`.
+// Recursive function to compute height of a node
+function getHeight(node?: TreeNode): number {
+  if (!node) return -1; // height of empty tree is -1
+  return 1 + Math.max(getHeight(node.left), getHeight(node.right));
+}
+
+// Recursive function to compute depth of a target node
+function getDepth(root: TreeNode | undefined, target: number, depth = 0): number {
+  if (!root) return -1;
+  if (root.val === target) return depth;
+
+  const left = getDepth(root.left, target, depth + 1);
+  if (left !== -1) return left;
+
+  return getDepth(root.right, target, depth + 1);
+}
+
+```
