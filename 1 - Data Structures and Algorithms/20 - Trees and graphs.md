@@ -106,21 +106,11 @@ Any general tree (where a node can have more than 2 children) can be represented
 
 In other non-confusing words:
 
-- The left child of a node is the first child of that node.
-- The right child of a node is the next sibling of that node.
 
-```mermaid
-graph TD
-  A[1] --> B[2]
-  A --> C[3]
-  B --> D[4]
-  B --> E[5]
-  E --> H[8]
-  E --> I[9]
-  C --> F[6]
-  C --> G[7]
-  G --> J[10]
-```
+- The first child (let's call it `1st`) of a node stays in the same place on the left.
+- The next child becomes the right child of the f
+
+
 
 
 ---
