@@ -16,7 +16,7 @@ So in general, this is how it would look like:
 
 ```ts
 type Node = {
-  id: string; // if you want to search by id
+  id: string; // (optional) if you want to search by id
   value: number;
   next: Node | null; // if null then it's tail
   count: number; // Always nice to have the total number of nodes
@@ -33,4 +33,18 @@ type LinkedList = {
 So in this implementation, adding or removing nodes should be straightforward: 
 
 1. Add at start (Head): 
-	Create node pointing to current head, then update 
+```ts
+// Complexity: O(1)
+let newNode = new Node();
+newNode.next = linkedlist.head;
+linkedlist.head = newNodel
+```
+
+2. Add at end (tail):
+```ts
+// Case 1:
+// Complexity: O(1)
+let newNode = new Node();
+newNode.next = linkedlist.head;
+linkedlist.head = newNodel
+```
