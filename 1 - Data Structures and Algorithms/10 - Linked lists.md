@@ -42,9 +42,19 @@ linkedlist.head = newNodel
 
 2. Add at end (tail):
 ```ts
-// Case 1:
+// Case 1: We are keeping track of tail
 // Complexity: O(1)
 let newNode = new Node();
-newNode.next = linkedlist.head;
-linkedlist.head = newNodel
+linkedlist.tail.next = newNode;
+linkedlist.tail = newNode;
+
+// Case 2: Not keeping track of tail
+let current = linkedList.head;
+while (current.next) {
+  current = current.next;
+}
+let newNode = new Node();
+current.next = newNode
 ```
+
+3. Add in the middle:
