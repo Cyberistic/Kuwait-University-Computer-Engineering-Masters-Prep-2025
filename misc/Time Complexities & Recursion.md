@@ -5,7 +5,7 @@ Time complexity is a way to express how the runtime of an algorithm grows as the
 ## Visual Comparison of Time Complexities
 
 ```mermaid
-%%{init: { "themeVariables": { "xyChart": { "backgroundColor": "#000000", "titleColor": "#FFFFFF", "xAxisLabelColor": "#FFFFFF", "xAxisTitleColor": "#FFFFFF", "xAxisTickColor": "#FFFFFF", "xAxisLineColor": "#FFFFFF", "yAxisLabelColor": "#FFFFFF", "yAxisTitleColor": "#FFFFFF", "yAxisTickColor": "#FFFFFF", "yAxisLineColor": "#FFFFFF" } } }}%%
+%%{init: { "themeVariables": { "xyChart": { "backgroundColor": "#000000", "titleColor": "#FFFFFF", "xAxisLabelColor": "#FFFFFF", "xAxisTitleColor": "#FFFFFF", "xAxisTickColor": "#FFFFFF", "xAxisLineColor": "#FFFFFF", "yAxisLabelColor": "#FFFFFF", "yAxisTitleColor": "#FFFFFF", "yAxisTickColor": "#FFFFFF", "yAxisLineColor": "#FFFFFF", "plotColorPalette": "#3498db, #2ecc71, #f1c40f, #e67e22, #e74c3c, #9b59b6" } } }}%%
 xychart-beta
     title "Growth of Different Time Complexities"
     x-axis [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -20,21 +20,22 @@ xychart-beta
 
 **Chart Legend:**
 
-- blue: O(1) - Constant Time
-- green: O(log n) - Logarithmic Time
-- yellow: O(n) - Linear Time
-- orange: O(n log n) - Linearithmic Time
-- red: O(n²) - Quadratic Time
-- purple: O(n³) - Cubic Time
+- Blue: O(1) - Constant Time
+- Green: O(log n) - Logarithmic Time
+- Yellow: O(n) - Linear Time
+- Orange: O(n log n) - Linearithmic Time
+- Red: O(n²) - Quadratic Time
+- Purple: O(n³) - Cubic Time
 
 > [!note] Note on the chart
 > The values for O(2ⁿ) and O(n!) grow too quickly to display on the same chart (at n=10, O(2ⁿ) = 1024 and O(n!) = 3,628,800), so they've been omitted from the visual representation.
 
 ## Common Time Complexities (From Best to Worst)
 
+O(1) -> O(log n) -> O(n) -> O(n log n) -> O(n²) -> O(n³) -> O(2ⁿ) -> O(n!)
+
 ### O(1) - Constant Time
 
-- **Description**: Execution time remains constant regardless of input size.
 - **Examples**:
   - Array access by index
   - Hash table insertion/lookup (average case)
@@ -42,7 +43,6 @@ xychart-beta
 
 ### O(log n) - Logarithmic Time
 
-- **Description**: Execution time grows logarithmically with input size.
 - **Examples**:
   - Binary search
   - Operations on balanced binary search trees
@@ -50,7 +50,6 @@ xychart-beta
 
 ### O(n) - Linear Time
 
-- **Description**: Execution time grows linearly with input size.
 - **Examples**:
   - Linear search
   - Traversing arrays or linked lists
@@ -58,14 +57,12 @@ xychart-beta
 
 ### O(n log n) - Linearithmic Time
 
-- **Description**: Combination of linear and logarithmic growth.
 - **Examples**:
   - Efficient sorting algorithms (Merge sort, Heap sort, Quick sort average case)
   - Many divide and conquer algorithms
 
 ### O(n²) - Quadratic Time
 
-- **Description**: Execution time grows with the square of the input size.
 - **Examples**:
   - Bubble sort, Insertion sort, Selection sort
   - Nested loops iterating over the same collection
@@ -73,7 +70,6 @@ xychart-beta
 
 ### O(n³) - Cubic Time
 
-- **Description**: Execution time grows with the cube of the input size.
 - **Examples**:
   - Some inefficient matrix operations
   - Floyd-Warshall algorithm for finding shortest paths in a graph
@@ -81,7 +77,6 @@ xychart-beta
 
 ### O(2ⁿ) - Exponential Time
 
-- **Description**: Execution time doubles with each additional input element.
 - **Examples**:
   - Recursive Fibonacci calculation
   - Power set calculation
@@ -89,19 +84,10 @@ xychart-beta
 
 ### O(n!) - Factorial Time
 
-- **Description**: Execution time grows with the factorial of the input size.
 - **Examples**:
   - Generating all permutations of a set
   - Brute force solution to the Traveling Salesman Problem
   - Deterministically solving NP-complete problems
-
-## Tips for Algorithm Optimization
-
-1. **Reduce Constants**: Even if they don't affect asymptotic complexity, constants matter in practice.
-2. **Choose Appropriate Data Structures**: Using the right data structure can significantly improve performance.
-3. **Avoid Nested Loops**: When possible, find a way to solve the problem without nesting multiple loops.
-4. **Memoization**: Cache previously computed results to avoid redundant calculations.
-5. **Use Efficient Algorithms**: Replace inefficient algorithms with more efficient ones when possible.
 
 > [!note] Memory Complexity
 > Don't forget that algorithms also have space complexity, which measures the amount of memory required as input size grows. Space-time tradeoffs are often important considerations in algorithm design.
