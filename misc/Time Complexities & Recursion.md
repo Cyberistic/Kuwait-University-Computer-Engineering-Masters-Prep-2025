@@ -5,6 +5,7 @@ Time complexity is a way to express how the runtime of an algorithm grows as the
 ## Visual Comparison of Time Complexities
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { xychart-beta: {'background': '#ffffff' }}}}%%
 xychart-beta
     title "Growth of Different Time Complexities"
     x-axis [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -15,9 +16,16 @@ xychart-beta
     line [0, 1, 2, 5, 8, 12, 17, 21, 26, 31, 36]
     line [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     line [0, 1, 8, 27, 64, 100, 100, 100, 100, 100, 100]
-
-    legend [O(1), O(log n), O(n), O(n log n), O(n²), O(n³)]
 ```
+
+**Chart Legend:**
+
+- blue: O(1) - Constant Time
+- green: O(log n) - Logarithmic Time
+- yellow: O(n) - Linear Time
+- orange: O(n log n) - Linearithmic Time
+- red: O(n²) - Quadratic Time
+- purple: O(n³) - Cubic Time
 
 > [!note] Note on the chart
 > The values for O(2ⁿ) and O(n!) grow too quickly to display on the same chart (at n=10, O(2ⁿ) = 1024 and O(n!) = 3,628,800), so they've been omitted from the visual representation.
