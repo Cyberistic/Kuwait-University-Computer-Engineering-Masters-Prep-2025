@@ -1,5 +1,8 @@
 Singly linked lists; circularly linked lists; applications - polynomial addition, sparse matrices; doubly linked lists, and complexities of linked list operations.
 
+> [!info] Note
+> This requires understanding of Time Complexity. For a refresher, check out [[Time Complexities & Recursion]].
+
 ## Singly Linked Lists
 
 ![[Singly Linked List.png]]
