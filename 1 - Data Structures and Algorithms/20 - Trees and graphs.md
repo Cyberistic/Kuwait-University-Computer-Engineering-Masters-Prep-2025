@@ -32,6 +32,7 @@ A **binary tree** is an ordered tree with the following properties:
 ```ts
 type TreeNode = {
   value: number;
+  sibling: TreeNode | null;
   left: TreeNode | null;
   right: TreeNode | null;
 };
@@ -40,7 +41,7 @@ type TreeNode = {
 More boring facts:
 - The **root** node is the entry point. Leaves are nodes with no children.
 - A binary tree is _proper_ if each node has either zero or two children. 
-- The recursive definition: a binary tree has a root, the root has 0 to 2 binary trees as children 
+- *The recursive definition:* a binary tree has a root, the root has 0 to 2 binary trees as children (left subtree, right subtree)
 
 
 > [!tip] Binary Search Trees  
