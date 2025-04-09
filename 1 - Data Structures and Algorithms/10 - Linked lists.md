@@ -91,3 +91,22 @@ while (current) {
 previous.next = current.next;
 current = null; // or use a garbage collector, or implement a destructor, or just let it live in memory forever lol
 ```
+
+Same thing with other remove operations, just do the addition operation "backwards" so to speak.
+So for example, removing the head would look like this:
+
+```ts
+// Complexity: O(1)
+let current = linkedList.head;
+linkedList.head = current.next;
+```
+
+### Applications
+
+#### Stack
+
+A stack is a data structure that follows the Last In First Out (LIFO) principle. It can be implemented using a singly linked list. The top of the stack corresponds to the head of the linked list, and we can add or remove elements from the top of the stack in constant time.
+
+```ts
+
+```
