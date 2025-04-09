@@ -20,12 +20,13 @@ type Node = {
   id: string; // (optional) if you want to search by id
   value: number;
   next: Node | null; // if null then it's tail
-  count: number; // Always nice to have the total number of nodes
+
 };
 
 type LinkedList = {
   head: Node | null;
   tail: Node | null;
+  count: number; // Always nice to have the total number of nodes
   // + Rest of functions like add, etc.
 };
 ```
@@ -179,3 +180,21 @@ function dequeue(linkedList: LinkedList) {
 
 > [!tip] Fun fact
 > A fun application of a queue is the "Round Robin" scheduler, where you enqueue a dequeue'd process in a sort of loop.
+
+## Circular Linked List
+![[Circularly-Linked-List.png]]
+
+Instead of keeping track of head and tail, the last element points to the first, forming a loop.
+
+All operations are O(n) since we are not keeping track of any head or tail. Adding and removing is usually done with id. 
+
+If a list has a single node, it literally points to itself. 
+
+```ts
+type LinkedList = {
+  current: Node | null; // 
+  count: number; // Always nice to have the total number of nodes
+  // + Rest of functions like add, etc.
+};
+```
+
