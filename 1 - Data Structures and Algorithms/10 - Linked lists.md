@@ -188,13 +188,15 @@ Instead of keeping track of head and tail, the last element points to the first,
 
 All operations are O(n) since we are not keeping track of any head or tail. Adding and removing is usually done with id. 
 
-If a list has a single node, it literally points to itself. 
 
 ```ts
 type LinkedList = {
-  current: Node | null; // 
+  current: Node | null; // Any Node to start with
   count: number; // Always nice to have the total number of nodes
   // + Rest of functions like add, etc.
 };
 ```
 
+> [!tip] Fun fact
+> If a list has a single node, it literally points to itself. 
+> ![[Single-Node-Circular-List.png|100]]
