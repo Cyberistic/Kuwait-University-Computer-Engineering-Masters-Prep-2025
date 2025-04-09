@@ -5,14 +5,27 @@ Trees and graphs: Binary trees; binary tree representation; binary tree traversa
 
 ## Trees and Graphs
 
-> [!info] Heads up  
-> A solid understanding of recursion and time complexity will help you master these concepts. Check out [[Time Complexities & Recursion]] if needed.
 
----
 
 ## Binary Trees
+```mermaid
+graph TD
+  A[1] --> B[2]
+  A --> C[3]
+  B --> D[4]
+  B --> E[5]
+  E --> H[8]
+  E --> I[9]
+  C --> F[6]
+  C --> G[7]
+  G --> J[10]
 
+
+```
 A **Binary Tree** is a tree data structure where each node has at most **two children** (usually called `left` and `right`).
+
+
+
 
 ```ts
 type TreeNode = {
@@ -244,13 +257,3 @@ function bfs(graph: Graph, start: string) {
 |**DFS/BFS (adj matrix)**|O(V²)|
 |**Dijkstra (binary heap)**|O((V + E) log V)|
 
-```mermaid
-graph TD
-  A[1] --> B[2]
-  A --> C[3]
-  B --> D[4]
-  B --> E[5]
-  C --> F[6]
-  C --> G[7]
-
-```
