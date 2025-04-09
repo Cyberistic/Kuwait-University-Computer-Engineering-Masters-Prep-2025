@@ -5,7 +5,7 @@ Time complexity is a way to express how the runtime of an algorithm grows as the
 ## Visual Comparison of Time Complexities
 
 ```mermaid
-%%{init: { "themeVariables": {"xyChart": {"backgroundColor": "#FFFFF", "color": "#000000"} } }}%%
+%%{init: { "themeVariables": { "xyChart": { "backgroundColor": "#000000", "titleColor": "#FFFFFF", "xAxisLabelColor": "#FFFFFF", "xAxisTitleColor": "#FFFFFF", "xAxisTickColor": "#FFFFFF", "xAxisLineColor": "#FFFFFF", "yAxisLabelColor": "#FFFFFF", "yAxisTitleColor": "#FFFFFF", "yAxisTickColor": "#FFFFFF", "yAxisLineColor": "#FFFFFF" } } }}%%
 xychart-beta
     title "Growth of Different Time Complexities"
     x-axis [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -14,7 +14,7 @@ xychart-beta
     line [0, 1, 1, 2, 2, 2, 3, 3, 3, 3, 3]
     line [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     line [0, 1, 2, 5, 8, 12, 17, 21, 26, 31, 36]
-    line [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+    line "hi" [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
     line [0, 1, 8, 27, 64, 100, 100, 100, 100, 100, 100]
 ```
 
