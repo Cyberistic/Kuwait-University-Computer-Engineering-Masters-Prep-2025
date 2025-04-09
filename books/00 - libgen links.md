@@ -19,6 +19,7 @@
 ## Network and Security
 **[Computer Networking: A Top-Down Approach, 7th Edition](http://books.ms/main/2591F0B3DEF9B956B60B853697A6808C)**
 
+**[Computer Networking: A Top-Down Approach (Solutions to Review Questions and Problems)](http://books.ms/main/173CA8C69447916152B8A2ACA3CC867F)**
 # OS
 **[Instructor's Manual for Operating System Concepts](http://books.ms/main/6A8E1A89D86D6EB15F1940AE9D1F1A38)**
 
@@ -28,3 +29,8 @@
 
 **[A Solutions Manual for Operating Systems A Concept-Based Approach Second Edition](http://books.ms/main/A845CEEEFC6EC58BE087596E9B251790)**
 
+# Computer Organization
+
+**[Computer Organization and Design: The Hardware Software Interface [RISC-V Edition]](http://books.ms/main/C58F3D5DD8B40771D8ECBFEDA52C6759)**
+
+**[Computer Organization and Design - The Hardware Software Interface [RISC-V Edition] Solution Manual](http://books.ms/main/B8D689C575B2DEEB2CF507F6A1480CFE)**
