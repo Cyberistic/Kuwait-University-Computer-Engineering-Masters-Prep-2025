@@ -320,7 +320,7 @@ type SparseMatrix = {
 > - Regular 2D array: $O(m \times n)$ space
 > - Linked list: $O(k)$ space
 >   When $k$ is much smaller than $m \times n$, the linked list approach is significantly more efficient.
-
+---
 ## Circular Linked List
 
 ![[Circularly-Linked-List.png]]
@@ -342,6 +342,8 @@ type LinkedList = {
 > ![[Single-Node-Circular-List.png|100]]
 
 Here is a fun challenge, implement the _Round Robin Scheduler_ with a Circular linked list.
+
+---
 
 ## Doubly Linked List
 
@@ -453,6 +455,3 @@ function removeById(linkedList: LinkedList, id: string) {
 ```
 
 Everything else is almost the same as singly linked lists.
-
-$$
-$$

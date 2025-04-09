@@ -4,9 +4,6 @@ Trees and graphs: Binary trees; binary tree representation; binary tree traversa
 ---
 
 ## Trees and Graphs
-
-
-
 ## Binary Trees
 ```mermaid
 graph TD
@@ -19,12 +16,13 @@ graph TD
   C --> F[6]
   C --> G[7]
   G --> J[10]
-
-
 ```
-A **Binary Tree** is a tree data structure where each node has at most **two children** (usually called `left` and `right`).
 
+A **binary tree** is an ordered tree with the following properties:
 
+> 1. Every node has at most two children.
+> 2. Each child node is labeled as being either a left child or a right child. 
+> 3. A left child precedes a right child in the order of children of a node
 
 
 ```ts
