@@ -204,7 +204,7 @@ Here is a fun challenge, implement the _Round Robin Scheduler_ with a Circular l
 
 ## Doubly Linked List
 
-![[Doubly-Linked-List.png]]
+![[Doubly Linked Lists.png]]
 A doubly linked list is a linked list where each node has a reference to both the next and previous nodes. This allows for more efficient traversal in both directions.
 
 ```ts
