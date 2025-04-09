@@ -93,6 +93,7 @@ function postorder(node: TreeNode | null) {
 }
 ```
 
+> [!warning] I left out adding and removing nodes as you're probably familiar with how its done by now (same concepts as lists)
 ---
 
 ## Normal Tree → Binary Tree Representation
@@ -135,8 +136,6 @@ graph TD
     B --> C((2))
     C --> D((1))
     E --> F((4))
-
-
 ```
 
 Notice how:
@@ -146,11 +145,9 @@ Notice how:
 3. D (third child of A) becomes right child of C
 4. E (first child of B) stays as left child of B
 5. F (second child of B) becomes right child of E
-6. G (first child of C) stays as left child of C
 
-Dotted lines represent sibling relationships, solid lines represent parent-child relationships.
+Confusing right? ahahah will probably be in the exam
 
----
 
 ## Heaps
 
