@@ -1,8 +1,10 @@
 Trees and graphs: Binary trees; binary tree representation; binary tree traversal - inorder, preorder, and postorder, binary tree representation of trees, heaps, graph representation, graph traversals, shortest path, complexities of operations in trees and graphs.  
 
 
+Before you get started, make sure you remember the following:
+1. [[Calculating Height & Width of a Tree]]
+2. The meaning of `root`, `child`, `leaf`, `edge`, `siblings`
 
----
 
 ## Trees and Graphs
 ## Binary Trees

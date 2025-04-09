@@ -1,4 +1,4 @@
-### Definitions
+
 
 - **Depth of a node**: Number of edges from the root to that node.
 
@@ -6,7 +6,12 @@
 
 - **Height of the tree**: Height of the root node.
 
-###  Depth and Height in a Tree 
+
+Or in other words:
+
+- Height of node: how many nodes are below it (longest path).
+- Depth of node: how many nodes are above it (longest path).
+
 
 ```mermaid
 graph TD
@@ -27,9 +32,13 @@ graph TD
 
 ```
 
+For this example:
+- Depth of node `7` is `3` (1 → 3 → 6 → 7)
+    
+- Height of node `3` is `2` (3 → 6 → 7)
+    
+- Height of tree (root `1`) is `3`
 
-- Height of node: how many nodes are below it (longest path).
-- Depth of node: how many nodes are above it (longest path).
 
 Boring facts:
 - The **root node** always has a depth of `0`.
