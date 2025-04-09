@@ -8,7 +8,7 @@ Before you get started, make sure you remember the following:
 	We usually show this by drawing the children **from left to right** in the order they belong.
 
 ## Trees and Graphs
-## Binary Trees
+### Binary Trees
 ```mermaid
 graph TD
   A[1] --> B[2]
@@ -31,8 +31,9 @@ A **binary tree** is an ordered tree with the following properties:
 
 ```ts
 type TreeNode = {
+  id: string;
   value: number;
-  sibling: TreeNode | null;
+  sibling: TreeNode | null; // optionally store your sibling
   left: TreeNode | null;
   right: TreeNode | null;
 };
@@ -53,9 +54,9 @@ More boring facts:
 >     Useful for fast lookup, insertion, and deletion.
 >     
 
----
 
-## Binary Tree Traversals
+
+#### Binary Tree Traversals
 
 Tree traversals are ways to "walk through" the tree. There are three main types:
 
@@ -70,7 +71,8 @@ function inorder(node: TreeNode | null) {
 }
 ```
 
-> [!note] In BSTs, inorder gives you values in **sorted order**.
+> [!tip] In BSTs, inorder gives you values in **sorted order**.
+> A way of sorting an array of numbers is to push its elements into a new BST and then traverse and pop them back using inor
 
 ### 2. Preorder (Root → Left → Right)
 
