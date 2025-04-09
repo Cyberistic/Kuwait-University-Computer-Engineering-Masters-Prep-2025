@@ -1,14 +1,16 @@
-Trees and graphs: Binary trees; binary tree representation; binary tree traversal - inorder, preorder, and postorder, binary tree representation of trees, heaps, graph representation, graph traversals, shortest path, complexities of operations in trees and graphs.  
-
+Trees and graphs: Binary trees; binary tree representation; binary tree traversal - inorder, preorder, and postorder, binary tree representation of trees, heaps, graph representation, graph traversals, shortest path, complexities of operations in trees and graphs.
 
 Before you get started, make sure you remember the following:
+
 1. [[Calculating Height & Width of a Tree]]
 2. The meaning of `root`, `child`, `leaf`, `edge`, `siblings`
 3. An **ordered tree** is a tree where the **children of each node have a specific order** — like first child, second child, third child, and so on.
-	We usually show this by drawing the children **from left to right** in the order they belong.
+   We usually show this by drawing the children **from left to right** in the order they belong.
 
 ## Trees and Graphs
+
 ### Binary Trees
+
 ```mermaid
 graph TD
   A[1] --> B[2]
@@ -25,9 +27,8 @@ graph TD
 A **binary tree** is an ordered tree with the following properties:
 
 > 1. Every node has at most two children.
-> 2. Each child node is labeled as being either a left child or a right child. 
+> 2. Each child node is labeled as being either a left child or a right child.
 > 3. A left child precedes a right child in the order of children of a node
-
 
 ```ts
 type TreeNode = {
@@ -40,21 +41,17 @@ type TreeNode = {
 ```
 
 More boring facts:
-- The **root** node is the entry point. Leaves are nodes with no children.
-- A binary tree is _proper_ if each node has either zero or two children. 
-- *The recursive definition:* a binary tree has a root, the root has 0 to 2 binary trees as children (left subtree, right subtree)
 
+- The **root** node is the entry point. Leaves are nodes with no children.
+- A binary tree is _proper_ if each node has either zero or two children.
+- _The recursive definition:_ a binary tree has a root, the root has 0 to 2 binary trees as children (left subtree, right subtree)
 
 > [!tip] Binary Search Trees  
 > A **Binary Search Tree (BST)** is a special kind of binary tree where:
-> 
+>
 > - Left child < parent
->     
 > - Right child > parent  
->     Useful for fast lookup, insertion, and deletion.
->     
-
-
+>    Useful for fast lookup, insertion, and deletion.
 
 #### Binary Tree Traversals
 
@@ -100,15 +97,30 @@ function postorder(node: TreeNode | null) {
 
 ## Normal Tree → Binary Tree Representation
 
-*Prepare for a headache, this is a bit confusing but bear with me*
+_Prepare for a headache, this is a bit confusing but bear with me_
 
 Any general tree (where a node can have more than 2 children) can be represented as a **binary tree** using the **Left-Child Right-Sibling** technique:
 
 - Left child → first child
 - Right child → next sibling
 
+In other non-confusing words:
 
+- The left child of a node is the first child of that node.
+- The right child of a node is the next sibling of that node.
 
+```mermaid
+graph TD
+  A[1] --> B[2]
+  A --> C[3]
+  B --> D[4]
+  B --> E[5]
+  E --> H[8]
+  E --> I[9]
+  C --> F[6]
+  C --> G[7]
+  G --> J[10]
+```
 
 
 ---
@@ -118,17 +130,18 @@ Any general tree (where a node can have more than 2 children) can be represented
 A **Heap** is a complete binary tree that satisfies the **heap property**.
 
 - **Min-Heap**: Parent is less than both children
-    
+
 - **Max-Heap**: Parent is greater than both children
-    
 
 Heaps are often stored as arrays.
 
 ### Example: Max-Heap stored in array
 
 ```
-Index:  0   1   2   3   4
+
+Index: 0 1 2 3 4
 Value: [50, 30, 40, 10, 20]
+
 ```
 
 ```ts
@@ -155,13 +168,9 @@ type Graph = {
 ### Types
 
 - **Directed** vs **Undirected**
-    
 - **Weighted** vs **Unweighted**
-    
 - **Cyclic** vs **Acyclic**
-    
 - **Connected** vs **Disconnected**
-    
 
 ---
 
@@ -173,29 +182,25 @@ type Graph = {
 const matrix = [
   [0, 1, 0],
   [1, 0, 1],
-  [0, 1, 0],
+  [0, 1, 0]
 ];
 ```
 
 - Good for dense graphs
-    
 - Space: `O(n^2)`
-    
 
 ### 2. Adjacency List
 
 ```ts
 const adjList = {
-  A: ['B'],
-  B: ['A', 'C'],
-  C: ['B'],
+  A: ["B"],
+  B: ["A", "C"],
+  C: ["B"]
 };
 ```
 
 - Good for sparse graphs
-    
 - Space: `O(V + E)`
-    
 
 ---
 
@@ -244,27 +249,22 @@ function bfs(graph: Graph, start: string) {
 ### 1. Dijkstra’s Algorithm (for weighted graphs)
 
 - Keeps track of the shortest known distance to each node.
-    
 - Uses a **min-priority queue** (often implemented with a heap).
-    
 - Time Complexity: `O((V + E) log V)` with a binary heap.
-    
 
 ### 2. BFS (for unweighted graphs)
 
 - Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` time.
-    
 
 ---
 
 ## Time & Space Complexities (Cheat Sheet)
 
-|Structure / Operation|Time Complexity|
-|---|---|
-|**Binary Tree (search)**|O(n)|
-|**Binary Search Tree**|O(log n) avg, O(n) worst|
-|**Heap (insert/delete)**|O(log n)|
-|**DFS/BFS (adj list)**|O(V + E)|
-|**DFS/BFS (adj matrix)**|O(V²)|
-|**Dijkstra (binary heap)**|O((V + E) log V)|
-
+| Structure / Operation      | Time Complexity          |
+| -------------------------- | ------------------------ |
+| **Binary Tree (search)**   | O(n)                     |
+| **Binary Search Tree**     | O(log n) avg, O(n) worst |
+| **Heap (insert/delete)**   | O(log n)                 |
+| **DFS/BFS (adj list)**     | O(V + E)                 |
+| **DFS/BFS (adj matrix)**   | O(V²)                    |
+| **Dijkstra (binary heap)** | O((V + E) log V)         |
