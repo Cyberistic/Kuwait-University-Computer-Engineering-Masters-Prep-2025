@@ -136,7 +136,7 @@ function removeHead(linkedList: LinkedList) {
 }
 ```
 
-### Applications
+### Software Applications
 
 #### Stack
 
@@ -182,6 +182,33 @@ function dequeue(linkedList: LinkedList) {
 
 > [!tip] Fun fact
 > A fun application of a queue is the "Round Robin" scheduler, where you enqueue a dequeue'd process in a sort of loop.
+
+### Math Applications
+
+#### Polynomial Addition
+
+Polynomials can be efficiently represented using linked lists, where each node represents a term with its coefficient and exponent.
+
+A polynomial $P(x) = a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x + a_0$ can be represented as a linked list where each node contains:
+
+- Coefficient $a_i$
+- Exponent $i$
+- Pointer to the next term
+
+For example, the polynomial $3x^4 + 2x^2 + 5x + 7$ would be represented as:
+
+```ts
+type PolynomialNode = {
+  coefficient: number;
+  exponent: number;
+  next: PolynomialNode | null;
+};
+type Polynomial = {
+  head: PolynomialNode | null;
+  tail: PolynomialNode | null;
+  count: number; // Always nice to have the total number of nodes
+};
+```
 
 ## Circular Linked List
 
