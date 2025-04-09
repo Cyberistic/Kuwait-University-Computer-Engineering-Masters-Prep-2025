@@ -13,15 +13,15 @@ Before you get started, make sure you remember the following:
 
 ```mermaid
 graph TD
-  A[1] --> B[2]
-  A --> C[3]
-  B --> D[4]
-  B --> E[5]
-  E --> H[8]
-  E --> I[9]
-  C --> F[6]
-  C --> G[7]
-  G --> J[10]
+  A((1)) --> B((2))
+  A --> C((3))
+  B --> D((4))
+  B --> E((5))
+  E --> H((8))
+  E --> I((9))
+  C --> F((6))
+  C --> G((7))
+  G --> J((10))
 ```
 
 A **binary tree** is an ordered tree with the following properties:
@@ -119,23 +119,22 @@ Original tree:
 
 ```mermaid
 graph TD
-    A[5] --> B[8]
-    A --> C[2]
-    A --> D[1]
-    B --> E[3]
-    B --> F[4]
+    A((5)) --> B((8))
+    A --> C((2))
+    A --> D((1))
+    B --> E((3))
+    B --> F((4))
 ```
 
 Converted to binary tree using Left-Child Right-Sibling representation:
 
 ```mermaid
 graph TD
-    A((A)) --> B((B))
-    B --> E((E))
-    E --> F((F))
-    B -.-> C((C))
-    C --> G((G))
-    C -.-> D((D))
+    A((5)) --> B((8))
+    B --> E((3))
+    B --> C((2))
+    C --> D((1))
+    E --> F((4))
 
 
 ```
