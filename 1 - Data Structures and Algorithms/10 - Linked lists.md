@@ -210,6 +210,99 @@ type Polynomial = {
 };
 ```
 
+The addition of two polynomials can be done by traversing both linked lists and combining like terms. The resulting polynomial can also be represented as a linked list.
+
+for example, to add $P_1(x) = 3x^4 + 2x^2 + 5x + 7$ and $P_2(x) = 4x^3 + 6x^2 + 8$, we can create a new linked list that contains the sum of the coefficients for each exponent.
+
+```ts
+function addPolynomials(poly1: Polynomial, poly2: Polynomial): Polynomial {
+  const result: Polynomial = { head: null, tail: null, count: 0 };
+  let current1 = poly1.head;
+  let current2 = poly2.head;
+
+  while (current1 || current2) {
+    const term: PolynomialNode = { coefficient: 0, exponent: 0, next: null };
+
+    if (current1 && (!current2 || current1.exponent > current2.exponent)) {
+      term.coefficient = current1.coefficient;
+      term.exponent = current1.exponent;
+      current1 = current1.next;
+    } else if (
+      current2 &&
+      (!current1 || current2.exponent > current1.exponent)
+    ) {
+      term.coefficient = current2.coefficient;
+      term.exponent = current2.exponent;
+      current2 = current2.next;
+    } else {
+      term.coefficient = current1.coefficient + current2.coefficient;
+      term.exponent = current1.exponent;
+      current1 = current1.next;
+      current2 = current2.next;
+    }
+
+    // Add the term to the result polynomial
+    if (result.head === null) {
+      result.head = term;
+      result.tail = term;
+    } else {
+      result.tail.next = term;
+      result.tail = term;
+    }
+    result.count++;
+  }
+
+  return result;
+}
+```
+
+This function traverses both linked lists, compares the exponents, and adds the coefficients of like terms. The resulting polynomial is stored in a new linked list.
+
+#### Sparse Matrices
+
+A sparse matrix is a matrix where most elements are zero, like:
+
+$$
+\begin{vmatrix} 1337 & 420 & 0 \\
+42 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 2 \\
+\end{vmatrix}
+$$
+
+Rather than using a 2D array (which wastes space storing 0s), we use a linked list (or list of linked lists) to only store non-zero elements, along with their row and column positions
+
+Sparse matrices can be represented using linked lists, where each node contains the non-zero elements of the matrix along with their row and column indices. This representation is efficient in terms of memory usage.
+For example, Say we have a sparse matrix:
+
+We can represent it as a linked list where each node contains:
+
+- Row index
+- Column index
+- Value
+
+```ts
+type SparseMatrixNode = {
+  row: number[];
+  col: number;
+  value: number;
+  next: SparseMatrixNode | null;
+};
+type SparseMatrix = {
+  head: SparseMatrixNode | null;
+  tail: SparseMatrixNode | null;
+  count: number; // Always nice to have the total number of nodes
+};
+```
+
+For example, the sparse matrix above would be represented as:
+
+````ts
+
+
+The addition of two sparse matrices can be done by traversing both linked lists and combining like terms. The resulting sparse matrix can also be represented as a linked list.
+
 ## Circular Linked List
 
 ![[Circularly-Linked-List.png]]
@@ -224,7 +317,7 @@ type LinkedList = {
   count: number; // Always nice to have the total number of nodes
   // + Rest of functions like add, etc.
 };
-```
+````
 
 > [!tip] Fun fact
 > If a list has a single node, it literally points to itself.
@@ -342,3 +435,6 @@ function removeById(linkedList: LinkedList, id: string) {
 ```
 
 Everything else is almost the same as singly linked lists.
+
+$$
+$$
