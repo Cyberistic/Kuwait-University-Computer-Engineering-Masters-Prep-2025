@@ -72,7 +72,7 @@ function inorder(node: TreeNode | null) {
 ```
 
 > [!tip] In BSTs, inorder gives you values in **sorted order**.
-> A way of sorting an array of numbers is to push its elements into a new BST and then traverse and pop them back using inor
+> A way of sorting an array of numbers is to push its elements into a new BST and then traverse and pop them back using inorder traversal! :D
 
 ### 2. Preorder (Root → Left → Right)
 
