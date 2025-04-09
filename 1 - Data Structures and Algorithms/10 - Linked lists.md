@@ -6,23 +6,31 @@ Singly linked lists; circularly linked lists; applications - polynomial addition
 
 A *Singly Linked Lists* is a list of nodes, each node has 2 properties:
 1. Stored value (Can be a pointer to an object)
-2. Pointer to next node (its "address" in memory)
+2. Reference to next node (its "address" in memory)
 
-We only need to track the address of the Head, and then we can find the rest of the 
+We only need to track the address of the Head, and then we can then find any node by traversing the list by *pointer hopping*.
+
 We can identify the tail (last node) of the last if its next value is `None`. I usually like to have a reference to the end value as well, such that adding elements to the linked list doesn't require traversing the entire list.
 
 So in general, this is how it would look like:
+
 ```ts
 type Node = {
-  id
+  id: string; // if you want to search by id
   value: number;
-  next: Node | null;
+  next: Node | null; // if null then it's tail
+  count: number; // Always nice to have the total number of nodes
 };
 
 type LinkedList = {
   head: Node | null;
   tail: Node | null;
-  
+  // + Rest of functions like add, etc.
 };
 
 ```
+
+So in this implementation, adding or removing nodes should be straightforward: 
+
+1. Add at start (Head): 
+	Create node pointing to current head, then update 
