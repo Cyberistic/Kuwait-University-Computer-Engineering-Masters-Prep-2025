@@ -99,7 +99,7 @@ function postorder(node: TreeNode | null) {
 
 > [!Note]
 > All of these are example of Depth-First Search (DFS).
-> I left out Breadth-First Search (BF) as it wasn't mentioned in the topics list, however it might be useful to go throw it. 
+> I left out Breadth-First Search (BFS), used for finding the shortest path, as it wasn't mentioned in the topics list, however it might be useful to go throw it. 
 > We will also visit it briefly in Graph traversals.
 ---
 
