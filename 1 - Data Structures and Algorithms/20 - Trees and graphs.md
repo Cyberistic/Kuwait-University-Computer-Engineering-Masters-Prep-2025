@@ -370,9 +370,9 @@ function extractMin(heap: Heap): number {
 }
 ```
 
-#### Heap Sort (O(n log n))
+> [!Important] Heap Sort (O(n log n))
+> Covered in [[30 - Sorting#Heap Sort]]
 
-Will be covered in [[30 - Sorting#Heap Sort]]
 
 
 ---
