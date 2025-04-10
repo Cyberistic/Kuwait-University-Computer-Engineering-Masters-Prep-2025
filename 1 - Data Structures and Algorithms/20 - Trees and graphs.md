@@ -298,7 +298,7 @@ function bubbleDown(heap: Heap, index: number) {
 ```
 
 3. Heapify (build a heap) (O(n))
-Building a heap from an arbitrary array is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root. This is more efficient than inserting each element one by one, as it takes O(n) time.
+   Building a heap from an arbitrary array is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root. This is more efficient than inserting each element one by one, as it takes O(n) time.
 
 Watch this video to understand how it works
 ![](https://www.youtube.com/watch?v=Yc1E1V9Xya0)
@@ -373,8 +373,6 @@ function extractMin(heap: Heap): number {
 > [!Important] Heap Sort (O(n log n))
 > Covered in [[30 - Sorting#Heap Sort]]
 
-
-
 ---
 
 ## Graphs
@@ -382,17 +380,86 @@ function extractMin(heap: Heap): number {
 A **graph** is a set of **nodes (vertices)** and **edges** connecting them.
 
 ```ts
-type Graph = {
-  [node: string]: string[]; // adjacency list representation
+type Node = {
+  id: string;
+  value: any; // can store any data
 };
+
+// For unweighted graphs
+type Graph = {
+  nodes: Map<string, Node>;
+  adjacencyList: Map<string, string[]>;
+};
+
+// For weighted graphs
+type WeightedEdge = {
+  to: string;
+  weight: number;
+};
+
+type WeightedGraph = {
+  nodes: Map<string, Node>;
+  adjacencyList: Map<string, WeightedEdge[]>;
+};
+
+// For directed graphs, edges only go one way
+// For undirected graphs, need to add edges in both directions
 ```
 
-### Types
+### Types of Graphs
 
-- **Directed** vs **Undirected**
-- **Weighted** vs **Unweighted**
-- **Cyclic** vs **Acyclic**
-- **Connected** vs **Disconnected**
+1. **Directed vs Undirected**
+
+   ```ts
+   // Directed graph (one-way edges)
+   const directedGraph: Graph = {
+     nodes: new Map([
+       ["A", { id: "A", value: 1 }],
+       ["B", { id: "B", value: 2 }]
+     ]),
+     adjacencyList: new Map([
+       ["A", ["B"]], // A -> B
+       ["B", []] // B has no outgoing edges
+     ])
+   };
+
+   // Undirected graph (two-way edges)
+   const undirectedGraph: Graph = {
+     nodes: new Map([
+       ["A", { id: "A", value: 1 }],
+       ["B", { id: "B", value: 2 }]
+     ]),
+     adjacencyList: new Map([
+       ["A", ["B"]], // A <-> B
+       ["B", ["A"]] // B <-> A
+     ])
+   };
+   ```
+
+2. **Weighted vs Unweighted**
+
+   ```ts
+   // Weighted graph (edges have costs)
+   const weightedGraph: WeightedGraph = {
+     nodes: new Map([
+       ["A", { id: "A", value: 1 }],
+       ["B", { id: "B", value: 2 }]
+     ]),
+     adjacencyList: new Map([
+       ["A", [{ to: "B", weight: 5 }]],
+       ["B", [{ to: "A", weight: 5 }]]
+     ])
+   };
+   ```
+
+3. **Cyclic vs Acyclic**
+
+   - Cyclic: Contains at least one cycle (A → B → C → A)
+   - Acyclic: No cycles (like a tree)
+
+4. **Connected vs Disconnected**
+   - Connected: Every node can be reached from any other node
+   - Disconnected: Graph has isolated components
 
 ---
 
