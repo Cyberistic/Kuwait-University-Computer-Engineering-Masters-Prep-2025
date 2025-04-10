@@ -185,7 +185,7 @@ A **Heap** is a complete binary tree that satisfies the **heap property**.
 
 A heap is a complete binary tree, meaning all levels are fully filled except possibly the last level, which is filled from left to right.
 
-````mermaid
+
 An example of min-heap:
 
 ```mermaid
