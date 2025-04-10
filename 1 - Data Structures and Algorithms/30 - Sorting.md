@@ -1,6 +1,8 @@
+Sorting: Bubble sort; Insertion sort; quick sort; merge; heap sort.  
+
 # Sorting Algorithms
 
-Common sorting algorithms and their characteristics.
+Given a messy array, make it unmessy by *sorting*. Ascending, descending, alphabetical, IQ level..
 
 ## Quick Reference
 
