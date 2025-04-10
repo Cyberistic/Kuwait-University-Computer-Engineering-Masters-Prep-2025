@@ -52,7 +52,8 @@ More boring facts:
 > - Left child < parent
 > - Right child > parent  
 >    Useful for fast lookup, insertion, and deletion.
-
+>    With a time complexity of **O(log n)** in the **average** and **best** cases.
+  
 #### Binary Tree Traversals
 
 Tree traversals are ways to "walk through" the tree. There are three main types:
@@ -96,7 +97,7 @@ function postorder(node: TreeNode | null) {
 > [!warning] I left out adding and removing nodes as you're probably familiar with how its done by now (same concepts as lists)
 ---
 
-## Normal Tree → Binary Tree Representation
+#### Normal Tree → Binary Tree Representation
 
 _Prepare for a headache, this is a bit confusing but bear with me_
 
