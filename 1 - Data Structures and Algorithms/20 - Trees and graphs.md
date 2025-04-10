@@ -40,6 +40,8 @@ type TreeNode = {
 };
 ```
 
+> [!warning] I left out adding and removing nodes as you're probably familiar with how its done by now (same concepts as lists)
+
 More boring facts:
 
 - The **root** node is the entry point. Leaves are nodes with no children.
@@ -52,8 +54,11 @@ More boring facts:
 > - Left child < parent
 > - Right child > parent  
 >    Useful for fast lookup, insertion, and deletion.
->    With a time complexity of **O(log n)** in the **average** and **best** cases.
-  
+>   With a time complexity of **O(log n)** in the **average** and **best** cases.
+
+> [!Warning] I left out rotations when removing from BSTs, as BST wasn't mentioned in the topics list.
+> However.. BSTs are binary-trees, so maaybe they are included? idk 🤷🏻‍♂️
+
 #### Binary Tree Traversals
 
 Tree traversals are ways to "walk through" the tree. There are three main types:
@@ -94,7 +99,11 @@ function postorder(node: TreeNode | null) {
 }
 ```
 
-> [!warning] I left out adding and removing nodes as you're probably familiar with how its done by now (same concepts as lists)
+> [!Note]
+> All of these are example of Depth-First Search (DFS).
+> I left out Breadth-First Search (BFS), used for finding the shortest path, as it wasn't mentioned in the topics list, however it might be useful to go throw it.
+> We will also visit it briefly in Graph traversals.
+
 ---
 
 #### Normal Tree → Binary Tree Representation
@@ -147,8 +156,10 @@ Notice how:
 4. E (first child of B) stays as left child of B
 5. F (second child of B) becomes right child of E
 
-Confusing right? ahahah will probably be in the exam
+Confusing right? ahahah will probably be in the exam.
+I would personally just keep first 2 nodes and push the rest down the tree until a space is available, but what do I know.
 
+---
 
 ## Heaps
 
@@ -158,25 +169,211 @@ A **Heap** is a complete binary tree that satisfies the **heap property**.
 
 - **Max-Heap**: Parent is greater than both children
 
-Heaps are often stored as arrays.
+### Benefits
 
-### Example: Max-Heap stored in array
+- Efficient retrieval of the minimum or maximum element.
+- As a result, heaps are often used to implement priority queues.
+  A **priority queue** is an abstract data type where each element has a "priority" associated with it. Elements with higher priority are served before elements with lower priority.
+- We also use heaps to implement heapsort, which is a sorting algorithm that uses the heap data structure.
+  The heapsort algorithm works by first building a max-heap from the input data, and then repeatedly extracting the maximum element from the heap and rebuilding the heap until all elements are sorted.
+  - Time complexity: O(n log n)
+  - Time complexity of building the heap: O(n)
+
+> [!Note] Heaps are not sorted, but they are partially ordered. The root node is always the minimum (or maximum) element.
+
+> [!tip] Applications tl;dr:
+>
+> - Priority Queues
+> - Heap Sort
+> - Finding k-th largest/smallest element
+> - Median maintenance
+
+### Representation
+
+A heap is a complete binary tree, meaning all levels are fully filled except possibly the last level, which is filled from left to right.
+
+An example of min-heap:
+
+```mermaid
+graph TD
+    A((1)) --> B((3))
+    A --> C((5))
+    B --> D((7))
+    B --> E((9))
+    C --> F((8))
+    C --> G((10))
 
 ```
 
-Index: 0 1 2 3 4
-Value: [50, 30, 40, 10, 20]
+An example of max-heap:
+
+```mermaid
+graph TD
+    A((10)) --> B((9))
+    A --> C((8))
+    B --> D((4))
+    B --> E((7))
+    C --> F((3))
+    C --> G((5))
 
 ```
+
+Heaps are often stored as arrays. For any node at index i:
+
+- Left child: `2i + 1`
+- Right child: `2i + 2`
+- Parent: `Math.floor((i - 1) / 2)`
+
+For example, this max-heap:
+
+```mermaid
+graph TD
+    A((10)) --> B((9))
+    A --> C((8))
+    B --> D((4))
+    B --> E((7))
+    C --> F((3))
+    C --> G((5))
+```
+
+Can be stored as array: `[10, 9, 8, 4, 7, 3, 5]`
+
+take `8` for example, with index `2`:
+The index of the children and parent are:
+
+- Left child: `2 * 2 + 1 = 5`
+- Right child: `2 * 2 + 2 = 6`
+- Parent: `Math.floor((2 - 1) / 2) = 0`
+
+### Heap Operations
+
+First, a heap is JUST an array:
 
 ```ts
-const leftChild = (i: number) => 2 * i + 1;
-const rightChild = (i: number) => 2 * i + 2;
-const parent = (i: number) => Math.floor((i - 1) / 2);
+type Heap = number[];
 ```
 
-> [!tip] Use Heaps for Priority Queues  
-> Insertion and deletion: `O(log n)`
+#### Heap balancing
+
+- **Bubble Up**: Used when inserting a new element. The new element is added at the end of the heap and then "bubbled up" to its correct position.
+- **Bubble Down**: Used when removing the root element. The last element is moved to the root and then "bubbled down" to its correct position.
+- **Heapify**: The process of converting an arbitrary array into a heap. This is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root.
+
+> [!Note] The difference between min-heap and max-heap is in the comparison operators used in bubbleUp and bubbleDown functions.
+
+1. Bubble Up (O(log n))
+
+works by inserting the new element at the end of the heap and then comparing it with its parent. If the new element is smaller (for min-heap) than its parent, we swap them. This process continues until the heap property is restored.
+
+```typescript
+function bubbleUp(heap: Heap, index: number) {
+  while (index > 0) {
+    const parentIdx = Math.floor((index - 1) / 2);
+    if (heap[parentIdx] <= heap[index]) break; // for min-heap, change to >= for max-heap
+    [heap[parentIdx], heap[index]] = [heap[index], heap[parentIdx]];
+    index = parentIdx;
+  }
+}
+```
+
+2. Bubble Down (O(log n))
+   works by comparing the root with its children. If the root is larger (for min-heap) than either of its children, we swap it with the smaller child. This process continues until the heap property is restored.
+
+```typescript
+function bubbleDown(heap: Heap, index: number) {
+  while (true) {
+    let smallest = index;
+    const left = 2 * index + 1;
+    const right = 2 * index + 2;
+
+    if (left < heap.length && heap[left] < heap[smallest]) smallest = left; // for min-heap
+    if (right < heap.length && heap[right] < heap[smallest]) smallest = right; // for min-heap
+
+    if (smallest === index) break;
+
+    [heap[index], heap[smallest]] = [heap[smallest], heap[index]];
+    index = smallest;
+  }
+}
+```
+
+3. Heapify (build a heap) (O(n))
+Building a heap from an arbitrary array is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root. This is more efficient than inserting each element one by one, as it takes O(n) time.
+
+Watch this video to understand how it works
+![](https://www.youtube.com/watch?v=Yc1E1V9Xya0)
+
+It is O(n) because we only need to call bubbleDown on the non-leaf nodes, which are at most n/2. Each call to bubbleDown takes O(log n) time, and since there are n/2 non-leaf nodes, the total time is O(n).
+_confusing? just memorize it nerd._
+
+```typescript
+function heapify(array: number[]) {
+  const firstNonLeaf = Math.floor(array.length / 2) - 1; // last non-leaf node, notice how it is half the length of the array thus giving us O(n)
+  for (let i = firstNonLeaf; i >= 0; i--) {
+    // for max-heap, change to <= and i++
+    bubbleDown(array, i);
+  }
+  return array;
+}
+```
+
+#### Normal Heap Operations
+
+1. Insertion (O(log n))
+
+```typescript
+function insert(heap: Heap, value: number) {
+  heap.push(value);
+  bubbleUp(heap, heap.length - 1);
+  // Bubble up the new element to maintain heap property
+}
+```
+
+2. Removal (O(log n))
+
+```typescript
+function remove(heap: Heap, index: number) {
+  if (index < 0 || index >= heap.length) return -1;
+
+  const removedValue = heap[index];
+  heap[index] = heap[heap.length - 1]; // replace with last element
+  heap.pop(); // remove last element
+  bubbleDown(heap, index); // maintain heap property
+  return removedValue;
+}
+```
+
+3. Extract Max/Min (O(log n))
+
+```typescript
+function extractMax(heap: Heap): number {
+  // Assuming max-heap
+  if (heap.length === 0) return -1;
+
+  const max = heap[0]; // root
+  heap[0] = heap[heap.length - 1]; // replace root with last element
+  heap.pop(); // remove last element
+  bubbleDown(heap, 0); // maintain heap property
+  return max;
+}
+
+function extractMin(heap: Heap): number {
+  // Assuming min-heap
+  if (heap.length === 0) return -1;
+
+  const min = heap[0]; // root
+  heap[0] = heap[heap.length - 1]; // replace root with last element
+  heap.pop(); // remove last element
+  bubbleDown(heap, 0); // maintain heap property
+
+  return min;
+}
+```
+
+#### Heap Sort (O(n log n))
+
+Will be covered in [[30 - Sorting#Heap Sort]]
+
 
 ---
 
@@ -293,3 +490,7 @@ function bfs(graph: Graph, start: string) {
 | **DFS/BFS (adj list)**     | O(V + E)                 |
 | **DFS/BFS (adj matrix)**   | O(V²)                    |
 | **Dijkstra (binary heap)** | O((V + E) log V)         |
+
+```
+
+```
