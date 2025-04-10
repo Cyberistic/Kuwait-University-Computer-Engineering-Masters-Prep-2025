@@ -140,13 +140,7 @@ function quickSort(arr: number[]): number[] {
 
 Divides the array into smaller subarrays, sorts them, and then merges them back together.
 
-```mermaid
-graph TD
-    A[5,3,8,4,2] --> B[5,3] & C[8,4,2]
-    B --> D[5] & E[3]
-    C --> F[8] & G[4,2]
-    G --> H[4] & I[2]
-```
+![[Merge-sort.png]]
 
 **Time Complexity**: O(n log n)
 
@@ -165,8 +159,6 @@ graph TD
 - Not in-place
 - Not adaptive
 - Overkill for small arrays
-
-
 
 ```typescript
 function mergeSort(arr: number[]): number[] {
@@ -276,3 +268,14 @@ function heapify(arr: number[], n: number, i: number) {
 >
 > - Stable: Bubble Sort, Insertion Sort, Merge Sort
 > - Unstable: Quick Sort, Heap Sort
+
+> [!note] in-place vs out-of-place
+> An in-place sorting algorithm sorts the array without using any extra space. It only uses a constant amount of extra space for variables.
+> An out-of-place sorting algorithm creates a new array to store the sorted elements.
+>
+> - In-place: Quick Sort, Heap Sort, Insertion Sort
+> - Out-of-place: Merge Sort
+
+> [!note] Adaptive vs non-adaptive
+> An adaptive sorting algorithm takes advantage of existing order in the array. It runs faster if the array is already partially sorted.
+> An example of an adaptive sorting algorithm is Insertion Sort. If the array is already sorted, it runs in O(n) time.
