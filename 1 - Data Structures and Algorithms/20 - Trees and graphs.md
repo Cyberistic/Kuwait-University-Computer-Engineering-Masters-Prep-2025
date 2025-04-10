@@ -1,4 +1,4 @@
-Trees and graphs: Binary trees; binary tree representation; binary tree traversal - inorder, preorder, and postorder, binary tree representation of trees, heaps, graph representation, graph traversals, shortest path, complexities of operations in trees and graphs. 
+Trees and graphs: Binary trees; binary tree representation; binary tree traversal - inorder, preorder, and postorder, binary tree representation of trees, heaps, graph representation, graph traversals, shortest path, complexities of operations in trees and graphs.
 
 Before you get started, make sure you remember the following:
 
@@ -48,18 +48,16 @@ More boring facts:
 - A binary tree is _proper_ if each node has either zero or two children.
 - _The recursive definition:_ a binary tree has a root, the root has 0 to 2 binary trees as children (left subtree, right subtree)
 
-
 > [!tip] Binary Search Trees  
 > A **Binary Search Tree (BST)** is a special kind of binary tree where:
 >
 > - Left child < parent
 > - Right child > parent  
 >    Useful for fast lookup, insertion, and deletion.
->    With a time complexity of **O(log n)** in the **average** and **best** cases.
+>   With a time complexity of **O(log n)** in the **average** and **best** cases.
 
->[!Warning] I left out rotations when removing from BSTs, as BST wasn't mentioned in the topics list. 
+> [!Warning] I left out rotations when removing from BSTs, as BST wasn't mentioned in the topics list.
 > However.. BSTs are binary-trees, so maaybe they are included? idk 🤷🏻‍♂️
-
 
 #### Binary Tree Traversals
 
@@ -103,8 +101,9 @@ function postorder(node: TreeNode | null) {
 
 > [!Note]
 > All of these are example of Depth-First Search (DFS).
-> I left out Breadth-First Search (BFS), used for finding the shortest path, as it wasn't mentioned in the topics list, however it might be useful to go throw it. 
+> I left out Breadth-First Search (BFS), used for finding the shortest path, as it wasn't mentioned in the topics list, however it might be useful to go throw it.
 > We will also visit it briefly in Graph traversals.
+
 ---
 
 #### Normal Tree → Binary Tree Representation
@@ -160,7 +159,6 @@ Notice how:
 Confusing right? ahahah will probably be in the exam.
 I would personally just keep first 2 nodes and push the rest down the tree until a space is available, but what do I know.
 
-
 ---
 
 ## Heaps
@@ -172,7 +170,8 @@ A **Heap** is a complete binary tree that satisfies the **heap property**.
 - **Max-Heap**: Parent is greater than both children
 
 An example of min-heap:
-```mermaid 
+
+```mermaid
 graph TD
     A((1)) --> B((3))
     A --> C((5))
@@ -184,6 +183,7 @@ graph TD
 ```
 
 An example of max-heap:
+
 ```mermaid
 graph TD
     A((10)) --> B((9))
@@ -195,25 +195,102 @@ graph TD
 
 ```
 
-Heaps are often stored as arrays.
+Heaps are often stored as arrays. For any node at index i:
 
-### Example: Max-Heap stored in array
+- Left child: `2i + 1`
+- Right child: `2i + 2`
+- Parent: `Math.floor((i - 1) / 2)`
 
+For example, this max-heap:
+
+```mermaid
+graph TD
+    A((10)) --> B((9))
+    A --> C((8))
+    B --> D((4))
+    B --> E((7))
+    C --> F((3))
+    C --> G((5))
 ```
 
-Index: 0 1 2 3 4
-Value: [50, 30, 40, 10, 20]
+Can be stored as array: `[10, 9, 8, 4, 7, 3, 5]`
 
+take `8` for example, with index `2`:
+The index of the children and parent are:
+
+- Left child: `2 * 2 + 1 = 5`
+- Right child: `2 * 2 + 2 = 6`
+- Parent: `Math.floor((2 - 1) / 2) = 0`
+
+### Heap Operations
+
+#### 1. Insertion (O(log n))
+
+```typescript
+function insert(heap: number[], value: number) {
+  heap.push(value);
+  bubbleUp(heap, heap.length - 1);
+}
+
+function bubbleUp(heap: number[], index: number) {
+  while (index > 0) {
+    const parentIdx = Math.floor((index - 1) / 2);
+    if (heap[parentIdx] >= heap[index]) break; // for max-heap
+    [heap[parentIdx], heap[index]] = [heap[index], heap[parentIdx]];
+    index = parentIdx;
+  }
+}
 ```
 
-```ts
-const leftChild = (i: number) => 2 * i + 1;
-const rightChild = (i: number) => 2 * i + 2;
-const parent = (i: number) => Math.floor((i - 1) / 2);
+#### 2. Extract Max/Min (O(log n))
+
+```typescript
+function extractMax(heap: number[]): number {
+  if (heap.length === 0) return -1;
+
+  const max = heap[0];
+  heap[0] = heap[heap.length - 1];
+  heap.pop();
+  bubbleDown(heap, 0);
+
+  return max;
+}
+
+function bubbleDown(heap: number[], index: number) {
+  while (true) {
+    let largest = index;
+    const left = 2 * index + 1;
+    const right = 2 * index + 2;
+
+    if (left < heap.length && heap[left] > heap[largest]) largest = left;
+    if (right < heap.length && heap[right] > heap[largest]) largest = right;
+
+    if (largest === index) break;
+
+    [heap[index], heap[largest]] = [heap[largest], heap[index]];
+    index = largest;
+  }
+}
 ```
 
-> [!tip] Use Heaps for Priority Queues  
-> Insertion and deletion: `O(log n)`
+#### 3. Building a Heap (O(n))
+
+```typescript
+function buildHeap(array: number[]) {
+  const firstNonLeaf = Math.floor(array.length / 2) - 1;
+  for (let i = firstNonLeaf; i >= 0; i--) {
+    bubbleDown(array, i);
+  }
+  return array;
+}
+```
+
+> [!tip] Applications
+>
+> - Priority Queues
+> - Heap Sort
+> - Finding k-th largest/smallest element
+> - Median maintenance
 
 ---
 
