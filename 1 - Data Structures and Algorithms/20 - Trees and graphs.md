@@ -243,13 +243,13 @@ The index of the children and parent are:
 First, a heap is JUST an array:
 
 ```ts
-type heap = number[];
+type Heap = number[];
 ```
 
 #### 1. Insertion (O(log n))
 
 ```typescript
-function insert(heap: number[], value: number) {
+function insert(heap: Heap, value: number) {
   heap.push(value);
   bubbleUp(heap, heap.length - 1);
 }
@@ -267,7 +267,7 @@ function bubbleUp(heap: number[], index: number) {
 #### 2. Extract Max/Min (O(log n))
 
 ```typescript
-function extractMax(heap: number[]): number {
+function extractMax(heap: Heap): number {
   if (heap.length === 0) return -1;
 
   const max = heap[0];
@@ -278,7 +278,7 @@ function extractMax(heap: number[]): number {
   return max;
 }
 
-function bubbleDown(heap: number[], index: number) {
+function bubbleDown(heap: Heap, index: number) {
   while (true) {
     let largest = index;
     const left = 2 * index + 1;
