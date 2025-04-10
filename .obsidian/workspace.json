@@ -13,15 +13,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4 - Network and Security/00 - References and Topics.md",
+                "file": "4 - Network and Security/40 - Data link layer services.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "00 - References and Topics"
+              "title": "40 - Data link layer services"
+            }
+          },
+          {
+            "id": "11f40f74222d155b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4 - Network and Security/100 - QUIZ.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "100 - QUIZ"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -204,13 +219,15 @@
       }
     ]
   },
-  "active": "beaae335d730c1ea",
+  "active": "11f40f74222d155b",
   "lastOpenFiles": [
-    "1 - Data Structures and Algorithms/30 - Sorting.md",
-    "books/4 - Network & Security/James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf",
     "4 - Network and Security/40 - Data link layer services.md",
-    "books/4 - Network & Security/Jim Kurose, Keith Ross - Computer Networking_ A Top-Down Approach (Solutions to Review Questions and Problems) (2016).pdf",
+    "4 - Network and Security/100 - QUIZ.md",
     "4 - Network and Security/30 - Principles of network layer.md",
+    "4 - Network and Security/00 - References and Topics.md",
+    "books/4 - Network & Security/James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf",
+    "1 - Data Structures and Algorithms/30 - Sorting.md",
+    "books/4 - Network & Security/Jim Kurose, Keith Ross - Computer Networking_ A Top-Down Approach (Solutions to Review Questions and Problems) (2016).pdf",
     "misc/Calculating Height & Width of a Tree.md",
     "misc/Implementing A Stack using Python.md",
     "misc/Time Complexities & Recursion.md",
@@ -224,8 +241,6 @@
     "graphs/Pasted image 20250410202513.png",
     "Drawing.excalidraw.md",
     "attachments/Official-List.jpeg",
-    "4 - Network and Security/00 - References and Topics.md",
-    "Untitled.md",
     "graphs/Pasted image 20250410202414.png",
     "3 - Microprocessor and Microcontroller/00 - References and Topics.md",
     "1 - Data Structures and Algorithms/20 - Trees and graphs.md",

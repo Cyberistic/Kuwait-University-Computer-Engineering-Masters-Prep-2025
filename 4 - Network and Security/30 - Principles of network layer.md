@@ -1,3 +1,4 @@
+`Kurose and Ross, the Networkin layer is discussed in Chapter 4
 _____
 ### 1. Network layer:
 
@@ -26,8 +27,8 @@ The **network layer** is the third layer in the **OSI model**. Its main function
 ### 1.2 Protocols used:
 
 - **IP (Internet Protocol)** – IPv4, IPv6
-    
-- **ICMP** (Internet Control Message Protocol - Used for E-Mails)
+- **ICMP** (Internet Control Message Protocol)
+- **Ethernet & WIFI**
 _________
 ### 2. Data Plane & Control Plane
 
@@ -174,3 +175,4 @@ _______________
 > 🖊️ Author: Asmaa Alazmi
 > Note: feel free to change the diagrams into prettier ones 
 > `(I'm not getting paid enough to care about aesthetics).
+> ANOTHER NOTE: this review is meant as a mind refresher, written with the assumption that the reader knows the basics (e.g. mac address, switches.. servers.. etc).
