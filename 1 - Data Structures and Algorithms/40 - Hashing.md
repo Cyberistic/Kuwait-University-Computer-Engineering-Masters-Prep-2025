@@ -1,6 +1,45 @@
-# Hashing
+Hashing: Symbol tables; static hashing; dynamic hashing, and collision resolution techniques.
+
+## Hashing
 
 Hashing is a technique used to map data of arbitrary size to fixed-size values. Think of it as a way to create an "index" for your data.
+
+We use this all the time, think dictionaries in javascript, or a map in python.
+
+```ts
+const IQ = {
+  Mahdi: 60,
+  Asmaa: 130,
+  Taleb: 130,
+  Abdo: 90
+};
+```
+
+Notice how fast it is to access the IQ of "Mahdi" using `IQ["Mahdi"]`? That's the power of hash tables.
+
+> [!Question] We even use nested tables all the time, what do you think JSON is?
+> It's a nested hash table.
+
+> ```ts
+> const IQ = {
+>   Mahdi: {
+>     IQ: 60,
+>     age: 20
+>   },
+>   Asmaa: {
+>     IQ: 130,
+>     age: 25
+>   },
+>   Taleb: {
+>     IQ: 130,
+>     age: 30
+>   },
+>   Abdo: {
+>     IQ: 90,
+>     age: 35
+>   }
+> };
+> ```
 
 ## Symbol Tables (Hash Tables)
 
