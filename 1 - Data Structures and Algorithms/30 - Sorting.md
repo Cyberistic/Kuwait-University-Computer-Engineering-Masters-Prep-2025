@@ -235,21 +235,9 @@ function heapSort(arr: number[]): number[] {
 
   return arr;
 }
-
-function heapify(arr: number[], n: number, i: number) {
-  let largest = i;
-  const left = 2 * i + 1;
-  const right = 2 * i + 2;
-
-  if (left < n && arr[left] > arr[largest]) largest = left;
-  if (right < n && arr[right] > arr[largest]) largest = right;
-
-  if (largest !== i) {
-    [arr[i], arr[largest]] = [arr[largest], arr[i]];
-    heapify(arr, n, largest);
-  }
-}
 ```
+
+---
 
 > [!note] Stable vs Unstable Sort
 > A sorting algorithm is stable if it preserves the relative order of equal elements. meaning that if two elements are equal, their order in the sorted array will be the same as in the original array.
@@ -279,3 +267,6 @@ function heapify(arr: number[], n: number, i: number) {
 > [!note] Adaptive vs non-adaptive
 > An adaptive sorting algorithm takes advantage of existing order in the array. It runs faster if the array is already partially sorted.
 > An example of an adaptive sorting algorithm is Insertion Sort. If the array is already sorted, it runs in O(n) time.
+>
+> - Adaptive: Insertion Sort, Bubble Sort
+> - Non-adaptive: Quick Sort, Heap Sort, Merge Sort
