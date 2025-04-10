@@ -694,7 +694,74 @@ Since i'm not sure if it's required, I've created a separate note for it with it
 
 ### 2. BFS (for unweighted graphs)
 
-Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` time.
+Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` time. Here's how it works:
+
+1. Start at source node and mark distance as 0
+2. Visit all neighbors (distance + 1)
+3. Visit neighbors of neighbors (distance + 2)
+4. Continue until reaching target node
+
+```ts
+function findShortestPath(graph: Graph, start: string, end: string) {
+  // Track distances and paths
+  const distances = new Map([[start, 0]]);
+  const previous = new Map();
+  const queue = [start];
+  const visited = new Set([start]);
+
+  while (queue.length > 0) {
+    const current = queue.shift()!;
+    if (current === end) {
+      // Reconstruct path
+      const path = [];
+      let node = end;
+      while (node) {
+        path.unshift(node);
+        node = previous.get(node);
+      }
+      return {
+        distance: distances.get(end),
+        path: path
+      };
+    }
+
+    for (const neighbor of graph.adjacencyList.get(current)!) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push(neighbor);
+        distances.set(neighbor, distances.get(current)! + 1);
+        previous.set(neighbor, current);
+      }
+    }
+  }
+
+  return null; // No path exists
+}
+```
+
+For example:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    B --- C((C))
+    A --- D((D))
+    D --- C((C))
+```
+
+Finding shortest path from A to C:
+
+1. Visit A (distance 0)
+2. Visit B, D (distance 1)
+3. Visit C (distance 2 via B)
+4. Done! Path is A → B → C with distance 2
+
+> [!tip] Why it works
+> BFS guarantees that when we first reach a node, we've found the shortest path to it because:
+>
+> 1. We explore all paths of length 1 before length 2
+> 2. We explore all paths of length 2 before length 3
+> 3. And so on...
 
 ---
 
@@ -709,6 +776,4 @@ Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` tim
 | **DFS/BFS (adj matrix)**   | O(V²)                    |
 | **Dijkstra (binary heap)** | O((V + E) log V)         |
 
-```
 
-```

@@ -1,0 +1,1 @@
+Sorting: Bubble sort; Insertion sort; quick sort; merge; heap sort.  
