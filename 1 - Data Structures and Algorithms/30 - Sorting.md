@@ -190,7 +190,9 @@ function merge(left: number[], right: number[]): number[] {
 
 ## Heap Sort
 
-Uses a binary heap data structure to sort elements.
+Uses a heap tree data structure to sort elements.
+
+For more info about heaps: [[20 - Trees and graphs#Heaps]]
 
 **Time Complexity**: O(n log n)
 
