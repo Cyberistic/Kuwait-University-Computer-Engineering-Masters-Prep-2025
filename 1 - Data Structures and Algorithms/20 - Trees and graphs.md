@@ -298,7 +298,10 @@ function bubbleDown(heap: Heap, index: number) {
 ```
 
 3. Heapify (build a heap) (O(n))
-   Building a heap from an arbitrary array is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root. This is more efficient than inserting each element one by one, as it takes O(n) time.
+Building a heap from an arbitrary array is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root. This is more efficient than inserting each element one by one, as it takes O(n) time.
+
+Watch this video to understand how it works
+![](https://www.youtube.com/watch?v=Yc1E1V9Xya0)
 
 It is O(n) because we only need to call bubbleDown on the non-leaf nodes, which are at most n/2. Each call to bubbleDown takes O(log n) time, and since there are n/2 non-leaf nodes, the total time is O(n).
 _confusing? just memorize it nerd._
@@ -369,18 +372,8 @@ function extractMin(heap: Heap): number {
 
 #### Heap Sort (O(n log n))
 
-```typescript
-function heapSort(array: number[]) {
-  heapify(array); // Build a heap from the array O(n)
-  const sortedArray: number[] = [];
+Will be covered in [[30 - Sorting#Heap Sort]]
 
-  while (array.length) {
-    sortedArray.push(extractMax(array)); // Extract max element
-  }
-
-  return sortedArray.reverse(); // Reverse to get sorted order
-}
-```
 
 ---
 
