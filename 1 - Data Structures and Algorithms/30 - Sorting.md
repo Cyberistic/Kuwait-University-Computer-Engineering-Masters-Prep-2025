@@ -81,8 +81,6 @@ So you pick an element, compare it with the elements before it, and insert it in
 - Inefficient for large datasets
 - Requires O(n²) comparisons and shifts
 
-
-
 ```typescript
 function insertionSort(arr: number[]): number[] {
   for (let i = 1; i < arr.length; i++) {
@@ -100,7 +98,10 @@ function insertionSort(arr: number[]): number[] {
 
 ## Quick Sort
 
-Uses a divide-and-conquer strategy. Picks a 'pivot' element and partitions the array around it.
+Uses a divide-and-conquer strategy. Picks a 'pivot' element and partitions the array around it. Then moves the pivot to the middle.
+The left side of the pivot is less than the pivot, and the right side is greater than the pivot. This process is repeated recursively for the left and right subarrays.
+
+![[Quick-sort.png]]
 
 **Time Complexity**: O(n log n) average
 
@@ -113,7 +114,7 @@ Uses a divide-and-conquer strategy. Picks a 'pivot' element and partitions the a
 - Fastest sorting algorithm in practice
 - In-place sorting
 - Cache friendly
-- Can be easily parallelized
+- Can be easily parallelized (each partition can be sorted in parallel)
 - Low overhead
 
 **Disadvantages**:
@@ -121,7 +122,6 @@ Uses a divide-and-conquer strategy. Picks a 'pivot' element and partitions the a
 - Unstable sort
 - O(n²) worst case
 - Not adaptive
-
 
 ```typescript
 function quickSort(arr: number[]): number[] {
@@ -139,6 +139,14 @@ function quickSort(arr: number[]): number[] {
 ## Merge Sort
 
 Divides the array into smaller subarrays, sorts them, and then merges them back together.
+
+```mermaid
+graph TD
+    A[5,3,8,4,2] --> B[5,3] & C[8,4,2]
+    B --> D[5] & E[3]
+    C --> F[8] & G[4,2]
+    G --> H[4] & I[2]
+```
 
 **Time Complexity**: O(n log n)
 
@@ -158,13 +166,7 @@ Divides the array into smaller subarrays, sorts them, and then merges them back 
 - Not adaptive
 - Overkill for small arrays
 
-```mermaid
-graph TD
-    A[5,3,8,4,2] --> B[5,3] & C[8,4,2]
-    B --> D[5] & E[3]
-    C --> F[8] & G[4,2]
-    G --> H[4] & I[2]
-```
+
 
 ```typescript
 function mergeSort(arr: number[]): number[] {
