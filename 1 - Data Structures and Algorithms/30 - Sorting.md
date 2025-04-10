@@ -50,6 +50,10 @@ function bubbleSort(arr: number[]): number[] {
 }
 ```
 
+> [!Warning] Warning...
+> If I ever see you use bubble sort in production..
+> 
+> ![[Bubble-Sort-In-Prod.png|200]]
 
 ## Insertion Sort
 
@@ -75,17 +79,7 @@ Builds the final sorted array one item at a time, by repeatedly inserting a new 
 
 Initial array:
 
-```mermaid
-graph LR
-    A1[5] --- B1[3] --- C1[8] --- D1[4] --- E1[2]
-```
 
-After two passes:
-
-```mermaid
-graph LR
-    A2[3] --- B2[5] --- C2[8] --- D2[4] --- E2[2]
-```
 
 ```typescript
 function insertionSort(arr: number[]): number[] {
