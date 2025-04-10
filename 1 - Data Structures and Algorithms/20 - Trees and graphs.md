@@ -148,8 +148,11 @@ Notice how:
 5. F (second child of B) becomes right child of E
 
 Confusing right? ahahah will probably be in the exam.
-I would personally just keep 
+I would personally just keep first 2 nodes and push the rest down the tree until a space is available, but what do I know.
 
+> [!warn] Before moving on..
+> I need to mention 
+---
 
 ## Heaps
 
