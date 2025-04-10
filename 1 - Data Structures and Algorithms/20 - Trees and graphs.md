@@ -185,7 +185,6 @@ A **Heap** is a complete binary tree that satisfies the **heap property**.
 
 A heap is a complete binary tree, meaning all levels are fully filled except possibly the last level, which is filled from left to right.
 
-
 An example of min-heap:
 
 ```mermaid
@@ -197,7 +196,7 @@ graph TD
     C --> F((8))
     C --> G((10))
 
-````
+```
 
 An example of max-heap:
 
@@ -240,6 +239,12 @@ The index of the children and parent are:
 - Parent: `Math.floor((2 - 1) / 2) = 0`
 
 ### Heap Operations
+
+First, a heap is JUST an array:
+
+```ts
+type heap = number[];
+```
 
 #### 1. Insertion (O(log n))
 
