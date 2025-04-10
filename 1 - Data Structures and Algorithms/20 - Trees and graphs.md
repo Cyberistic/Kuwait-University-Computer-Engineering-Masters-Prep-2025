@@ -263,6 +263,8 @@ type Heap = number[];
 
 1. Bubble Up (O(log n))
 
+works by inserting the new element at the end of the heap and then comparing it with its parent. If the new element is smaller (for min-heap) than its parent, we swap them. This process continues until the heap property is restored.
+
 ```typescript
 function bubbleUp(heap: Heap, index: number) {
   while (index > 0) {
@@ -275,6 +277,7 @@ function bubbleUp(heap: Heap, index: number) {
 ```
 
 2. Bubble Down (O(log n))
+   works by comparing the root with its children. If the root is larger (for min-heap) than either of its children, we swap it with the smaller child. This process continues until the heap property is restored.
 
 ```typescript
 function bubbleDown(heap: Heap, index: number) {
@@ -295,11 +298,14 @@ function bubbleDown(heap: Heap, index: number) {
 ```
 
 3. Heapify (build a heap) (O(n))
+   Building a heap from an arbitrary array is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root. This is more efficient than inserting each element one by one, as it takes O(n) time.
+
+It is O(n) because we only need to call bubbleDown on the non-leaf nodes, which are at most n/2. Each call to bubbleDown takes O(log n) time, and since there are n/2 non-leaf nodes, the total time is O(n).
+_confusing? just memorize it nerd._
 
 ```typescript
-// Note that going through an array costs O(n) while each bubble down is O(log n), resulting in O(n + log n) or just O(n)
 function heapify(array: number[]) {
-  const firstNonLeaf = Math.floor(array.length / 2) - 1;
+  const firstNonLeaf = Math.floor(array.length / 2) - 1; // last non-leaf node, notice how it is half the length of the array thus giving us O(n)
   for (let i = firstNonLeaf; i >= 0; i--) {
     // for max-heap, change to <= and i++
     bubbleDown(array, i);
