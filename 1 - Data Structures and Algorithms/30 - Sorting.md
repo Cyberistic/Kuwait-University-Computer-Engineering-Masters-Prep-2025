@@ -191,6 +191,16 @@ function merge(left: number[], right: number[]): number[] {
 ## Heap Sort
 
 Uses a heap tree data structure to sort elements.
+How? Build a max heap from the input array, then repeatedly extract the maximum element from the heap and rebuild the heap until all elements are sorted.
+
+tl;dr:
+
+1. Build max-heap: largest element goes to the top (arr[0]).
+
+2. Each iteration:
+   Swap arr[0] (largest) with the last element.
+   Shrink the heap.
+   Re-heapify using bubbleDown() to move the next-largest to the top.
 
 For more info about heaps: [[20 - Trees and graphs#Heaps]]
 
@@ -212,6 +222,15 @@ For more info about heaps: [[20 - Trees and graphs#Heaps]]
 - Slower in practice than Quick Sort
 - Poor cache performance
 
+```mermaid
+graph TD
+    A((10)) --> B((4))
+    A --> C((8))
+    B --> D((3))
+    B --> E((2))
+    C --> F((6))
+    C --> G((1))
+```
 
 ```typescript
 function heapSort(arr: number[]): number[] {
