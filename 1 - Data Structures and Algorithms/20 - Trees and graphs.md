@@ -623,7 +623,18 @@ function removeEdge(graph: Map<string, string[]>, from: string, to: string) {
 
 ## Graph Traversals
 
+Graph traversal is the process of visiting all vertices in a graph. The two main approaches are:
+
 ### 1. Depth-First Search (DFS)
+
+Explores as far as possible along each branch before backtracking. Think of it as exploring a maze by following each path to its end before going back and trying a different path.
+
+- Uses a **stack** (or recursion)
+- Good for:
+  - Finding cycles
+  - Topological sorting
+  - Solving mazes
+  - Finding connected components
 
 ```ts
 function dfs(graph: Graph, start: string, visited = new Set()) {
@@ -637,6 +648,14 @@ function dfs(graph: Graph, start: string, visited = new Set()) {
 ```
 
 ### 2. Breadth-First Search (BFS)
+
+Explores all vertices at the present depth before moving to vertices at the next depth level. Think of it as exploring a maze in "layers", checking all possible paths one step at a time.
+
+- Uses a **queue**
+- Good for:
+  - Finding shortest path (unweighted)
+  - Finding all vertices n edges away
+  - Finding shortest cycle
 
 ```ts
 function bfs(graph: Graph, start: string) {
@@ -663,15 +682,16 @@ function bfs(graph: Graph, start: string) {
 
 ## Shortest Path Algorithms
 
-### 1. Dijkstra’s Algorithm (for weighted graphs)
+### 1. Dijkstra's Algorithm (for weighted graphs)
 
-- Keeps track of the shortest known distance to each node.
-- Uses a **min-priority queue** (often implemented with a heap).
-- Time Complexity: `O((V + E) log V)` with a binary heap.
+Finds the shortest path between nodes in a weighted graph.
+
+Since i'm not sure if it's required
+[[Dijkstra's Algorithm]]
 
 ### 2. BFS (for unweighted graphs)
 
-- Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` time.
+Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` time.
 
 ---
 
