@@ -48,6 +48,7 @@ More boring facts:
 - A binary tree is _proper_ if each node has either zero or two children.
 - _The recursive definition:_ a binary tree has a root, the root has 0 to 2 binary trees as children (left subtree, right subtree)
 
+
 > [!tip] Binary Search Trees  
 > A **Binary Search Tree (BST)** is a special kind of binary tree where:
 >
@@ -98,7 +99,8 @@ function postorder(node: TreeNode | null) {
 
 > [!Note]
 > All of these are example of Depth-First Search (DFS).
-> I left out Breadth-First Sear
+> I left out Breadth-First Search (BF) as it wasn't mentioned in the topics list, however it might be useful to go throw it. 
+> We will also visit it briefly in Graph traversals.
 ---
 
 #### Normal Tree → Binary Tree Representation
