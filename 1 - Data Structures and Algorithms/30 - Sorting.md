@@ -212,15 +212,6 @@ For more info about heaps: [[20 - Trees and graphs#Heaps]]
 - Slower in practice than Quick Sort
 - Poor cache performance
 
-```mermaid
-graph TD
-    A((10)) --> B((4))
-    A --> C((8))
-    B --> D((3))
-    B --> E((2))
-    C --> F((6))
-    C --> G((1))
-```
 
 ```typescript
 function heapSort(arr: number[]): number[] {
