@@ -169,6 +169,23 @@ A **Heap** is a complete binary tree that satisfies the **heap property**.
 
 - **Max-Heap**: Parent is greater than both children
 
+### Benefits
+
+- Efficient retrieval of the minimum or maximum element.
+- As a result, heaps are often used to implement priority queues.
+  A **priority queue** is an abstract data type where each element has a "priority" associated with it. Elements with higher priority are served before elements with lower priority.
+- We also use heaps to implement heapsort, which is a sorting algorithm that uses the heap data structure.
+  The heapsort algorithm works by first building a max-heap from the input data, and then repeatedly extracting the maximum element from the heap and rebuilding the heap until all elements are sorted.
+  - Time complexity: O(n log n)
+  - Time complexity of building the heap: O(n)
+
+> [!Note] Heaps are not sorted, but they are partially ordered. The root node is always the minimum (or maximum) element.
+
+### Representation
+
+A heap is a complete binary tree, meaning all levels are fully filled except possibly the last level, which is filled from left to right.
+
+````mermaid
 An example of min-heap:
 
 ```mermaid
@@ -180,7 +197,7 @@ graph TD
     C --> F((8))
     C --> G((10))
 
-```
+````
 
 An example of max-heap:
 
