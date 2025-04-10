@@ -147,7 +147,8 @@ Notice how:
 4. E (first child of B) stays as left child of B
 5. F (second child of B) becomes right child of E
 
-Confusing right? ahahah will probably be in the exam
+Confusing right? ahahah will probably be in the exam.
+I would personally just keep 
 
 
 ## Heaps
