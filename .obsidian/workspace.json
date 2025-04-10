@@ -1,0 +1,184 @@
+{
+  "main": {
+    "id": "fdc87360d15e54d4",
+    "type": "split",
+    "children": [
+      {
+        "id": "1f0db89f184ca1e4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "273297ebfe91557f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4 - Network and Security/30- Principles of network layer.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "30- Principles of network layer"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7d928d528a87e05f",
+    "type": "split",
+    "children": [
+      {
+        "id": "9fd3897a6c97ebf6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "40b7344d9c893d42",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "d7ac67ae31de033c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "658cceb9007e76de",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "b42dd0608525f71c",
+    "type": "split",
+    "children": [
+      {
+        "id": "e1313ecfb7765915",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "093d6803177fa1a1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "2e7efc3eed5ee538",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "9ab72980418151e5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "093f8896e6999678",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "273297ebfe91557f",
+  "lastOpenFiles": [
+    "Pasted image 20250410202647.png",
+    "Pasted image 20250410202513.png",
+    "Pasted image 20250410202414.png",
+    "Pasted image 20250410200940.png",
+    "4 - Network and Security/00 - References and Topics.md",
+    "3 - Microprocessor and Microcontroller/00 - References and Topics.md",
+    "4 - Network and Security/30- Principles of network layer.md",
+    "1 - Data Structures and Algorithms/20 - Trees and graphs.md",
+    "1 - Data Structures and Algorithms/00 - References and Topics.md",
+    "1 - Data Structures and Algorithms/10 - Linked lists.md",
+    "Untitled.md",
+    "2 - Digital logic/00 - References and Topics.md"
+  ]
+}
