@@ -40,6 +40,8 @@ type TreeNode = {
 };
 ```
 
+> [!warning] I left out adding and removing nodes as you're probably familiar with how its done by now (same concepts as lists)
+
 More boring facts:
 
 - The **root** node is the entry point. Leaves are nodes with no children.
@@ -94,7 +96,9 @@ function postorder(node: TreeNode | null) {
 }
 ```
 
-> [!warning] I left out adding and removing nodes as you're probably familiar with how its done by now (same concepts as lists)
+> [!Note]
+> All of these are example of Depth-First Search (DFS).
+> I left out Breadth-First Sear
 ---
 
 #### Normal Tree → Binary Tree Representation
