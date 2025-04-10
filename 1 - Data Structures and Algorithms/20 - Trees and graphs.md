@@ -1,4 +1,4 @@
-Trees and graphs: Binary trees; binary tree representation; binary tree traversal - inorder, preorder, and postorder, binary tree representation of trees, heaps, graph representation, graph traversals, shortest path, complexities of operations in trees and graphs.
+Trees and graphs: Binary trees; binary tree representation; binary tree traversal - inorder, preorder, and postorder, binary tree representation of trees, heaps, graph representation, graph traversals, shortest path, complexities of operations in trees and graphs. 
 
 Before you get started, make sure you remember the following:
 
@@ -56,7 +56,11 @@ More boring facts:
 > - Right child > parent  
 >    Useful for fast lookup, insertion, and deletion.
 >    With a time complexity of **O(log n)** in the **average** and **best** cases.
-  
+
+>[!Warning] I left out rotations when removing from BSTs, as BST wasn't mentioned in the topics list. 
+> However.. BSTs are binary-trees, so maaybe they are included? idk 🤷🏻‍♂️
+
+
 #### Binary Tree Traversals
 
 Tree traversals are ways to "walk through" the tree. There are three main types:
