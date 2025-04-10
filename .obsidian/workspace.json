@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "273297ebfe91557f",
+            "id": "beaae335d730c1ea",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "4 - Network and Security/30- Principles of network layer.md",
+                "file": "4 - Network and Security/00 - References and Topics.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "30- Principles of network layer"
+              "title": "00 - References and Topics"
             }
           }
         ]
@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "b42dd0608525f71c",
@@ -166,19 +165,71 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "273297ebfe91557f",
+  "floating": {
+    "id": "c7e1af707de43fc4",
+    "type": "floating",
+    "children": [
+      {
+        "id": "74b2ab3ecb60cc92",
+        "type": "window",
+        "children": [
+          {
+            "id": "3745714109cae5f3",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "273297ebfe91557f",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "pdf",
+                  "state": {
+                    "file": "books/4 - Network & Security/James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf"
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file-text",
+                  "title": "James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 960,
+        "y": 0,
+        "width": 960,
+        "height": 1032,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "beaae335d730c1ea",
   "lastOpenFiles": [
-    "Pasted image 20250410202647.png",
-    "Pasted image 20250410202513.png",
-    "Pasted image 20250410202414.png",
-    "Pasted image 20250410200940.png",
+    "books/4 - Network & Security/James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf",
+    "4 - Network and Security/40 - Data link layer services.md",
+    "books/4 - Network & Security/Jim Kurose, Keith Ross - Computer Networking_ A Top-Down Approach (Solutions to Review Questions and Problems) (2016).pdf",
+    "4 - Network and Security/30 - Principles of network layer.md",
+    "misc/Calculating Height & Width of a Tree.md",
+    "misc/Implementing A Stack using Python.md",
+    "misc/Time Complexities & Recursion.md",
+    "graphs/Pasted image 20250410202647.png",
+    "graphs/Pasted image 20250410200940.png",
+    "books/2 - Digital Logic/Stephen Brown, Zvonko Vranesic - Fundamentals of Digital Logic with Verilog Design-McGraw-Hill (2014).pdf",
+    "graphs",
+    "attachments/Pasted Image 20250409203521_869.png",
+    "attachments/Official-List-1.jpeg",
+    "attachments/Official-List-2.jpeg",
+    "graphs/Pasted image 20250410202513.png",
+    "Drawing.excalidraw.md",
+    "attachments/Official-List.jpeg",
     "4 - Network and Security/00 - References and Topics.md",
+    "Untitled.md",
+    "graphs/Pasted image 20250410202414.png",
     "3 - Microprocessor and Microcontroller/00 - References and Topics.md",
-    "4 - Network and Security/30- Principles of network layer.md",
     "1 - Data Structures and Algorithms/20 - Trees and graphs.md",
     "1 - Data Structures and Algorithms/00 - References and Topics.md",
     "1 - Data Structures and Algorithms/10 - Linked lists.md",
-    "Untitled.md",
     "2 - Digital logic/00 - References and Topics.md"
   ]
 }
