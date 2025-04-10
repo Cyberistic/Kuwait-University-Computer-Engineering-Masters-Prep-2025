@@ -34,19 +34,7 @@ Repeatedly steps through the list, compares adjacent elements and swaps them if 
 - Very inefficient for large datasets
 - Always makes O(n²) comparisons even if array is sorted
 
-Initial array:
-
-```mermaid
-graph LR
-    A1[5] --- B1[3] --- C1[8] --- D1[4] --- E1[2]
-```
-
-After first pass:
-
-```mermaid
-graph LR
-    A2[3] --- B2[5] --- C2[4] --- D2[2] --- E2[8]
-```
+![[Bubble-Sort.png]]
 
 ```typescript
 function bubbleSort(arr: number[]): number[] {
@@ -61,6 +49,7 @@ function bubbleSort(arr: number[]): number[] {
   return arr;
 }
 ```
+
 
 ## Insertion Sort
 
@@ -280,7 +269,19 @@ function heapify(arr: number[], n: number, i: number) {
 ```
 
 > [!note] Stable vs Unstable Sort
-> A sorting algorithm is stable if it preserves the relative order of equal elements.
+> A sorting algorithm is stable if it preserves the relative order of equal elements. meaning that if two elements are equal, their order in the sorted array will be the same as in the original array.
+> For example: let's say we have the following:
+>
+> ```ts
+> const arr = [
+>   { IQ: 60, name: "Mahdi" },
+>   { IQ: 130, name: "Asmaa" },
+>   { IQ: 130, name: "Taleb" },
+>   { IQ: 90, name: "Abdo" }
+> ];
+> ```
+>
+> If we sort this array by IQ, a stable sort would keep "Asmaa" before "Taleb" in the sorted array. While an unstable sort could change their order.
 >
 > - Stable: Bubble Sort, Insertion Sort, Merge Sort
 > - Unstable: Quick Sort, Heap Sort
