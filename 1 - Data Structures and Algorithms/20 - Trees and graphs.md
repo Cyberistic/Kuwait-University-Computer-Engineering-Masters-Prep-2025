@@ -181,6 +181,13 @@ A **Heap** is a complete binary tree that satisfies the **heap property**.
 
 > [!Note] Heaps are not sorted, but they are partially ordered. The root node is always the minimum (or maximum) element.
 
+> [!tip] Applications tl;dr:
+>
+> - Priority Queues
+> - Heap Sort
+> - Finding k-th largest/smallest element
+> - Median maintenance
+
 ### Representation
 
 A heap is a complete binary tree, meaning all levels are fully filled except possibly the last level, which is filled from left to right.
@@ -246,7 +253,63 @@ First, a heap is JUST an array:
 type Heap = number[];
 ```
 
-#### 1. Insertion (O(log n))
+#### Heap balancing
+
+- **Bubble Up**: Used when inserting a new element. The new element is added at the end of the heap and then "bubbled up" to its correct position.
+- **Bubble Down**: Used when removing the root element. The last element is moved to the root and then "bubbled down" to its correct position.
+- **Heapify**: The process of converting an arbitrary array into a heap. This is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root.
+
+> [!Note] The difference between min-heap and max-heap is in the comparison operators used in bubbleUp and bubbleDown functions.
+
+1. Bubble Up (O(log n))
+
+```typescript
+function bubbleUp(heap: Heap, index: number) {
+  while (index > 0) {
+    const parentIdx = Math.floor((index - 1) / 2);
+    if (heap[parentIdx] <= heap[index]) break; // for min-heap, change to >= for max-heap
+    [heap[parentIdx], heap[index]] = [heap[index], heap[parentIdx]];
+    index = parentIdx;
+  }
+}
+```
+
+2. Bubble Down (O(log n))
+
+```typescript
+function bubbleDown(heap: Heap, index: number) {
+  while (true) {
+    let smallest = index;
+    const left = 2 * index + 1;
+    const right = 2 * index + 2;
+
+    if (left < heap.length && heap[left] < heap[smallest]) smallest = left; // for min-heap
+    if (right < heap.length && heap[right] < heap[smallest]) smallest = right; // for min-heap
+
+    if (smallest === index) break;
+
+    [heap[index], heap[smallest]] = [heap[smallest], heap[index]];
+    index = smallest;
+  }
+}
+```
+
+3. Heapify (O(n))
+
+```typescript
+function heapify(array: number[]) {
+  const firstNonLeaf = Math.floor(array.length / 2) - 1;
+  for (let i = firstNonLeaf; i >= 0; i--) {
+    bubbleDown(array, i);
+  }
+  return array;
+}
+```
+
+````typescript
+
+#### Normal Heap Operations
+1. Insertion (O(log n))
 
 ```typescript
 function insert(heap: Heap, value: number) {
@@ -262,9 +325,9 @@ function bubbleUp(heap: number[], index: number) {
     index = parentIdx;
   }
 }
-```
+````
 
-#### 2. Extract Max/Min (O(log n))
+2. Extract Max/Min (O(log n))
 
 ```typescript
 function extractMax(heap: Heap): number {
@@ -295,7 +358,7 @@ function bubbleDown(heap: Heap, index: number) {
 }
 ```
 
-#### 3. Building a Heap (O(n))
+3. Building a Heap (O(n))
 
 ```typescript
 function buildHeap(array: number[]) {
@@ -306,13 +369,6 @@ function buildHeap(array: number[]) {
   return array;
 }
 ```
-
-> [!tip] Applications
->
-> - Priority Queues
-> - Heap Sort
-> - Finding k-th largest/smallest element
-> - Median maintenance
 
 ---
 
