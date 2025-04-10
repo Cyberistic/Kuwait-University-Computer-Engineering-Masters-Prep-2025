@@ -18,6 +18,8 @@ Given a messy array, make it unmessy by _sorting_. Ascending, descending, alphab
 
 Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
 
+![[Bubble-Sort.png]]
+
 **Time Complexity**: O(n²)
 
 - **Best Case**: O(n) when array is already sorted
@@ -33,8 +35,6 @@ Repeatedly steps through the list, compares adjacent elements and swaps them if 
 
 - Very inefficient for large datasets
 - Always makes O(n²) comparisons even if array is sorted
-
-![[Bubble-Sort.png]]
 
 ```typescript
 function bubbleSort(arr: number[]): number[] {
@@ -52,12 +52,16 @@ function bubbleSort(arr: number[]): number[] {
 
 > [!Warning] Warning...
 > If I ever see you use bubble sort in production..
-> 
+>
 > ![[Bubble-Sort-In-Prod.png|200]]
 
 ## Insertion Sort
 
 Builds the final sorted array one item at a time, by repeatedly inserting a new element into the sorted portion of the array.
+
+So you pick an element, compare it with the elements before it, and insert it in the right position. Then pick the next element and repeat.
+
+![[Insertion-sort.png]]
 
 **Time Complexity**: O(n²)
 
@@ -76,8 +80,6 @@ Builds the final sorted array one item at a time, by repeatedly inserting a new 
 
 - Inefficient for large datasets
 - Requires O(n²) comparisons and shifts
-
-Initial array:
 
 
 
@@ -120,13 +122,6 @@ Uses a divide-and-conquer strategy. Picks a 'pivot' element and partitions the a
 - O(n²) worst case
 - Not adaptive
 
-```mermaid
-graph TD
-    A[5,3,8,4,2] --> B[2,3,4 | 5 | 8]
-    B --> C[2,3,4]
-    B --> D[8]
-    C --> E[2 | 3 | 4]
-```
 
 ```typescript
 function quickSort(arr: number[]): number[] {
