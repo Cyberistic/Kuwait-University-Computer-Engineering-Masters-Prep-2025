@@ -297,9 +297,11 @@ function bubbleDown(heap: Heap, index: number) {
 3. Heapify (build a heap) (O(n))
 
 ```typescript
+// Note that going through an array costs O(n) while each bubble down is O(log n), resulting in O(n + log n) or just O(n)
 function heapify(array: number[]) {
   const firstNonLeaf = Math.floor(array.length / 2) - 1;
   for (let i = firstNonLeaf; i >= 0; i--) {
+    // for max-heap, change to <= and i++
     bubbleDown(array, i);
   }
   return array;
@@ -356,6 +358,21 @@ function extractMin(heap: Heap): number {
   bubbleDown(heap, 0); // maintain heap property
 
   return min;
+}
+```
+
+#### Heap Sort (O(n log n))
+
+```typescript
+function heapSort(array: number[]) {
+  heapify(array); // Build a heap from the array O(n)
+  const sortedArray: number[] = [];
+
+  while (array.length) {
+    sortedArray.push(extractMax(array)); // Extract max element
+  }
+
+  return sortedArray.reverse(); // Reverse to get sorted order
 }
 ```
 
