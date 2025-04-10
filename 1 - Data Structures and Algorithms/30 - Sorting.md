@@ -1,8 +1,8 @@
-Sorting: Bubble sort; Insertion sort; quick sort; merge; heap sort.  
+Sorting: Bubble sort; Insertion sort; quick sort; merge; heap sort.
 
 # Sorting Algorithms
 
-Given a messy array, make it unmessy by *sorting*. Ascending, descending, alphabetical, IQ level..
+Given a messy array, make it unmessy by _sorting_. Ascending, descending, alphabetical, IQ level..
 
 ## Quick Reference
 
@@ -18,14 +18,34 @@ Given a messy array, make it unmessy by *sorting*. Ascending, descending, alphab
 
 Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
 
+**Time Complexity**: O(n²)
+
+- **Best Case**: O(n) when array is already sorted
+- **Average/Worst Case**: O(n²)
+
+**Advantages**:
+
+- Simple to understand and implement
+- Stable sorting algorithm
+- Requires only O(1) extra space
+
+**Disadvantages**:
+
+- Very inefficient for large datasets
+- Always makes O(n²) comparisons even if array is sorted
+
+Initial array:
+
 ```mermaid
 graph LR
-    subgraph First_Pass
-        A1[5] --- B1[3] --- C1[8] --- D1[4] --- E1[2]
-    end
-    subgraph After_First_Pass
-        A2[3] --- B2[5] --- C2[4] --- D2[2] --- E2[8]
-    end
+    A1[5] --- B1[3] --- C1[8] --- D1[4] --- E1[2]
+```
+
+After first pass:
+
+```mermaid
+graph LR
+    A2[3] --- B2[5] --- C2[4] --- D2[2] --- E2[8]
 ```
 
 ```typescript
@@ -46,14 +66,36 @@ function bubbleSort(arr: number[]): number[] {
 
 Builds the final sorted array one item at a time, by repeatedly inserting a new element into the sorted portion of the array.
 
+**Time Complexity**: O(n²)
+
+- **Best Case**: O(n) when array is almost sorted
+- **Average/Worst Case**: O(n²)
+
+**Advantages**:
+
+- Efficient for small data sets
+- Adaptive: if array is nearly sorted, runs in almost O(n) time
+- In-place algorithm
+- Stable sort
+- Online: can sort as data is being received
+
+**Disadvantages**:
+
+- Inefficient for large datasets
+- Requires O(n²) comparisons and shifts
+
+Initial array:
+
 ```mermaid
 graph LR
-    subgraph Initial
-        A1[5] --- B1[3] --- C1[8] --- D1[4] --- E1[2]
-    end
-    subgraph After_Two_Passes
-        A2[3] --- B2[5] --- C2[8] --- D2[4] --- E2[2]
-    end
+    A1[5] --- B1[3] --- C1[8] --- D1[4] --- E1[2]
+```
+
+After two passes:
+
+```mermaid
+graph LR
+    A2[3] --- B2[5] --- C2[8] --- D2[4] --- E2[2]
 ```
 
 ```typescript
@@ -74,6 +116,26 @@ function insertionSort(arr: number[]): number[] {
 ## Quick Sort
 
 Uses a divide-and-conquer strategy. Picks a 'pivot' element and partitions the array around it.
+
+**Time Complexity**: O(n log n) average
+
+- **Best Case**: O(n log n)
+- **Average Case**: O(n log n)
+- **Worst Case**: O(n²) when poorly pivoted
+
+**Advantages**:
+
+- Fastest sorting algorithm in practice
+- In-place sorting
+- Cache friendly
+- Can be easily parallelized
+- Low overhead
+
+**Disadvantages**:
+
+- Unstable sort
+- O(n²) worst case
+- Not adaptive
 
 ```mermaid
 graph TD
@@ -99,6 +161,24 @@ function quickSort(arr: number[]): number[] {
 ## Merge Sort
 
 Divides the array into smaller subarrays, sorts them, and then merges them back together.
+
+**Time Complexity**: O(n log n)
+
+- **Best/Average/Worst Case**: Always O(n log n)
+
+**Advantages**:
+
+- Predictable performance: always O(n log n)
+- Stable sort
+- Parallelizable
+- Great for linked lists - no random access needed
+
+**Disadvantages**:
+
+- Requires O(n) extra space
+- Not in-place
+- Not adaptive
+- Overkill for small arrays
 
 ```mermaid
 graph TD
@@ -138,7 +218,25 @@ function merge(left: number[], right: number[]): number[] {
 
 ## Heap Sort
 
-Uses a binary heap data structure to sort elements. Check out [[20 - Trees and graphs#Heaps]] for more details about heaps.
+Uses a binary heap data structure to sort elements.
+
+**Time Complexity**: O(n log n)
+
+- **Best/Average/Worst Case**: Always O(n log n)
+
+**Advantages**:
+
+- In-place sorting
+- No extra space needed
+- Predictable performance
+- Great for finding k largest/smallest elements
+
+**Disadvantages**:
+
+- Unstable sort
+- Not adaptive
+- Slower in practice than Quick Sort
+- Poor cache performance
 
 ```mermaid
 graph TD
