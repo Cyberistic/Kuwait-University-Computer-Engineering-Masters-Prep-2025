@@ -160,8 +160,7 @@ Notice how:
 Confusing right? ahahah will probably be in the exam.
 I would personally just keep first 2 nodes and push the rest down the tree until a space is available, but what do I know.
 
-> [!warn] Before moving on..
-> I need to mention 
+
 ---
 
 ## Heaps
@@ -171,6 +170,30 @@ A **Heap** is a complete binary tree that satisfies the **heap property**.
 - **Min-Heap**: Parent is less than both children
 
 - **Max-Heap**: Parent is greater than both children
+
+An example of min-heap:
+```mermaid 
+graph TD
+    A((1)) --> B((3))
+    A --> C((5))
+    B --> D((7))
+    B --> E((9))
+    C --> F((8))
+    C --> G((10))
+
+```
+
+An example of max-heap:
+```mermaid
+graph TD
+    A((10)) --> B((9))
+    A --> C((8))
+    B --> D((4))
+    B --> E((7))
+    C --> F((3))
+    C --> G((5))
+
+```
 
 Heaps are often stored as arrays.
 
