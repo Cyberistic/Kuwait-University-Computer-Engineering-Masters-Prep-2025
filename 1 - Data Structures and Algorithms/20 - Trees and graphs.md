@@ -294,7 +294,7 @@ function bubbleDown(heap: Heap, index: number) {
 }
 ```
 
-3. Heapify (O(n))
+3. Heapify (build a heap) (O(n))
 
 ```typescript
 function heapify(array: number[]) {
@@ -306,67 +306,56 @@ function heapify(array: number[]) {
 }
 ```
 
-````typescript
-
 #### Normal Heap Operations
+
 1. Insertion (O(log n))
 
 ```typescript
 function insert(heap: Heap, value: number) {
   heap.push(value);
   bubbleUp(heap, heap.length - 1);
-}
-
-function bubbleUp(heap: number[], index: number) {
-  while (index > 0) {
-    const parentIdx = Math.floor((index - 1) / 2);
-    if (heap[parentIdx] >= heap[index]) break; // for max-heap
-    [heap[parentIdx], heap[index]] = [heap[index], heap[parentIdx]];
-    index = parentIdx;
-  }
-}
-````
-
-2. Extract Max/Min (O(log n))
-
-```typescript
-function extractMax(heap: Heap): number {
-  if (heap.length === 0) return -1;
-
-  const max = heap[0];
-  heap[0] = heap[heap.length - 1];
-  heap.pop();
-  bubbleDown(heap, 0);
-
-  return max;
-}
-
-function bubbleDown(heap: Heap, index: number) {
-  while (true) {
-    let largest = index;
-    const left = 2 * index + 1;
-    const right = 2 * index + 2;
-
-    if (left < heap.length && heap[left] > heap[largest]) largest = left;
-    if (right < heap.length && heap[right] > heap[largest]) largest = right;
-
-    if (largest === index) break;
-
-    [heap[index], heap[largest]] = [heap[largest], heap[index]];
-    index = largest;
-  }
+  // Bubble up the new element to maintain heap property
 }
 ```
 
-3. Building a Heap (O(n))
+2. Removal (O(log n))
 
 ```typescript
-function buildHeap(array: number[]) {
-  const firstNonLeaf = Math.floor(array.length / 2) - 1;
-  for (let i = firstNonLeaf; i >= 0; i--) {
-    bubbleDown(array, i);
-  }
-  return array;
+function remove(heap: Heap, index: number) {
+  if (index < 0 || index >= heap.length) return -1;
+
+  const removedValue = heap[index];
+  heap[index] = heap[heap.length - 1]; // replace with last element
+  heap.pop(); // remove last element
+  bubbleDown(heap, index); // maintain heap property
+  return removedValue;
+}
+```
+
+3. Extract Max/Min (O(log n))
+
+```typescript
+function extractMax(heap: Heap): number {
+  // Assuming max-heap
+  if (heap.length === 0) return -1;
+
+  const max = heap[0]; // root
+  heap[0] = heap[heap.length - 1]; // replace root with last element
+  heap.pop(); // remove last element
+  bubbleDown(heap, 0); // maintain heap property
+  return max;
+}
+
+function extractMin(heap: Heap): number {
+  // Assuming min-heap
+  if (heap.length === 0) return -1;
+
+  const min = heap[0]; // root
+  heap[0] = heap[heap.length - 1]; // replace root with last element
+  heap.pop(); // remove last element
+  bubbleDown(heap, 0); // maintain heap property
+
+  return min;
 }
 ```
 
@@ -485,3 +474,7 @@ function bfs(graph: Graph, start: string) {
 | **DFS/BFS (adj list)**     | O(V + E)                 |
 | **DFS/BFS (adj matrix)**   | O(V²)                    |
 | **Dijkstra (binary heap)** | O((V + E) log V)         |
+
+```
+
+```
