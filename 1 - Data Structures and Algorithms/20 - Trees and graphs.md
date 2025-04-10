@@ -298,7 +298,7 @@ function bubbleDown(heap: Heap, index: number) {
 ```
 
 3. Heapify (build a heap) (O(n))
-Building a heap from an arbitrary array is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root. This is more efficient than inserting each element one by one, as it takes O(n) time.
+   Building a heap from an arbitrary array is done by calling bubbleDown on each non-leaf node, starting from the last non-leaf node down to the root. This is more efficient than inserting each element one by one, as it takes O(n) time.
 
 Watch this video to understand how it works
 ![](https://www.youtube.com/watch?v=Yc1E1V9Xya0)
@@ -370,10 +370,8 @@ function extractMin(heap: Heap): number {
 }
 ```
 
-#### Heap Sort (O(n log n))
-
-Will be covered in [[30 - Sorting#Heap Sort]]
-
+> [!Important] Heap Sort (O(n log n))
+> Covered in [[30 - Sorting#Heap Sort]]
 
 ---
 
@@ -382,17 +380,115 @@ Will be covered in [[30 - Sorting#Heap Sort]]
 A **graph** is a set of **nodes (vertices)** and **edges** connecting them.
 
 ```ts
-type Graph = {
-  [node: string]: string[]; // adjacency list representation
+type Node = {
+  id: string;
+  value: any; // can store any data
 };
+
+// For unweighted graphs
+type Graph = {
+  nodes: Map<string, Node>;
+  adjacencyList: Map<string, string[]>;
+};
+
+// For weighted graphs
+type WeightedEdge = {
+  to: string;
+  weight: number;
+};
+
+type WeightedGraph = {
+  nodes: Map<string, Node>;
+  adjacencyList: Map<string, WeightedEdge[]>;
+};
+
+// For directed graphs, edges only go one way
+// For undirected graphs, need to add edges in both directions
 ```
 
-### Types
+### Types of Graphs
 
-- **Directed** vs **Undirected**
-- **Weighted** vs **Unweighted**
-- **Cyclic** vs **Acyclic**
-- **Connected** vs **Disconnected**
+Let's look at some examples:
+
+1. **Directed vs Undirected**
+
+Directed Graph:
+
+```mermaid
+graph LR
+    A((A)) -->|"5"| B((B))
+    B -->|"3"| C((C))
+    A -->|"2"| C
+```
+
+Undirected Graph:
+
+```mermaid
+graph LR
+    A((A)) ---|"5"| B((B))
+    B ---|"3"| C((C))
+    A ---|"2"| C
+```
+
+2. **Weighted vs Unweighted**
+
+Weighted Graph:
+
+```mermaid
+graph LR
+    A((A)) -->|"10"| B((B))
+    B -->|"20"| C((C))
+    C -->|"30"| D((D))
+```
+
+Unweighted Graph:
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> C((C))
+    C --> D((D))
+```
+
+3. **Cyclic vs Acyclic**
+
+Cyclic Graph:
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> C((C))
+    C --> A
+```
+
+Acyclic Graph (DAG):
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> C((C))
+    B --> D((D))
+```
+
+4. **Connected vs Disconnected**
+
+Connected Graph:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    B --- C((C))
+    C --- D((D))
+    D --- A
+```
+
+Disconnected Graph:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    C((C)) --- D((D))
+```
 
 ---
 
@@ -400,35 +496,145 @@ type Graph = {
 
 ### 1. Adjacency Matrix
 
+Example Graph:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    B --- C((C))
+    A --- C
+```
+
+Represented as matrix:
+
 ```ts
 const matrix = [
-  [0, 1, 0],
-  [1, 0, 1],
-  [0, 1, 0]
+  [0, 1, 1], // A's connections: A->B, A->C
+  [1, 0, 1], // B's connections: B->A, B->C
+  [1, 1, 0] // C's connections: C->A, C->B
+];
+
+// For weighted graphs:
+const weightedMatrix = [
+  [0, 5, 2], // A->B (weight 5), A->C (weight 2)
+  [5, 0, 3], // B->A (weight 5), B->C (weight 3)
+  [2, 3, 0] // C->A (weight 2), C->B (weight 3)
 ];
 ```
 
-- Good for dense graphs
-- Space: `O(n^2)`
+**Advantages:**
+
+- O(1) edge lookup
+- Simple to implement
+- Good for dense graphs where |E| ≈ |V|²
+
+**Disadvantages:**
+
+- Always requires O(V²) space
+- O(V) time to find all neighbors of a vertex
 
 ### 2. Adjacency List
 
-```ts
-const adjList = {
-  A: ["B"],
-  B: ["A", "C"],
-  C: ["B"]
-};
+Example Graph:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    B --- C((C))
+    A --- C
 ```
 
-- Good for sparse graphs
-- Space: `O(V + E)`
+Basic implementation:
+
+```ts
+const adjList = {
+  A: ["B", "C"],
+  B: ["A", "C"],
+  C: ["A", "B"]
+};
+
+// For weighted graphs:
+const weightedAdjList = {
+  A: [
+    { node: "B", weight: 5 },
+    { node: "C", weight: 2 }
+  ],
+  B: [
+    { node: "A", weight: 5 },
+    { node: "C", weight: 3 }
+  ],
+  C: [
+    { node: "A", weight: 2 },
+    { node: "B", weight: 3 }
+  ]
+};
+
+// Using Map (better for modifications):
+const adjListMap = new Map([
+  ["A", ["B", "C"]],
+  ["B", ["A", "C"]],
+  ["C", ["A", "B"]]
+]);
+```
+
+Common operations:
+
+```ts
+// Add vertex
+function addVertex(graph: Map<string, string[]>, vertex: string) {
+  if (!graph.has(vertex)) {
+    graph.set(vertex, []);
+  }
+}
+
+// Add edge
+function addEdge(graph: Map<string, string[]>, from: string, to: string) {
+  if (!graph.has(from)) addVertex(graph, from);
+  if (!graph.has(to)) addVertex(graph, to);
+
+  graph.get(from)!.push(to);
+  // For undirected graph:
+  // graph.get(to)!.push(from);
+}
+
+// Remove edge
+function removeEdge(graph: Map<string, string[]>, from: string, to: string) {
+  if (graph.has(from)) {
+    graph.set(
+      from,
+      graph.get(from)!.filter((v) => v !== to)
+    );
+  }
+}
+```
+
+> [!tip] When to use which?
+>
+> - Use Adjacency Matrix when:
+>   - Graph is dense (many edges)
+>   - Need fast edge weight lookups
+>   - Graph is small (< 1000 vertices)
+> - Use Adjacency List when:
+>   - Graph is sparse (few edges)
+>   - Need to find neighbors quickly
+>   - Memory efficiency is important
 
 ---
 
 ## Graph Traversals
 
+Graph traversal is the process of visiting all vertices in a graph. The two main approaches are:
+
 ### 1. Depth-First Search (DFS)
+
+Explores as far as possible along each branch before backtracking. Think of it as exploring a maze by following each path to its end before going back and trying a different path.
+
+- Uses a **stack** (or recursion)
+- Good for:
+  - Finding cycles
+  - Topological sorting
+  - Solving mazes
+  - Finding connected components
 
 ```ts
 function dfs(graph: Graph, start: string, visited = new Set()) {
@@ -442,6 +648,14 @@ function dfs(graph: Graph, start: string, visited = new Set()) {
 ```
 
 ### 2. Breadth-First Search (BFS)
+
+Explores all vertices at the present depth before moving to vertices at the next depth level. Think of it as exploring a maze in "layers", checking all possible paths one step at a time.
+
+- Uses a **queue**
+- Good for:
+  - Finding shortest path (unweighted)
+  - Finding all vertices n edges away
+  - Finding shortest cycle
 
 ```ts
 function bfs(graph: Graph, start: string) {
@@ -468,15 +682,86 @@ function bfs(graph: Graph, start: string) {
 
 ## Shortest Path Algorithms
 
-### 1. Dijkstra’s Algorithm (for weighted graphs)
+### 1. Dijkstra's Algorithm (for weighted graphs)
 
-- Keeps track of the shortest known distance to each node.
-- Uses a **min-priority queue** (often implemented with a heap).
-- Time Complexity: `O((V + E) log V)` with a binary heap.
+Finds the shortest path between nodes in a weighted graph.
+
+Since i'm not sure if it's required, I've created a separate note for it with its code implementation:
+[[Dijkstra's Algorithm]]
+
+> [!Important] Fun fact..
+> Dijkstra's algorithm is very important in networks.. Think of nodes as "machines", the ID as their "IP", and weighted edges as "connection strength".
 
 ### 2. BFS (for unweighted graphs)
 
-- Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` time.
+Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` time. Here's how it works:
+
+1. Start at source node and mark distance as 0
+2. Visit all neighbors (distance + 1)
+3. Visit neighbors of neighbors (distance + 2)
+4. Continue until reaching target node
+
+```ts
+function findShortestPath(graph: Graph, start: string, end: string) {
+  // Track distances and paths
+  const distances = new Map([[start, 0]]);
+  const previous = new Map();
+  const queue = [start];
+  const visited = new Set([start]);
+
+  while (queue.length > 0) {
+    const current = queue.shift()!;
+    if (current === end) {
+      // Reconstruct path
+      const path = [];
+      let node = end;
+      while (node) {
+        path.unshift(node);
+        node = previous.get(node);
+      }
+      return {
+        distance: distances.get(end),
+        path: path
+      };
+    }
+
+    for (const neighbor of graph.adjacencyList.get(current)!) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push(neighbor);
+        distances.set(neighbor, distances.get(current)! + 1);
+        previous.set(neighbor, current);
+      }
+    }
+  }
+
+  return null; // No path exists
+}
+```
+
+For example:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    B --- C((C))
+    A --- D((D))
+    D --- C((C))
+```
+
+Finding shortest path from A to C:
+
+1. Visit A (distance 0)
+2. Visit B, D (distance 1)
+3. Visit C (distance 2 via B)
+4. Done! Path is A → B → C with distance 2
+
+> [!tip] Why it works
+> BFS guarantees that when we first reach a node, we've found the shortest path to it because:
+>
+> 1. We explore all paths of length 1 before length 2
+> 2. We explore all paths of length 2 before length 3
+> 3. And so on...
 
 ---
 
@@ -491,6 +776,4 @@ function bfs(graph: Graph, start: string) {
 | **DFS/BFS (adj matrix)**   | O(V²)                    |
 | **Dijkstra (binary heap)** | O((V + E) log V)         |
 
-```
 
-```
