@@ -408,58 +408,87 @@ type WeightedGraph = {
 
 ### Types of Graphs
 
+Let's look at some examples:
+
 1. **Directed vs Undirected**
 
-   ```ts
-   // Directed graph (one-way edges)
-   const directedGraph: Graph = {
-     nodes: new Map([
-       ["A", { id: "A", value: 1 }],
-       ["B", { id: "B", value: 2 }]
-     ]),
-     adjacencyList: new Map([
-       ["A", ["B"]], // A -> B
-       ["B", []] // B has no outgoing edges
-     ])
-   };
+Directed Graph:
 
-   // Undirected graph (two-way edges)
-   const undirectedGraph: Graph = {
-     nodes: new Map([
-       ["A", { id: "A", value: 1 }],
-       ["B", { id: "B", value: 2 }]
-     ]),
-     adjacencyList: new Map([
-       ["A", ["B"]], // A <-> B
-       ["B", ["A"]] // B <-> A
-     ])
-   };
-   ```
+```mermaid
+graph LR
+    A((A)) -->|"5"| B((B))
+    B -->|"3"| C((C))
+    A -->|"2"| C
+```
+
+Undirected Graph:
+
+```mermaid
+graph LR
+    A((A)) ---|"5"| B((B))
+    B ---|"3"| C((C))
+    A ---|"2"| C
+```
 
 2. **Weighted vs Unweighted**
 
-   ```ts
-   // Weighted graph (edges have costs)
-   const weightedGraph: WeightedGraph = {
-     nodes: new Map([
-       ["A", { id: "A", value: 1 }],
-       ["B", { id: "B", value: 2 }]
-     ]),
-     adjacencyList: new Map([
-       ["A", [{ to: "B", weight: 5 }]],
-       ["B", [{ to: "A", weight: 5 }]]
-     ])
-   };
-   ```
+Weighted Graph:
+
+```mermaid
+graph LR
+    A((A)) -->|"10"| B((B))
+    B -->|"20"| C((C))
+    C -->|"30"| D((D))
+```
+
+Unweighted Graph:
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> C((C))
+    C --> D((D))
+```
 
 3. **Cyclic vs Acyclic**
 
-   - Cyclic: Contains at least one cycle (A → B → C → A)
-   - Acyclic: No cycles (like a tree)
+Cyclic Graph:
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> C((C))
+    C --> A
+```
+
+Acyclic Graph (DAG):
+
+```mermaid
+graph LR
+    A((A)) --> B((B))
+    B --> C((C))
+    B --> D((D))
+```
 
 4. **Connected vs Disconnected**
-   - Connected: Every node can be reached from any other node
-   - Disconnected: Graph has isolated components
+
+Connected Graph:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    B --- C((C))
+    C --- D((D))
+    D --- A
+```
+
+Disconnected Graph:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    C((C)) --- D((D))
+```
 
 ---
 
@@ -467,29 +496,128 @@ type WeightedGraph = {
 
 ### 1. Adjacency Matrix
 
+Example Graph:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    B --- C((C))
+    A --- C
+```
+
+Represented as matrix:
+
 ```ts
 const matrix = [
-  [0, 1, 0],
-  [1, 0, 1],
-  [0, 1, 0]
+  [0, 1, 1], // A's connections: A->B, A->C
+  [1, 0, 1], // B's connections: B->A, B->C
+  [1, 1, 0] // C's connections: C->A, C->B
+];
+
+// For weighted graphs:
+const weightedMatrix = [
+  [0, 5, 2], // A->B (weight 5), A->C (weight 2)
+  [5, 0, 3], // B->A (weight 5), B->C (weight 3)
+  [2, 3, 0] // C->A (weight 2), C->B (weight 3)
 ];
 ```
 
-- Good for dense graphs
-- Space: `O(n^2)`
+**Advantages:**
+
+- O(1) edge lookup
+- Simple to implement
+- Good for dense graphs where |E| ≈ |V|²
+
+**Disadvantages:**
+
+- Always requires O(V²) space
+- O(V) time to find all neighbors of a vertex
 
 ### 2. Adjacency List
 
-```ts
-const adjList = {
-  A: ["B"],
-  B: ["A", "C"],
-  C: ["B"]
-};
+Example Graph:
+
+```mermaid
+graph LR
+    A((A)) --- B((B))
+    B --- C((C))
+    A --- C
 ```
 
-- Good for sparse graphs
-- Space: `O(V + E)`
+Basic implementation:
+
+```ts
+const adjList = {
+  A: ["B", "C"],
+  B: ["A", "C"],
+  C: ["A", "B"]
+};
+
+// For weighted graphs:
+const weightedAdjList = {
+  A: [
+    { node: "B", weight: 5 },
+    { node: "C", weight: 2 }
+  ],
+  B: [
+    { node: "A", weight: 5 },
+    { node: "C", weight: 3 }
+  ],
+  C: [
+    { node: "A", weight: 2 },
+    { node: "B", weight: 3 }
+  ]
+};
+
+// Using Map (better for modifications):
+const adjListMap = new Map([
+  ["A", ["B", "C"]],
+  ["B", ["A", "C"]],
+  ["C", ["A", "B"]]
+]);
+```
+
+Common operations:
+
+```ts
+// Add vertex
+function addVertex(graph: Map<string, string[]>, vertex: string) {
+  if (!graph.has(vertex)) {
+    graph.set(vertex, []);
+  }
+}
+
+// Add edge
+function addEdge(graph: Map<string, string[]>, from: string, to: string) {
+  if (!graph.has(from)) addVertex(graph, from);
+  if (!graph.has(to)) addVertex(graph, to);
+
+  graph.get(from)!.push(to);
+  // For undirected graph:
+  // graph.get(to)!.push(from);
+}
+
+// Remove edge
+function removeEdge(graph: Map<string, string[]>, from: string, to: string) {
+  if (graph.has(from)) {
+    graph.set(
+      from,
+      graph.get(from)!.filter((v) => v !== to)
+    );
+  }
+}
+```
+
+> [!tip] When to use which?
+>
+> - Use Adjacency Matrix when:
+>   - Graph is dense (many edges)
+>   - Need fast edge weight lookups
+>   - Graph is small (< 1000 vertices)
+> - Use Adjacency List when:
+>   - Graph is sparse (few edges)
+>   - Need to find neighbors quickly
+>   - Memory efficiency is important
 
 ---
 
