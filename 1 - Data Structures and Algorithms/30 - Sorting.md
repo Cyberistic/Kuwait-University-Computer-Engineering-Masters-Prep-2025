@@ -210,8 +210,8 @@ For more info about heaps: [[20 - Trees and graphs#Heaps]]
 
 **Advantages**:
 
-- In-place sorting
-- No extra space needed
+- In-place sorting (check the comment in the code)
+- No extra space needed (check the comment in the note)
 - Predictable performance
 - Great for finding k largest/smallest elements
 
@@ -228,6 +228,7 @@ function heapSort(arr: number[]): number[] {
 
   for (let i = arr.length - 1; i > 0; i--) {
     [arr[0], arr[i]] = [arr[i], arr[0]]; // move max to end
+    // bubbleDown for max-heap
     bubbleDown(arr.slice(0, i), 0); // re-heapify the reduced heap
     // !Important: in JS, slice() creates a new array, to keep using a single array, we need to modify our bubbleDown function to be bubbleDown(arr, index, firstXElements) where firstXElements is the length of the heap we want to keep.
   }
