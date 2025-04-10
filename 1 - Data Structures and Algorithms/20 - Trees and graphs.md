@@ -686,8 +686,11 @@ function bfs(graph: Graph, start: string) {
 
 Finds the shortest path between nodes in a weighted graph.
 
-Since i'm not sure if it's required
+Since i'm not sure if it's required, I've created a separate note for it with its code implementation:
 [[Dijkstra's Algorithm]]
+
+> [!Important] Fun fact..
+> Dijkstra's algorithm is very important in networks.. Think of nodes as "machines", the ID as their "IP", and weighted edges as "connection strength".
 
 ### 2. BFS (for unweighted graphs)
 
