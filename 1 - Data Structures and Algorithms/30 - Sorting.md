@@ -191,7 +191,7 @@ function merge(left: number[], right: number[]): number[] {
 ## Heap Sort
 
 Uses a heap tree data structure to sort elements.
-How? Build a max heap from the input array, then repeatedly extract the maximum element from the heap and rebuild the heap until all elements are sorted.
+How? Build a max heap from the input array, then repeatedly extract the maximum element (by swapping it to the end), shrink the heap, and bubble down the new root.
 
 tl;dr:
 
@@ -222,32 +222,23 @@ For more info about heaps: [[20 - Trees and graphs#Heaps]]
 - Slower in practice than Quick Sort
 - Poor cache performance
 
-```mermaid
-graph TD
-    A((10)) --> B((4))
-    A --> C((8))
-    B --> D((3))
-    B --> E((2))
-    C --> F((6))
-    C --> G((1))
-```
-
 ```typescript
 function heapSort(arr: number[]): number[] {
-  // Build max heap
-  for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
-    heapify(arr, arr.length, i);
-  }
+  heapify(arr); // max-heap version
 
-  // Extract elements from heap one by one
   for (let i = arr.length - 1; i > 0; i--) {
-    [arr[0], arr[i]] = [arr[i], arr[0]];
-    heapify(arr, i, 0);
+    [arr[0], arr[i]] = [arr[i], arr[0]]; // move max to end
+    bubbleDown(arr.slice(0, i), 0); // re-heapify the reduced heap
+    // !Important: in JS, slice() creates a new array, to keep using a single array, we need to modify our bubbleDown function to be bubbleDown(arr, index, firstXElements) where firstXElements is the length of the heap we want to keep.
   }
 
-  return arr;
+  return arr; // ascending order
 }
 ```
+
+> [!note] Another way to implement heap sort
+> Is to use our extractMax() function (and then reversing the array since it will be sorted in descending order) and push to a new array.
+> However, it will take more space since we will be creating a new array to store the sorted elements.
 
 ---
 
