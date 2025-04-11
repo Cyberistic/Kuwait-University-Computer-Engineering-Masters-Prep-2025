@@ -283,7 +283,7 @@ endmodule
 
 ## Decoder
 
-![[Decoder-symbol.png]]
+![[Decoder-symbol.png | center | 300]]
 
 A **decoder** is a circuit that converts binary information from `n` input lines to a maximum of `2^n` unique output lines.
 It essentially "decodes" the binary input into a specific output line.
@@ -390,25 +390,41 @@ function priorityEncoder4to2(
 }
 ```
 
+> [!Note] If you don't want a priority encoder, you can just use a normal encoder and check the inputs in order without masking.
+
 ### Verilog
 
 ```verilog
-module encoder4to2 (input, enable, output);
-  input [3:0] input;
-  input enable;
-  output reg [1:0] output;
+// 4-to-2 priority encoder which starts from the last input and ignores other inputs
 
-  always @(input or enable) begin
-    if (!enable) begin
-      output = 2'b00;
+module priorityEncoder4to2 (w, EN, f, Z);
+  input [3:0] w;
+  input EN;
+  output reg [1:0] f;
+  output reg Z;
+
+  always @(w or EN) begin
+    if (!EN) begin
+      f = 2'b00;
+      Z = 0;
     end else begin
-      case (input)
-        4'b0001: output <= 1;
-        4'b0010: output <= 2;
-        4'b0100: output <= 3;
-        4'b1000: output <= 4;
-        default: output <= 0;
-      endcase
+    if (w[3]) begin
+      f = 2'b11;
+      Z = 1;
+    end else if (w[2]) begin
+      f = 2'b10;
+      Z = 1;
+    end else if (w[1]) begin
+      f = 2'b01;
+      Z = 1;
+    end else if (w[0]) begin
+      f = 2'b00;
+      Z = 1;
+    end else begin
+      f = 2'b00;
+      Z = 0;
+    end
     end
   end
+endmodule
 ```
