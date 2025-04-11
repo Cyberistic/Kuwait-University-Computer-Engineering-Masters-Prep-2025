@@ -4,6 +4,18 @@ Hashing: Symbol tables; static hashing; dynamic hashing, and collision resolutio
 
 Hashing is a technique used to map data of arbitrary size to fixed-size values. Think of it as a way to create an "index" for your data.
 
+This is super useful for fast data retrieval, like when you want to find a specific item in a large dataset.
+Hashing is used in various applications, including:
+
+- **Databases**: For indexing and quick lookups.
+- **Cryptography**: For data integrity and security. (e.g., hashing passwords).
+- **Caching**: To store frequently accessed data.
+- **Data Structures**: Like hash tables, which allow for efficient data retrieval.
+
+## Symbol Tables (Hash Tables)
+
+A symbol table is an abstract data type that stores key-value pairs, where each key appears at most once.
+
 We use this all the time, think dictionaries in javascript, or a map in python.
 
 ```ts
@@ -15,7 +27,7 @@ const IQ = {
 };
 ```
 
-Notice how fast it is to access the IQ of "Mahdi" using `IQ["Mahdi"]`? That's the power of hash tables.
+Ever noticed how fast it is to access the IQ of "Mahdi" using `IQ["Mahdi"]`? That's the power of hash tables.
 
 > [!Question]- We even use nested tables all the time, what do you think `JSON` is?
 > It's a nested hash table.
@@ -40,12 +52,8 @@ Notice how fast it is to access the IQ of "Mahdi" using `IQ["Mahdi"]`? That's th
 >   }
 > };
 > ```
-
-## Symbol Tables (Hash Tables)
-
-A symbol table is an abstract data type that stores key-value pairs, where each key appears at most once.
-
-I've never heard anyone call it a symbol table before, but here we are.
+>
+> I've never heard anyone call it a symbol table before, but here we are.
 
 ```typescript
 type HashTable<K, V> = {
@@ -60,7 +68,7 @@ const phoneBook: HashTable<string, string> = {
 ```
 
 > [!Important]
-> I don't think the code implementation of hash-tables is required, but you can take a look at it here: 
+> I don't think the code implementation of hash-tables is required, but you can take a look at it here:
 > [[Hash-Table & Dynamic Hash-Table implementation#Hash-Table]]
 
 ## Static Hashing
@@ -87,11 +95,94 @@ graph TD
 - Fixed size might lead to poor performance if too many elements
 - Waste of space if too few elements
 
+## Hash Table Fundamentals
+
+### Hash Function
+
+A hash function maps data of arbitrary size to fixed-size values. A good hash function should:
+
+1. Be deterministic (same input = same output)
+2. Distribute values uniformly
+3. Be fast to compute
+4. Minimize collisions
+
+Example of a simple hash function:
+
+```typescript
+function hash(key: string): number {
+  let hash = 0;
+  for (let i = 0; i < key.length; i++) {
+    hash = (hash << 5) - hash + key.charCodeAt(i);
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  return Math.abs(hash);
+}
+```
+
+### Buckets
+
+A bucket is a slot in the hash table that can store one or more key-value pairs:
+
+- In open addressing: each bucket holds one item
+- In chaining: each bucket is a linked list of items
+
+```mermaid
+graph TD
+    A[Hash Table] --> B[Bucket 0]
+    A --> C[Bucket 1]
+    A --> D[Bucket 2]
+    B --> E["Entry(key1,val1)"]
+    C --> F["Entry(key2,val2)"]
+    C --> G["Entry(key3,val3)"]
+```
+
 ## Dynamic Hashing
 
-Dynamic hashing allows the hash table to grow or shrink based on the number of elements.
+Unlike static hashing, dynamic hashing adapts its structure as elements are added/removed.
 
+### Load Factor Based Resizing
 
+```typescript
+class DynamicHashTable<K, V> {
+  private table: Array<Array<[K, V]>>;
+  private size: number = 0;
+  private capacity: number;
+  private loadFactorThreshold = 0.75;
+
+  private resize(newCapacity: number): void {
+    const oldTable = this.table;
+    this.table = new Array(newCapacity).fill(null).map(() => []);
+    this.capacity = newCapacity;
+    this.size = 0;
+
+    // Rehash all existing entries
+    for (const bucket of oldTable) {
+      for (const [key, value] of bucket) {
+        this.set(key, value);
+      }
+    }
+  }
+
+  set(key: K, value: V): void {
+    if (this.size / this.capacity >= this.loadFactorThreshold) {
+      this.resize(this.capacity * 2);
+    }
+    // ...rest of set implementation
+  }
+}
+```
+
+### Advantages of Dynamic Hashing
+
+- Better space utilization
+- Maintains good performance as data grows
+- Adapts to workload
+
+### Disadvantages
+
+- Resizing operation is expensive (O(n))
+- More complex implementation
+- Memory usage can spike during resizing
 
 ## Collision Resolution
 
@@ -202,3 +293,80 @@ Where:
 
 > [!note] Load Factor
 > The load factor α = n/m determines how full the hash table is. A higher load factor means more collisions but better space utilization. Most implementations keep α < 0.75.
+
+### Problems with Different Resolution Methods:
+
+#### 1. Chaining
+
+**Advantages:**
+
+- Simple to implement
+- Performs well with good hash function
+- No space waste
+
+**Disadvantages:**
+
+- Extra memory for linked list nodes
+- Poor cache performance
+- Linked list operations overhead
+
+#### 2. Linear Probing
+
+**Advantages:**
+
+- Better cache performance
+- Simple implementation
+- No extra data structures
+
+**Disadvantages:**
+
+- Primary clustering: consecutive occupied slots form clusters
+- Performance degrades as table fills up
+- Deletion requires special handling
+
+```mermaid
+graph LR
+    A["Index 5"] --> B["Index 6"] --> C["Index 7"] --> D["Index 8"]
+    style A fill:#f9f,stroke:#333
+    style B fill:#f9f,stroke:#333
+    style C fill:#f9f,stroke:#333
+    style D fill:#f9f,stroke:#333
+```
+
+#### 3. Quadratic Probing
+
+**Advantages:**
+
+- Eliminates primary clustering
+- Better distribution than linear probing
+
+**Disadvantages:**
+
+- Secondary clustering: items with same initial position probe same locations
+- May not find empty slot even when one exists
+- More complex than linear probing
+
+#### 4. Double Hashing
+
+**Advantages:**
+
+- No clustering
+- Better distribution than linear/quadratic probing
+
+**Disadvantages:**
+
+- Requires second hash function
+- More expensive computation
+- Complex implementation
+
+> [!tip] Choosing a Resolution Method
+>
+> - Use **Chaining** when:
+>   - Load factor might exceed 0.7
+>   - Delete operations are frequent
+> - Use **Linear Probing** when:
+>   - Cache performance is critical
+>   - Load factor stays below 0.7
+> - Use **Double Hashing** when:
+>   - Maximum performance is needed
+>   - Space is at a premium
