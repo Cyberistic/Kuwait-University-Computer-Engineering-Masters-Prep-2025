@@ -16,8 +16,7 @@ Hashing is used in various applications, including:
 
 A symbol table, or _hash-table_, is an abstract data type that stores key-value pairs, where each key appears at most once.
 
-In simple terms, it allows for very fast insertion and searching of items. So no matter how many data items there are, insertion and searching (and sometimes deletion) can take close to constant time *O(1)*.
-
+In simple terms, it allows for very fast insertion and searching of items. So no matter how many data items there are, insertion and searching (and sometimes deletion) can take close to constant time _O(1)_.
 
 We use this all the time, think dictionaries in javascript, or a map in python.
 
@@ -76,22 +75,50 @@ const phoneBook: HashTable<string, string> = {
 
 > [!Important] Fun fact..
 > Want to test out how fast hash-tables are? try misspelling a word. You see that red squiggly line? it appeared instantly, but your device had to search through thousands of words saved in a hash-table.
+
 ## Hash Table Fundamentals
 
 1. **Hash Function**
 
-A hash function maps data of arbitrary size to fixed-size values. It is what maps key values to positions and is often donated by `h`. 
+A hash function maps data of arbitrary size to fixed-size values. It is what maps key values to positions and is often donated by `h`.
 
 A good hash function should:
 
-	1. Be deterministic (same input = same output)
-	2. Distribute values uniformly
-	3. Be fast to compute
-	4. Minimize collisions
+    1. Be deterministic (same input = same output)
+    2. Distribute values uniformly
+    3. Be fast to compute
+    4. Minimize collisions
 
 Here is a simple hashing function. Assume a table with 20 slots and a hashing function of `h(k) = k % 20` and `k = sum of numeric values of letters`.
 
+For the following strings:
 
+- "mahdi" = 13 + 1 + 8 + 4 + 9 = 35 Hashcode = 15
+- "asmaa" = 1 + 19 + 13 + 1 + 1 = 35; Hashcode = 15
+- "taleb" = 20 + 1 + 12 + 5 + 2 = 40; Hashcode = 0
+- "sudo" = 19 + 21 + 4 + 15 = 59; Hashcode = 19
+- "abdo" = 1 + 2 + 4 + 15 = 22; Hashcode = 2
+
+The table would look like this:
+
+```
+Hash table contents
+| Index | Key   |
+|-------|-------|
+| 0     | taleb |
+| 1     | empty |
+| 2     | abdo  |
+| 3     | empty |
+| 4     | empty |
+| 5     | empty |
+| 6     | empty |
+| 7     | empty |
+
+
+
+```
+
+````mermaid
 
 
 2. **Hash-Table:** The _array_ that holds the records. Denoted by HT.
@@ -112,7 +139,7 @@ graph TD
     B --> E["Entry(key1,val1)"]
     C --> F["Entry(key2,val2)"]
     C --> G["Entry(key3,val3)"]
-```
+````
 
 ## Static Hashing
 
