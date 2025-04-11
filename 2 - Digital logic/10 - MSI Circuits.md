@@ -8,4 +8,9 @@ Note that I won't explain in details since you should have a general idea of how
 
 ## MUX
 
+![[MUX-Symbol.png | center | 500]]
+
+Based on input `s`, connect inputs 0 or 1 to f.
+
+
 
