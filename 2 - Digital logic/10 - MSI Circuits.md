@@ -47,14 +47,41 @@ function mux4to1(
 }
 ```
 
-There is no "end" to this. 
+There is no "end" to this.
+
+### DEMUX
 
 A DEMUX is the opposite of a MUX. It takes one input and routes it to one of the multiple outputs based on the select lines.
 In reality, they are the same thing! Just flip the mux and you get a demux. (Since it's basically connecting a pin to another pin based on the select lines.)
+
+### Shannon's Theorem
+
+Shannon's theorem states that any boolean function can be implemented using a MUX.
+This means that you can use a MUX to implement any logic circuit. The theorem is based on the idea that any boolean function can be expressed as a combination of AND, OR, and NOT gates.
+
+> [!Note] I'm not sure if this theorem is required for this exam, so you might want to skip it.
+
+First, let's see how to implement a boolean function using a MUX.
+
+Suppose you have this boolean table:
+
+| x   | y   | f(x,y) |
+| --- | --- | ------ |
+| 0   | 0   | 0      |
+| 0   | 1   | 1      |
+| 1   | 0   | 1      |
+| 1   | 1   | 0      |
+
+The output in term of f(x,y) is:
+f(x,y) = x'y + xy' = (x' + y)(x + y')
+This can be implemented using a 2-to-1 MUX as follows:
+
+![[Weird Mux thing.png | center | 300]]
+
+So we can use the MUX to implement the function f(x,y) as follows:
 
 > [!Important] Fun fact..
 > I recently used a 16-to-1 MUX to make a 16 buttons keyboard.
 > In my code I just loop through the inputs and use the select lines to determine which button is pressed.
 > Instead of connecting 16 wires to the esp32, I only needed 5 (4 select and 1 output).
 > ![[ESP32-MUX.png|center|200]]
-
