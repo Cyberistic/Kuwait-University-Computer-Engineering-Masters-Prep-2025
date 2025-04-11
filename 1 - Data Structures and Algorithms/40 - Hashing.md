@@ -251,22 +251,22 @@ class LinearProbingHashTable<K, V> {
 
 **Disadvantages:**
 
-- _Primary Clustering_: *Consecutive* occupied slots form clusters
+- _Primary Clustering_: _Consecutive_ occupied slots form clusters
 - Performance degrades as table fills up
 - Deletion requires special handling
 
 Imagine you have `n` elemts which map to the number 2
 
-| Index | Key |
-|-------|-----|
-| 0 | empty |
-| 1 | empty |
-| 2 | taleb |
-| 3 | mahdi |
-| 4 | asmaa |
-| ... | ... |
-| n | abdoo |
-| n+1 | empty |
+| Index | Key   |
+| ----- | ----- |
+| 0     | empty |
+| 1     | empty |
+| 2     | taleb |
+| 3     | mahdi |
+| 4     | asmaa |
+| ...   | ...   |
+| n     | abdoo |
+| n+1   | empty |
 
 What happens if you want to find "abdoo"? You have to check all the slots from 2 to n+1, which is inefficient. What if the cluster is huge? Clustering makes your fast hash table slow. riperoni my hash table.
 
@@ -278,6 +278,11 @@ What happens if you want to find "abdoo"? You have to check all the slots from 2
 
 Similar to linear probing but tries slots at quadratic intervals. It is an attempt to reduce clustering.
 The idea is to prove more widely separated cells, instead of adjacent ones.
+
+It can be key + i², where `i` is the number of attempts.
+For example, i + 1², i + 2², i + 3², etc.
+
+````mermaid
 
 ```typescript
 class QuadraticProbingHashTable<K, V> {
@@ -302,7 +307,7 @@ class QuadraticProbingHashTable<K, V> {
 
 **Disadvantages:**
 
-- *Secondary clustering:* items with same initial position probe same locations. (lol)
+- _Secondary clustering:_ items with same initial position probe same locations. (lol)
 - May not find empty slot even when one exists
 - More complex than linear probing
 
