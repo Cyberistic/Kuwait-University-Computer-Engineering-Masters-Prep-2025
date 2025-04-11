@@ -47,10 +47,14 @@ function mux4to1(
 }
 ```
 
+There is no "end" to this. 
+
 A DEMUX is the opposite of a MUX. It takes one input and routes it to one of the multiple outputs based on the select lines.
 In reality, they are the same thing! Just flip the mux and you get a demux. (Since it's basically connecting a pin to another pin based on the select lines.)
 
 > [!Important] Fun fact..
 > I recently used a 16-to-1 MUX to make a 16 buttons keyboard.
 > In my code I just loop through the inputs and use the select lines to determine which button is pressed.
-> It's such a useful piece
+> Instead of connecting 16 wires to the esp32, I only needed 5 (4 select and 1 output).
+> ![[ESP32-MUX.png|center|200]]
+
