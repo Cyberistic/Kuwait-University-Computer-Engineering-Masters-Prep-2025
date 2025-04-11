@@ -55,7 +55,7 @@ Ever noticed how fast it is to access the IQ of "Mahdi" using `IQ["Mahdi"]`? Tha
 > };
 > ```
 
- I've never heard anyone call it a symbol table before, but here we are.
+I've never heard anyone call it a symbol table before, but here we are.
 
 ```typescript
 type HashTable<K, V> = {
@@ -70,10 +70,10 @@ const phoneBook: HashTable<string, string> = {
 ```
 
 ### Disadvantages of Hash-tables:
+
 - They're based on arrays, and arrays are difficult to expand once they are created.
 - No easy way to traverse the items! Have to traverse the entire table.
 - Always unsorted, expensive to do getMin, getMax, etc.
-
 
 > [!Warning]
 > I don't think the code implementation of hash-tables is required, but you can take a look at it here:
@@ -107,7 +107,7 @@ For the following strings:
 The table would look like this:
 
 | Index | Key   |
-|-------|-------|
+| ----- | ----- |
 | 0     | taleb |
 | 1     | empty |
 | 2     | abdo  |
@@ -119,10 +119,9 @@ The table would look like this:
 | 8     | empty |
 | 9     | empty |
 
-> [!Note] 
-> Notice how 2 values, `mahdi` and `asmaa` had the same hash? This is called a *collision*, and the *collision resolution* technique to use the next available slot (like how we used index 6 above) is called *Linear Probing*. 
+> [!Note]
+> Notice how 2 values, `mahdi` and `asmaa` had the same hash? This is called a _collision_, and the _collision resolution_ technique to use the next available slot (like how we used index 6 above) is called _Linear Probing_.
 > A more detailed explanation of collisions is provided below.
-
 
 2. **Hash-Table:** The _array_ that holds the records. Denoted by HT.
 
@@ -130,7 +129,7 @@ The table would look like this:
 
 4. **Collisions**: Two hash tables elements map into the same slot in the array (They have the same hash).
 
-5.  **Buckets**
+5. **Buckets**
 
 A bucket is a slot in the hash table that can store one or more key-value pairs:
 
@@ -146,7 +145,6 @@ graph TD
     C --> F["Entry(key2,val2)"]
     C --> G["Entry(key3,val3)"]
 ```
-
 
 ## Static Hashing
 
@@ -225,7 +223,6 @@ class ChainedHashTable<K, V> {
 
 - Linked list operations overhead. (To find a node, need to traverse the entire linked-list)
 
-
 ### 2. Linear Probing
 
 If a collision occurs, try the next slot until an empty one is found.
@@ -246,7 +243,6 @@ class LinearProbingHashTable<K, V> {
 }
 ```
 
-
 **Advantages:**
 
 - Better cache performance
@@ -255,9 +251,29 @@ class LinearProbingHashTable<K, V> {
 
 **Disadvantages:**
 
-- *Clustering*: consecutive occupied slots form clusters
+- _Clustering_: consecutive occupied slots form clusters
 - Performance degrades as table fills up
 - Deletion requires special handling
+
+Imagine you have `n` elemts which map to the number 2
+| Index | Key |
+|-------|-------|
+| 0 | empty |
+| 1 | empty |
+| 2 | taleb |
+| 3 | mahdi |
+| 4 | asmaa |
+| ... | ... |
+| n | abdoo |
+| n+1 | empty |
+
+What happens if you want to find "abdoo"? You have to check all the slots from 2 to n+1, which is inefficient. What if the cluster is huge? Clustering makes your fast hash table slow. riperoni my hash table.
+
+````mermaid
+
+
+
+
 
 
 ### 3. Quadratic Probing
@@ -278,7 +294,7 @@ class QuadraticProbingHashTable<K, V> {
     this.table[index] = [key, value];
   }
 }
-```
+````
 
 ### 4. Double Hashing
 
@@ -321,9 +337,6 @@ Where:
 
 > [!note] Load Factor
 > The load factor α = n/m determines how full the hash table is. A higher load factor means more collisions but better space utilization. Most implementations keep α < 0.75.
-
-
-
 
 #### 2. Linear Probing
 
