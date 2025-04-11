@@ -322,7 +322,7 @@ For example, lets say you have a table of size 4:
 | 2     | taleb |
 | 3     | empty |
 
-Now let's say you want to insert "abdo" which hashes to 0. You'll try 0, 1, then 4, then 9 % 4 = 1, then 16 % 4 = 0, 32 % 4 = 0, and so on. You will never find an empty slot, even though there is one at index 3.
+Now let's say you want to insert "abdo" which hashes to 0. You'll try 1, then 4 % 4 = 0, then 9 % 4 = 1, then 16 % 4 = 0, then 25 % 4 = 1, and so on. You will never find an empty slot, even though there is one at index 3.
 
 This is fixable by using prime numbers for the table size! the infinite loop does not happen if the table size is prime. All slots will be probed eventually.
 
@@ -353,6 +353,10 @@ class DoubleHashTable<K, V> {
 }
 ```
 
-**Advantages:**
+## Load Factor
 
-- Reduces clustering
+The load factor is the ratio of the number of elements in the hash table to the size of the table. It is a measure of how full the hash table is.
+A load factor of 0.7 is often considered optimal for performance. If the load factor exceeds a certain threshold (e.g., 0.7), the hash table may need to be resized.
+This is because as the load factor increases, the probability of collisions increases, leading to slower performance.
+
+In chaining, the load factor can be greater than 1, as multiple elements can be stored in the same bucket. Meaning, you can have more elements than number of slots in the table. 🤯
