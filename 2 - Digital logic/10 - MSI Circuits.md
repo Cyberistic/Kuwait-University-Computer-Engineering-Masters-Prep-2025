@@ -97,8 +97,13 @@ f(w1,w2,w3) = w1'w2'w3 + w1'w2w3' + w1w2'w3' + w1w2w3
 To solve, we take 2 inputs as common denominators "عامل مشترك" and the other as select lines.
 So we can take w1 and w2 as common denominators and w3 as the select line.
 This gives us:
-$$ f(w_1, w_2, w_3) = \overline{w_1}\overline{w_2} \cdot f(0, 0, w_3) + \overline{w_1}w_2 \cdot f(0, 1, w_3) + w_1\overline{w_2} \cdot f(1, 0, w_3) + w_1w_2 \cdot f(1, 1, w_3)\)
-\(= \overline{w_1}\overline{w_2}(w_3) + \overline{w_1}w_2(\overline{w_3}) + w_1\overline{w_2}(\overline{w_3}) + w_1w_2(w_3)\) $$
+$$ \begin{aligned} 
+\ f(w_1, w_2, w_3) &= \\
+&\overline{w_1}\overline{w_2} \cdot f(0, 0, w_3) + \overline{w_1}w_2 \cdot f(0, 1, w_3) + w_1\overline{w_2} \cdot f(1, 0, w_3) + w_1w_2 \cdot f(1, 1, w_3)) \\
+&= \overline{w_1}\overline{w_2}(w_3) + \overline{w_1}w_2(\overline{w_3}) + w_1\overline{w_2}(\overline{w_3}) + w_1w_2(w_3)) 
+ \end{aligned}
+$$
+
 
 This can be implemented using a 4-to-1 MUX as follows:
 ![[Shannon's Theorem.png | center | 300]]
