@@ -329,10 +329,10 @@ This is fixable by using prime numbers for the table size! the infinite loop doe
 ### 4. Double Hashing
 
 Uses a second hash function to determine the probe interval.
+When hashing item x, if the first hash function returns index i, resolve collision by putting the colliding element into slot i + h2(x), i + 2 _ h2(x), i + 3 _ h2(x), etc.
 
 nerdy experts have determined that the best function is step = constant - (key % constant), where constant is a prime number less than the table size.
 
-````mermaid
 ```typescript
 class DoubleHashTable<K, V> {
   private hash2(key: K): number {
@@ -351,7 +351,7 @@ class DoubleHashTable<K, V> {
     this.table[index] = [key, value];
   }
 }
-````
+```
 
 **Advantages:**
 
