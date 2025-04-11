@@ -139,6 +139,20 @@ f(x,y,z) &= m1 + m2 + m3 + m5 + m7\\
 &= \overline{x}\overline{y}z + \overline{x}y\overline{z} + x\overline{y}\overline{z} + x\overline{y}z + xyz \\
 &= \overline{y}z \cdot f(x, 0, 0) + \overline{y}z \cdot f(x, 0, 1) + y\overline{z} \cdot f(x, 1, 0) + yz \cdot f(x, 1, 1)\\
 \end{aligned}
+$$
 
+Now you have to "derive" a solution based on x,
+You can see from the table:
 
+1. when y' and z', f is always 0
+2. when y' and z: f is x' or x
+3. when y and z': f is x'
+4. when y and z: f is always 1
+
+so continuing the formula:
+
+$$
+\begin{aligned}
+f(x,y,z) &= \overline{y}z \cdot [0] + \overline{y}z \cdot [x + \overline{x}] + y\overline{z} \cdot [x'] + yz \cdot [1]\\
+\end{aligned}
 $$
