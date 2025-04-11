@@ -78,7 +78,30 @@ This can be implemented using a 2-to-1 MUX as follows:
 
 ![[Weird Mux thing.png | center | 300]]
 
-So we can use the MUX to implement the function f(x,y) as follows:
+In shannon's theorem, we can use the MUX to implement the function by using the inputs as select lines and the output as the function.
+
+Say we have this table:
+| w1 | w2 | w3 | f(w1,w2,w3) |
+| -- | -- | -- | ----------- |
+| 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 1 |
+| 0 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 1 |
+| 1 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 |
+
+The output in term of f(w1,w2,w3) is:
+f(w1,w2,w3) = w1'w2'w3 + w1'w2w3' + w1w2'w3' + w1w2w3
+To solve, we take 2 inputs as common denominators "عامل مشترك" and the other as select lines.
+So we can take w1 and w2 as common denominators and w3 as the select line.
+This gives us:
+$$ f(w_1, w_2, w_3) = \overline{w_1}\overline{w_2} \cdot f(0, 0, w_3) + \overline{w_1}w_2 \cdot f(0, 1, w_3) + w_1\overline{w_2} \cdot f(1, 0, w_3) + w_1w_2 \cdot f(1, 1, w_3)\)
+\(= \overline{w_1}\overline{w_2}(w_3) + \overline{w_1}w_2(\overline{w_3}) + w_1\overline{w_2}(\overline{w_3}) + w_1w_2(w_3)\) $$
+
+This can be implemented using a 4-to-1 MUX as follows:
+![[Shannon's Theorem.png | center | 300]]
 
 > [!Important] Fun fact..
 > I recently used a 16-to-1 MUX to make a 16 buttons keyboard.
