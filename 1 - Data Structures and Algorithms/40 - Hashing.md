@@ -14,7 +14,10 @@ Hashing is used in various applications, including:
 
 ## Symbol Tables (Hash Tables)
 
-A symbol table is an abstract data type that stores key-value pairs, where each key appears at most once.
+A symbol table, or _hash-table_, is an abstract data type that stores key-value pairs, where each key appears at most once.
+
+In simple terms, it allows for very fast insertion and searching of items. So no matter how many data items there are, insertion and searching (and sometimes deletion) can take close to constant time *O(1)*.
+
 
 We use this all the time, think dictionaries in javascript, or a map in python.
 
@@ -67,34 +70,12 @@ const phoneBook: HashTable<string, string> = {
 };
 ```
 
-> [!Important]
+> [!Warning]
 > I don't think the code implementation of hash-tables is required, but you can take a look at it here:
 > [[Hash-Table & Dynamic Hash-Table implementation#Hash-Table]]
 
-## Static Hashing
-
-In static hashing, the hash table size remains constant and is determined at creation time.
-
-```mermaid
-graph TD
-    A[Key] --> B[Hash Function]
-    B --> C[Fixed-size Table]
-    C --> D[Bucket 0]
-    C --> E[Bucket 1]
-    C --> F[...]
-    C --> G[Bucket n-1]
-```
-
-### Advantages
-
-- Simple implementation
-- Constant-time operations O(1) (average case)
-
-### Disadvantages
-
-- Fixed size might lead to poor performance if too many elements
-- Waste of space if too few elements
-
+> [!Important] Fun fact..
+> Want to test out how fast hash-tables are? try misspelling a word. You see that red squiggly line? it appeared instantly, but your device had to search through thousands of words saved in a hash-table.
 ## Hash Table Fundamentals
 
 ### Hash Function
@@ -136,43 +117,35 @@ graph TD
     C --> G["Entry(key3,val3)"]
 ```
 
+## Static Hashing
+
+In static hashing, the hash table size remains constant and is determined at creation time.
+
+```mermaid
+graph TD
+    A[Key] --> B[Hash Function]
+    B --> C[Fixed-size Table]
+    C --> D[Bucket 0]
+    C --> E[Bucket 1]
+    C --> F[...]
+    C --> G[Bucket n-1]
+```
+
+### Advantages
+
+- Simple implementation
+- Constant-time operations O(1) (average case)
+
+### Disadvantages
+
+- Fixed size might lead to poor performance if too many elements
+- Waste of space if too few elements
+
 ## Dynamic Hashing
 
 Unlike static hashing, dynamic hashing adapts its structure as elements are added/removed.
 
-### Load Factor Based Resizing
-
-```typescript
-class DynamicHashTable<K, V> {
-  private table: Array<Array<[K, V]>>;
-  private size: number = 0;
-  private capacity: number;
-  private loadFactorThreshold = 0.75;
-
-  private resize(newCapacity: number): void {
-    const oldTable = this.table;
-    this.table = new Array(newCapacity).fill(null).map(() => []);
-    this.capacity = newCapacity;
-    this.size = 0;
-
-    // Rehash all existing entries
-    for (const bucket of oldTable) {
-      for (const [key, value] of bucket) {
-        this.set(key, value);
-      }
-    }
-  }
-
-  set(key: K, value: V): void {
-    if (this.size / this.capacity >= this.loadFactorThreshold) {
-      this.resize(this.capacity * 2);
-    }
-    // ...rest of set implementation
-  }
-}
-```
-
-### Advantages of Dynamic Hashing
+### Advantages:
 
 - Better space utilization
 - Maintains good performance as data grows
