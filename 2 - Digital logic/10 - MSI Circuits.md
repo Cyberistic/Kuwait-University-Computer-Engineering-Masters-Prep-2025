@@ -276,3 +276,14 @@ module crossbarSwitch (x1, x2, s1, s2, y1, y2);
   assign y2 = mux2_out;
 endmodule
 ```
+
+## Decoder
+
+![[Decoder-symbol.png]]
+
+A **decoder** is a circuit that converts binary information from `n` input lines to a maximum of `2^n` unique output lines.
+It essentially "decodes" the binary input into a specific output line.
+For example, a 2-to-4 decoder has 2 input lines and 4 output lines.  
+When the input is `00`, the first output line is activated; when the input is `01`, the second output line is activated, and so on.
+
+Usually, it also has an `EN` input.
