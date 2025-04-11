@@ -65,8 +65,8 @@ type HashTable<K, V> = {
 
 // Example:
 const phoneBook: HashTable<string, string> = {
-  John: "1809777",
-  urmom: "098-765-4321"
+  sudo_kw: "+965 41000798",
+  urmom: "+965 1809777"
 };
 ```
 
@@ -78,7 +78,7 @@ const phoneBook: HashTable<string, string> = {
 > Want to test out how fast hash-tables are? try misspelling a word. You see that red squiggly line? it appeared instantly, but your device had to search through thousands of words saved in a hash-table.
 ## Hash Table Fundamentals
 
-1. Hash Function
+1. **Hash Function**
 
 A hash function maps data of arbitrary size to fixed-size values. It is what maps key values to positions and is often donated by `h`. 
 
@@ -89,9 +89,13 @@ A good hash function should:
 	3. Be fast to compute
 	4. Minimize collisions
 
+Here is a simple hashing function. Assume a table with 20 slots and a hashing function of `h(k) = k % 20` and `k = sum of numeric values of letters`.
 
 
-2. Hash-Table: The _array_ that holds the records,
+
+
+2. **Hash-Table:** The _array_ that holds the records. Denoted by HT.
+3. The position in a hash table is also known as a **slot**.
 
 ### Buckets
 
