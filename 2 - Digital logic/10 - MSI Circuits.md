@@ -183,15 +183,80 @@ endmodule
 
 Again, idk if shannon is even in the exam heh.
 
-## Cross-bar switch
+You're almost there! The explanation is good, but a few grammatical and clarity tweaks will make it more polished and accurate. Here's an improved version:
+
+---
+
+## Crossbar Switch
 
 ![[Crossbar-symbol.png | center | 300]]
 
-A circuit that has n inputs and k outputs, whose sole function is to provide a capability to connect any input to any output.
-When there are two inputs and two outputs, it is called a 2×2 crossbar.
+A **crossbar switch** is a circuit with `n` inputs and `k` outputs, designed to connect any input to any output.  
+When there are two inputs and two outputs, it's called a **2×2 crossbar**.
 
-Based on the select line, the crossbar connects the result input to the output.
+Based on the **select lines**, the crossbar connects a specific input to the desired output.
 
-The crossbar switch is a combination of 2-to-1 MUXes. The number of MUXes required is n\*k,
-where n is the number of inputs and k is the number of outputs.
-The number of select lines required is log(n) + log(k).
+The crossbar switch is typically implemented using **2-to-1 multiplexers (MUXes)**.  
+The number of MUXes required is `n × k`, where:
+
+- `n` is the number of inputs, and
+- `k` is the number of outputs.
+
+The number of select lines required per MUX is `log₂(n)`.
+
+Here is an example:
+
+Inputs: `x1`, `x2`  
+Outputs: `y1`, `y2`
+
+Each output (`y1` and `y2`) is connected to a multiplexer that selects between the two inputs (`x1`, `x2`).
+
+| Select Lines | y1 Output | y2 Output |
+| ------------ | --------- | --------- |
+| 00           | x1        | x1        |
+| 01           | x1        | x2        |
+| 10           | x2        | x1        |
+| 11           | x2        | x2        |
+
+---
+
+### ⚙️ **How It Works:**
+
+- `y1` gets its value from either `x1` or `x2`, depending on a select line (say `s1`)
+- `y2` does the same independently (with `s2`)
+- The select lines can be configured to connect each output to whichever input is desired
+
+So if:
+
+- `s1 = 0` → `y1 = x1`
+- `s1 = 1` → `y1 = x2`
+- `s2 = 0` → `y2 = x1`
+- `s2 = 1` → `y2 = x2`
+
+You get total flexibility between inputs and outputs.
+
+```typescript
+function crossbarSwitch(
+  x1: boolean,
+  x2: boolean,
+  s1: boolean,
+  s2: boolean
+): [boolean, boolean] {
+  const y1 = s1 ? x2 : x1;
+  const y2 = s2 ? x2 : x1;
+  return [y1, y2];
+}
+```
+
+### Verilog
+
+```verilog
+module crossbarSwitch (x1, x2, s1, s2, y1, y2);
+  input x1, x2;
+  input s1, s2;
+  output y1, y2;
+
+  assign y1 = s1 ? x2 : x1;
+  assign y2 = s2 ? x2 : x1;
+endmodule
+```
