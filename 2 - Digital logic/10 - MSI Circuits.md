@@ -164,4 +164,29 @@ and the result:
 
 and we can write the verilog like this:
 
+```verilog
+// f(x,y,z) = m1 + m2 + m3 + m5 + m7
+module shannon (x, s, f);
+  input x;
+    input [1:0] s; // y and z variables
+    output reg f;
+
+    always @(x or s)
+        case (s)
+            0: f <= 0;
+            1: f <= 1;
+            2: f <= ~x;
+            3: f <= 1;
+        endcase
+endmodule
+```
+
+Again, idk if shannon is even in the exam heh.
+
+## Cross-bar switch
+
+![[Crossbar-symbol.png | center | 300]]
+
+A circuit that has n inputs and k outputs, whose sole function is to provide a capability to connect any input to any output.
+When there are two inputs and two outputs, it is called a 2×2 crossbar.
 
