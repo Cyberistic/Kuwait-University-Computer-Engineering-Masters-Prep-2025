@@ -775,5 +775,3 @@ Finding shortest path from A to C:
 | **DFS/BFS (adj list)**     | O(V + E)                 |
 | **DFS/BFS (adj matrix)**   | O(V²)                    |
 | **Dijkstra (binary heap)** | O((V + E) log V)         |
-
-

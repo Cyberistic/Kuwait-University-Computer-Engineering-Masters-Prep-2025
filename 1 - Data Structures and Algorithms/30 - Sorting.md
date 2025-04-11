@@ -140,13 +140,7 @@ function quickSort(arr: number[]): number[] {
 
 Divides the array into smaller subarrays, sorts them, and then merges them back together.
 
-```mermaid
-graph TD
-    A[5,3,8,4,2] --> B[5,3] & C[8,4,2]
-    B --> D[5] & E[3]
-    C --> F[8] & G[4,2]
-    G --> H[4] & I[2]
-```
+![[Merge-sort.png]]
 
 **Time Complexity**: O(n log n)
 
@@ -165,8 +159,6 @@ graph TD
 - Not in-place
 - Not adaptive
 - Overkill for small arrays
-
-
 
 ```typescript
 function mergeSort(arr: number[]): number[] {
@@ -198,7 +190,19 @@ function merge(left: number[], right: number[]): number[] {
 
 ## Heap Sort
 
-Uses a binary heap data structure to sort elements.
+Uses a heap tree data structure to sort elements.
+How? Build a max heap from the input array, then repeatedly extract the maximum element (by swapping it to the end), shrink the heap, and bubble down the new root.
+
+tl;dr:
+
+1. Build max-heap: largest element goes to the top (arr[0]).
+
+2. Each iteration:
+   Swap arr[0] (largest) with the last element.
+   Shrink the heap.
+   Re-heapify using bubbleDown() to move the next-largest to the top.
+
+For more info about heaps: [[20 - Trees and graphs#Heaps]]
 
 **Time Complexity**: O(n log n)
 
@@ -206,8 +210,8 @@ Uses a binary heap data structure to sort elements.
 
 **Advantages**:
 
-- In-place sorting
-- No extra space needed
+- In-place sorting (check the comment in the code)
+- No extra space needed (check the comment in the note)
 - Predictable performance
 - Great for finding k largest/smallest elements
 
@@ -218,46 +222,26 @@ Uses a binary heap data structure to sort elements.
 - Slower in practice than Quick Sort
 - Poor cache performance
 
-```mermaid
-graph TD
-    A((10)) --> B((4))
-    A --> C((8))
-    B --> D((3))
-    B --> E((2))
-    C --> F((6))
-    C --> G((1))
-```
-
 ```typescript
 function heapSort(arr: number[]): number[] {
-  // Build max heap
-  for (let i = Math.floor(arr.length / 2) - 1; i >= 0; i--) {
-    heapify(arr, arr.length, i);
-  }
+  heapify(arr); // max-heap version
 
-  // Extract elements from heap one by one
   for (let i = arr.length - 1; i > 0; i--) {
-    [arr[0], arr[i]] = [arr[i], arr[0]];
-    heapify(arr, i, 0);
+    [arr[0], arr[i]] = [arr[i], arr[0]]; // move max to end
+    // bubbleDown for max-heap
+    bubbleDown(arr.slice(0, i), 0); // re-heapify the reduced heap
+    // !Important: in JS, slice() creates a new array, to keep using a single array, we need to modify our bubbleDown function to be bubbleDown(arr, index, firstXElements) where firstXElements is the length of the heap we want to keep.
   }
 
-  return arr;
-}
-
-function heapify(arr: number[], n: number, i: number) {
-  let largest = i;
-  const left = 2 * i + 1;
-  const right = 2 * i + 2;
-
-  if (left < n && arr[left] > arr[largest]) largest = left;
-  if (right < n && arr[right] > arr[largest]) largest = right;
-
-  if (largest !== i) {
-    [arr[i], arr[largest]] = [arr[largest], arr[i]];
-    heapify(arr, n, largest);
-  }
+  return arr; // ascending order
 }
 ```
+
+> [!note] Another way to implement heap sort
+> Is to use our extractMax() function (and then reversing the array since it will be sorted in descending order) and push to a new array.
+> However, it will take more space since we will be creating a new array to store the sorted elements.
+
+---
 
 > [!note] Stable vs Unstable Sort
 > A sorting algorithm is stable if it preserves the relative order of equal elements. meaning that if two elements are equal, their order in the sorted array will be the same as in the original array.
@@ -276,3 +260,17 @@ function heapify(arr: number[], n: number, i: number) {
 >
 > - Stable: Bubble Sort, Insertion Sort, Merge Sort
 > - Unstable: Quick Sort, Heap Sort
+
+> [!note] in-place vs out-of-place
+> An in-place sorting algorithm sorts the array without using any extra space. It only uses a constant amount of extra space for variables.
+> An out-of-place sorting algorithm creates a new array to store the sorted elements.
+>
+> - In-place: Quick Sort, Heap Sort, Insertion Sort
+> - Out-of-place: Merge Sort
+
+> [!note] Adaptive vs non-adaptive
+> An adaptive sorting algorithm takes advantage of existing order in the array. It runs faster if the array is already partially sorted.
+> An example of an adaptive sorting algorithm is Insertion Sort. If the array is already sorted, it runs in O(n) time.
+>
+> - Adaptive: Insertion Sort, Bubble Sort
+> - Non-adaptive: Quick Sort, Heap Sort, Merge Sort
