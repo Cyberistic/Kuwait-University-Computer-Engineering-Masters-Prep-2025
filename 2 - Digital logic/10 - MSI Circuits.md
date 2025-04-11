@@ -362,26 +362,38 @@ A **priority encoder** resolves this by assigning priority to the inputs where t
 For example, in a 4-to-2 priority encoder, if inputs `1` and `3` are activated, the output will be `11` (indicating input `3`).
 
 Truth table:
-| w1 | w2 | w3 | w4 | f(w1,w2,w3,w4) |
-| --- | --- | --- | --- | ------------- |
-| 0 | 0 | 0 | 0 | 00 |
-| 0 | 0 | 0 | 1 | 00 |
+| w1 | w2 | w3 | w4 | f1 | f0 | Z |
+| -- | -- | -- | -- | -- | -- | - |
+| 0 | 0 | 0 | 0 | d | d | 0 |
+| 0 | 0 | 0 | 1 | 0 | 0 | 1 |
+| 0 | 0 | 1 | x | 0 | 1 | 1 |
+| 0 | 1 | x | x | 1 | 0 | 1 |
+| 1 | x | x | x | 1 | 1 | 1 |
+
+Where `x` means "don't care". And it starts from the last input.
 
 ### Typescript
 
 ```typescript
-function encoder4to2(
-  input: [boolean, boolean, boolean, boolean],
+// priority with z
+function priorityEncoder4to2(
+  input: number,
   enable: boolean
-): [boolean, boolean] {
-  if (!enable) return [false, false];
+): [number, number, boolean] {
+  if (!enable) return [0, 0, false];
 
-  if (input[0]) return [false, false];
-  if (input[1]) return [false, true];
-  if (input[2]) return [true, false];
-  if (input[3]) return [true, true];
-
-  return [false, false]; // Default case
+  switch (input) {
+    case 8:
+      return [1, 1, true];
+    case 4:
+      return [1, 0, true];
+    case 2:
+      return [0, 1, true];
+    case 1:
+      return [0, 0, true];
+    default:
+      return [0, 0, false];
+  }
 }
 ```
 
