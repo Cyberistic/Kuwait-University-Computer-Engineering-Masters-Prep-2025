@@ -340,10 +340,12 @@ endmodule
 
 ## Encoder
 
-![[Encoder-symbol.png]]
+![[Encoder-symbol.png|center|300]]
 An **encoder** is a circuit that converts `2^n` input lines into `n` output lines.
 It essentially "encodes" the input into a binary representation.
 For example, a 4-to-2 encoder has 4 input lines and 2 output lines.  
 When the first input line is activated, the output will be `00`; when the second input line is activated, the output will be `01`, and so on.
 
 The output is usually in binary form, and the encoder may also have an `EN` input to enable or disable the encoding process.
+
+
