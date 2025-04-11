@@ -134,8 +134,8 @@ The table would look like this:
 
 A bucket is a slot in the hash table that can store one or more key-value pairs:
 
-- In open addressing: each bucket holds one item. Need to implement collision resolution.
-- In chaining: each bucket is a linked list of items. No need to implement collision resolution, on collision, make the new item the tail of the linked list!
+- In open addressing: each bucket holds one item. Need to implement collision resolution function.
+- In chaining: each bucket is a linked list of items. Easiest collision resolution, on collision, make the new item the tail of the linked list!
 
 ```mermaid
 graph TD
@@ -215,6 +215,17 @@ class ChainedHashTable<K, V> {
 }
 ```
 
+**Advantages:**
+
+- Simple to implement
+- Performs well with good hash function
+- No space waste
+
+**Disadvantages:**
+
+- Linked list operations overhead. (To find a node, need to traverse the entire linked-list)
+
+
 ### 2. Linear Probing
 
 If a collision occurs, try the next slot until an empty one is found.
@@ -234,6 +245,20 @@ class LinearProbingHashTable<K, V> {
   }
 }
 ```
+
+
+**Advantages:**
+
+- Better cache performance
+- Simple implementation
+- No extra data structures
+
+**Disadvantages:**
+
+- *Clustering*: consecutive occupied slots form clusters
+- Performance degrades as table fills up
+- Deletion requires special handling
+
 
 ### 3. Quadratic Probing
 
@@ -297,21 +322,8 @@ Where:
 > [!note] Load Factor
 > The load factor α = n/m determines how full the hash table is. A higher load factor means more collisions but better space utilization. Most implementations keep α < 0.75.
 
-### Problems with Different Resolution Methods:
 
-#### 1. Chaining
 
-**Advantages:**
-
-- Simple to implement
-- Performs well with good hash function
-- No space waste
-
-**Disadvantages:**
-
-- Extra memory for linked list nodes
-- Poor cache performance
-- Linked list operations overhead. (To find a node, need to traverse the entire linked-l)
 
 #### 2. Linear Probing
 
