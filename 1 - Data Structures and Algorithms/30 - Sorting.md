@@ -53,7 +53,7 @@ function bubbleSort(arr: number[]): number[] {
 > [!Warning] Warning...
 > If I ever see you use bubble sort in production..
 >
-> ![[Bubble-Sort-In-Prod.png|200]]
+> ![[Bubble-Sort-In-Prod.png|center|200]]
 
 ## Insertion Sort
 

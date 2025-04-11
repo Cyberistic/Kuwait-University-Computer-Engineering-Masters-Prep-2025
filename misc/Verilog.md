@@ -65,3 +65,17 @@ endmodule
 ```
 
 if statements like this:
+(Notice how we're using "reg" to specify a changing variable)
+
+```verilog
+module example5 (x1, x2, s, f);
+	input x1, x2, s;
+	output f;
+	reg f;
+	always @(x1, x2, s)
+		if (s == 0)
+			f = x1;
+		else
+			f = x2;
+endmodule
+```

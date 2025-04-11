@@ -339,7 +339,7 @@ type LinkedList = {
 
 > [!tip] Fun fact
 > If a list has a single node, it literally points to itself.
-> ![[Single-Node-Circular-List.png|100]]
+> ![[Single-Node-Circular-List.png|center|100]]
 
 Here is a fun challenge, implement the _Round Robin Scheduler_ with a Circular linked list.
 
