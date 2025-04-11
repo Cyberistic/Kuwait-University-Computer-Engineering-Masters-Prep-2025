@@ -78,27 +78,20 @@ const phoneBook: HashTable<string, string> = {
 > Want to test out how fast hash-tables are? try misspelling a word. You see that red squiggly line? it appeared instantly, but your device had to search through thousands of words saved in a hash-table.
 ## Hash Table Fundamentals
 
-### Hash Function
+1. Hash Function
 
-A hash function maps data of arbitrary size to fixed-size values. A good hash function should:
+A hash function maps data of arbitrary size to fixed-size values. It is what maps key values to positions and is often donated by `h`. 
 
-1. Be deterministic (same input = same output)
-2. Distribute values uniformly
-3. Be fast to compute
-4. Minimize collisions
+A good hash function should:
 
-Example of a simple hash function:
+	1. Be deterministic (same input = same output)
+	2. Distribute values uniformly
+	3. Be fast to compute
+	4. Minimize collisions
 
-```typescript
-function hash(key: string): number {
-  let hash = 0;
-  for (let i = 0; i < key.length; i++) {
-    hash = (hash << 5) - hash + key.charCodeAt(i);
-    hash = hash & hash; // Convert to 32-bit integer
-  }
-  return Math.abs(hash);
-}
-```
+
+
+2. Hash-Table: The _array_ that holds the records,
 
 ### Buckets
 
