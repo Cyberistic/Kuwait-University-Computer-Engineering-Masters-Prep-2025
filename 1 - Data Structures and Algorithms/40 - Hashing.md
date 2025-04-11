@@ -282,8 +282,6 @@ The idea is to prove more widely separated cells, instead of adjacent ones.
 It can be key + i², where `i` is the number of attempts.
 For example, i + 1², i + 2², i + 3², etc.
 
-````mermaid
-
 ```typescript
 class QuadraticProbingHashTable<K, V> {
   set(key: K, value: V): void {
@@ -298,7 +296,7 @@ class QuadraticProbingHashTable<K, V> {
     this.table[index] = [key, value];
   }
 }
-````
+```
 
 **Advantages:**
 
@@ -311,7 +309,20 @@ class QuadraticProbingHashTable<K, V> {
 - May not find empty slot even when one exists
 - More complex than linear probing
 
-### 4. Double Hashing
+The disadvantages make it almost worse than linear probing!
+With secondary clustering, items with the same initial position probe the same locations. So if two items hash to the same index, they will follow the same probing sequence.
+
+Another disadvantage is that due to how it "skips" over slots, it may not find an empty slot ever!
+For example, lets say you have a table of size 4:
+
+| Index | Key   |
+| ----- | ----- |
+| 0     | asmaa |
+| 1     | mahdi |
+| 2     | taleb |
+| 3     | empty |
+
+Now let's say you want to insert "abdo" which hashes to 0. You'll try 0, 1, then 4, then 9 % 4 = 1, then 16 % 4 = 0, 32 % 4 = 0, and so on. You will never find an empty slot, even though there is one at index 3.
 
 Uses a second hash function to determine the probe interval.
 
