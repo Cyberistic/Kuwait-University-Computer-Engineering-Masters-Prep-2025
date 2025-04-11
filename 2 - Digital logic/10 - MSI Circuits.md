@@ -353,7 +353,19 @@ It essentially "encodes" the input into a binary representation.
 For example, a 4-to-2 encoder has 4 input lines and 2 output lines.  
 When the first input line is activated, the output will be `00`; when the second input line is activated, the output will be `01`, and so on.
 
-The output is usually in binary form, and the encoder may also have an `EN` input to enable or disable the encoding process.
+The output is usually in binary form, and encoders usually have a `Z` output to indicate if no input is activated. If no input is activated, the output will be `disabled` (usually `00`) and Z is `0`, otherwise Z is `1`.
+
+### Priority Encoders
+
+What if multiple inputs are activated at the same time?
+A **priority encoder** resolves this by assigning priority to the inputs where the highest priority input will be encoded (usually the last input).
+For example, in a 4-to-2 priority encoder, if inputs `1` and `3` are activated, the output will be `11` (indicating input `3`).
+
+Truth table:
+| w1 | w2 | w3 | w4 | f(w1,w2,w3,w4) |
+| --- | --- | --- | --- | ------------- |
+| 0 | 0 | 0 | 0 | 00 |
+| 0 | 0 | 0 | 1 | 00 |
 
 ### Typescript
 
