@@ -111,3 +111,34 @@ $$
 $$
 
 ![[Shannons-theorem.png| center | 300]]
+
+Given the folloing equation:
+
+$$
+f(x,y,z) = m1 + m2 + m3 + m5 + m7
+$$
+
+Draw the truth table:
+
+| x   | y   | z   | f(x,y,z) |
+| --- | --- | --- | -------- |
+| 0   | 0   | 0   | 0        |
+| 0   | 0   | 1   | 1        |
+| 0   | 1   | 0   | 1        |
+| 0   | 1   | 1   | 0        |
+| 1   | 0   | 0   | 1        |
+| 1   | 0   | 1   | 0        |
+| 1   | 1   | 0   | 0        |
+| 1   | 1   | 1   | 1        |
+
+Then the equation is as follows:
+
+$$
+\begin{aligned}
+f(x,y,z) &= m1 + m2 + m3 + m5 + m7\\
+&= \overline{x}\overline{y}z + \overline{x}y\overline{z} + x\overline{y}\overline{z} + xy\overline{z} + xyz \\
+&=
+\end{aligned}
+
+
+$$
