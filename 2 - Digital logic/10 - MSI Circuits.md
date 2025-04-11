@@ -287,3 +287,63 @@ For example, a 2-to-4 decoder has 2 input lines and 4 output lines.
 When the input is `00`, the first output line is activated; when the input is `01`, the second output line is activated, and so on.
 
 Usually, it also has an `EN` input.
+
+You can use the `EN` input to combine encoders to build bigger decoders!
+![[combined-decoders.png|center|300]]
+![[combined-decoder.png|center|300]]
+
+```typescript
+function decoder2to4(
+  input: number,
+  enable: boolean
+): [boolean, boolean, boolean, boolean] {
+  if (!enable) return [false, false, false, false];
+
+  switch (input) {
+    case 0:
+      return [true, false, false, false];
+    case 1:
+      return [false, true, false, false];
+    case 2:
+      return [false, false, true, false];
+    case 3:
+      return [false, false, false, true];
+    default:
+      return [false, false, false, false];
+  }
+}
+```
+
+### Verilog
+
+```verilog
+module decoder2to4 (input, enable, output);
+  input [1:0] input;
+  input enable;
+  output reg [3:0] output;
+
+  always @(input or enable) begin
+    if (!enable) begin
+      output = 4'b0000;
+    end else begin
+      case (input)
+        0: output <= 4'b0001;
+        1: output <= 4'b0010;
+        2: output <= 4'b0100;
+        3: output <= 4'b1000;
+        default: output <= 4'b0000;
+      endcase
+    end
+  end
+endmodule
+```
+
+## Encoder
+
+![[Encoder-symbol.png]]
+An **encoder** is a circuit that converts `2^n` input lines into `n` output lines.
+It essentially "encodes" the input into a binary representation.
+For example, a 4-to-2 encoder has 4 input lines and 2 output lines.  
+When the first input line is activated, the output will be `00`; when the second input line is activated, the output will be `01`, and so on.
+
+The output is usually in binary form, and the encoder may also have an `EN` input to enable or disable the encoding process.
