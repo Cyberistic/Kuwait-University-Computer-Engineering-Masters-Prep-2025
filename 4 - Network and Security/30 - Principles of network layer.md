@@ -12,7 +12,7 @@ The **network layer** is the third layer in the **OSI model**. Its main function
     
 - **Fragment and reassemble packets** if necessary.
 
-![[Pasted image 20250410200940.png]]
+![[network_layer.png]]
 						`(host, router network layer functions)
 ### 1.1 Key Responsibilities:
 
@@ -81,7 +81,7 @@ ____
 - **Better performance**: IPv6 has features like auto-configuration and simplified header structure, leading to potentially better performance compared to IPv4.
     
 - **Support for modern technologies**: IPv6 supports emerging technologies, such as the Internet of Things (IoT), that require a large number of IP addresses and constant connectivity.
-![[Pasted image 20250410202647.png]]
+![[IP_datagram.png]]
 
 ### 3.2 IPv4 Addressing & Subnets
 #### 3.2.1 . **Understanding IP Addressing:**

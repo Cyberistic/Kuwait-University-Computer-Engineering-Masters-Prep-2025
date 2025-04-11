@@ -25,14 +25,12 @@
             "id": "11f40f74222d155b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "4 - Network and Security/100 - QUIZ.md",
-                "mode": "source",
-                "source": false
+                "file": "4 - Network and Security/attachments/IP_datagram.png"
               },
-              "icon": "lucide-file",
-              "title": "100 - QUIZ"
+              "icon": "lucide-image",
+              "title": "IP_datagram"
             }
           }
         ],
@@ -180,72 +178,41 @@
       "command-palette:Open command palette": false
     }
   },
-  "floating": {
-    "id": "c7e1af707de43fc4",
-    "type": "floating",
-    "children": [
-      {
-        "id": "74b2ab3ecb60cc92",
-        "type": "window",
-        "children": [
-          {
-            "id": "3745714109cae5f3",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "273297ebfe91557f",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "pdf",
-                  "state": {
-                    "file": "books/4 - Network & Security/James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf"
-                  },
-                  "pinned": true,
-                  "icon": "lucide-file-text",
-                  "title": "James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 960,
-        "y": 0,
-        "width": 960,
-        "height": 1032,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "11f40f74222d155b",
+  "active": "40b7344d9c893d42",
   "lastOpenFiles": [
-    "4 - Network and Security/40 - Data link layer services.md",
-    "4 - Network and Security/100 - QUIZ.md",
     "4 - Network and Security/30 - Principles of network layer.md",
+    "4 - Network and Security/attachments/NAT.png",
+    "4 - Network and Security/attachments/DHCP.png",
+    "4 - Network and Security/attachments/network_layer.png",
+    "4 - Network and Security/100 - QUIZ.md",
+    "4 - Network and Security/attachments",
+    "Untitled.md",
+    "New Text Document.txt",
+    "4 - Network and Security/40 - Data link layer services.md",
     "4 - Network and Security/00 - References and Topics.md",
+    "1 - Data Structures and Algorithms/100 - QUIZ.md",
     "books/4 - Network & Security/James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf",
+    "1 - Data Structures and Algorithms/20 - Trees and graphs.md",
+    "1 - Data Structures and Algorithms/10 - Linked lists.md",
+    "1 - Data Structures and Algorithms/00 - References and Topics.md",
+    "README.md",
+    "misc/Dijkstra's Algorithm.md",
+    "1 - Data Structures and Algorithms/attachments/Insertion-sort.png",
+    "1 - Data Structures and Algorithms/attachments/Bubble-Sort.png",
+    "1 - Data Structures and Algorithms/attachments/Bubble-Sort-In-Prod.png",
     "1 - Data Structures and Algorithms/30 - Sorting.md",
     "books/4 - Network & Security/Jim Kurose, Keith Ross - Computer Networking_ A Top-Down Approach (Solutions to Review Questions and Problems) (2016).pdf",
     "misc/Calculating Height & Width of a Tree.md",
     "misc/Implementing A Stack using Python.md",
     "misc/Time Complexities & Recursion.md",
-    "graphs/Pasted image 20250410202647.png",
-    "graphs/Pasted image 20250410200940.png",
+    "4 - Network and Security/attachments/IP_datagram.png",
     "books/2 - Digital Logic/Stephen Brown, Zvonko Vranesic - Fundamentals of Digital Logic with Verilog Design-McGraw-Hill (2014).pdf",
     "graphs",
     "attachments/Pasted Image 20250409203521_869.png",
     "attachments/Official-List-1.jpeg",
     "attachments/Official-List-2.jpeg",
-    "graphs/Pasted image 20250410202513.png",
     "Drawing.excalidraw.md",
-    "attachments/Official-List.jpeg",
-    "graphs/Pasted image 20250410202414.png",
     "3 - Microprocessor and Microcontroller/00 - References and Topics.md",
-    "1 - Data Structures and Algorithms/20 - Trees and graphs.md",
-    "1 - Data Structures and Algorithms/00 - References and Topics.md",
-    "1 - Data Structures and Algorithms/10 - Linked lists.md",
     "2 - Digital logic/00 - References and Topics.md"
   ]
 }
