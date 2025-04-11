@@ -54,8 +54,8 @@ Ever noticed how fast it is to access the IQ of "Mahdi" using `IQ["Mahdi"]`? Tha
 >   }
 > };
 > ```
->
-> I've never heard anyone call it a symbol table before, but here we are.
+
+ I've never heard anyone call it a symbol table before, but here we are.
 
 ```typescript
 type HashTable<K, V> = {
@@ -69,6 +69,10 @@ const phoneBook: HashTable<string, string> = {
 };
 ```
 
+### Disadvantages of Hash-tables:
+- They're based on arrays, and arrays are difficult to expand once they are created.
+- No easy way to traverse the items! Have to traverse the entire table.
+- 
 > [!Warning]
 > I don't think the code implementation of hash-tables is required, but you can take a look at it here:
 > [[Hash-Table & Dynamic Hash-Table implementation#Hash-Table]]
@@ -113,7 +117,10 @@ The table would look like this:
 | 8     | empty |
 | 9     | empty |
 
-Notice how 2 values, `mahdi` and `asmaa` had the same hash? This is called a *collision*, and the technique to use the next available slot (like how we used index 6)
+> [!Note] 
+> Notice how 2 values, `mahdi` and `asmaa` had the same hash? This is called a *collision*, and the *collision resolution* technique to use the next available slot (like how we used index 6 above) is called *Linear Probing*. 
+> A more detailed explanation of collisions is provided below.
+
 
 2. **Hash-Table:** The _array_ that holds the records. Denoted by HT.
 3. The position in a hash table is also known as a **slot**.
