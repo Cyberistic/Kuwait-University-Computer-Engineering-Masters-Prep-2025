@@ -17,26 +17,26 @@ const IQ = {
 
 Notice how fast it is to access the IQ of "Mahdi" using `IQ["Mahdi"]`? That's the power of hash tables.
 
-> [!Question] We even use nested tables all the time, what do you think JSON is?
+> [!Question]- We even use nested tables all the time, what do you think `JSON` is?
 > It's a nested hash table.
-
+>
 > ```ts
 > const IQ = {
 >   Mahdi: {
 >     IQ: 60,
->     age: 20
+>     age: 25
 >   },
 >   Asmaa: {
 >     IQ: 130,
->     age: 25
+>     age: 8
 >   },
 >   Taleb: {
 >     IQ: 130,
->     age: 30
+>     age: 13
 >   },
 >   Abdo: {
 >     IQ: 90,
->     age: 35
+>     age: 49
 >   }
 > };
 > ```
