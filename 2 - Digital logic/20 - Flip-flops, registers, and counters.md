@@ -1,16 +1,17 @@
 Flip flops (SR, D, T, Master-Slave, JK, latches and edge triggered), Registers, counters (synchronous, and asynchronous) and the Verilog coding.
 
-
-
 These are all sequential circuits that store and process binary information. Unlike combinational circuits, these have memory - their outputs depend on both current inputs and previous state.
 
-> [!Note] tl;dr: 
+> [!Note] tl;dr:
 > Combinational: output = f(input)
 > Sequential: output = f(input, previous_output)
 > So sequential has memory of the past
 
+![[Memory-symbol.png]]
 
 ## Basic Latches
+
+Latches are basic memory elements that can store one bit of information.
 
 ### SR Latch (Set-Reset)
 
@@ -18,6 +19,11 @@ The most basic memory element. Has two inputs:
 
 - S (Set): Sets output to 1
 - R (Reset): Sets output to 0
+
+So you set, and it stores that "active" state, you reset, and it stores that "inactive" state. When either go to 0, it stays in the last state.
+
+- Q: Output
+- Qbar: Inverted output
 
 ```mermaid
 graph LR
@@ -29,12 +35,12 @@ graph LR
 
 Truth Table:
 
-| S | R | Q | Q' | Comment |
-|---|---|---|----| --------|
-| 0 | 0 | Q | Q | No change |
-| 0 | 1 | 0 | 1 | Reset |
-| 1 | 0 | 1 | 0 | Set |
-| 1 | 1 | x | x | Invalid |
+| S   | R   | Q   | Q'  | Comment   |
+| --- | --- | --- | --- | --------- |
+| 0   | 0   | Q   | Q   | No change |
+| 0   | 1   | 0   | 1   | Reset     |
+| 1   | 0   | 1   | 0   | Set       |
+| 1   | 1   | x   | x   | Invalid   |
 
 ```verilog
 module sr_latch(
@@ -71,11 +77,11 @@ graph LR
 
 Truth Table:
 
-| EN | D | Q | Comment |
-|----|---|---|---------|
-| 0 | x | Q | No change |
-| 1 | 0 | 0 | Load 0 |
-| 1 | 1 | 1 | Load 1 |
+| EN  | D   | Q   | Comment   |
+| --- | --- | --- | --------- |
+| 0   | x   | Q   | No change |
+| 1   | 0   | 0   | Load 0    |
+| 1   | 1   | 1   | Load 1    |
 
 ```verilog
 module d_latch(
