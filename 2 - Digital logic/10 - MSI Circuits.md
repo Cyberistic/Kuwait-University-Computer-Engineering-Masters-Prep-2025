@@ -375,25 +375,18 @@ Where `x` means "don't care". And it starts from the last input.
 ### Typescript
 
 ```typescript
-// priority with z
 function priorityEncoder4to2(
   input: number,
   enable: boolean
 ): [number, number, boolean] {
   if (!enable) return [0, 0, false];
-
-  switch (input) {
-    case 8:
-      return [1, 1, true];
-    case 4:
-      return [1, 0, true];
-    case 2:
-      return [0, 1, true];
-    case 1:
-      return [0, 0, true];
-    default:
-      return [0, 0, false];
-  }
+  // Notice how we start with the last input
+  // and only check 1 bit at a time by masking
+  if (input & 0b1000) return [1, 1, true]; // input 4
+  if (input & 0b0100) return [1, 0, true]; // input 3
+  if (input & 0b0010) return [0, 1, true]; // input 2
+  if (input & 0b0001) return [0, 0, true]; // input 1
+  return [0, 0, false]; // no input
 }
 ```
 
