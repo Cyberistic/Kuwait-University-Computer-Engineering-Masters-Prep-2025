@@ -15,10 +15,13 @@ Latches are basic memory elements that can store one bit of information.
 
 ### SR Latch (Set-Reset)
 
-The most basic memory element. Has two inputs:
+![[SR Latch.png]]
+
+The most basic memory element. Has two inputs and clock:
 
 - S (Set): Sets output to 1
 - R (Reset): Sets output to 0
+- Only happens when clock is 1
 
 So you set, and it stores that "active" state, you reset, and it stores that "inactive" state. When either go to 0, it stays in the last state.
 
@@ -35,12 +38,13 @@ graph LR
 
 Truth Table:
 
-| S   | R   | Q   | Q'  | Comment   |
-| --- | --- | --- | --- | --------- |
-| 0   | 0   | Q   | Q   | No change |
-| 0   | 1   | 0   | 1   | Reset     |
-| 1   | 0   | 1   | 0   | Set       |
-| 1   | 1   | x   | x   | Invalid   |
+| CLK | S   | R   | Q   | Q'  | Comment   |
+| --- | --- | --- | --- | --- | --------- |
+| 0   | x   | x   | Q   | Q'  | No change |
+| 1   | 0   | 0   | Q   | Q'  | No change |
+| 1   | 0   | 1   | 0   | 1   | Reset     |
+| 1   | 1   | 0   | 1   | 0   | Set       |
+| 1   | 1   | 1   | x   | x   | Invalid   |
 
 ```verilog
 module sr_latch(
