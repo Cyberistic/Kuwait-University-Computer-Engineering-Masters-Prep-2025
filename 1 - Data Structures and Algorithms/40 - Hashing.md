@@ -335,9 +335,14 @@ nerdy experts have determined that the best function is step = constant - (key %
 
 ```typescript
 class DoubleHashTable<K, V> {
+  private hash1(key: K): number {
+    // First hash function
+    return key % this.size;
+  }
+
   private hash2(key: K): number {
     // Second hash function
-    return 7 - (this.hash(key) % 7);
+    return 7 - (this.hash1(key) % 7);
   }
 
   set(key: K, value: V): void {
@@ -353,6 +358,9 @@ class DoubleHashTable<K, V> {
 }
 ```
 
+> [!Important] The madman solution to clustering.. add the current time to the hash function.
+> wait no that doesn't work, because then we won't be able to find the item again oops sorry it's 6:45AM and I haven't slept forgive me
+
 ## Load Factor
 
 The load factor is the ratio of the number of elements in the hash table to the size of the table. It is a measure of how full the hash table is.
@@ -360,3 +368,8 @@ A load factor of 0.7 is often considered optimal for performance. If the load fa
 This is because as the load factor increases, the probability of collisions increases, leading to slower performance.
 
 In chaining, the load factor can be greater than 1, as multiple elements can be stored in the same bucket. Meaning, you can have more elements than number of slots in the table. 🤯
+
+## Hash vs tree
+
+- Hash tables are faster for lookups, insertions, and deletions. Time complexity is O(1) on average.
+- Trees are better for ordered data and range queries. Time complexity is O(log n) for balanced trees.
