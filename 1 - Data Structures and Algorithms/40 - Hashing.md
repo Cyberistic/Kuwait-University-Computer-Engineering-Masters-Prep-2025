@@ -324,8 +324,15 @@ For example, lets say you have a table of size 4:
 
 Now let's say you want to insert "abdo" which hashes to 0. You'll try 0, 1, then 4, then 9 % 4 = 1, then 16 % 4 = 0, 32 % 4 = 0, and so on. You will never find an empty slot, even though there is one at index 3.
 
+This is fixable by using prime numbers for the table size! the infinite loop does not happen if the table size is prime. All slots will be probed eventually.
+
+### 4. Double Hashing
+
 Uses a second hash function to determine the probe interval.
 
+nerdy experts have determined that the best function is step = constant - (key % constant), where constant is a prime number less than the table size.
+
+````mermaid
 ```typescript
 class DoubleHashTable<K, V> {
   private hash2(key: K): number {
@@ -344,83 +351,8 @@ class DoubleHashTable<K, V> {
     this.table[index] = [key, value];
   }
 }
-```
-
-## Performance Comparison
-
-| Method            | Average Case | Worst Case | Space    |
-| ----------------- | ------------ | ---------- | -------- |
-| Chaining          | O(1 + α)     | O(n)       | O(n + m) |
-| Linear Probing    | O(1/(1-α))   | O(n)       | O(n)     |
-| Quadratic Probing | O(1/(1-α))   | O(n)       | O(n)     |
-| Double Hashing    | O(1/(1-α))   | O(n)       | O(n)     |
-
-Where:
-
-- α = load factor (n/m)
-- n = number of elements
-- m = table size
-
-> [!note] Load Factor
-> The load factor α = n/m determines how full the hash table is. A higher load factor means more collisions but better space utilization. Most implementations keep α < 0.75.
-
-#### 2. Linear Probing
+````
 
 **Advantages:**
 
-- Better cache performance
-- Simple implementation
-- No extra data structures
-
-**Disadvantages:**
-
-- Primary clustering: consecutive occupied slots form clusters
-- Performance degrades as table fills up
-- Deletion requires special handling
-
-```mermaid
-graph LR
-    A["Index 5"] --> B["Index 6"] --> C["Index 7"] --> D["Index 8"]
-    style A fill:#f9f,stroke:#333
-    style B fill:#f9f,stroke:#333
-    style C fill:#f9f,stroke:#333
-    style D fill:#f9f,stroke:#333
-```
-
-#### 3. Quadratic Probing
-
-**Advantages:**
-
-- Eliminates primary clustering
-- Better distribution than linear probing
-
-**Disadvantages:**
-
-- Secondary clustering: items with same initial position probe same locations
-- May not find empty slot even when one exists
-- More complex than linear probing
-
-#### 4. Double Hashing
-
-**Advantages:**
-
-- No clustering
-- Better distribution than linear/quadratic probing
-
-**Disadvantages:**
-
-- Requires second hash function
-- More expensive computation
-- Complex implementation
-
-> [!tip] Choosing a Resolution Method
->
-> - Use **Chaining** when:
->   - Load factor might exceed 0.7
->   - Delete operations are frequent
-> - Use **Linear Probing** when:
->   - Cache performance is critical
->   - Load factor stays below 0.7
-> - Use **Double Hashing** when:
->   - Maximum performance is needed
->   - Space is at a premium
+- Reduces clustering
