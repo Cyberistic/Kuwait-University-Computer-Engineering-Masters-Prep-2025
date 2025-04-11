@@ -89,20 +89,17 @@ A good hash function should:
     3. Be fast to compute
     4. Minimize collisions
 
-Here is a simple hashing function. Assume a table with 20 slots and a hashing function of `h(k) = k % 20` and `k = sum of numeric values of letters`.
+Here is a simple hashing function. Assume a table with 20 slots and a hashing function of `h(k) = k % 10` and `k = sum of numeric values of letters`.
 
 For the following strings:
 
-- "mahdi" = 13 + 1 + 8 + 4 + 9 = 35 Hashcode = 15
-- "asmaa" = 1 + 19 + 13 + 1 + 1 = 35; Hashcode = 15
+- "mahdi" = 13 + 1 + 8 + 4 + 9 = 35 Hashcode = 5
+- "asmaa" = 1 + 19 + 13 + 1 + 1 = 35; Hashcode = 5
 - "taleb" = 20 + 1 + 12 + 5 + 2 = 40; Hashcode = 0
-- "sudo" = 19 + 21 + 4 + 15 = 59; Hashcode = 19
 - "abdo" = 1 + 2 + 4 + 15 = 22; Hashcode = 2
 
 The table would look like this:
 
-```
-Hash table contents
 | Index | Key   |
 |-------|-------|
 | 0     | taleb |
@@ -110,16 +107,13 @@ Hash table contents
 | 2     | abdo  |
 | 3     | empty |
 | 4     | empty |
-| 5     | empty |
-| 6     | empty |
+| 5     | mahdi |
+| 6     | asmaa |
 | 7     | empty |
+| 8     | empty |
+| 9     | empty |
 
-
-
-```
-
-````mermaid
-
+Notice how 2 values, `mahdi` and `asmaa` had the same hash? This is called a *collision*, and the technique to use the next available slot (like how we used index 6)
 
 2. **Hash-Table:** The _array_ that holds the records. Denoted by HT.
 3. The position in a hash table is also known as a **slot**.
@@ -139,7 +133,7 @@ graph TD
     B --> E["Entry(key1,val1)"]
     C --> F["Entry(key2,val2)"]
     C --> G["Entry(key3,val3)"]
-````
+```
 
 ## Static Hashing
 
