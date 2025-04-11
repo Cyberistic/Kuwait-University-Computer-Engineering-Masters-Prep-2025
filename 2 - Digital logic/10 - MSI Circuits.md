@@ -49,6 +49,12 @@ function mux4to1(
 
 There is no "end" to this.
 
+> [!Important] Fun fact..
+> I recently used a 16-to-1 MUX to make a 16 buttons keyboard.
+> In my code I just loop through the inputs and use the select lines to determine which button is pressed.
+> Instead of connecting 16 wires to the esp32, I only needed 5 (4 select and 1 output).
+> ![[ESP32-MUX.png|center|200]]
+
 ### DEMUX
 
 A DEMUX is the opposite of a MUX. It takes one input and routes it to one of the multiple outputs based on the select lines.
@@ -73,7 +79,7 @@ Suppose you have this boolean table:
 | 1   | 1   | 0      |
 
 The output in term of f(x,y) is:
-f(x,y) = x'y + xy' = (x' + y)(x + y')
+$$\( f(x,y) = \overline{x}y + x\overline{y} = (\overline{x} + y)(x + \overline{y}) \)$$
 This can be implemented using a 2-to-1 MUX as follows:
 
 ![[Weird Mux thing.png | center | 300]]
@@ -82,32 +88,26 @@ In shannon's theorem, we can use the MUX to implement the function by using the 
 
 Say we have this table:
 
-| w1 | w2 | w3 | f(w1,w2,w3) |
-| -- | -- | -- | ----------- |
-| 0 | 0 | 0 | 0 |
-| 0 | 0 | 1 | 1 |
-| 0 | 1 | 0 | 1 |
-| 0 | 1 | 1 | 0 |
-| 1 | 0 | 0 | 1 |
-| 1 | 0 | 1 | 0 |
-| 1 | 1 | 0 | 0 |
-| 1 | 1 | 1 | 1 |
+| w1  | w2  | w3  | f(w1,w2,w3) |
+| --- | --- | --- | ----------- |
+| 0   | 0   | 0   | 0           |
+| 0   | 0   | 1   | 1           |
+| 0   | 1   | 0   | 1           |
+| 0   | 1   | 1   | 0           |
+| 1   | 0   | 0   | 1           |
+| 1   | 0   | 1   | 0           |
+| 1   | 1   | 0   | 0           |
+| 1   | 1   | 1   | 1           |
 
 The output in term of f(w1,w2,w3) is:
 f(w1,w2,w3) = w1'w2'w3 + w1'w2w3' + w1w2'w3' + w1w2w3
-To solve, we take 2 inputs, say w1 and w2, as common denominators *"عامل مشترك"*:
-$$ \begin{aligned} 
+To solve, we take 2 inputs, say w1 and w2, as common denominators _"عامل مشترك"_:
+
+$$
+\begin{aligned}
 \ f(w_1, w_2, w_3) &= \overline{w_1}\overline{w_2} \cdot f(0, 0, w_3) + \overline{w_1}w_2 \cdot f(0, 1, w_3) + w_1\overline{w_2} \cdot f(1, 0, w_3) + w_1w_2 \cdot f(1, 1, w_3)) \\
-&= \overline{w_1}\overline{w_2}(w_3) + \overline{w_1}w_2(\overline{w_3}) + w_1\overline{w_2}(\overline{w_3}) + w_1w_2(w_3)) 
+&= \overline{w_1}\overline{w_2}(w_3) + \overline{w_1}w_2(\overline{w_3}) + w_1\overline{w_2}(\overline{w_3}) + w_1w_2(w_3))
  \end{aligned}
 $$
 
-
-This can be implemented using a 4-to-1 MUX as follows:
-![[Shannon's Theorem.png | center | 300]]
-
-> [!Important] Fun fact..
-> I recently used a 16-to-1 MUX to make a 16 buttons keyboard.
-> In my code I just loop through the inputs and use the select lines to determine which button is pressed.
-> Instead of connecting 16 wires to the esp32, I only needed 5 (4 select and 1 output).
-> ![[ESP32-MUX.png|center|200]]
+![[Shannons-theorem.png| center | 300]]
