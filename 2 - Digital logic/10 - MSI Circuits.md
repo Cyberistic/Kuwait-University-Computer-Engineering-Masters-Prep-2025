@@ -2,7 +2,7 @@ MSI circuits (Muxes, Cross-bar switches, Decoders, Encoders, Priority Encoders),
 
 Before we start, if you don't remember the verilog syntax, here's a quick overview: [[Verilog]]
 
-Note that I won't explain in details since you should have a general idea of how they work, instead, I will give a short description, typescript code and verilog.
+Note that I won't explain all the details since you should have a general idea of how they work, instead, I will give a short description, and both typescript and verilog codes.
 
 ## MUX
 
@@ -218,9 +218,7 @@ Each output (`y1` and `y2`) is connected to a multiplexer that selects between t
 | 10           | x2        | x1        |
 | 11           | x2        | x2        |
 
----
-
-### ⚙️ **How It Works:**
+**How It Works:**
 
 - `y1` gets its value from either `x1` or `x2`, depending on a select line (say `s1`)
 - `y2` does the same independently (with `s2`)
@@ -258,5 +256,23 @@ module crossbarSwitch (x1, x2, s1, s2, y1, y2);
 
   assign y1 = s1 ? x2 : x1;
   assign y2 = s2 ? x2 : x1;
+endmodule
+```
+
+or with MUXes:
+
+```verilog
+module crossbarSwitch (x1, x2, s1, s2, y1, y2);
+  input x1, x2;
+  input s1, s2;
+  output y1, y2;
+
+  wire mux1_out, mux2_out;
+
+  mux2to1 mux1 (x1, x2, s1, mux1_out);
+  mux2to1 mux2 (x1, x2, s2, mux2_out);
+
+  assign y1 = mux1_out;
+  assign y2 = mux2_out;
 endmodule
 ```

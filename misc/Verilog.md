@@ -72,13 +72,26 @@ if statements like this:
 ```verilog
 module example5 (x1, x2, s, f);
 	input x1, x2, s;
-	output f;
-	reg f;
+	output reg f;
+
 	always @(x1, x2, s)
 		if (s == 0)
 			f = x1;
 		else
 			f = x2;
+endmodule
+```
+
+or an easier way to write if cases (similar to typescript):
+
+```verilog
+module crossbarSwitch (x1, x2, s1, s2, y1, y2);
+  input x1, x2;
+  input s1, s2;
+  output y1, y2;
+
+  assign y1 = s1 ? x2 : x1; // if s1 return x2 else x1
+  assign y2 = s2 ? x2 : x1; // if s2 return x2 else x1
 endmodule
 ```
 
