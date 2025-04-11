@@ -54,17 +54,14 @@ type HashTable<K, V> = {
 
 // Example:
 const phoneBook: HashTable<string, string> = {
-  John: "",
+  John: "1809777",
   urmom: "098-765-4321"
 };
 ```
 
 > [!Important]
-> I don't think the code implementation of hash-tables is required
-
-
-
-
+> I don't think the code implementation of hash-tables is required, but you can take a look at it here: 
+> [[Hash-Table & Dynamic Hash-Table implementation#Hash-Table]]
 
 ## Static Hashing
 
