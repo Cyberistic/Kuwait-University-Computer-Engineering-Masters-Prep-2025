@@ -153,6 +153,10 @@ so continuing the formula:
 
 $$
 \begin{aligned}
-f(x,y,z) &= \overline{y}z \cdot [0] + \overline{y}z \cdot [x + \overline{x}] + y\overline{z} \cdot [x'] + yz \cdot [1]\\
-\end{aligned}
+f(x,y,z) &= \overline{y}z \cdot [0] + \overline{y}z \cdot [x + \overline{x}] + y\overline{z} \cdot [\overline{x}] + yz \cdot [1]\\
+
+&= \overline{y}z \cdot [0] + \overline{y}z \cdot [1] + y\overline{z} \cdot [\overline{x}] + yz \cdot [1]\\
+&= 0 + \overline{y}z + y\overline{z}\overline{x} + yz \\
+&= \overline{y}z + y\overline{z}\overline{x} + yz \\
+\end{aligned} \\
 $$
