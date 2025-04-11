@@ -190,3 +190,8 @@ Again, idk if shannon is even in the exam heh.
 A circuit that has n inputs and k outputs, whose sole function is to provide a capability to connect any input to any output.
 When there are two inputs and two outputs, it is called a 2×2 crossbar.
 
+Based on the select line, the crossbar connects the result input to the output.
+
+The crossbar switch is a combination of 2-to-1 MUXes. The number of MUXes required is n\*k,
+where n is the number of inputs and k is the number of outputs.
+The number of select lines required is log(n) + log(k).
