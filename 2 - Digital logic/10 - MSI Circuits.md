@@ -6,4 +6,6 @@ Before we start, if you don't remember the verilog syntax, here's a quick overvi
 Note that I won't explain in details since you should have a general idea of how they work, instead, I will give a short description, typescript code and verilog.
 
 
-##
+## MUX
+
+
