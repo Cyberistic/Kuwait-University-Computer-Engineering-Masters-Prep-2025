@@ -120,24 +120,24 @@ $$
 
 Draw the truth table:
 
-| x   | y   | z   | f(x,y,z) |
-| --- | --- | --- | -------- |
-| 0   | 0   | 0   | 0        |
-| 0   | 0   | 1   | 1        |
-| 0   | 1   | 0   | 1        |
-| 0   | 1   | 1   | 0        |
-| 1   | 0   | 0   | 1        |
-| 1   | 0   | 1   | 0        |
-| 1   | 1   | 0   | 0        |
-| 1   | 1   | 1   | 1        |
+| m   | x   | y   | z   | f(x,y,z) |
+| --- | --- | --- | --- | -------- |
+| 0   | 0   | 0   | 0   | 0        |
+| 1   | 0   | 0   | 1   | 1        |
+| 2   | 0   | 1   | 0   | 1        |
+| 3   | 0   | 1   | 1   | 0        |
+| 4   | 1   | 0   | 0   | 1        |
+| 5   | 1   | 0   | 1   | 0        |
+| 6   | 1   | 1   | 0   | 0        |
+| 7   | 1   | 1   | 1   | 1        |
 
-Then the equation is as follows:
+Then the equation is as follows (taking y and z as common):
 
 $$
 \begin{aligned}
 f(x,y,z) &= m1 + m2 + m3 + m5 + m7\\
-&= \overline{x}\overline{y}z + \overline{x}y\overline{z} + x\overline{y}\overline{z} + xy\overline{z} + xyz \\
-&=
+&= \overline{x}\overline{y}z + \overline{x}y\overline{z} + x\overline{y}\overline{z} + x\overline{y}z + xyz \\
+&= \overline{y}z \cdot f(x, 0, 0) + \overline{y}z \cdot f(x, 0, 1) + y\overline{z} \cdot f(x, 1, 0) + yz \cdot f(x, 1, 1)\\
 \end{aligned}
 
 
