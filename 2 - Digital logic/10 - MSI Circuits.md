@@ -12,6 +12,8 @@ Based on select line `s`, connect inputs 0 or 1 to f.
 
 _Note that you need log(n) select lines for n inputs. _
 
+### Typescript
+
 ```typescript
 function mux2to1(input1: boolean, input2: boolean, select: boolean): boolean {
   return select ? input2 : input1;
@@ -233,6 +235,8 @@ So if:
 
 You get total flexibility between inputs and outputs.
 
+### Typescript
+
 ```typescript
 function crossbarSwitch(
   x1: boolean,
@@ -285,6 +289,9 @@ A **decoder** is a circuit that converts binary information from `n` input lines
 It essentially "decodes" the binary input into a specific output line.
 For example, a 2-to-4 decoder has 2 input lines and 4 output lines.  
 When the input is `00`, the first output line is activated; when the input is `01`, the second output line is activated, and so on.
+
+> [!Note] By adjusting the output behavior, you can create _code converters_ or _address decoders_.
+> These are often used in things like 7-segment displays, where the decoder converts binary input into a specific output pattern to display numbers.
 
 Usually, it also has an `EN` input.
 
@@ -348,4 +355,43 @@ When the first input line is activated, the output will be `00`; when the second
 
 The output is usually in binary form, and the encoder may also have an `EN` input to enable or disable the encoding process.
 
+### Typescript
 
+```typescript
+function encoder4to2(
+  input: [boolean, boolean, boolean, boolean],
+  enable: boolean
+): [boolean, boolean] {
+  if (!enable) return [false, false];
+
+  if (input[0]) return [false, false];
+  if (input[1]) return [false, true];
+  if (input[2]) return [true, false];
+  if (input[3]) return [true, true];
+
+  return [false, false]; // Default case
+}
+```
+
+### Verilog
+
+```verilog
+module encoder4to2 (input, enable, output);
+  input [3:0] input;
+  input enable;
+  output reg [1:0] output;
+
+  always @(input or enable) begin
+    if (!enable) begin
+      output = 2'b00;
+    end else begin
+      case (input)
+        4'b0001: output <= 1;
+        4'b0010: output <= 2;
+        4'b0100: output <= 3;
+        4'b1000: output <= 4;
+        default: output <= 0;
+      endcase
+    end
+  end
+```
