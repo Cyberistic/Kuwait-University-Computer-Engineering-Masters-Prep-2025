@@ -12,5 +12,7 @@ Note that I won't explain in details since you should have a general idea of how
 
 Based on input `s`, connect inputs 0 or 1 to f.
 
+Note that you need log(n)
+![[4-to-1-MUX.png]]
 
 
