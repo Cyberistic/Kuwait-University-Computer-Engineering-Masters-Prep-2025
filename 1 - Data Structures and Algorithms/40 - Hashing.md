@@ -72,7 +72,9 @@ const phoneBook: HashTable<string, string> = {
 ### Disadvantages of Hash-tables:
 - They're based on arrays, and arrays are difficult to expand once they are created.
 - No easy way to traverse the items! Have to traverse the entire table.
-- 
+- Always unsorted, expensive to do getMin, getMax, etc.
+
+
 > [!Warning]
 > I don't think the code implementation of hash-tables is required, but you can take a look at it here:
 > [[Hash-Table & Dynamic Hash-Table implementation#Hash-Table]]
@@ -123,13 +125,16 @@ The table would look like this:
 
 
 2. **Hash-Table:** The _array_ that holds the records. Denoted by HT.
+
 3. The position in a hash table is also known as a **slot**.
 
-### Buckets
+4. **Collisions**: Two hash tables elements map into the same slot in the array (They have the same hash).
+
+5.  **Buckets**
 
 A bucket is a slot in the hash table that can store one or more key-value pairs:
 
-- In open addressing: each bucket holds one item
+- In open addressing: each bucket holds one item 
 - In chaining: each bucket is a linked list of items
 
 ```mermaid
@@ -141,6 +146,7 @@ graph TD
     C --> F["Entry(key2,val2)"]
     C --> G["Entry(key3,val3)"]
 ```
+
 
 ## Static Hashing
 
