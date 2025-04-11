@@ -126,7 +126,7 @@ The table would look like this:
 
 2. **Hash-Table:** The _array_ that holds the records. Denoted by HT.
 
-3. The position in a hash table is also known as a **slot**.
+3. The position (Index) in a hash table is also known as a **slot**.
 
 4. **Collisions**: Two hash tables elements map into the same slot in the array (They have the same hash).
 
@@ -134,8 +134,8 @@ The table would look like this:
 
 A bucket is a slot in the hash table that can store one or more key-value pairs:
 
-- In open addressing: each bucket holds one item 
-- In chaining: each bucket is a linked list of items
+- In open addressing: each bucket holds one item. Need to implement collision resolution.
+- In chaining: each bucket is a linked list of items. No need to implement collision resolution, on collision, make the new item the tail of the linked list!
 
 ```mermaid
 graph TD
@@ -165,7 +165,6 @@ graph TD
 ### Advantages
 
 - Simple implementation
-- Constant-time operations O(1) (average case)
 
 ### Disadvantages
 
@@ -312,7 +311,7 @@ Where:
 
 - Extra memory for linked list nodes
 - Poor cache performance
-- Linked list operations overhead
+- Linked list operations overhead. (To find a node, need to traverse the entire linked-l)
 
 #### 2. Linear Probing
 
