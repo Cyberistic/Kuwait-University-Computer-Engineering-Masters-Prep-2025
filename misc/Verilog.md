@@ -15,7 +15,7 @@ endmodule
 
 Notice how it takes all inputs and outputs in the params. And each "function" inside takes the output variable to assign to as the final param.
 
-Or we can use the weird verilog syntax instead of explicit gates where:
+Or we can use the weird verilog syntax instead of explicit gates (bitwise) where:
 
 1. not = ~
 2. and = &
@@ -27,6 +27,8 @@ and then you can combine them like this:
 5. nand = ~&
 6. nor = ~|
    etc..
+
+And common operators like this: 7. +-/\* 8. ! = NOT 9. && = AND 10. || = OR
 
 So the above example would be:
 
