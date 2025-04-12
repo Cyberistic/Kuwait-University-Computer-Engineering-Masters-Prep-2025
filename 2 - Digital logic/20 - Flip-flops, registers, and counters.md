@@ -281,6 +281,9 @@ Slight modification of the above counter gives you a down counter:
 ![[Down-Counter.png]]
 ![[Down-Counter-Timing.png]]
 
-### Asynchronous Counter
+### Synchronous Counters
+The counters above are **asynchronous**. They are easy to build but very slow. As more bits are added, delays from the chained clocking become too long. To make faster counters, we can clock all flip-flops at the same time:
 
-![[Asynchronous-Counter.png]]
+![[Synchronous-Counters.png]]
+
+
