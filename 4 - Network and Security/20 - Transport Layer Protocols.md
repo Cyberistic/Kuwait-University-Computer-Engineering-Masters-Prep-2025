@@ -114,10 +114,18 @@ After this, data transfer begins.
 - Checksum
     
 - Data
-    
 
 
-> [!Note] If you send a file, for example an image, you want to make sure that file 
+
+
+> [!Note] If you send a file, for example an image, you want to make sure that file arrives fully with all its data! 
+> This is where we use TCP to validate data received.
+
+
+> [!Warning] Important..
+> I did not include the way TCP resolves lost packets etc as they are probably outside the scope of this exam.
+> But maybe they are not? ¯\\_(ツ)_/¯ 
+> ![[TCP-JOKE.png | center | 300]]
 
 ## 🔍 Comparison Table
 
@@ -130,9 +138,9 @@ After this, data transfer begins.
 |Use Cases|Web, email, file transfer|Streaming, gaming, DNS|
 |Flow/Congestion Ctrl|Yes|No|
 
----
 
-## 🧠 Summary
+
+## tl;dr: 
 
 - **UDP** is fast, simple, and used where **speed > reliability**.
     
@@ -142,6 +150,3 @@ After this, data transfer begins.
 > 🎯 Use UDP when you can **tolerate loss** but need speed.  
 > 📦 Use TCP when **every byte matters**, even if it’s slower.
 
----
-
-Let me know if you want a diagram, animations, or this in PDF form for notes!
