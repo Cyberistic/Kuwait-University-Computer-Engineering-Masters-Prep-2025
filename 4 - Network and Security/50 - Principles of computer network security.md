@@ -47,7 +47,9 @@ Encrypt(Message, Key) → Ciphertext
 Decrypt(Ciphertext, Key) → Message
 ```
 
-> [!Note] Another example of this is a cesar cipher
+> [!Note] Another example of this is a Caeser Cipher
+> *"I love sudo"* with a shift of 5 becomes *"N QT AJ XZIT"* which I think is beautiful.
+
 #### **Public Key Encryption (Asymmetric)**
 
 - Two keys: a **public** key (shared with everyone) and a **private** key (kept secret).
@@ -56,22 +58,23 @@ Decrypt(Ciphertext, Key) → Message
     
 
 > Example: RSA, ECC  
-> Used in HTTPS, digital signatures
+> Used in HTTPS, digital signatures, SSH
 
 ```plaintext
 Encrypt(Message, PublicKey) → Ciphertext  
 Decrypt(Ciphertext, PrivateKey) → Message
 ```
 
----
+> [!Important] SSH!
 
-## ✅ 2. **Message Integrity**
+
+## **Message Integrity**
 
 Message integrity ensures that a message hasn’t been **altered** during transmission.
 
-### Techniques:
 
-#### 🔘 **Message Digests / Hashing**
+
+#### Hashing
 
 A fixed-length hash (digest) is generated from a message.
 
@@ -84,7 +87,7 @@ A fixed-length hash (digest) is generated from a message.
 > `hash("hello") → 2cf24d...`  
 > `hash("Hello") → 185f8d...` ← different!
 
-#### ✍️ **Message Authentication Code (MAC)**
+#### Message Authentication Code (MAC)
 
 A hash of the message **plus a shared secret key**.
 
@@ -97,7 +100,7 @@ MAC = hash(message + secret_key)
 - Used in SSL/TLS, Wi-Fi (WPA2)
     
 
-#### 🔏 **Digital Signatures**
+#### Digital Signatures
 
 Used with **public key cryptography**.
 
@@ -109,9 +112,8 @@ Used with **public key cryptography**.
 > Guarantees integrity + authenticity  
 > Often combined with public-key encryption
 
----
 
-## 📎 Real-World Example: HTTPS
+### Real-World Example: HTTPS
 
 When you connect to a secure website via **HTTPS**:
 
@@ -126,7 +128,7 @@ When you connect to a secure website via **HTTPS**:
 
 ---
 
-## 🧠 tl;dr
+## tl;dr
 
 |**Concept**|**Purpose**|**Tools**|
 |---|---|---|
@@ -138,4 +140,4 @@ When you connect to a secure website via **HTTPS**:
 
 ---
 
-Want me to follow this up with a note on **Firewalls, VPNs, or TLS Handshake**?
+> [!Warning] Be advised, the books contains way more details.
