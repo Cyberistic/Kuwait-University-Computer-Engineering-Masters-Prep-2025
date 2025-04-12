@@ -7,10 +7,8 @@ The **Transport Layer** sits above the **network layer** (like IP) and is respon
 
 Its job is to **break messages into segments**, **send them**, and **ensure they’re reassembled correctly** on the other side.
 
----
 
-## 🎯 Goals of the Transport Layer
-
+## Main Goals
 - **Process-to-process delivery** (e.g., from one application to another).
     
 - **Multiplexing and demultiplexing** using **port numbers**.
@@ -20,9 +18,8 @@ Its job is to **break messages into segments**, **send them**, and **ensure they
 - **Flow and congestion control** (TCP only).
     
 
----
 
-## ⚡ UDP (User Datagram Protocol)
+## UDP (User Datagram Protocol)
 
 UDP is a **simple, connectionless**, and **fast** transport protocol.
 
@@ -46,7 +43,9 @@ UDP is a **simple, connectionless**, and **fast** transport protocol.
 - **Online gaming**.
     
 - **DNS** lookups.
-    
+
+> [!Note] Services like Facetime and Twitch streams use UDP. Lose a few packets? no problem! The stream will keep sending you packets. 
+> better than breaking the connection completely!
 
 ### UDP Segment Format:
 
@@ -61,7 +60,7 @@ UDP is a **simple, connectionless**, and **fast** transport protocol.
 
 ---
 
-## 🔒 TCP (Transmission Control Protocol)
+## TCP (Transmission Control Protocol)
 
 TCP is a **connection-oriented**, **reliable** transport protocol.
 
@@ -117,7 +116,8 @@ After this, data transfer begins.
 - Data
     
 
----
+
+> [!Note] If you send a file, for example an image, you want to make sure that file 
 
 ## 🔍 Comparison Table
 

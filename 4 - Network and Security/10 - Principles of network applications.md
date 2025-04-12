@@ -4,14 +4,14 @@ Principles of network applications and its protocols (HTTP, Electronic Mail, DNS
 
 Super vague description, will provide general knowledge about the above.
 
-Remember the 7-layered OSI model which 
+Remember the 7-layered OSI model:
 
 ![[OSI-Model.png]]
 [OSI Model Source](https://www.imperva.com/learn/application-security/osi-model/)
 
+We will be covering the TCP/IP model which is similar but skips over *Presentation* and *Session* layers
 
-
-##🌐 What is the internet?
+## 🌐 What is the internet?
 
 Network applications let devices **communicate over the internet**. These applications (like web browsers, email clients, or video apps) rely on **application-layer protocols** that define how data is sent and received.
 
