@@ -156,10 +156,14 @@ module t_flipflop(
 endmodule
 ```
 
-> [!Important] Fun fact..
+> [!Important]- Fun fact..
 > I learned about T-flip-flops looong (2012-ish) before joining the CE world; because of Minecraft...
 > It was the simplest way to make a redstone button act as a toggle switch.
 > ![[Minecraft-T-Flip-Flop.png | center | 300]]
+>
+> As I wrote this, I got curious so I spent like 15 minutes looking for the video.. here is where I learned it (1:15 to 3:40):
+>   ![Redstone stuff](https://www.youtube.com/watch?v=4Y2oPNSdqNI&t=75s)
+
 ### JK Flip-Flop
 
 Combines features of SR and T flip-flops. Most versatile.
