@@ -263,7 +263,10 @@ Same as above, but has output at every "stage" or flip-flip.
 
 ## Counters
 
-Counters are sequential circuits that count pulses. They can be synchronous or asynchronous.
+Counters count.
+
+### Up counter
+
 
 ### Asynchronous Counter
 
