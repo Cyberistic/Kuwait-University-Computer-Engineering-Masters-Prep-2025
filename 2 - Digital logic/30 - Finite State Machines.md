@@ -1,8 +1,6 @@
 Design and Analysis of Synchronous Finite State Machines (S-FSM) Mealy and Moore. Serial Adder implementations using S-FSM. Verilog coding of the designs. Formal design steps, and informal design techniques.
 
-Sure! Here’s a concise and friendly write-up that matches the tone and style of your sequential circuits doc. It covers Synchronous FSMs, Mealy vs Moore, Serial Adders, Verilog examples, and design techniques:
 
----
 
 ## Synchronous Finite State Machines (FSMs)
 
@@ -58,14 +56,17 @@ Example FSM States:
 Inputs: `A`, `B` (1-bit at a time)  
 Outputs: `Sum`
 
+![[FMS-Adder.png]]
+
 ### Moore Serial Adder Diagram
 
 ![[Moore-Adder.png]]
+![[Moore-Adder-1.png]]
 
 ### Mealy Serial Adder Diagram
 
+![[FSM-Adder.png]]
 ![[Mealy-Adder.png]]
-![[Mealy-Adder-1.png]]
 
 
 ---
