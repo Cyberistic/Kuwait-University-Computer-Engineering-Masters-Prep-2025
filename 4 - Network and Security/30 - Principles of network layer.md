@@ -184,9 +184,9 @@ New subnet mask: `255.255.255.192` (or `/26`).
 
 - The new subnet mask allows for `2^2 = 4` subnets, and each subnet will have `2^6 - 2 = 62` hosts.
 
-### 3.2.5 **IP Address Range:**
+### **IP Address Range:**
 
-For each subnet, the usable IP range is from the network address + 1 to the broadcast address - 1.
+For each subnet, the usable IP range is from (network address + 1) to (broadcast address - 1).
 
 For the subnet `192.168.1.0/24`:
 `(Remember: /24 means that our subnet is 255.255.255.0 which leaves us with 254 hosts)`
@@ -196,7 +196,7 @@ For the subnet `192.168.1.0/24`:
 - Broadcast address: `192.168.1.255`
 
 
-
+---
 > [!Important] Author: Asmaa Alazmi
 > Note: feel free to change the diagrams into prettier ones 
 > `(I'm not getting paid enough to care about aesthetics)`.
