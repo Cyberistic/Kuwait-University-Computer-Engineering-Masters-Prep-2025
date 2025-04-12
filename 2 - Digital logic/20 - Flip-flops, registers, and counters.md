@@ -88,9 +88,7 @@ Flip-flops are edge-triggered devices that change state on clock edges. They are
 They are used in synchronous circuits to store data.
 They are more reliable than latches because they only change state on clock edges, reducing the chance of glitches.
 
-### D Flip-Flop (Master-Slave)
-
-![[Master-Slave-Symbol.png]]
+### D Flip-Flop
 
 Similar to D latch but changes state only on clock edge.
 
@@ -106,6 +104,10 @@ module d_flipflop(
     end
 endmodule
 ```
+
+#### Master-Slave
+
+![[Master-Slave-Symbol.png]]
 
 By chaining multiple D flip-flops, and inverting the clock for the second one, we create a master-slave flip-flop. The first flip-flop (master) captures the input on the rising edge of the clock, and the second flip-flop (slave) captures the output of the master on the falling edge of the clock.
 
@@ -276,24 +278,27 @@ Example:
 Notice how the first bit corresponds directly to the clock, while the other bits change after a delay.
 
 ### Down counter
+
 Slight modification of the above counter gives you a down counter:
 
 ![[Down-Counter.png]]
 ![[Down-Counter-Timing.png]]
 
 ### Synchronous Counters
+
 The counters above are **asynchronous**. They are easy to build but very slow. As more bits are added, delays from the chained clocking become too long. To make faster counters, we can clock all flip-flops at the same time:
 
 ![[Synchronous-Counters.png]]
 
 > [!Warning] Note..
 > I am ending it here, but the book [[Stephen Brown, Zvonko Vranesic - Fundamentals of Digital Logic with Verilog Design-McGraw-Hill (2014).pdf#page=273]] goes into more details about:
+>
 > 1.  Inclusion of Enable and Clear capability
-> 2. Synchronous Counter with D Flip-Flops
-> 3. Counters with Parallel Load
-> 4. Reset Synchronization
-> 5. BCD Counter
-> 6. Ring Counter
-> 7. Johnson Counter
-> 8. and so on..
-> I don't remember studying most of them before, so i'm skipping them; however you may want to take a quick look? idk im not ur mother
+> 2.  Synchronous Counter with D Flip-Flops
+> 3.  Counters with Parallel Load
+> 4.  Reset Synchronization
+> 5.  BCD Counter
+> 6.  Ring Counter
+> 7.  Johnson Counter
+> 8.  and so on..
+>     I don't remember studying most of them before, so i'm skipping them; however you may want to take a quick look? idk im not ur mother
