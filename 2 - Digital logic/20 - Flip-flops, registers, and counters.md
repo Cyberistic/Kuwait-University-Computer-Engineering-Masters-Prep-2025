@@ -251,83 +251,20 @@ endmodule
 ```
 
 ### Parallel Reads Register
+
 ![[Parallel-Register.png]]
 
 Same as above, but has output at every "stage" or flip-flip.
 
 > [!Important] Fun fact..
-> Parallel Shift Registers (TPIC6B595) are perhaps my **FAVORITE** ESP32 components. It always you to control an (almost) INFINITE number of output GPIO pins using only 2 ESP32 pins!!!
-> 
+> Parallel Shift Registers (TPIC6B595) are perhaps my **FAVORITE** ESP32 components. It always you to control an (almost) INFINITE number of output GPIO pins using only 3 ESP32 pins!!!
+> Each Register gives you 8 outputs AND THEY ARE CHAINABLE, IT IS SO GOOD AND I HATE HOW NO ONE KNOWS ABOUT THEM!!
+> [![[TPIC6B595N.png|center|300]]
+
 ## Counters
+
+Counters are sequential circuits that count pulses. They can be synchronous or asynchronous.
 
 ### Asynchronous Counter
 
-Each flip-flop triggers the next one. Simple but can have glitches.
-
-```verilog
-module async_counter #(
-    parameter WIDTH = 4
-)(
-    input CLK, RESET,
-    output reg [WIDTH-1:0] COUNT
-);
-    always @(posedge CLK or posedge RESET) begin
-        if (RESET)
-            COUNT <= 0;
-        else
-            COUNT <= COUNT + 1;
-    end
-endmodule
-```
-
-### Synchronous Counter
-
-All flip-flops change state together on clock edge. More reliable.
-
-```verilog
-module sync_counter #(
-    parameter WIDTH = 4,
-    parameter MAX_COUNT = 9  // For decade counter
-)(
-    input CLK, RESET,
-    output reg [WIDTH-1:0] COUNT
-);
-    always @(posedge CLK or posedge RESET) begin
-        if (RESET)
-            COUNT <= 0;
-        else if (COUNT == MAX_COUNT)
-            COUNT <= 0;
-        else
-            COUNT <= COUNT + 1;
-    end
-endmodule
-```
-
-### Up-Down Counter
-
-Can count in both directions.
-
-```verilog
-module updown_counter #(
-    parameter WIDTH = 4
-)(
-    input CLK, RESET,
-    input UP_DOWN, // 1 for up, 0 for down
-    output reg [WIDTH-1:0] COUNT
-);
-    always @(posedge CLK or posedge RESET) begin
-        if (RESET)
-            COUNT <= 0;
-        else if (UP_DOWN)
-            COUNT <= COUNT + 1;
-        else
-            COUNT <= COUNT - 1;
-    end
-endmodule
-```
-
-> [!tip] Clock Edge Types
->
-> - **Positive Edge (posedge)**: Triggers when clock goes from 0 to 1
-> - **Negative Edge (negedge)**: Triggers when clock goes from 1 to 0
-> - Most modern systems use positive edge triggering
+![[Asynchronous-Counter.png]]
