@@ -1,10 +1,11 @@
+Data link layer services (error detection, error correction, and multiple access).  
 
+[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=493]]
 
-### 1. Link Layer Review
 
 The **Link Layer** is the second layer in the OSI model and is responsible for establishing, maintaining, and terminating connections between devices on the same network. It handles communication between directly connected devices, like computers or routers, over physical links (e.g., Ethernet, Wi-Fi protocols).
 
-Key responsibilities of the Link Layer:
+## Key responsibilities 
 
 - **Framing**: It packages data into frames for transmission.
     
@@ -13,23 +14,28 @@ Key responsibilities of the Link Layer:
 - **Error Detection and Correction**: It detects errors in transmitted frames and can correct some errors (e.g., using checksums or CRC).
     
 - **Access Control**: It manages how devices access the shared physical medium (like the Ethernet protocol).
-_____
-### 2. Error Detection 
-#### 2.1 Bit Error
+
+## Error Detection 
+How does it know the packets arrived correctly? huh? HUH??
+
+First let's establish the error types:
+1. Bit Error
 
 - When only a single bit is changed during the transmission in the link.
 
 	SENDER: 0, 0, 1 --> RECIEVER: 0, **<span style="color: red;">1 </span>**,1
 
-#### 2.2 Burst Error
+2. Burst Error
 
 - When multiple bits are changed during the transmission in the link.
   For example:
 
 	SENDER: 0, 0, 0, 1, 1, 1 --> RECIEVER: 0, **<span style="color: red;">1, 0, 0, 0 </span>**,1
 	
-	`Even though bit number 2 (with a value of 0) was received correctly as 0, it is still highlighted in red. This happens because the burst treats all the bits between the valid ones as invalid, marking them as errors.
-### 2.3 Error Detection Techniques 
+> [!Important] Even though bit number 2 (with a value of 0) was received correctly as 0, it is still highlighted in red. 
+> This happens because the burst treats all the bits between the valid ones as invalid, marking them as errors.
+
+### Detection Techniques 
 
 1. **Parity Bits**: A single bit added to the data to make the number of 1s either even (even parity) or odd (odd parity). If the number of 1s is incorrect, an error is detected.
 
@@ -58,4 +64,4 @@ There are multiple ways to correct errors:
 
 __________
 
-> 🖊️ Author: Asmaa Alazmi
+> [!Important] Author: Asmaa Alazmi
