@@ -8,6 +8,8 @@ FSMs are sequential circuits used to model systems that transition between state
 
 ### Moore Machine
 
+![[Moore.png | center|300 ]]
+
 - Outputs depend **only** on the current state.
 - More stable, as output changes only on state changes.
 
@@ -35,13 +37,14 @@ endmodule
 
 ### Mealy Machine
 
+![[Mealy.png | center | 200]]
+
 - Outputs depend on **current state + input**.
 - Usually more compact and reacts faster.
 
-> [!Tip]
-> If the output needs to change instantly with input, use Mealy.
-> If you want stability and clean timing, go Moore.
-
+> [!Tip] 
+> Mealy: state/input
+> Moore: Output value inside circle
 ---
 
 ## Serial Adder using FSM
