@@ -130,7 +130,7 @@ We can chain this as many times as we want, this is how we create registers.
 
 ### T Flip-Flop (Toggle)
 
-![[Pasted image 20250412031139.png]]
+![[T-Flip-Flop-Symbol.png]]
 
 Similar to D flip-flop BUT it flips its output on every clock edge if T=1. If T=0, it retains its state.
 
@@ -153,6 +153,7 @@ module t_flipflop(
     end
 endmodule
 ```
+
 
 ### JK Flip-Flop
 
