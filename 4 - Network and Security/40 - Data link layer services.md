@@ -38,7 +38,7 @@ First let's establish the error types:
 ### Detection Techniques 
 
 1. **Parity Bits**: A single bit is added to the data, telling you if the sum of the bits (including the added bit) are *even* (even parity) or *odd* (odd parity). If the number of 1s is incorrect, an error is detected.
-Example: with even parity, you have 3 ones, so the parity bit is 
+Example: with even parity, suppose you have 3 ones `1010100`, so the parity bit is 1 as well making you have 4 ones `10101001 ` (an even amount of bits). Receiver will check if the total of bits is  
  <br/>
 ![[Parity-Bit.png | center]]
 
