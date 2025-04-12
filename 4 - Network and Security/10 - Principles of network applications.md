@@ -1,6 +1,13 @@
+
+
 Principles of network applications and its protocols (HTTP, Electronic Mail, DNS).  
 
 Super vague description, will provide general knowledge about the above.
+
+Remember the 7-layered OSI model which 
+
+![[OSI-Model.png]]
+[OSI Model Source](https://www.imperva.com/learn/application-security/osi-model/)
 
 
 
@@ -120,9 +127,9 @@ Translates **domain names** (like `google.com`) into **IP addresses** (like `142
 
 **Example**: Typing `www.example.com` triggers a DNS lookup: → gets IP address → browser connects to that IP using HTTP.
 
----
 
-## 🔑 Summary
+
+## tl;dr
 
 |Protocol|Purpose|Transport|Port|
 |---|---|---|---|
@@ -132,8 +139,8 @@ Translates **domain names** (like `google.com`) into **IP addresses** (like `142
 |IMAP|Receiving (sync)|TCP|143|
 |DNS|Resolving domain names|UDP|53|
 
----
 
-> [!Note] These protocols are just the **tip of the iceberg** — the internet uses dozens more, but HTTP, Email, and DNS are the backbone of most everyday activity.
 
-Let me know if you want this in a PDF or if you'd like diagrams added!
+> [!Note] These protocols are just the **tip of the iceberg** — the internet uses a LOT MORE!
+> But maybe that's out of the context of this exam? idk
+
