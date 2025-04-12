@@ -117,7 +117,7 @@ A more robust error detection method that treats the data as a large binary numb
 
 >[!Important] Important..
 > We won't go into details assuming it's out of the exam's scope, however, I've provided a simple example here:
-> 
+> [[Cyclic Redundancy Check]]
 
 
 
@@ -128,17 +128,91 @@ A more robust error detection method that treats the data as a large binary numb
 | **Checksum**                      | Errors in blocks of data               |  **IPv4, UDP, TCP**, application-level protocols            | Detects errors in larger data blocks, better than parity                                  |
 | **Cyclic Redundancy Check (CRC)** | Errors in data transmission            |  **Ethernet**, HDLC, ATM, data storage systems              | Very effective, **detects burst errors** and is widely used in Ethernet                   |
 
-> These techniques help maintain **data integrity** by ensuring that corrupted or altered frames are detected and can be retransmitted.
+These techniques help maintain **data integrity** by ensuring that corrupted or altered frames are detected and can be retransmitted.
 
-___
-### 3. Error Correction 
+### Error Correction 
 
 There are multiple ways to correct errors:
 
 1. The receiver asks the sender to retransmit the entire data unit.
 
 2. The receiver can use an error correcting code, which automatically corrects certain errors. 
+3. Hamming code
+
+etc..
+
+### Multiple Access
+
+
+
+The **data link layer** must coordinate how multiple devices share a common communication channel — especially in **broadcast networks** like Ethernet or Wi-Fi, where many devices are connected to the same device.
+
+This coordination is handled by **Multiple Access Protocols**, which determine **who gets to talk, and when**.
+
+![[multiple-channels.png | center | 300]]
+SPEAK WHEN SPOKEN TO!
+
+Imagine a bunch of people in a room all trying to talk over walkie-talkies on the same frequency — we need some rules, or chaos will ensue.
 
 ---
+
+## 🧠 Categories of Multiple Access Protocols
+
+### 1. **Channel Partitioning Protocols**
+
+These divide the channel into separate portions and allocate them to users.
+
+- **Time Division Multiple Access (TDMA)**: Time is divided into slots; each device gets a turn.
+    
+- **Frequency Division Multiple Access (FDMA)**: Each device gets a dedicated frequency band.
+    
+- **Code Division Multiple Access (CDMA)**: Devices transmit simultaneously over the same channel using unique codes.
+    
+
+> Think of TDMA like everyone taking turns to talk, FDMA like assigning a separate room, and CDMA like everyone speaking at the same time but in different languages.
+
+---
+
+### 2. **Random Access Protocols**
+
+Devices transmit whenever they have data — with a risk of collisions. If a collision occurs, they retry after a random time.
+
+- **ALOHA**: The original random access protocol — devices send whenever they want. If a collision happens, they wait a random time and try again.
+    
+- **Slotted ALOHA**: Improves ALOHA by dividing time into slots so devices only send at slot boundaries, reducing collisions.
+    
+- **Carrier Sense Multiple Access (CSMA)**: Devices **listen** before transmitting. If the channel is idle, they go ahead.
+    
+    - **CSMA/CD** (Collision Detection): Used in Ethernet. If a collision is detected while transmitting, devices stop and retry later.
+        
+    - **CSMA/CA** (Collision Avoidance): Used in Wi-Fi. Devices try to **avoid** collisions by announcing intentions and waiting for clear time slots.
+        
+
+---
+
+### 3. **Controlled Access (Polling and Token Passing)**
+
+A central controller or a token (a special frame) decides who gets to send data next.
+
+- **Polling**: A master device asks each device in turn if it has data to send.
+    
+- **Token Passing**: A token circulates in the network. Only the device with the token can transmit.
+    
+
+---
+
+### tl;dr
+
+|**Protocol Type**|**Examples**|**When Used**|**Pros**|**Cons**|
+|---|---|---|---|---|
+|Channel Partitioning|TDMA, FDMA, CDMA|Cellular networks, satellites|Fairness, no collisions|Wasted resources if some users idle|
+|Random Access|ALOHA, CSMA/CD, CSMA/CA|Ethernet, Wi-Fi|Efficient at low traffic, simple|Collisions, delays at high traffic|
+|Controlled Access|Polling, Token Ring|Industrial, legacy LANs|No collisions, orderly access|Central point of failure, more overhead|
+
+---
+
+> [!Note] Random access is what gives Ethernet and Wi-Fi their speed and flexibility — but also what causes retransmissions when too many devices talk at once.
+
+Want me to continue with **Link Layer Addressing & ARP**, or head into **Switching and Frame Forwarding** next?
 
 > [!Important] Author: Asmaa Alazmi
