@@ -50,11 +50,69 @@ Example: with even parity, suppose you have 3 ones `1010100`, so the parity bit 
 <br/>
 
 > [!Note] But what if more than one bit flips?!
-> You can use two-dimensional parity checks
-> Check out Hamming codes!
-> ![[https://www.youtube.com/watch?v=X8jsijhllIA]]
+> You can use two-dimensional parity checks, mentioned in the book: [[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=503]]
+> Or Hamming codes (Mentioned below)!
+> ![https://www.youtube.com/watch?v=X8jsijhllIA](https://www.youtube.com/watch?v=X8jsijhllIA)
+
 
 2. **Checksums**: Data is divided into segments, and a checksum value is computed. The receiver recalculates the checksum and compares it with the received value to detect errors.
+
+In the internet, the receiver checks the checksum by taking the 1s complement of the sum of the received data (including the checksum) and checking whether the result is all 1 bits. If any of the bits are 0, an error is indicated.
+
+
+Let’s say we’re sending **two 8-bit words**:
+
+```yaml
+Word 1: 01010101  
+Word 2: 01100110
+```
+
+1. Step 1: Add the words
+
+```yaml
+  01010101  
++ 01100110  
+------------
+  10111011  
+```
+
+✅ No overflow, so we don’t need to wrap around.
+
+2. Step 2: Take the 1’s complement of the result (flip all bits)
+
+```yaml
+Original Sum:     10111011  
+1's complement:   01000100  ← This is the **checksum**  
+```
+
+The sender now sends:
+
+- Word 1: `01010101`
+    
+- Word 2: `01100110`
+    
+- Checksum: `01000100`
+    
+
+---
+
+ Receiver side:
+
+The receiver adds all 3 values:
+
+```
+  01010101  
++ 01100110  
++ 01000100  
+------------
+  11111111  ← All bits are 1s = no error!
+```
+
+If the result is **not** all 1s (`11111111`), an error is detected.
+
+---
+
+Let me know if you'd like the same thing for 16-bit words or with overflow wrapping included!
 
 3. **Cyclic Redundancy Check (CRC)**: A more robust error detection method that treats the data as a large binary number, divides it by a pre-determined polynomial, and appends the remainder (CRC) to the data. The receiver performs the same division and checks if the remainder is zero, indicating no errors.
 
