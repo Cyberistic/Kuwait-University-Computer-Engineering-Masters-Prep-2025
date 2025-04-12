@@ -10,7 +10,7 @@ As the Master's exam in Kuwait University approaches, I've created this reposito
 > These notes include my thoughts and ideas, fun facts, sometimes jokes, sometimes "professional" explanations. 
 > If you're looking for a more serious tone, I recommend you create your own set of notes:)
 
-![Notes-Preview.png](Notes-Preview.png)
+![attachments/Notes-Preview.png](attachments/Notes-Preview.png)
 ## How to use these notes
 These notes are written in [obsidian](https://obsidian.md/). So although they are "just" `.md` files and you can view them anywhere, I recommend viewing them in obsidian to get the best experience. Obsidian's [linking](https://help.obsidian.md/links) feature is enough of a reason to download and use it, as it helps to navigate between the notes. Feel free to create PDFs of these notes.
 
