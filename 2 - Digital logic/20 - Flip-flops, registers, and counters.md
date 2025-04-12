@@ -28,14 +28,6 @@ So you set, and it stores that "active" state, you reset, and it stores that "in
 - Q: Output
 - Qbar: Inverted output
 
-```mermaid
-graph LR
-    S-->A[SR Latch]
-    R-->A
-    A-->Q
-    A-->Qbar
-```
-
 Truth Table:
 
 | CLK | S   | R   | Q   | Q'  | Comment   |
@@ -117,7 +109,7 @@ endmodule
 
 By chaining multiple D flip-flops, and inverting the clock for the second one, we create a master-slave flip-flop. The first flip-flop (master) captures the input on the rising edge of the clock, and the second flip-flop (slave) captures the output of the master on the falling edge of the clock.
 
-````verilog
+```verilog
 module master_slave_flipflop(
     input D, CLK,
     output reg Q
@@ -138,9 +130,17 @@ We can chain this as many times as we want, this is how we create registers.
 
 ### T Flip-Flop (Toggle)
 
+![[Pasted image 20250412031139.png]]
 
+Similar to D flip-flop BUT it flips its output on every clock edge if T=1. If T=0, it retains its state.
 
-Toggles output when T=1, maintains state when T=0.
+Truth Table:
+| T | CLK | Q(next) | Comment |
+|---|-----|---------|-----------|
+| 0 | 0 | Q | No change |
+| 0 | 1 | Q | No change |
+| 1 | 0 | Q | No change |
+| 1 | 1 | ~Q | Toggle |
 
 ```verilog
 module t_flipflop(
@@ -152,7 +152,7 @@ module t_flipflop(
             Q <= ~Q;
     end
 endmodule
-````
+```
 
 ### JK Flip-Flop
 
