@@ -125,6 +125,8 @@ After this, data transfer begins.
 > [!Warning] Important..
 > I did not include the way TCP resolves lost packets etc as they are probably outside the scope of this exam.
 > But maybe they are not? ¯\\_(ツ)_/¯ 
+> You can read more about them here:
+> [[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=256]]
 > ![[TCP-JOKE.png | center | 300]]
 
 ## 🔍 Comparison Table
@@ -150,3 +152,5 @@ After this, data transfer begins.
 > 🎯 Use UDP when you can **tolerate loss** but need speed.  
 > 📦 Use TCP when **every byte matters**, even if it’s slower.
 
+> [!Important] Fun fact..
+> Services like Sockets over UDP sometime use TCP 3-way-handshake to establish the initial connection.

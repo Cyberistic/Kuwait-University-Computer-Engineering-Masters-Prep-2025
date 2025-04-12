@@ -1,7 +1,8 @@
-`Kurose and Ross, the Networkin layer is discussed in Chapter 4
+
 Principles of network layer addressing and routing.
-_____
-### 1. Network layer:
+
+
+##  Network layer:
 
 The **network layer** is the third layer in the **OSI model**. Its main function is to:
 
@@ -14,8 +15,8 @@ The **network layer** is the third layer in the **OSI model**. Its main function
 - **Fragment and reassemble packets** if necessary.
 
 ![[network_layer.png]]
-						`(host, router network layer functions)
-### 1.1 Key Responsibilities:
+						(host, router network layer functions)
+## Key Responsibilities:
 
 - **Logical addressing** (e.g., IP addressing)
     
@@ -25,13 +26,14 @@ The **network layer** is the third layer in the **OSI model**. Its main function
     
 - **Packet fragmentation and reassembly** (the process of breaking down large packets into smaller ones for transmission and then rebuilding them at the destination)
     
-### 1.2 Protocols used:
+## Protocols:
 
 - **IP (Internet Protocol)** – IPv4, IPv6
 - **ICMP** (Internet Control Message Protocol)
 - **Ethernet & WIFI**
+- **Others**..
 _________
-### 2. Data Plane & Control Plane
+##  Data Plane & Control Plane
 
 | Feature                   | Data Plane                                                                                              | Control Plane                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
