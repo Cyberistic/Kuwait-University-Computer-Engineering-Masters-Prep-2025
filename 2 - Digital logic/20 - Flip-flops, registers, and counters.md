@@ -82,6 +82,9 @@ module d_latch(
 endmodule
 ```
 
+> [!Note]
+> It's not necessary for latches to include the clock input. The simplest latch does not have a clock input, and the output changes state whenever the inputs change.
+
 ## Flip-Flops
 
 Flip-flops are edge-triggered devices that change state on clock edges. They are built using latches.
