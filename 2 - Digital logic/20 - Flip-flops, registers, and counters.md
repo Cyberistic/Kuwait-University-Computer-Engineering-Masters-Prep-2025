@@ -92,9 +92,17 @@ endmodule
 
 ## Flip-Flops
 
+Flip-flops are edge-triggered devices that change state on clock edges. They are built using latches.
+They are used in synchronous circuits to store data.
+They are more reliable than latches because they only change state on clock edges, reducing the chance of glitches.
+
 ### D Flip-Flop (Master-Slave)
 
+![[Master-Slave-Symbol.png]]
+
 Similar to D latch but changes state only on clock edge.
+
+The verilog is literally a single word different (`posedge`):
 
 ```verilog
 module d_flipflop(
@@ -107,7 +115,30 @@ module d_flipflop(
 endmodule
 ```
 
+By chaining multiple D flip-flops, and inverting the clock for the second one, we create a master-slave flip-flop. The first flip-flop (master) captures the input on the rising edge of the clock, and the second flip-flop (slave) captures the output of the master on the falling edge of the clock.
+
+````verilog
+module master_slave_flipflop(
+    input D, CLK,
+    output reg Q
+);
+    reg D_master;
+
+    always @(posedge CLK) begin
+        D_master <= D; // Capture input on rising edge
+    end
+
+    always @(negedge CLK) begin
+        Q <= D_master; // Capture output on falling edge
+    end
+endmodule
+```
+
+We can chain this as many times as we want, this is how we create registers.
+
 ### T Flip-Flop (Toggle)
+
+
 
 Toggles output when T=1, maintains state when T=0.
 
@@ -121,7 +152,7 @@ module t_flipflop(
             Q <= ~Q;
     end
 endmodule
-```
+````
 
 ### JK Flip-Flop
 
