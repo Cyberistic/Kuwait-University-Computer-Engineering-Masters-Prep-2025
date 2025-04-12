@@ -116,20 +116,21 @@ If the result is **not** all 1s (`11111111`), an error is detected.
 A more robust error detection method that treats the data as a large binary number, divides it by a pre-determined polynomial, and appends the remainder (CRC) to the data. The receiver performs the same division and checks if the remainder is zero, indicating no errors.
 
 >[!Important] Important..
-> We won't go into details assuming it's out of the exam's scope.
+> We won't go into details assuming it's out of the exam's scope, however, I've provided a simple example here:
+> 
+
 
 
 #### tl;dr
-| **Error Detection Technique**     | **Type of Error Detected**             | **Corrects Errors?** | **Used In**                                                | **Advantages**                                                                            |
-| --------------------------------- | -------------------------------------- | -------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| **Parity Bit**                    | Single-bit errors                      | No                   | Simple systems, memory storage, and transmission protocols | Simple and low overhead but only detects single-bit errors                                |
-| **Checksum**                      | Errors in blocks of data               | No                   | **IPv4, UDP, TCP**, application-level protocols            | Detects errors in larger data blocks, better than parity                                  |
-| **Cyclic Redundancy Check (CRC)** | Errors in data transmission            | No                   | **Ethernet**, HDLC, ATM, data storage systems              | Very effective, **detects burst errors** and is widely used in Ethernet                   |
-| **Hamming Code**                  | Single-bit errors & <br>two-bit errors | Yes (single-bit)     | Memory storage, error-correcting codes in communication    | Corrects single-bit errors and detects two-bit errors, but requires extra bits for parity |
+| **Error Detection Technique**     | **Type of Error Detected**             |  **Used In**                                                | **Advantages**                                                                            |
+| --------------------------------- | -------------------------------------- |  ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Parity Bit**                    | Single-bit errors                      |  Simple systems, memory storage, and transmission protocols | Simple and low overhead but only detects single-bit errors                                |
+| **Checksum**                      | Errors in blocks of data               |  **IPv4, UDP, TCP**, application-level protocols            | Detects errors in larger data blocks, better than parity                                  |
+| **Cyclic Redundancy Check (CRC)** | Errors in data transmission            |  **Ethernet**, HDLC, ATM, data storage systems              | Very effective, **detects burst errors** and is widely used in Ethernet                   |
 
 > These techniques help maintain **data integrity** by ensuring that corrupted or altered frames are detected and can be retransmitted.
 
-_________
+___
 ### 3. Error Correction 
 
 There are multiple ways to correct errors:
@@ -138,6 +139,6 @@ There are multiple ways to correct errors:
 
 2. The receiver can use an error correcting code, which automatically corrects certain errors. 
 
-__________
+---
 
 > [!Important] Author: Asmaa Alazmi
