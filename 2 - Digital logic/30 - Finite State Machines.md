@@ -12,6 +12,7 @@ FSMs are sequential circuits used to model systems that transition between state
 
 - Outputs depend **only** on the current state.
 - More stable, as output changes only on state changes.
+- So if you are on A, and the input is 1, you go to B and the output is 0 (inside circle of A)
 
 ```verilog
 module moore_fms (Clock, Resetn, w, z);
@@ -43,7 +44,7 @@ endmodule
 - Usually more compact and reacts faster.
 
 > [!Tip] 
-> Mealy: state/input
+> Mealy: Input/Output value on transition arc
 > Moore: Output value inside circle
 ---
 
@@ -164,7 +165,5 @@ endmodule
 - Try one-hot encoding if your FSM is small—it’s easier to debug.
 - Write a testbench early. FSM bugs are often timing-related.
 
----
 
-> [!Quote]
-> “FSMs are like storytelling with logic. Each state is a scene, inputs are choices, outputs are consequences.”
+
