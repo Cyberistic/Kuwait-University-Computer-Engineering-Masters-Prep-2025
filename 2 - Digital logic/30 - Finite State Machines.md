@@ -220,5 +220,6 @@ Special thanks to Eng. Zainab Behbahani, truly one of the best engineers in the 
 uhh I have no idea what this means?
 
 
-
-
+## Extra stuff
+Here is an old HW of mine which has a bunch of these designs..
+![[FSM-HW.pdf]]
