@@ -267,6 +267,19 @@ Counters count.
 
 ### Up counter
 
+Example:
+3 T-Flip-flops give you 3 bits, counting up to 7, which is what we call a modulo-8 counter:
+
+![[Up-counter.png]]
+![[Up-Counter-Timing.png]]
+
+Notice how the first bit corresponds directly to the clock, while the other bits change after a delay.
+
+### Down counter
+Slight modification of the above counter gives you a down counter:
+
+![[Down-Counter.png]]
+![[Down-Counter-Timing.png]]
 
 ### Asynchronous Counter
 
