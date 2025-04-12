@@ -255,6 +255,9 @@ endmodule
 
 Same as above, but has output at every "stage" or flip-flip.
 
+> [!Important] Fun fact..
+> Parallel Shift Registers (TPIC6B595) are perhaps my **FAVORITE** ESP32 components. It always you to control an (almost) INFINITE number of output GPIO pins using only 2 ESP32 pins!!!
+> 
 ## Counters
 
 ### Asynchronous Counter
