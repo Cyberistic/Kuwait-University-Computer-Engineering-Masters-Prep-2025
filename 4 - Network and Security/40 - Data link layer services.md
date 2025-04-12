@@ -212,7 +212,7 @@ A central controller or a token (a special frame) decides who gets to send data 
 
 > [!Warning] Important.. Again..
 > I won't go into details of how they work cuz exam scope blahbnlagblah
-> book reference:  
+> book reference: [[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=507]] 
 ---
 
 
