@@ -31,7 +31,7 @@ Two main types of communication structures:
 
 > [!Important] Fun fact..
 > [Tailscale](https://tailscale.com/) allows you to establish a P2P connection by using their service as the server for the initial "handshake" only.
-> I've used it recently as a VPN
+> I've used it recently while traveling to a country which blocks many common websites and social media apps; by making my computer in 🇰🇼 act as a free VPN. :D
 
 
 
@@ -63,7 +63,10 @@ GET /index.html HTTP/1.1
 Host: example.com
 ```
 
----
+> [!Note] Whenever you use websites in your favorite browser, it serves you the HTML files using the HTTP protocol. 
+> HTML = Hyper-Text Markup Language
+> HTTP = Hyper-Text Transfer Protcol
+> Coincidence? I think not.
 
 ### 2. **Electronic Mail (Email Protocols)**
 
@@ -71,7 +74,8 @@ Email is delivered through multiple protocols:
 
 - **SMTP (Simple Mail Transfer Protocol)**
     
-    - Sends emails from client → server or server → server.
+    - Sends emails from client → server 
+    - or server → server.
         
     - Uses TCP (port 25, 587).
         
@@ -82,7 +86,9 @@ Email is delivered through multiple protocols:
     - POP3: Downloads and deletes from server.
         
     - IMAP: Keeps email on server, supports folders and syncing.
-        
+
+> [!Question] Which is more secure? POP3 or IMAP?
+> Which is more reliable (gives you backup in case you lose your emails)
 
 **Email flow**:
 
