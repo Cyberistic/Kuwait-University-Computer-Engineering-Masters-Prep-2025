@@ -12,7 +12,7 @@ FSMs are sequential circuits used to model systems that transition between state
 
 - Outputs depend **only** on the current state.
 - More stable, as output changes only on state changes.
-- So if you are on A, and the input is 1, you go to B and the output is 0 (inside circle of A)
+- So if you are on A, and the input is 1, you go to B and the output is 0 (inside circle of A). Meaning, the output is always going to be 0 if you are on A and going anywhere else, no matter what the input is.
 
 ```verilog
 module moore_fms (Clock, Resetn, w, z);
@@ -42,7 +42,64 @@ endmodule
 
 - Outputs depend on **current state + input**.
 - Usually more compact and reacts faster.
+- So if you are on A, the output condition changes if you go to B or A again. 
 
+```verilog
+module mealy_fsm (
+    input Clock, Resetn, w,
+    output reg z
+);
+    reg [1:0] y, Y;
+
+    parameter A = 2'b00, B = 2'b01, C = 2'b10;
+
+    // Combinational logic for next state and output
+    always @(*) begin
+        case (y)
+            A: begin
+                if (w) begin
+                    Y = B;
+                    z = 0;
+                end else begin
+                    Y = A;
+                    z = 0;
+                end
+            end
+            B: begin
+                if (w) begin
+                    Y = C;
+                    z = 0;
+                end else begin
+                    Y = A;
+                    z = 1;  // output happens during transition
+                end
+            end
+            C: begin
+                if (w) begin
+                    Y = C;
+                    z = 1;
+                end else begin
+                    Y = A;
+                    z = 0;
+                end
+            end
+            default: begin
+                Y = A;
+                z = 0;
+            end
+        endcase
+    end
+
+    // Sequential block for state update
+    always @(posedge Clock or negedge Resetn) begin
+        if (!Resetn)
+            y <= A;
+        else
+            y <= Y;
+    end
+endmodule
+
+```
 > [!Tip] 
 > Mealy: Input/Output value on transition arc
 > Moore: Output value inside circle
@@ -155,15 +212,11 @@ endmodule
 8. **Verilog Implementation**  
    Write and simulate your code.
 
----
 
-## Informal FSM Design Tips
 
-- Start with a drawing, even a napkin sketch helps.
-- Use meaningful state names: `IDLE`, `WAIT`, `ADD`, `DONE` instead of `S0`, `S1`...
-- Simulate early. Don't wait until everything is perfect.
-- Try one-hot encoding if your FSM is small—it’s easier to debug.
-- Write a testbench early. FSM bugs are often timing-related.
+## Informal FSM Design Techniques
+uhh I have no idea what this means?
+
 
 
 
