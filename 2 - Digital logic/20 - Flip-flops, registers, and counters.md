@@ -286,4 +286,14 @@ The counters above are **asynchronous**. They are easy to build but very slow. A
 
 ![[Synchronous-Counters.png]]
 
-
+> [!Warning] Note..
+> I am ending it here, but the book [[Stephen Brown, Zvonko Vranesic - Fundamentals of Digital Logic with Verilog Design-McGraw-Hill (2014).pdf#page=273]] goes into more details about:
+> 1.  Inclusion of Enable and Clear capability
+> 2. Synchronous Counter with D Flip-Flops
+> 3. Counters with Parallel Load
+> 4. Reset Synchronization
+> 5. BCD Counter
+> 6. Ring Counter
+> 7. Johnson Counter
+> 8. and so on..
+> I don't remember studying most of them before, so i'm skipping them; however you may want to take a quick look? idk im not ur mother
