@@ -37,7 +37,8 @@ First let's establish the error types:
 
 ### Detection Techniques 
 
-1. **Parity Bits**: A single bit is added to the data, telling you if the sum of the bits (including the added bit) are *even* (even parity) or *odd* (odd parity). If the number of 1s is incorrect, an error is detected.
+#### **Parity Bits**
+A single bit is added to the data, telling you if the sum of the bits (including the added bit) are *even* (even parity) or *odd* (odd parity). If the number of 1s is incorrect, an error is detected.
 
 Example: with even parity, suppose you have 3 ones `1010100`, so the parity bit is 1 as well making you have 4 ones `10101001 ` (an even amount of bits). Computer will see it's a 1, indicating the sum of the number before it (excluding it) is odd. If not, an error occured?
 
@@ -55,7 +56,8 @@ Example: with even parity, suppose you have 3 ones `1010100`, so the parity bit 
 > ![https://www.youtube.com/watch?v=X8jsijhllIA](https://www.youtube.com/watch?v=X8jsijhllIA)
 
 
-2. **Checksums**: Data is divided into segments, and a checksum value is computed. The receiver recalculates the checksum and compares it with the received value to detect errors.
+#### **Checksums**
+Data is divided into segments, and a checksum value is computed. The receiver recalculates the checksum and compares it with the received value to detect errors.
 
 In the internet, the receiver checks the checksum by taking the 1s complement of the sum of the received data (including the checksum) and checking whether the result is all 1 bits. If any of the bits are 0, an error is indicated.
 
@@ -67,7 +69,7 @@ Word 1: 01010101
 Word 2: 01100110
 ```
 
-1. Step 1: Add the words
+1. Add the words
 
 ```yaml
   01010101  
@@ -78,7 +80,7 @@ Word 2: 01100110
 
 ✅ No overflow, so we don’t need to wrap around.
 
-2. Step 2: Take the 1’s complement of the result (flip all bits)
+2. Take the 1’s complement of the result (flip all bits)
 
 ```yaml
 Original Sum:     10111011  
@@ -94,9 +96,8 @@ The sender now sends:
 - Checksum: `01000100`
     
 
----
 
- Receiver side:
+3. Receiver side:
 
 The receiver adds all 3 values:
 
@@ -110,20 +111,22 @@ The receiver adds all 3 values:
 
 If the result is **not** all 1s (`11111111`), an error is detected.
 
----
 
-Let me know if you'd like the same thing for 16-bit words or with overflow wrapping included!
+#### **Cyclic Redundancy Check (CRC)**
+A more robust error detection method that treats the data as a large binary number, divides it by a pre-determined polynomial, and appends the remainder (CRC) to the data. The receiver performs the same division and checks if the remainder is zero, indicating no errors.
 
-3. **Cyclic Redundancy Check (CRC)**: A more robust error detection method that treats the data as a large binary number, divides it by a pre-determined polynomial, and appends the remainder (CRC) to the data. The receiver performs the same division and checks if the remainder is zero, indicating no errors.
+>[!Important] Important..
+> We won't go into details assuming it's out of the exam's scope.
 
-4. **Hamming Code** is an error detection and correction technique used to detect and correct errors in digital data transmission. It is designed to detect and correct **single-bit errors** and detect **two-bit errors**.
 
+#### tl;dr
 | **Error Detection Technique**     | **Type of Error Detected**             | **Corrects Errors?** | **Used In**                                                | **Advantages**                                                                            |
 | --------------------------------- | -------------------------------------- | -------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | **Parity Bit**                    | Single-bit errors                      | No                   | Simple systems, memory storage, and transmission protocols | Simple and low overhead but only detects single-bit errors                                |
 | **Checksum**                      | Errors in blocks of data               | No                   | **IPv4, UDP, TCP**, application-level protocols            | Detects errors in larger data blocks, better than parity                                  |
 | **Cyclic Redundancy Check (CRC)** | Errors in data transmission            | No                   | **Ethernet**, HDLC, ATM, data storage systems              | Very effective, **detects burst errors** and is widely used in Ethernet                   |
 | **Hamming Code**                  | Single-bit errors & <br>two-bit errors | Yes (single-bit)     | Memory storage, error-correcting codes in communication    | Corrects single-bit errors and detects two-bit errors, but requires extra bits for parity |
+
 > These techniques help maintain **data integrity** by ensuring that corrupted or altered frames are detected and can be retransmitted.
 
 _________
