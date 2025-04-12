@@ -67,33 +67,24 @@ endmodule
 
 ### D Latch
 
+![[D-Latch-Symbol.png]]
+
 Improved version of SR latch that prevents invalid states. Has:
 
 - D (Data): Input data
-- EN (Enable): Controls when latch updates
+- CLK (Clock): Controls when data is stored
 
-```mermaid
-graph LR
-    D-->A[D Latch]
-    EN-->A
-    A-->Q
-```
+When CLK=1, D is stored in Q. When CLK=0, Q retains its value.
 
-Truth Table:
-
-| EN  | D   | Q   | Comment   |
-| --- | --- | --- | --------- |
-| 0   | x   | Q   | No change |
-| 1   | 0   | 0   | Load 0    |
-| 1   | 1   | 1   | Load 1    |
+So instead of having two inputs, it has one input and a clock. It only changes state when the clock is high.
 
 ```verilog
 module d_latch(
-    input D, EN,
+    input D, CLK,
     output reg Q
 );
-    always @(D or EN) begin
-        if (EN)
+    always @(D or CLK) begin
+        if (CLK)
             Q <= D;
     end
 endmodule
@@ -101,7 +92,7 @@ endmodule
 
 ## Flip-Flops
 
-### D Flip-Flop
+### D Flip-Flop (Master-Slave)
 
 Similar to D latch but changes state only on clock edge.
 
