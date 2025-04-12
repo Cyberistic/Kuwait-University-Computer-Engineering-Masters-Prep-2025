@@ -206,7 +206,7 @@ A flip-flop stores one bit of information. When a set of n flip-flops is used to
 
 ### Basic Register
 
-![[Pasted image 20250412034728.png]]
+Where each register has a different input line connected to D
 
 ```verilog
 module register #(
@@ -227,6 +227,7 @@ endmodule
 
 ### Shift Register
 
+![[Simple-Shift-Register.png]]
 Can shift bits left or right.
 
 ```verilog
@@ -248,6 +249,11 @@ module shift_register #(
     end
 endmodule
 ```
+
+### Parallel Reads Register
+![[Parallel-Register.png]]
+
+Same as above, but has output at every "stage" or flip-flip.
 
 ## Counters
 
