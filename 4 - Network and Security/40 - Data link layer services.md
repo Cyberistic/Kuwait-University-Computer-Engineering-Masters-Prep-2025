@@ -37,7 +37,12 @@ First let's establish the error types:
 
 ### Detection Techniques 
 
-1. **Parity Bits**: A single bit added to the data to make the number of 1s either even (even parity) or odd (odd parity). If the number of 1s is incorrect, an error is detected.
+1. **Parity Bits**: A single bit is added to the data, telling you if the sum of the bits (including the added bit) are *even* (even parity) or *odd* (odd parity). If the number of 1s is incorrect, an error is detected.
+Example: with even parity, you have 3 ones, so the parity bit is 
+ <br/>
+![[Parity-Bit.png | center]]
+
+<br/>
 
 2. **Checksums**: Data is divided into segments, and a checksum value is computed. The receiver recalculates the checksum and compares it with the received value to detect errors.
 
