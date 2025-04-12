@@ -1,6 +1,4 @@
-Here is your rewritten quiz in the requested format, with each answer shown using the `[!Question]~Correct Answer` block:
 
----
 
 ### 1. **Principles of Network Applications and Protocols**
 
@@ -11,7 +9,7 @@ B) SMTP
 C) HTTP  
 D) DNS
 
->[!Question]~ Correct Answer  
+> [!Question]- Correct Answer  
 > **C) HTTP**
 
 ---
@@ -23,7 +21,7 @@ B) To translate domain names to IP addresses
 C) To send files over the network  
 D) To handle network traffic routing
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) To translate domain names to IP addresses**
 
 ---
@@ -35,7 +33,7 @@ B) SMTP
 C) IMAP  
 D) HTTP
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) SMTP**
 
 ---
@@ -47,7 +45,7 @@ B) To define how a browser requests and displays web pages
 C) To establish secure encrypted communication  
 D) To handle file transfer between servers
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) To define how a browser requests and displays web pages**
 
 ---
@@ -59,7 +57,7 @@ B) 301
 C) 404  
 D) 500
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) 301**
 
 ---
@@ -73,7 +71,7 @@ B) Unreliable
 C) Flow control and error recovery  
 D) Faster than UDP
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) Flow control and error recovery**
 
 ---
@@ -85,7 +83,7 @@ B) UDP
 C) HTTP  
 D) FTP
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) UDP**
 
 ---
@@ -97,7 +95,7 @@ B) UDP is connection-oriented, while TCP is connectionless
 C) UDP is faster, but does not guarantee delivery  
 D) TCP requires fewer packets than UDP
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) UDP is faster, but does not guarantee delivery**
 
 ---
@@ -109,7 +107,7 @@ B) Data segmentation and reassembly
 C) Connectionless communication  
 D) Higher overhead than UDP
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) Data segmentation and reassembly**
 
 ---
@@ -121,7 +119,7 @@ B) TCP
 C) IP  
 D) DNS
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) TCP**
 
 ---
@@ -135,7 +133,7 @@ B) Data segmentation
 C) Routing packets to their destination  
 D) Establishing communication channels
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) Routing packets to their destination**
 
 ---
@@ -147,7 +145,7 @@ B) Identifying the destination device in the network
 C) Encrypting data for secure transmission  
 D) Defining the routing protocol
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) Identifying the destination device in the network**
 
 ---
@@ -159,7 +157,7 @@ B) Identifies which part of the IP address is for the network and which part is 
 C) Encrypts the data transmitted in the network  
 D) Resolves domain names to IP addresses
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) Identifies which part of the IP address is for the network and which part is for hosts**
 
 ---
@@ -171,7 +169,7 @@ B) OSPF
 C) SMTP  
 D) HTTP
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) OSPF**
 
 ---
@@ -183,7 +181,7 @@ B) Classless Inter-Domain Routing, used to allocate IP addresses more efficientl
 C) Centralized Internet Data Replication, used for DNS servers  
 D) Classful Internet Data Routing, used to split large networks into smaller subnets
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) Classless Inter-Domain Routing, used to allocate IP addresses more efficiently**
 
 ---
@@ -197,7 +195,7 @@ B) CRC (Cyclic Redundancy Check)
 C) Checksums  
 D) All of the above
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **D) All of the above**
 
 ---
@@ -209,7 +207,7 @@ B) To uniquely identify a device within a local network
 C) To assign an IP address to a device  
 D) To route packets across networks
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) To uniquely identify a device within a local network**
 
 ---
@@ -221,7 +219,7 @@ B) Providing end-to-end communication between hosts
 C) Framing data for transmission over the physical layer  
 D) Ensuring reliable data transfer between two end systems
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) Framing data for transmission over the physical layer**
 
 ---
@@ -233,7 +231,7 @@ B) Checksum
 C) Cyclic Redundancy Check (CRC)  
 D) Hamming Code
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) Cyclic Redundancy Check (CRC)**
 
 ---
@@ -245,7 +243,7 @@ B) Checksum
 C) Hamming Code  
 D) Cyclic Redundancy Check (CRC)
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) Hamming Code**
 
 ---
@@ -257,7 +255,7 @@ B) Checksum
 C) Cyclic Redundancy Check (CRC)  
 D) Hamming Code
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) Cyclic Redundancy Check (CRC)**
 
 ---
@@ -271,7 +269,7 @@ B) Public Key Encryption
 C) Symmetric Key Encryption  
 D) Digital Signature
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) Symmetric Key Encryption**
 
 ---
@@ -283,7 +281,7 @@ B) Verifies the identity of the sender and ensures message integrity
 C) Encrypts data during transmission  
 D) Provides access control to the network
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) Verifies the identity of the sender and ensures message integrity**
 
 ---
@@ -295,7 +293,7 @@ B) To establish a secure, encrypted communication channel between client and ser
 C) To detect and correct transmission errors  
 D) To authenticate the user’s identity
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) To establish a secure, encrypted communication channel between client and server**
 
 ---
@@ -307,7 +305,7 @@ B) Asymmetric encryption
 C) Hashing  
 D) Digital signatures
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) Asymmetric encryption**
 
 ---
@@ -319,7 +317,7 @@ B) SHA
 C) RSA  
 D) DES
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) SHA**
 
 ---
@@ -331,7 +329,7 @@ B) Network Layer
 C) Data Link Layer  
 D) Presentation Layer
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **A) Application Layer**
 
 ---
@@ -343,7 +341,7 @@ B) To verify the identity of the sender
 C) To issue digital certificates for secure communication  
 D) To prevent unauthorized access to network resources
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **C) To issue digital certificates for secure communication**
 
 ---
@@ -355,7 +353,7 @@ B) Man-in-the-Middle attack
 C) Phishing attack  
 D) DNS spoofing
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) Man-in-the-Middle attack**
 
 ---
@@ -367,7 +365,7 @@ B) Message integrity and authenticity
 C) Digital signatures  
 D) User authentication
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) Message integrity and authenticity**
 
 ---
@@ -379,10 +377,8 @@ B) The keys used for encryption and decryption are different
 C) It is faster than symmetric key cryptography  
 D) It provides no security for online transactions
 
-> [!Question]~Correct Answer  
+> [!Question]- Correct Answer  
 > **B) The keys used for encryption and decryption are different**
 
 ---
-
-Let me know if you’d like it exported to Markdown, PDF, or used as an online quiz!
 > 🖊️ Author: CHAT-GPT
