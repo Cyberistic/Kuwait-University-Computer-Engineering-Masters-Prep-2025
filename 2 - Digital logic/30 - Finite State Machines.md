@@ -60,11 +60,13 @@ Outputs: `Sum`
 
 ### Moore Serial Adder Diagram
 
-![[Moore-Serial-Adder.png]]
+![[Moore-Adder.png]]
 
 ### Mealy Serial Adder Diagram
 
-![[Mealy-Serial-Adder.png]]
+![[Mealy-Adder.png]]
+![[Mealy-Adder-1.png]]
+
 
 ---
 
