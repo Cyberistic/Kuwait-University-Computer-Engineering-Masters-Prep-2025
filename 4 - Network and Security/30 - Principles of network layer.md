@@ -1,6 +1,7 @@
 
 Principles of network layer addressing and routing.
 
+[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=348]]
 
 ##  Network layer:
 
@@ -111,8 +112,7 @@ Allows multiple devices on a private network to share one public IP address when
 - **Subnet Mask**: A subnet mask divides the IP address into the network and host portions. For IPv4, it's typically written in dotted decimal notation (e.g., `255.255.255.0`).
 
 
-
-### **Subnet Calculation Steps:**
+### Subnet types
 
 - **Class A**: `0.0.0.0` to `127.255.255.255` (default subnet mask `255.0.0.0`)
     
@@ -123,6 +123,42 @@ Allows multiple devices on a private network to share one public IP address when
 - **Class D (Multicast)**: `224.0.0.0` to `239.255.255.255`
     
 - **Class E (Reserved)**: `240.0.0.0` to `255.255.255.255`
+
+
+
+**CIDR (Classless Inter-Domain Routing) notation** tells you **how many bits are used for the network portion** of the address.
+
+- `/24` means **the first 24 bits** of the IP address are used for the **network**, and the remaining **8 bits** are used for the **host** part.
+    
+- This is equivalent to the subnet mask `255.255.255.0`.
+    
+
+|CIDR|Subnet Mask|Hosts per Subnet|Notes|
+|---|---|---|---|
+|/8|255.0.0.0|16,777,214|Very large networks (Class A)|
+|/16|255.255.0.0|65,534|Medium-sized networks (Class B)|
+|/24|255.255.255.0|254|Common for home/small networks|
+|/30|255.255.255.252|2|Point-to-point links|
+
+🧠 **Quick trick**:
+
+- The smaller the CIDR number, the more host addresses are available.
+    
+- The larger the CIDR number (closer to `/32`), the fewer hosts you can have in that subnet.
+    
+
+> Example:  
+> `192.168.1.0/24` means:
+> 
+> - Network portion: first 24 bits (`192.168.1`)
+>     
+> - Host portion: last 8 bits (can range from `1` to `254`)
+>     
+> - Total usable hosts: `2⁸ - 2 = 254`
+>     
+
+### **Subnet Calculation Steps:**
+
 
 **a.** **Determine the Network Address:**
 

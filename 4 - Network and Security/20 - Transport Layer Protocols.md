@@ -1,6 +1,5 @@
 Transport Layer Protocols (UDP and TCP).
-
-
+[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=223]]
 
 
 The **Transport Layer** sits above the **network layer** (like IP) and is responsible for **end-to-end communication** between processes on different hosts.

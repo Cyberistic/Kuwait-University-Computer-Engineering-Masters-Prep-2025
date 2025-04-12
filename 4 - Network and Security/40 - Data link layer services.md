@@ -1,5 +1,5 @@
-`Kurose and Ross, the Data Link Layer services are discussed in Chapter 6
-____
+
+
 ### 1. Link Layer Review
 
 The **Link Layer** is the second layer in the OSI model and is responsible for establishing, maintaining, and terminating connections between devices on the same network. It handles communication between directly connected devices, like computers or routers, over physical links (e.g., Ethernet, Wi-Fi protocols).

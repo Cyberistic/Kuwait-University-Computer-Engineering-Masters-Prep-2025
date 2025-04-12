@@ -1,6 +1,6 @@
-
-
 Principles of network applications and its protocols (HTTP, Electronic Mail, DNS).  
+[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=112]]
+
 
 Super vague description, will provide general knowledge about the above.
 
