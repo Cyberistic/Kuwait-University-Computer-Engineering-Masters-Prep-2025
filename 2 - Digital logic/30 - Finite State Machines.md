@@ -42,7 +42,7 @@ endmodule
 
 - Outputs depend on **current state + input**.
 - Usually more compact and reacts faster.
-- So if you are on A, the output condition changes if you go to B or A again. 
+- So if you are on A, the output condition changes if you go to B or A again. Unlike Moore where the output is always the same based on the state you're in.
 
 ```verilog
 module mealy_fsm (
@@ -117,7 +117,7 @@ Example FSM States:
 Inputs: `A`, `B` (1-bit at a time)  
 Outputs: `Sum`
 
-![[FMS-Adder.png]]
+![[FSM-Adder.png]]
 
 ### Moore Serial Adder Diagram
 
@@ -212,6 +212,8 @@ endmodule
 8. **Verilog Implementation**  
    Write and simulate your code.
 
+![[Example.png]]
+Special thanks to Eng. Zainab Behbahani, truly one of the best engineers in the department.
 
 
 ## Informal FSM Design Techniques
