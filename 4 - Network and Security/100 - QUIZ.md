@@ -1,3 +1,7 @@
+Here is your rewritten quiz in the requested format, with each answer shown using the `[!Question]~Correct Answer` block:
+
+---
+
 ### 1. **Principles of Network Applications and Protocols**
 
 **Question 1:**  
@@ -7,7 +11,8 @@ B) SMTP
 C) HTTP  
 D) DNS
 
-> **Correct Answer:** C) HTTP
+>[!Question]~ Correct Answer  
+> **C) HTTP**
 
 ---
 
@@ -18,7 +23,8 @@ B) To translate domain names to IP addresses
 C) To send files over the network  
 D) To handle network traffic routing
 
-> **Correct Answer:** B) To translate domain names to IP addresses
+> [!Question]~Correct Answer  
+> **B) To translate domain names to IP addresses**
 
 ---
 
@@ -29,7 +35,8 @@ B) SMTP
 C) IMAP  
 D) HTTP
 
-> **Correct Answer:** B) SMTP
+> [!Question]~Correct Answer  
+> **B) SMTP**
 
 ---
 
@@ -40,7 +47,8 @@ B) To define how a browser requests and displays web pages
 C) To establish secure encrypted communication  
 D) To handle file transfer between servers
 
-> **Correct Answer:** B) To define how a browser requests and displays web pages
+> [!Question]~Correct Answer  
+> **B) To define how a browser requests and displays web pages**
 
 ---
 
@@ -51,7 +59,8 @@ B) 301
 C) 404  
 D) 500
 
-> **Correct Answer:** B) 301
+> [!Question]~Correct Answer  
+> **B) 301**
 
 ---
 
@@ -64,7 +73,8 @@ B) Unreliable
 C) Flow control and error recovery  
 D) Faster than UDP
 
-> **Correct Answer:** C) Flow control and error recovery
+> [!Question]~Correct Answer  
+> **C) Flow control and error recovery**
 
 ---
 
@@ -75,7 +85,8 @@ B) UDP
 C) HTTP  
 D) FTP
 
-> **Correct Answer:** B) UDP
+> [!Question]~Correct Answer  
+> **B) UDP**
 
 ---
 
@@ -86,7 +97,8 @@ B) UDP is connection-oriented, while TCP is connectionless
 C) UDP is faster, but does not guarantee delivery  
 D) TCP requires fewer packets than UDP
 
-> **Correct Answer:** C) UDP is faster, but does not guarantee delivery
+> [!Question]~Correct Answer  
+> **C) UDP is faster, but does not guarantee delivery**
 
 ---
 
@@ -97,7 +109,8 @@ B) Data segmentation and reassembly
 C) Connectionless communication  
 D) Higher overhead than UDP
 
-> **Correct Answer:** B) Data segmentation and reassembly
+> [!Question]~Correct Answer  
+> **B) Data segmentation and reassembly**
 
 ---
 
@@ -108,7 +121,8 @@ B) TCP
 C) IP  
 D) DNS
 
-> **Correct Answer:** B) TCP
+> [!Question]~Correct Answer  
+> **B) TCP**
 
 ---
 
@@ -121,7 +135,8 @@ B) Data segmentation
 C) Routing packets to their destination  
 D) Establishing communication channels
 
-> **Correct Answer:** C) Routing packets to their destination
+> [!Question]~Correct Answer  
+> **C) Routing packets to their destination**
 
 ---
 
@@ -132,7 +147,8 @@ B) Identifying the destination device in the network
 C) Encrypting data for secure transmission  
 D) Defining the routing protocol
 
-> **Correct Answer:** B) Identifying the destination device in the network
+> [!Question]~Correct Answer  
+> **B) Identifying the destination device in the network**
 
 ---
 
@@ -143,7 +159,8 @@ B) Identifies which part of the IP address is for the network and which part is 
 C) Encrypts the data transmitted in the network  
 D) Resolves domain names to IP addresses
 
-> **Correct Answer:** B) Identifies which part of the IP address is for the network and which part is for hosts
+> [!Question]~Correct Answer  
+> **B) Identifies which part of the IP address is for the network and which part is for hosts**
 
 ---
 
@@ -154,22 +171,24 @@ B) OSPF
 C) SMTP  
 D) HTTP
 
-> **Correct Answer:** B) OSPF
+> [!Question]~Correct Answer  
+> **B) OSPF**
 
 ---
 
 **Question 15:**  
 What does CIDR stand for, and what is its purpose in IP addressing?  
 A) Centralized Internet Data Routing, used for determining the fastest route  
-B) Classless Inter-Domain Routing, used to allocate IP addresses more efficiently 
+B) Classless Inter-Domain Routing, used to allocate IP addresses more efficiently  
 C) Centralized Internet Data Replication, used for DNS servers  
 D) Classful Internet Data Routing, used to split large networks into smaller subnets
 
-> **Correct Answer:** B) Classless Inter-Domain Routing, used to allocate IP addresses more efficiently
+> [!Question]~Correct Answer  
+> **B) Classless Inter-Domain Routing, used to allocate IP addresses more efficiently**
 
 ---
 
-### 4. **Data Link Layer Services (Error Detection, Error Detection, and Multiple Access)**
+### 4. **Data Link Layer Services (Error Detection and Multiple Access)**
 
 **Question 16:**  
 Which of the following methods is used by the data link layer to detect errors in transmitted data?  
@@ -178,7 +197,8 @@ B) CRC (Cyclic Redundancy Check)
 C) Checksums  
 D) All of the above
 
-> **Correct Answer:** D) All of the above
+> [!Question]~Correct Answer  
+> **D) All of the above**
 
 ---
 
@@ -189,7 +209,8 @@ B) To uniquely identify a device within a local network
 C) To assign an IP address to a device  
 D) To route packets across networks
 
-> **Correct Answer:** B) To uniquely identify a device within a local network
+> [!Question]~Correct Answer  
+> **B) To uniquely identify a device within a local network**
 
 ---
 
@@ -200,7 +221,8 @@ B) Providing end-to-end communication between hosts
 C) Framing data for transmission over the physical layer  
 D) Ensuring reliable data transfer between two end systems
 
-> **Correct Answer:** C) Framing data for transmission over the physical layer
+> [!Question]~Correct Answer  
+> **C) Framing data for transmission over the physical layer**
 
 ---
 
@@ -211,7 +233,8 @@ B) Checksum
 C) Cyclic Redundancy Check (CRC)  
 D) Hamming Code
 
-> **Correct Answer:** C) Cyclic Redundancy Check (CRC)
+> [!Question]~Correct Answer  
+> **C) Cyclic Redundancy Check (CRC)**
 
 ---
 
@@ -222,9 +245,11 @@ B) Checksum
 C) Hamming Code  
 D) Cyclic Redundancy Check (CRC)
 
-> **Correct Answer:** C) Hamming Code
+> [!Question]~Correct Answer  
+> **C) Hamming Code**
 
 ---
+
 **Question 0x047Ajfej:**  
 Which of the following error detection techniques adds extra bits to the data to make it divisible by a specific value (typically 256)?  
 A) Parity Bit  
@@ -232,8 +257,11 @@ B) Checksum
 C) Cyclic Redundancy Check (CRC)  
 D) Hamming Code
 
-> **Correct Answer:** C) Cyclic Redundancy Check (CRC)
-______
+> [!Question]~Correct Answer  
+> **C) Cyclic Redundancy Check (CRC)**
+
+---
+
 ### 5. **Principles of Computer Network Security (Cryptography and Message Integrity)**
 
 **Question 21:**  
@@ -243,7 +271,8 @@ B) Public Key Encryption
 C) Symmetric Key Encryption  
 D) Digital Signature
 
-> **Correct Answer:** C) Symmetric Key Encryption
+> [!Question]~Correct Answer  
+> **C) Symmetric Key Encryption**
 
 ---
 
@@ -254,7 +283,8 @@ B) Verifies the identity of the sender and ensures message integrity
 C) Encrypts data during transmission  
 D) Provides access control to the network
 
-> **Correct Answer:** B) Verifies the identity of the sender and ensures message integrity
+> [!Question]~Correct Answer  
+> **B) Verifies the identity of the sender and ensures message integrity**
 
 ---
 
@@ -265,7 +295,8 @@ B) To establish a secure, encrypted communication channel between client and ser
 C) To detect and correct transmission errors  
 D) To authenticate the user’s identity
 
-> **Correct Answer:** B) To establish a secure, encrypted communication channel between client and server
+> [!Question]~Correct Answer  
+> **B) To establish a secure, encrypted communication channel between client and server**
 
 ---
 
@@ -276,7 +307,8 @@ B) Asymmetric encryption
 C) Hashing  
 D) Digital signatures
 
-> **Correct Answer:** B) Asymmetric encryption
+> [!Question]~Correct Answer  
+> **B) Asymmetric encryption**
 
 ---
 
@@ -287,7 +319,8 @@ B) SHA
 C) RSA  
 D) DES
 
-> **Correct Answer:** B) SHA
+> [!Question]~Correct Answer  
+> **B) SHA**
 
 ---
 
@@ -298,7 +331,8 @@ B) Network Layer
 C) Data Link Layer  
 D) Presentation Layer
 
-> **Correct Answer:** A) Application Layer
+> [!Question]~Correct Answer  
+> **A) Application Layer**
 
 ---
 
@@ -309,7 +343,8 @@ B) To verify the identity of the sender
 C) To issue digital certificates for secure communication  
 D) To prevent unauthorized access to network resources
 
-> **Correct Answer:** C) To issue digital certificates for secure communication
+> [!Question]~Correct Answer  
+> **C) To issue digital certificates for secure communication**
 
 ---
 
@@ -320,7 +355,8 @@ B) Man-in-the-Middle attack
 C) Phishing attack  
 D) DNS spoofing
 
-> **Correct Answer:** B) Man-in-the-Middle attack
+> [!Question]~Correct Answer  
+> **B) Man-in-the-Middle attack**
 
 ---
 
@@ -331,9 +367,11 @@ B) Message integrity and authenticity
 C) Digital signatures  
 D) User authentication
 
-> **Correct Answer:** B) Message integrity and authenticity
+> [!Question]~Correct Answer  
+> **B) Message integrity and authenticity**
 
-_______
+---
+
 **Question 30:**  
 Which of the following is a key characteristic of public-key cryptography?  
 A) The same key is used for both encryption and decryption  
@@ -341,7 +379,10 @@ B) The keys used for encryption and decryption are different
 C) It is faster than symmetric key cryptography  
 D) It provides no security for online transactions
 
-> **Correct Answer:** B) The keys used for encryption and decryption are different
+> [!Question]~Correct Answer  
+> **B) The keys used for encryption and decryption are different**
 
-________
+---
+
+Let me know if you’d like it exported to Markdown, PDF, or used as an online quiz!
 > 🖊️ Author: CHAT-GPT
