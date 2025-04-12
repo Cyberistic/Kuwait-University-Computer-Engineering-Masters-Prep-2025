@@ -54,7 +54,7 @@ _________
 > The **data plane** moves packets; the **control plane** decides how to move them.
 
 
-### 3. IP Addressing
+## IP Addressing
 
 | Feature                            | IPv4                                             | IPv6                                                      |
 | ---------------------------------- | ------------------------------------------------ | --------------------------------------------------------- |
@@ -70,14 +70,27 @@ _________
 | **NAT Usage**                      | Widely used due to limited address space         | Not needed (huge address space)                           |
 | **Compatibility**                  | **Legacy system, still widely used**             | **Designed to replace IPv4 **                             |
 
-## Fragmentation When a router receives a datagram (packet) that's larger than the allowed transmission of the outgoing link, it splits the datagram into smaller pieces (fragments). These fragments are sent separately and reassembled at the final destination.
-> 🔍 **NAT**? allows multiple devices on a private network to share one public IP address when accessing the Internet, uses NAT translation table to keep track of IPs.
-	![[Pasted image 20250410202513.png]]
-> 🔍 **DHCP**? Dynamic Host Configuration Protocol, allows host to dynamically obtain its IP address from network server when it joins network.
-	![[Pasted image 20250410202414.png]]
-#### 3.1 Why IPv6 and not IPv4?
+### Fragmentation 
+When a router receives a packet that's larger than the allowed transmission of the outgoing link, it splits the datagram into smaller pieces (fragments). These fragments are sent separately and reassembled at the final destination.
+
+### NAT
+![[NAT.png]]
+Allows multiple devices on a private network to share one public IP address when accessing the Internet, uses NAT translation table to keep track of IPs.
+
+
+### DHCP 
+![[DHCP.png]]
+
+ Dynamic Host Configuration Protocol, allows host to dynamically obtain its IP address from network server when it joins network.
+
+
+
+### Why IPv6 and not IPv4?
+
+![[IP_datagram.png]]
 - **Address exhaustion**: IPv4 has a limited number of IP addresses (about 4.3 billion), and with the growing number of internet-connected devices, we are running out of IPv4 addresses.
-    
+
+
 - **Larger address space**: IPv6 provides a vastly larger address space (approximately 340 undecillion addresses), allowing for an almost unlimited number of unique addresses for devices.
     
 - **Improved routing efficiency**: IPv6 simplifies network routing, making it more efficient and scalable.
@@ -87,7 +100,8 @@ _________
 - **Better performance**: IPv6 has features like auto-configuration and simplified header structure, leading to potentially better performance compared to IPv4.
     
 - **Support for modern technologies**: IPv6 supports emerging technologies, such as the Internet of Things (IoT), that require a large number of IP addresses and constant connectivity.
-![[IP_datagram.png]]
+
+
 
 ### 3.2 IPv4 Addressing & Subnets
 #### 3.2.1 . **Understanding IP Addressing:**
@@ -178,7 +192,10 @@ For the subnet `192.168.1.0/24`:
 
 _______________
 
-> 🖊️ Author: Asmaa Alazmi
+> [!Important] Author: Asmaa Alazmi
 > Note: feel free to change the diagrams into prettier ones 
-> `(I'm not getting paid enough to care about aesthetics).
+> `(I'm not getting paid enough to care about aesthetics)`.
 > ANOTHER NOTE: this review is meant as a mind refresher, written with the assumption that the reader knows the basics (e.g. mac address, switches.. servers.. etc).
+
+> [!Question] Reviewer Note..
+> you're 
