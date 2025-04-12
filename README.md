@@ -4,11 +4,14 @@
 
 As the Master's exam in Kuwait University approaches, I've created this repository to keep all my notes and study material here. These are *not* introductory notes, but rather revisions to help remember the topics required in the exam. As such, prior experience and knowledge is required. For example, I won't go over what "binary" is, how to count with it, This is **NOT** a replacement for the official study books.
 
-
+![Notes-Preview.png]()
 
 > [!Note] 
 > These notes include my thoughts and ideas, fun facts, sometimes jokes, sometimes "professional" explanations. 
 > If you're looking for a more serious tone, I recommend you create your own set of notes:)
+
+![[Pasted image 20250412230602.png]]
+![[Pasted image 20250412230536.png]]
 
 ## How to use these notes
 These notes are written in [obsidian](https://obsidian.md/). So although they are "just" `.md` files and you can view them anywhere, I recommend viewing them in obsidian to get the best experience. Obsidian's [linking](https://help.obsidian.md/links) feature is enough of a reason to download and use it, as it helps to navigate between the notes. Feel free to create PDFs of these notes.
