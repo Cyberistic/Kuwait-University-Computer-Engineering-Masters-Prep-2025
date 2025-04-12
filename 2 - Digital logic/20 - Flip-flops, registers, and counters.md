@@ -109,6 +109,9 @@ endmodule
 
 By chaining multiple D flip-flops, and inverting the clock for the second one, we create a master-slave flip-flop. The first flip-flop (master) captures the input on the rising edge of the clock, and the second flip-flop (slave) captures the output of the master on the falling edge of the clock.
 
+> [!Important] Important Note
+> There exists an SR-Flip-Flop which acts the same as the D flip-flop but has an invalid state when both S and R are 1. So we don't usually use it.
+
 ```verilog
 module master_slave_flipflop(
     input D, CLK,
@@ -165,17 +168,19 @@ endmodule
 > ![Redstone stuff](https://www.youtube.com/watch?v=4Y2oPNSdqNI&t=75s)
 
 ### JK Flip-Flop
+
 ![[JK-Flip-Flop-Symbol.png]]
 
-Combines features of SR and T flip-flops. Most versatile.
+It combines the behaviors of SR and T flip-flops in a useful way. It behaves as the SR flip-flop, where J = S and K = R, for all input values except J = K = 1. For the latter case, which has to be avoided in the SR flip-flop, the JK flip-flop toggles its state like the T flip-flop.
 
 Truth Table:
-| J | K | Q(next) | Comment |
-|---|---|---------|---------|
-| 0 | 0 | Q | No change |
-| 0 | 1 | 0 | Reset |
-| 1 | 0 | 1 | Set |
-| 1 | 1 | ~Q | Toggle |
+
+| J   | K   | Q(next) | Comment   |
+| --- | --- | ------- | --------- |
+| 0   | 0   | Q       | No change |
+| 0   | 1   | 0       | Reset     |
+| 1   | 0   | 1       | Set       |
+| 1   | 1   | ~Q      | Toggle    |
 
 ```verilog
 module jk_flipflop(
@@ -197,7 +202,11 @@ endmodule
 
 A register is a group of flip-flops that store multiple bits.
 
+A flip-flop stores one bit of information. When a set of n flip-flops is used to store n bits of information, such as an n-bit number, we refer to these flip-flops as a register.
+
 ### Basic Register
+
+![[Pasted image 20250412034728.png]]
 
 ```verilog
 module register #(
