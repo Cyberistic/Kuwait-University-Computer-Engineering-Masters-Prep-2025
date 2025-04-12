@@ -162,9 +162,10 @@ endmodule
 > ![[Minecraft-T-Flip-Flop.png | center | 300]]
 >
 > As I wrote this, I got curious so I spent like 15 minutes looking for the video.. here is where I learned it (1:15 to 3:40):
->   ![Redstone stuff](https://www.youtube.com/watch?v=4Y2oPNSdqNI&t=75s)
+> ![Redstone stuff](https://www.youtube.com/watch?v=4Y2oPNSdqNI&t=75s)
 
 ### JK Flip-Flop
+![[JK-Flip-Flop-Symbol.png]]
 
 Combines features of SR and T flip-flops. Most versatile.
 
