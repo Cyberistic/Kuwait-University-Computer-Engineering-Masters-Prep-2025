@@ -103,13 +103,17 @@ Allows multiple devices on a private network to share one public IP address when
 
 
 
-### 3.2 IPv4 Addressing & Subnets
-#### 3.2.1 . **Understanding IP Addressing:**
+## IPv4 Addressing & Subnets
+###  **Understanding IP Addressing:**
 
 - **IP Address**: An IP address is made up of 4 octets (32 bits for IPv4, 128 bits for IPv6). Each octet has 8 bits, which means there are 256 possible values (0–255) per octet.
     
 - **Subnet Mask**: A subnet mask divides the IP address into the network and host portions. For IPv4, it's typically written in dotted decimal notation (e.g., `255.255.255.0`).
-#### 3.2.2 **Understanding IP Addressing:**
+
+
+
+### **Subnet Calculation Steps:**
+
 - **Class A**: `0.0.0.0` to `127.255.255.255` (default subnet mask `255.0.0.0`)
     
 - **Class B**: `128.0.0.0` to `191.255.255.255` (default subnet mask `255.255.0.0`)
@@ -119,8 +123,6 @@ Allows multiple devices on a private network to share one public IP address when
 - **Class D (Multicast)**: `224.0.0.0` to `239.255.255.255`
     
 - **Class E (Reserved)**: `240.0.0.0` to `255.255.255.255`
-
-#### 3.2.3 **Subnet Calculation Steps:**
 
 **a.** **Determine the Network Address:**
 
@@ -134,6 +136,7 @@ Convert them to binary:
 - `255.255.255.0` = `11111111.11111111.11111111.00000000`
 
 Perform the **AND** operation:
+
 ```
 11000000.10101000.00000001.00001010
 AND
@@ -141,8 +144,9 @@ AND
 -----------------------------------
 11000000.10101000.00000001.00000000
 ```
-> The result is `192.168.1.0`, which is the **network address**.
-> ⭐ TRICK: the network address is always the FIRST available address.
+
+The result is `192.168.1.0`, which is the **network address**.
+> [!Important] TRICK: the network address is always the FIRST available address. Usually xxx.xxx.xxx.0
 
  **b.** **Calculate the Broadcast Address:**
 
@@ -156,8 +160,9 @@ OR
 -----------------------------------
 11000000.10101000.00000001.11111111
 ```
-> The result is `192.168.1.255`, which is the **broadcast address**.
-> ⭐ TRICK: the broadcast address is always the LAST available address.
+The result is `192.168.1.255`, which is the **broadcast address**.
+
+> [!Important] TRICK: the broadcast address is always the LAST available address. Usually xxx.xxx.xxx.255
 
 **c. Determine the Number of Hosts:**
 
@@ -169,7 +174,7 @@ For `255.255.255.0` (or `/24`):
 - 32 bits (total bits) - 24 bits (used bits) = 8 bits for the host part.
 - Number of hosts available = `2^8 - 2 = 254` (we subtract 2 for the network and broadcast addresses).
 
-### 3.2.4 **Subnetting:**
+###  **Subnetting:**
 
 If you want to create smaller subnets, you can "borrow" bits from the host portion and adjust the subnet mask accordingly.
 
@@ -190,7 +195,7 @@ For the subnet `192.168.1.0/24`:
 - Usable range: `192.168.1.1` to `192.168.1.254`
 - Broadcast address: `192.168.1.255`
 
-_______________
+
 
 > [!Important] Author: Asmaa Alazmi
 > Note: feel free to change the diagrams into prettier ones 
@@ -198,4 +203,4 @@ _______________
 > ANOTHER NOTE: this review is meant as a mind refresher, written with the assumption that the reader knows the basics (e.g. mac address, switches.. servers.. etc).
 
 > [!Question] Reviewer Note..
-> you're 
+> you're getting PAID?!?!
