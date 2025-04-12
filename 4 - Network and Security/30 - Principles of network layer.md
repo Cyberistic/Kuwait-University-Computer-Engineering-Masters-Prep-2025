@@ -33,7 +33,9 @@ The **network layer** is the third layer in the **OSI model**. Its main function
 - **Ethernet & WIFI**
 - **Others**..
 _________
-##  Data Plane & Control Plane
+##  Data vs Control Plane
+
+![[Data-vs-Control-Plane.png]]
 
 | Feature                   | Data Plane                                                                                              | Control Plane                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -48,9 +50,10 @@ _________
 | **Awareness of topology** | No                                                                                                      | Yes                                                                                                     |
 | **Customization**         | Limited                                                                                                 | Highly customizable                                                                                     |
 
-> 🧠 Summary: The **data plane** handles forwarding at each router locally, while the **control plane** decides the global path. The **data plane** moves packets; the **control plane** decides how to move them.
+> [!Note] The **data plane** handles forwarding at each router locally, while the **control plane** decides the global path.
+> The **data plane** moves packets; the **control plane** decides how to move them.
 
-____
+
 ### 3. IP Addressing
 
 | Feature                            | IPv4                                             | IPv6                                                      |
@@ -65,9 +68,9 @@ ____
 | **Fragmentation**                  | Routers and sender can fragment                  | Only sender can fragment                                  |
 | **Checksum**                       | **Present**                                      | **Removed to speed up processing**                        |
 | **NAT Usage**                      | Widely used due to limited address space         | Not needed (huge address space)                           |
-| **Compatibility**                  | **Legacy system, still widely used**             | **Designed to replace IPv4                                |
-					`(IPv4 vs IPv6 Based on Kurose & Ross, 7th Ed)
-> 🔍 **Fragmentation**? When a router receives a datagram (packet) that's larger than the allowed transmission of the outgoing link, it splits the datagram into smaller pieces (fragments). These fragments are sent separately and reassembled at the final destination.
+| **Compatibility**                  | **Legacy system, still widely used**             | **Designed to replace IPv4 **                             |
+
+## Fragmentation When a router receives a datagram (packet) that's larger than the allowed transmission of the outgoing link, it splits the datagram into smaller pieces (fragments). These fragments are sent separately and reassembled at the final destination.
 > 🔍 **NAT**? allows multiple devices on a private network to share one public IP address when accessing the Internet, uses NAT translation table to keep track of IPs.
 	![[Pasted image 20250410202513.png]]
 > 🔍 **DHCP**? Dynamic Host Configuration Protocol, allows host to dynamically obtain its IP address from network server when it joins network.
