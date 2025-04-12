@@ -13,6 +13,28 @@ FSMs are sequential circuits used to model systems that transition between state
 - Outputs depend **only** on the current state.
 - More stable, as output changes only on state changes.
 
+```verilog
+module moore_fms (Clock, Resetn, w, z);
+    input Clock, Resetn, w;
+    output z;
+    reg [1:0] y, Y;
+    parameter A = 2'b00, B = 2'b01, C = 2'b10;
+    // Define the next state combinational circuit
+    always @(*) case (y)
+        A: if (w) Y = B; else Y = A;
+        B: if (w) Y = C; else Y = A;
+        C: if (w) Y = C; else Y = A;
+        default: Y = 2'b00;
+    endcase
+    // Define the sequential block
+    always @(posedge Clock, negedge Resetn)
+        if (!Resetn) y <= A;
+        else y <= Y;
+    // Define output
+    assign z = (y == C);
+endmodule
+```
+
 ### Mealy Machine
 
 - Outputs depend on **current state + input**.
