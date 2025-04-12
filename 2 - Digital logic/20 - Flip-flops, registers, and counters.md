@@ -132,7 +132,9 @@ We can chain this as many times as we want, this is how we create registers.
 
 ![[T-Flip-Flop-Symbol.png]]
 
-Similar to D flip-flop BUT it flips its output on every clock edge if T=1. If T=0, it retains its state.
+Similar to D flip-flop BUT it _flips_ its current state on every clock edge if T=1. If T=0, it retains its state.
+
+Especially useful for counters.
 
 Truth Table:
 | T | CLK | Q(next) | Comment |
@@ -154,7 +156,10 @@ module t_flipflop(
 endmodule
 ```
 
-
+> [!Important] Fun fact..
+> I learned about T-flip-flops looong (2012-ish) before joining the CE world; because of Minecraft...
+> It was the simplest way to make a redstone button act as a toggle switch.
+> ![[Minecraft-T-Flip-Flop.png | center | 300]]
 ### JK Flip-Flop
 
 Combines features of SR and T flip-flops. Most versatile.
