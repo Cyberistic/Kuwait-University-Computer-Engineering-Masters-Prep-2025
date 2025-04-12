@@ -141,7 +141,7 @@ There are multiple ways to correct errors:
 
 etc..
 
-### Multiple Access
+## Multiple Access
 
 
 
@@ -154,11 +154,11 @@ SPEAK WHEN SPOKEN TO!
 
 Imagine a bunch of people in a room all trying to talk over walkie-talkies on the same frequency — we need some rules, or chaos will ensue.
 
----
 
-## 🧠 Categories of Multiple Access Protocols
 
-### 1. **Channel Partitioning Protocols**
+###  Categories of Multiple Access Protocols
+
+#### **Channel Partitioning Protocols**
 
 These divide the channel into separate portions and allocate them to users.
 
@@ -169,11 +169,10 @@ These divide the channel into separate portions and allocate them to users.
 - **Code Division Multiple Access (CDMA)**: Devices transmit simultaneously over the same channel using unique codes.
     
 
-> Think of TDMA like everyone taking turns to talk, FDMA like assigning a separate room, and CDMA like everyone speaking at the same time but in different languages.
+>[!Note] Think of TDMA like everyone taking turns to talk, FDMA like assigning a separate room, and CDMA like everyone speaking at the same time but in different languages.
 
----
 
-### 2. **Random Access Protocols**
+#### **Random Access Protocols**
 
 Devices transmit whenever they have data — with a risk of collisions. If a collision occurs, they retry after a random time.
 
@@ -186,11 +185,13 @@ Devices transmit whenever they have data — with a risk of collisions. If a col
     - **CSMA/CD** (Collision Detection): Used in Ethernet. If a collision is detected while transmitting, devices stop and retry later.
         
     - **CSMA/CA** (Collision Avoidance): Used in Wi-Fi. Devices try to **avoid** collisions by announcing intentions and waiting for clear time slots.
-        
 
----
 
-### 3. **Controlled Access (Polling and Token Passing)**
+> [!Note] Random access is what gives Ethernet and Wi-Fi their speed and flexibility — but also what causes retransmissions when too many devices talk at once.
+
+
+
+#### **Controlled Access (Polling and Token Passing)**
 
 A central controller or a token (a special frame) decides who gets to send data next.
 
@@ -209,10 +210,11 @@ A central controller or a token (a special frame) decides who gets to send data 
 |Random Access|ALOHA, CSMA/CD, CSMA/CA|Ethernet, Wi-Fi|Efficient at low traffic, simple|Collisions, delays at high traffic|
 |Controlled Access|Polling, Token Ring|Industrial, legacy LANs|No collisions, orderly access|Central point of failure, more overhead|
 
+> [!Warning] Important.. Again..
+> I won't go into details of how they work cuz exam scope blahbnlagblah
+> book reference:  
 ---
 
-> [!Note] Random access is what gives Ethernet and Wi-Fi their speed and flexibility — but also what causes retransmissions when too many devices talk at once.
 
-Want me to continue with **Link Layer Addressing & ARP**, or head into **Switching and Frame Forwarding** next?
 
 > [!Important] Author: Asmaa Alazmi
