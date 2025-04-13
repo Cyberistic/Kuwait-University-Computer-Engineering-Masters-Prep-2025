@@ -134,6 +134,8 @@ $$
 > [!warning] Skipped these sections.. your on your own soldier!
 > virtual memory (replacement algorithms, page-frame allocation relation, and thrashing), file system (access methods, file and directory structures, and file and directory implementation).
 
+> [!Note] Reviewer note:
+> you're*
 ---
 
 > 🖋️ Author: Asmaa Alazmi

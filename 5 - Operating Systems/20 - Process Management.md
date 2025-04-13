@@ -10,7 +10,7 @@
 
 **Story time!**
 
-Imagine a big office building called **"ComputeCorp"**.
+Imagine a big office building called **"SudoCorp"**.
 Each **process** is like a **separate office** inside the building. Every office has its own:
 
 - Walls (memory),
