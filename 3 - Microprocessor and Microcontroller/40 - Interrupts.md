@@ -1,6 +1,6 @@
 Interrupt System and related topics.
 
-idk what other topics are
+idk what related topics are
 
 Interrupts are signals that cause the processor to temporarily stop its current execution and handle some other task (the interrupt service routine or ISR).
 
@@ -41,7 +41,8 @@ Interrupts are signals that cause the processor to temporarily stop its current 
 
 | Interrupt Source | Priority |
 | ---------------- | -------- |
-| External 0       | Highest  |
+| Reset            | Highest  |
+| External 0       | ↓        |
 | Timer 0          | ↓        |
 | External 1       | ↓        |
 | Timer 1          | ↓        |
@@ -50,6 +51,9 @@ Interrupts are signals that cause the processor to temporarily stop its current 
 > [!Note] We can change the priority of interrupts using the IP register.
 > By setting the bit, we make the interrupt highest priority.
 > However, if more than one bit is set, it will follow the order in the table above.
+
+> [!Note] The reset interrupt has the highest priority and is non-maskable.
+> Located at address 0000H in the interrupt vector table. (Sends the program to initial address 0000H)
 
 ## Interrupt Enable Register (IE)
 
@@ -71,43 +75,6 @@ SETB EA      ; Enable all interrupts
 SETB ET0     ; Enable Timer 0 interrupt
 ```
 
-## Interrupt Priority Register (IP)
-
-![[IP-Register.png]]
-
-```
-PT1 - Timer 1 Priority
-PX1 - External 1 Priority
-PT0 - Timer 0 Priority
-PX0 - External 0 Priority
-```
-
-Example: Set Timer 0 as high priority:
-
-```assembly
-SETB PT0     ; Set Timer 0 as high priority
-```
-
-## Interrupt Service Routine (ISR)
-
-```assembly
-ORG 000BH        ; Timer 0 interrupt vector
-    LJMP Timer0_ISR  ; Jump to ISR
-
-ORG 0030H        ; ISR location
-Timer0_ISR:
-    ; Save context
-    PUSH ACC
-    PUSH PSW
-
-    ; ISR code here
-
-    ; Restore context
-    POP PSW
-    POP ACC
-    RETI         ; Return from interrupt
-```
-
 ## Example: Timer Interrupt
 
 Create a 1-second delay using Timer 0 interrupt:
@@ -116,7 +83,7 @@ Create a 1-second delay using Timer 0 interrupt:
 ORG 0000H
     LJMP Main
 
-ORG 000BH            ; Timer 0 vector
+ORG 000BH            ; Timer 0 vector in interrupt vector table
     LJMP Timer0_ISR
 
 ORG 0030H
@@ -137,96 +104,3 @@ Timer0_ISR:
 
     RETI            ; Return from interrupt
 ```
-
-## Nested Interrupts
-
-Higher priority interrupts can interrupt lower priority ones:
-
-```mermaid
-graph TD
-    A[Main Program] -->|INT0| B[ISR 1]
-    B -->|Higher Priority INT1| C[ISR 2]
-    C --> B
-    B --> A
-```
-
-## Important Concepts
-
-1. **Interrupt Latency**
-
-   - Time between interrupt request and ISR execution
-   - Affected by:
-     - Current instruction completion
-     - Context saving
-     - Jump to ISR
-
-2. **Context Saving**
-
-   - Must save registers used in ISR
-   - Typically: ACC, PSW, etc.
-   - Restore before returning
-
-3. **Critical Sections**
-
-   ```assembly
-   CLR EA          ; Disable all interrupts
-   ; Critical code here
-   SETB EA         ; Re-enable interrupts
-   ```
-
-4. **Interrupt Flags**
-   - Must be cleared in software
-   - Example for Timer 0:
-   ```assembly
-   CLR TF0         ; Clear Timer 0 overflow flag
-   ```
-
-## Common Applications
-
-1. **Real-Time Clock**
-
-```assembly
-ORG 000BH
-Clock_ISR:
-    INC Seconds
-    MOV A, Seconds
-    CJNE A, #60, Exit
-    MOV Seconds, #0
-    INC Minutes
-Exit:
-    RETI
-```
-
-2. **Debouncing**
-
-```assembly
-EX0_ISR:
-    ACALL Delay_20ms    ; Wait for bounce
-    JB P3.2, Exit       ; Check if still pressed
-    ; Button code here
-Exit:
-    RETI
-```
-
-3. **Serial Communication**
-
-```assembly
-Serial_ISR:
-    JNB RI, Check_TI    ; Check receive
-    CLR RI
-    MOV A, SBUF         ; Get received byte
-    RET
-Check_TI:
-    JNB TI, Exit        ; Check transmit
-    CLR TI
-Exit:
-    RETI
-```
-
-> [!tip] Best Practices
->
-> 1. Keep ISRs short
-> 2. Always save/restore context
-> 3. Clear interrupt flags
-> 4. Use priorities wisely
-> 5. Avoid disabling interrupts for long periods
