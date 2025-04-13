@@ -58,47 +58,49 @@ $$
 2. **SPI**: Synchronous, 4-wire (MOSI, MISO, SCK, SS)
 3. **I2C**: Synchronous, 2-wire (SDA, SCL)
 
+### Communication Modes
+
+1. **Simplex**
+
+   - One-way communication only
+   - One device transmits, other only receives
+   - Example: Television broadcast
+
+2. **Half-Duplex**
+
+   - Two-way communication, but one direction at a time
+   - Devices take turns transmitting
+   - Example: Walkie-talkie
+
+3. **Full-Duplex**
+   - Two-way simultaneous communication
+   - Both devices can transmit and receive at the same time
+   - Example: Telephone conversation, UART
+
+> [!tip] Most microcontroller serial communications use:
+>
+> - UART: Full-duplex (RX and TX lines)
+> - SPI: Full-duplex (MOSI and MISO)
+> - I2C: Half-duplex (single data line - SDA)
+
 > [!Note] _Synchronous_ means that the clock signal is shared between the sender and receiver, while _asynchronous_ means that each device has its own clock.
 > In asynchronous communication, the sender and receiver must agree on a communication protocol (how do we talk to each other). The baud rate is the speed of communication, and it must be the same for both devices.
 
-## UART Communication
+## Serial Communication with Shift Registers
 
-_SIPO (Serial-In-Parallel-Out)_
+We need to convert bytes into bits for serial communication. Shift registers are used for this purpose.
 
+1. _SIPO (Serial-In-Parallel-Out)_:
+
+- Receiver
 - Used for receiving data serially and converting it to parallel format.
-- Commonly used in microcontrollers for serial communication.
-- Example: Receiving data from a serial device and storing it in a register.
+- LED displays, input expansion
 
-- **PISO (Parallel-In-Serial-Out)**
-- Used for sending data in serial format from parallel inputs.
-- Commonly used in microcontrollers for serial communication.
-- Example: Sending data from a register to a serial device like an LCD.
+2. _PISO (Parallel-In-Serial-Out)_:
 
-````mermaid
-
-### SIPO (Serial-In-Parallel-Out)
-
-### PISO (Parallel-In-Serial-Out)
-
-Used for reducing output pins:
-
-```mermaid
-graph LR
-    A[8 Parallel Inputs] --> B[Shift Register] --> C[Serial Data]
-````
-
-> [!tip] Common Applications
->
-> - SIPO: LED displays, input expansion
-> - PISO: Keyboard scanning, output compression
-
-Basic shift register operation:
-
-```assembly
-SETB CLOCK     ; Clock high
-MOV DATA, P1.0 ; Send data bit
-CLR CLOCK      ; Clock low
-```
+- Transmitter
+- Used for sending data in serial format to parallel inputs.
+- Keyboard scanning, output compression
 
 ### Examples
 
