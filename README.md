@@ -1,6 +1,6 @@
 # Kuwait University Computer Engineering Masters Prep
 
-![99 - Time Complexities.png](99%20-%20Time%20Complexities.png)
+![attachments/README-HEADER.png](README-HEADER.png.png)
 
 As the Master's exam in Kuwait University approaches, I've created this repository to keep all my notes and study material here. These are *not* introductory notes, but rather revisions to help remember the topics required in the exam. As such, prior experience and knowledge is required. For example, I won't go over what "binary" is, how to count with it, This is **NOT** a replacement for the official study books.
 

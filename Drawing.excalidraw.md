@@ -106,9 +106,9 @@ Masters Exam Preperation ^R8BaxRsA
 
 72bbd084e63a9d5e72ae8e05c0112cb30e1e4a0d: [[Pasted Image 20250412225852_380.png]]
 
-9fd74de70de0f543f430b09315d1a2c4ecbee7df: [[99 - Time Complexities-2.png]]
+9fd74de70de0f543f430b09315d1a2c4ecbee7df: [[Pasted Image 20250412230048_204.png.png]]
 
-afb79ef0669192834211d46d9862092936930ea5: [[99 - Time Complexities-1.png]]
+afb79ef0669192834211d46d9862092936930ea5: [[Pasted Image 20250412230244_641.png.png]]
 
 %%
 ## Drawing
