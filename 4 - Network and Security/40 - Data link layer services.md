@@ -37,8 +37,6 @@ _____
 
 3. **Cyclic Redundancy Check (CRC)**: A more robust error detection method that treats the data as a large binary number, divides it by a pre-determined polynomial, and appends the remainder (CRC) to the data. The receiver performs the same division and checks if the remainder is zero, indicating no errors.
 
-4. **Hamming Code** is an error detection and correction technique used to detect and correct errors in digital data transmission. It is designed to detect and correct **single-bit errors** and detect **two-bit errors**.
-
 | **Error Detection Technique**     | **Type of Error Detected**             | **Corrects Errors?** | **Used In**                                                | **Advantages**                                                                            |
 | --------------------------------- | -------------------------------------- | -------------------- | ---------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
 | **Parity Bit**                    | Single-bit errors                      | No                   | Simple systems, memory storage, and transmission protocols | Simple and low overhead but only detects single-bit errors                                |
