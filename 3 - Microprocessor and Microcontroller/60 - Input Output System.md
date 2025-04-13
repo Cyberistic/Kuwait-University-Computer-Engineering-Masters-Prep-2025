@@ -106,7 +106,7 @@ We need to convert bytes into bits for serial communication. Shift registers are
 
 1. LED control using shift register:
 
-```assembly
+```NASM
 ShiftByte:
     MOV R2, #8        ; 8 bits
 Next:
@@ -120,7 +120,7 @@ Next:
 
 2. Reading from parallel input:
 
-```assembly
+```NASM
 ReadByte:
     SETB P1.2       ; Load parallel data
     CLR P1.2

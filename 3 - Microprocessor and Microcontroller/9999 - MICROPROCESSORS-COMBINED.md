@@ -2,9 +2,9 @@
 
 ![[10 - Architecture, Registers and Instructions]]
 ![[20 - Clocks, Frequency, and Machine Cycles]]
-![[30 - Timer/Counter concepts]]
-![[40 - Interrupt System and related topics]]
+![[30 - Timer and Counter Concepts]]
+![[40 - Interrupts]]
 ![[50 - Memory]]
-![[60 - Input/Output System]]
+![[60 - Input Output System]]
 
 ---

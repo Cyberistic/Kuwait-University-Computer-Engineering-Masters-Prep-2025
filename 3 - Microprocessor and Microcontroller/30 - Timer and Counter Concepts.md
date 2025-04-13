@@ -53,12 +53,15 @@ To configure the timer, we use the TMOD register.
 
 ### Timer Calculations
 
-$$$ Delay = (\text{MAX_COUNT} - \text{THTLx} + 1) \times \text{Cycle time} $$$
+$$ 
+Delay = (\text{MAX COUNT} - \text{THTLx} + 1) \times \text{Cycle time} $$
 or
-$$$ Delay = (65536 - \text{THTLx}) \times \text{Cycle time} $$$
+$$ Delay = (65536 - \text{THTLx}) \times \text{Cycle time} $$
 
 To find value loaded in THTLx:
-$$$ THTLx = 65536 - \left(\frac{\text{Delay needed}}{\text{Cycle time}}\right) $$$
+$$ 
+THTLx = 65536 - \left(\frac{\text{Delay needed}}{\text{Cycle time}}\right) 
+$$
 
 Example:
 Say you have a 11.0592 MHz crystal and you want a 5ms delay.
