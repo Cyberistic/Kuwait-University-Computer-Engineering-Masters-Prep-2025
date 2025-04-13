@@ -2,44 +2,29 @@ Input/Output System.
 
 Again, super vague topic!! Will give headlines.
 
-## Port Structure
+## Ports
 
-8051 has four 8-bit bidirectional ports (P0-P3). Each bit can be individually addressed.
+8052 has 8 8-bit bidirectional ports (P0-P7). Each bit can be individually addressed.
 
-```assembly
+```NASM
 SETB P1.0    ; Set bit 0 of Port 1
 CLR  P2.7    ; Clear bit 7 of Port 2
 MOV  P3, #0FFH ; Set all bits of Port 3
+
+MOV A, P0    ; Read Port 0 into accumulator
 ```
-
-### Port Characteristics
-
-- P0: Open drain, requires external pull-up
-- P1: Internal pull-up
-- P2: Internal pull-up
-- P3: Internal pull-up, alternate functions
 
 ## Basic I/O Devices
 
-### 7-Segment Display
+1. 7-Segment Display
 
 Common-anode or common-cathode configuration:
 
-```verilog
-// Lookup table for digits
-reg [6:0] seg_data [0:9] = {
-    7'b1000000,  // 0
-    7'b1111001,  // 1
-    7'b0100100,  // 2
-    // ...etc
-};
-```
-
-### LCD Interface
+2. LCD Interface
 
 Standard 16x2 LCD uses 8-bit or 4-bit mode:
 
-```assembly
+```NASM
 MOV P2, #38H    ; 8-bit, 2 lines
 MOV P2, #0CH    ; Display ON, cursor OFF
 MOV P2, #01H    ; Clear display
@@ -73,16 +58,25 @@ $$
 2. **SPI**: Synchronous, 4-wire (MOSI, MISO, SCK, SS)
 3. **I2C**: Synchronous, 2-wire (SDA, SCL)
 
-## Shift Registers
+> [!Note] _Synchronous_ means that the clock signal is shared between the sender and receiver, while _asynchronous_ means that each device has its own clock.
+> In asynchronous communication, the sender and receiver must agree on a communication protocol (how do we talk to each other). The baud rate is the speed of communication, and it must be the same for both devices.
+
+## UART Communication
+
+_SIPO (Serial-In-Parallel-Out)_
+
+- Used for receiving data serially and converting it to parallel format.
+- Commonly used in microcontrollers for serial communication.
+- Example: Receiving data from a serial device and storing it in a register.
+
+- **PISO (Parallel-In-Serial-Out)**
+- Used for sending data in serial format from parallel inputs.
+- Commonly used in microcontrollers for serial communication.
+- Example: Sending data from a register to a serial device like an LCD.
+
+````mermaid
 
 ### SIPO (Serial-In-Parallel-Out)
-
-Used for expanding inputs:
-
-```mermaid
-graph LR
-    A[Serial Data] --> B[Shift Register] --> C[8 Parallel Outputs]
-```
 
 ### PISO (Parallel-In-Serial-Out)
 
@@ -91,7 +85,7 @@ Used for reducing output pins:
 ```mermaid
 graph LR
     A[8 Parallel Inputs] --> B[Shift Register] --> C[Serial Data]
-```
+````
 
 > [!tip] Common Applications
 >
