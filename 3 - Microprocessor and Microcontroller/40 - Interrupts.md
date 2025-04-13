@@ -1,4 +1,6 @@
-# Interrupts
+Interrupt System and related topics.
+
+idk what other topics are
 
 Interrupts are signals that cause the processor to temporarily stop its current execution and handle some other task (the interrupt service routine or ISR).
 
