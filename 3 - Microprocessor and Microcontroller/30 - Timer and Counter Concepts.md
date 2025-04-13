@@ -27,6 +27,11 @@ To configure the timer, we use the TMOD register.
 - THx: Upper 8 bits
 - Maximum count: 2¹⁶
 
+- Counring occurs based on external input or crystlal oscillator (C/T)
+- Started by setting TRx=1 bit in TCON register
+- Counter rolls over to 0 (#0000h) when it reaches maximum count (#FFFFh) and sets overflow flag (TFx) in TCON register
+- To reuse timer, TFx flag must be reset.
+
 ### Mode 2: 8-bit Auto-Reload
 
 - TLx: Contains reload value
@@ -41,23 +46,14 @@ To configure the timer, we use the TMOD register.
 > [!Important] TCON
 > ![[TCON.png]]
 
-## Timer Calculations
+### Timer Calculations
 
-### Basic Time Calculation
+$$$ Delay = (\text{MAX_COUNT} - \text{THTLx} + 1) \times \text{Cycle time} $$$
+or
+$$$ Delay = (65536 - \text{THTLx}) \times \text{Cycle time} $$$
 
-```
-Time = (MAX_COUNT - INITIAL_VALUE) × Machine_Cycle_Time
-```
-
-Example: For 50ms delay with 12MHz crystal:
-
-```
-Machine_Cycle = 1μs
-Required_Count = 50,000
-Initial_Value = 65536 - 50000 = 15536 (3CAFh)
-TH0 = 3Ch
-TL0 = AFh
-```
+To find value loaded in THTLx:
+$$$ THTLx = 65536 - \left(\frac{\text{Delay needed}}{\text{Cycle time}}\right) $$$
 
 ### Frequency Calculation
 
