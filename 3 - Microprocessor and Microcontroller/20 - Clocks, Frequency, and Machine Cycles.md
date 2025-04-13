@@ -4,13 +4,6 @@ Clocks, Frequency, and Machine Cycles
 
 A clock signal is a digital waveform that coordinates actions in digital circuits. It alternates between high (1) and low (0) at a regular interval.
 
-```mermaid
-graph TD
-    A[Clock Generator] -->|Clock Signal| B[CPU]
-    B -->|Internal Clock| C[ALU]
-    B -->|Internal Clock| D[Control Unit]
-    B -->|Internal Clock| E[Registers]
-```
 
 ### Clock Characteristics
 
