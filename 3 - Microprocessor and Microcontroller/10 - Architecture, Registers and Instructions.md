@@ -101,6 +101,7 @@ MOV R2, R0        ; Move between registers
 ## Basic Components
 
 ![[Programmer Model.png]]
+
 ### Registers
 
 Fast storage locations within the CPU:
@@ -114,6 +115,19 @@ Fast storage locations within the CPU:
 > It's called "Random Access Memory" (RAM) because it can access any random location in memory instantly, while ROM (Read-Only Memory) has to traverse the memory to find the data.
 > Here is an interesting video of this usage:
 > [https://www.youtube.com/watch?v=HGkuRp5HfH8](https://www.youtube.com/watch?v=HGkuRp5HfH8)
+
+![[Registers.png]]
+
+1. PC (Program Counter): Holds the address of the next instruction to be executed. Automatically increments after each instruction fetch.
+2. SP (Stack Pointer): Points to the top of the stack in memory. Data is pushed/popped from the stack using this pointer.
+3. DPT (Data Pointer): Used for indirect addressing. Points to data in external memory (RAM) or program memory (ROM). Can be used as 16-bit or 2 8-bit registers (DPH and DPL).
+4. A (Accumulator): Used for arithmetic and logic operations. Can be used as a source or destination for data.
+5. B: Used alongside A in multiplication and division operations to hold one of the operands (multiplier/multiplicand) and to store high-order bits of the result. Or in division to hold the divisor and store remainder.
+6. P1-3 (IO latch registers): Used for input/output operations. Can be used to read/write data to/from external devices. Bit as well as byte addressable.
+7. TL0, TH0, TL1, TH1: Timer registers. Used for timer/counter operations. Can be used to set timer intervals or count events.
+8. TMOD and TCON: Timer control registers. Used to configure timer modes and control timer operations. TMOD is used to set the mode of operation (timer/counter) and TCON is used to start/stop the timers.
+9. IP and IE: Interrupt registers. Used to enable/disable interrupts and set interrupt priorities. IP is used to set the priority of the interrupt sources, while IE is used to enable or disable the interrupts.
+10. PSW (Program Status Word): Contains flags that indicate the status of the processor. Flags include Carry, Auxiliary Carry, Parity, Overflow, and Zero flags.
 
 
 ### RAM & ROM
