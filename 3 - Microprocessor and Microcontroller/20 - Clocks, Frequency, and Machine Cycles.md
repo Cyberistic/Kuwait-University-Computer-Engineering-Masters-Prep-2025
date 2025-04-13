@@ -1,9 +1,10 @@
 Clocks, Frequency, and Machine Cycles
 
-## Clock Signal
+## Clock
 
-A clock signal is a digital waveform that coordinates actions in digital circuits. It alternates between high (1) and low (0) at a regular interval.
+A clock syncs all internal operations of a microcontroller. It uses an on-chip oscillator to generate a square wave signal.
 
+Assume that 1 machine cycle = 12 oscillator cycles for this note.
 
 ### Clock Characteristics
 
@@ -18,7 +19,7 @@ graph LR
     B --- C[1/Frequency]
 ```
 
-## Clock Frequency
+### Clock Frequency
 
 The speed of a processor is primarily determined by its clock frequency.
 
@@ -29,14 +30,6 @@ The speed of a processor is primarily determined by its clock frequency.
 > [!example] Example
 > A 4GHz processor performs 4 billion cycles per second.
 > Period = 1/4,000,000,000 = 0.25 nanoseconds per cycle
-
-### Factors Affecting Maximum Frequency
-
-1. Propagation Delay
-2. Setup/Hold Times
-3. Temperature
-4. Power Consumption
-5. Manufacturing Process
 
 ## Machine Cycles
 
