@@ -89,7 +89,7 @@ Timer_Frequency = Clock_Frequency ÷ Prescaler
 
 ### Timer Initialization
 
-```assembly
+```NASM
 MOV TMOD, #01H    ; Mode 1, 16-bit timer
 MOV TH0, #3CH     ; High byte
 MOV TL0, #AFH     ; Low byte
@@ -98,7 +98,7 @@ SETB TR0          ; Start timer
 
 Then monitor the overflow flag (TF0) in TCON register. When TF0 = 1, stop the timer and clear the flag.
 
-```assembly
+```NASM
 AWAIT:
     JNB TF0, AWAIT    ; Wait for overflow
 

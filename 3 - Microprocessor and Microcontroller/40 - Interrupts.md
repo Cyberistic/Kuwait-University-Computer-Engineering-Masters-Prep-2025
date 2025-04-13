@@ -70,7 +70,7 @@ EX0 - Enable External 0
 
 Example: Enable Timer 0 interrupt:
 
-```assembly
+```NASM
 SETB EA      ; Enable all interrupts
 SETB ET0     ; Enable Timer 0 interrupt
 ```
@@ -79,7 +79,7 @@ SETB ET0     ; Enable Timer 0 interrupt
 
 Create a 1-second delay using Timer 0 interrupt:
 
-```assembly
+```NASM
 ORG 0000H
     LJMP Main
 

@@ -75,7 +75,7 @@ The speed of a processor is primarily determined by its clock frequency.
 
 ### Example Instruction Timing
 
-```assembly
+```NASM
 MOV AX, BX    ; 2 machine cycle
 ADD AX, [SI]  ; 3 machine cycles (memory access)
 MUL CX        ; 3+ machine cycles (complex operation)

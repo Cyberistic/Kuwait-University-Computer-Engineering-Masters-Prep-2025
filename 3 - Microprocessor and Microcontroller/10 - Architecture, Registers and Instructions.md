@@ -90,7 +90,7 @@ MOV AX, [BX + SI + 4000h]  ; Complex addressing mode
 
 **RISC (ARM):**
 
-```assembly
+```NASM
 LDR R0, [R1, #4]  ; Load from memory
 MOV R2, R0        ; Move between registers
 ```
@@ -152,7 +152,7 @@ Control: JUMP, BRANCH, CALL
 
 Example of an instruction:
 
-```assembly
+```NASM
 LABEL:  ; Label for jump
 MOV R0, R1  ; Move value from R1 to R0
 ADD R0, R2  ; Add value in R2 to R0
