@@ -11,14 +11,12 @@
             "id": "9c9723fdec4e88ce",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "5 - Operating Systems/50 - Memory Management.md",
-                "mode": "source",
-                "source": false
+                "file": "5 - Operating Systems/attachments/INEEDABREAK.png"
               },
-              "icon": "lucide-file",
-              "title": "50 - Memory Management"
+              "icon": "lucide-image",
+              "title": "INEEDABREAK"
             }
           },
           {
@@ -245,16 +243,16 @@
       }
     ]
   },
-  "active": "9c9723fdec4e88ce",
+  "active": "40b7344d9c893d42",
   "lastOpenFiles": [
-    "INEEDABREAK.png",
-    "5 - Operating Systems/40 - Process Deadlock.md",
     "5 - Operating Systems/50 - Memory Management.md",
+    "5 - Operating Systems/attachments/INEEDABREAK.png",
+    "5 - Operating Systems/40 - Process Deadlock.md",
     "5 - Operating Systems/30 - Threads Synchronization.md",
     "5 - Operating Systems/20 - Process Management.md",
     "5 - Operating Systems/00 - References and Topics.md",
     "5 - Operating Systems/100 - QUIZ.md",
-    "currentstate.png",
+    "5 - Operating Systems/attachments/currentstate.png",
     "README.md",
     "1 - Data Structures and Algorithms/00 - References and Topics.md",
     "attachments/README-HEADER.png.png",
@@ -268,7 +266,6 @@
     "attachments/Pasted Image 20250412225028_767.png",
     "attachments/Pasted Image 20250412224829_667.png",
     "attachments/Pasted Image 20250412025718_110.png",
-    "attachments/Notes-Preview.png",
     "EVERYTHING-COMBINED.md",
     "5 - Operating Systems/9999 - OS-COMBINED.md",
     "4 - Network and Security/9999 - NETWORKS-COMBINED.md",
