@@ -4,6 +4,8 @@ General notes.
 
 ## Basic Architecture
 
+![[Architecture.png]]
+
 A microprocessor is a programmable device that processes data according to instructions stored in memory. The main components are:
 
 1. **ALU (Arithmetic Logic Unit)**
@@ -79,7 +81,7 @@ MOV R2, R0        ; Move between registers
 
 ## Basic Components
 
-### 1. Registers
+### Registers
 
 Fast storage locations within the CPU:
 
@@ -93,7 +95,16 @@ Fast storage locations within the CPU:
 > Here is an interesting video of this usage:
 > [https://www.youtube.com/watch?v=HGkuRp5HfH8](https://www.youtube.com/watch?v=HGkuRp5HfH8)
 
-### 2. Instruction Set
+### RAM & ROM
+
+In the context of microprocessors, RAM and ROM are types of memory which are used to store data and instructions.
+
+- **RAM (Random Access Memory)**: Volatile, temporary storage for data and instructions
+- **ROM (Read-Only Memory)**: Non-volatile, permanent storage for firmware and system instructions
+
+ROM stores instructions of the system (the code you write) and RAM stores the data (the variables you use, addresses, etc..)
+
+### Instruction Set
 
 The vocabulary of the processor:
 
@@ -114,13 +125,13 @@ SUB R0, #5   ; Subtract 5 from R0
 JUMP LABEL   ; Jump to LABEL
 ```
 
-### 3. Memory Interface
+### Memory Interface
 
 - Address decoding
 - Read/Write control
 - Memory mapped I/O
 
-### 4. Bus Structure
+### Bus Structure
 
 ```mermaid
 graph LR
