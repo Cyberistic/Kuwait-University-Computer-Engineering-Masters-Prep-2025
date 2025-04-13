@@ -1,4 +1,4 @@
-# Clocks, Frequency, and Machine Cycles
+Clocks, Frequency, and Machine Cycles
 
 ## Clock Signal
 

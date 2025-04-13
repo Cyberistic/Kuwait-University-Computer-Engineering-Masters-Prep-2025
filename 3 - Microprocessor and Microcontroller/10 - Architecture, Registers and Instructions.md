@@ -31,17 +31,36 @@ A microprocessor is a programmable device that processes data according to instr
    - Store intermediate results
 
 4. **Buses**
+
    - Data Bus: Transfers data
    - Address Bus: Specifies memory locations
    - Control Bus: Carries control signals
 
+5. **Peripherals**:
+
+   - timers for timing/counting
+   - UART for serial communication
+   - Other Input/Outputs.. whatever you can connect to the CPU
+
+6. **Timing and Control Unit**:
+
+   - Generates control signals
+   - Synchronizes operations with clock
+   - Manages instruction execution
+
+7. **Oscillator**:
+   - Internal clock generator
+   - Uses external crystal
+   - All operations synchronized to this clock
+
 ```mermaid
 graph TD
-    A[Control Unit] --> B[ALU]
-    A --> C[Registers]
-    B <--> C
-    D[Memory] <--> E[Bus System]
-    E <--> A
+    A[ALU] -->|Data| B[Registers]
+    A -->|Control Signals| C[Control Unit]
+    B -->|Data Bus| D[Memory]
+    C -->|Control Bus| D
+    E[Peripherals] -->|Data Bus| D
+    F[Clock] -->|Control Signals| C
 ```
 
 ## CISC vs RISC
@@ -81,6 +100,7 @@ MOV R2, R0        ; Move between registers
 
 ## Basic Components
 
+![[Programmer Model.png]]
 ### Registers
 
 Fast storage locations within the CPU:
@@ -94,6 +114,7 @@ Fast storage locations within the CPU:
 > It's called "Random Access Memory" (RAM) because it can access any random location in memory instantly, while ROM (Read-Only Memory) has to traverse the memory to find the data.
 > Here is an interesting video of this usage:
 > [https://www.youtube.com/watch?v=HGkuRp5HfH8](https://www.youtube.com/watch?v=HGkuRp5HfH8)
+
 
 ### RAM & ROM
 
