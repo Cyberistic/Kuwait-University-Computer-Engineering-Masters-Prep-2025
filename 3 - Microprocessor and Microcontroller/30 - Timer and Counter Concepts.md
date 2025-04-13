@@ -91,6 +91,17 @@ MOV TL0, #AFH     ; Low byte
 SETB TR0          ; Start timer
 ```
 
+Then monitor the overflow flag (TF0) in TCON register. When TF0 = 1, stop the timer and clear the flag.
+
+```assembly
+AWAIT:
+    JNB TF0, AWAIT    ; Wait for overflow
+
+CLR TR0          ; Stop Timer 0
+    CLR TF0          ; Clear overflow flag
+
+```
+
 ### Timer Interrupt
 
 ```assembly
