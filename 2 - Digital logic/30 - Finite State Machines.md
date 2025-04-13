@@ -1,7 +1,5 @@
 Design and Analysis of Synchronous Finite State Machines (S-FSM) Mealy and Moore. Serial Adder implementations using S-FSM. Verilog coding of the designs. Formal design steps, and informal design techniques.
 
-
-
 ## Synchronous Finite State Machines (FSMs)
 
 FSMs are sequential circuits used to model systems that transition between states based on inputs and current state. There are two main types:

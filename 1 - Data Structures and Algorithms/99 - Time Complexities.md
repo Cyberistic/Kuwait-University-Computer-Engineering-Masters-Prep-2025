@@ -58,4 +58,4 @@ ___________
 | Quick Sort        | O(n log n) | O(n log n)   | O(n²)      | O(log n)         | No     |
 | Merge Sort        | O(n log n) | O(n log n)   | O(n log n) | O(n)             | Yes    |
 | Heap Sort         | O(n log n) | O(n log n)   | O(n log n) | O(1)             | No     |
-> Stable? f two elements have **equal keys**, their **relative order stays the same** after sorting.
+> Stable? if two elements have **equal keys**, their **relative order stays the same** after sorting.

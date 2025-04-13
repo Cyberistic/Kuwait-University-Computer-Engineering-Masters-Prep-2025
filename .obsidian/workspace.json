@@ -1,50 +1,24 @@
 {
   "main": {
-    "id": "fdc87360d15e54d4",
+    "id": "fc96eca475534dd2",
     "type": "split",
     "children": [
       {
-        "id": "66ec9af3d8ec311b",
+        "id": "4ec8302ffe6ed86e",
         "type": "tabs",
         "children": [
           {
-            "id": "9c9723fdec4e88ce",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "5 - Operating Systems/attachments/INEEDABREAK.png"
-              },
-              "icon": "lucide-image",
-              "title": "INEEDABREAK"
-            }
-          },
-          {
-            "id": "2ca383df7c54b7d0",
+            "id": "2a186b26910fc162",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "1 - Data Structures and Algorithms/40 - Hashing.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
-            "id": "caebc120e4e10b91",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "5 - Operating Systems/100 - QUIZ.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "100 - QUIZ"
+              "title": "40 - Hashing"
             }
           }
         ]
@@ -53,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "7d928d528a87e05f",
+    "id": "add3a612f2f08da0",
     "type": "split",
     "children": [
       {
-        "id": "9fd3897a6c97ebf6",
+        "id": "4d5a9b1544c9a13e",
         "type": "tabs",
         "children": [
           {
-            "id": "40b7344d9c893d42",
+            "id": "bc499d728d3edb84",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -74,7 +48,7 @@
             }
           },
           {
-            "id": "d7ac67ae31de033c",
+            "id": "14c38431dea180c7",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -91,7 +65,7 @@
             }
           },
           {
-            "id": "658cceb9007e76de",
+            "id": "55b9403bc723bebd",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -107,19 +81,20 @@
     "width": 300
   },
   "right": {
-    "id": "b42dd0608525f71c",
+    "id": "c7d2023d542d6821",
     "type": "split",
     "children": [
       {
-        "id": "e1313ecfb7765915",
+        "id": "55e2132e0a20e05c",
         "type": "tabs",
         "children": [
           {
-            "id": "093d6803177fa1a1",
+            "id": "bfe6d5ed591fe49c",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
+                "file": "1 - Data Structures and Algorithms/40 - Hashing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,24 +104,25 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for 40 - Hashing"
             }
           },
           {
-            "id": "2e7efc3eed5ee538",
+            "id": "3dda1ac9abc9dbf3",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "1 - Data Structures and Algorithms/40 - Hashing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from 40 - Hashing"
             }
           },
           {
-            "id": "9ab72980418151e5",
+            "id": "4b9696951f58bee7",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -161,17 +137,18 @@
             }
           },
           {
-            "id": "093f8896e6999678",
+            "id": "f429db17547bf158",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
+                "file": "1 - Data Structures and Algorithms/40 - Hashing.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of 40 - Hashing"
             }
           }
         ]
@@ -192,105 +169,28 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "floating": {
-    "id": "d4703f75250d9667",
-    "type": "floating",
-    "children": [
-      {
-        "id": "38a113d38abb18e9",
-        "type": "window",
-        "children": [
-          {
-            "id": "3debb4cd20960722",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "11f40f74222d155b",
-                "type": "leaf",
-                "state": {
-                  "type": "pdf",
-                  "state": {
-                    "file": "books/5 - Operating Systems/Abraham Silberschatz, Greg Gagne, Peter B. Galvin - Operating System Concepts-Wiley (2018).pdf"
-                  },
-                  "icon": "lucide-file-text",
-                  "title": "Abraham Silberschatz, Greg Gagne, Peter B. Galvin - Operating System Concepts-Wiley (2018)"
-                }
-              },
-              {
-                "id": "47062057da147212",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "5 - Operating Systems/70 - Protection and Security.md",
-                    "mode": "source",
-                    "source": false
-                  },
-                  "icon": "lucide-file",
-                  "title": "70 - Protection and Security"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 960,
-        "y": 0,
-        "width": 960,
-        "height": 1032,
-        "maximize": false,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "40b7344d9c893d42",
+  "active": "2a186b26910fc162",
   "lastOpenFiles": [
-    "5 - Operating Systems/50 - Memory Management.md",
-    "5 - Operating Systems/attachments/INEEDABREAK.png",
-    "5 - Operating Systems/40 - Process Deadlock.md",
-    "5 - Operating Systems/30 - Threads Synchronization.md",
-    "5 - Operating Systems/20 - Process Management.md",
-    "5 - Operating Systems/00 - References and Topics.md",
-    "5 - Operating Systems/100 - QUIZ.md",
-    "5 - Operating Systems/attachments/currentstate.png",
-    "README.md",
-    "1 - Data Structures and Algorithms/00 - References and Topics.md",
-    "attachments/README-HEADER.png.png",
-    "attachments/Pasted Image 20250412230244_641.png.png",
-    "6 - Computer Organization and Computer Architecture/9999 - ORGANIZATION-COMBINED.md",
+    "1 - Data Structures and Algorithms/30 - Sorting.md",
+    "1 - Data Structures and Algorithms/20 - Trees and graphs.md",
+    "1 - Data Structures and Algorithms/10 - Linked lists.md",
+    "1 - Data Structures and Algorithms/40 - Hashing.md",
     "1 - Data Structures and Algorithms/99 - Time Complexities.md",
-    "misc/Cyclic Redundancy Check.md",
-    "attachments/Pasted Image 20250412230048_204.png.png",
-    "attachments/Pasted Image 20250412225852_380.png",
-    "attachments/Pasted Image 20250412225700_911.png",
-    "attachments/Pasted Image 20250412225028_767.png",
-    "attachments/Pasted Image 20250412224829_667.png",
-    "attachments/Pasted Image 20250412025718_110.png",
-    "EVERYTHING-COMBINED.md",
-    "5 - Operating Systems/9999 - OS-COMBINED.md",
-    "4 - Network and Security/9999 - NETWORKS-COMBINED.md",
-    "4 - Network and Security/50 - Principles of computer network security.md",
-    "4 - Network and Security/20 - Transport Layer Protocols.md",
-    "4 - Network and Security/10 - Principles of network applications.md",
-    "3 - Microprocessor and Microcontroller/9999 - MICROPROCESSORS-COMBINED.md",
-    "2 - Digital logic/attachments/FSM-HW.pdf",
-    "2 - Digital logic/attachments",
+    "1 - Data Structures and Algorithms/100 - QUIZ.md",
+    "2 - Digital logic/100 - QUIZ.md",
     "2 - Digital logic/9999 - DIGITAL-LOGIC-COMBINED.md",
     "2 - Digital logic/30 - Finite State Machines.md",
     "2 - Digital logic/20 - Flip-flops, registers, and counters.md",
-    "2 - Digital logic/100 - QUIZ.md",
-    "1 - Data Structures and Algorithms/9999 - DATA-STRUCTURES-COMBINED.md",
-    "5 - Operating Systems/80 - Virtual Machines.md",
-    "1 - Data Structures and Algorithms/40 - Hashing.md",
-    "books/5 - Operating Systems/Abraham Silberschatz, Greg Gagne, Peter B. Galvin - Operating System Concepts-Wiley (2018).pdf",
-    "Untitled 1.canvas",
-    "Untitled.canvas",
-    "books/4 - Network & Security/Jim Kurose, Keith Ross - Computer Networking_ A Top-Down Approach (Solutions to Review Questions and Problems) (2016).pdf",
-    "books/4 - Network & Security/James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf",
-    "5 - Operating Systems/attachments",
-    "books/5 - Operating Systems/Abraham Silberschatz, Peter Baer Galvin, Greg Gagne - Instructor's Manual for Operating System Concepts-John Wiley & Sons (2004).pdf",
-    "books/5 - Operating Systems/Andrew S. Tanenbaum, Herbert Bos - Modern Operating Systems-Pearson (2014).pdf",
-    "books/6 - Computer Organization & Architecture/David A. Patterson, John L. Hennessy - Computer Organization and Design RISC-V Edition (2017, Morgan Kaufmann Publishers) - libgen.li.pdf",
-    "books/6 - Computer Organization & Architecture/David A. Patterson, John L. Hennessy - Computer Organization and Design - The Hardware Software Interface RISC-V Edition Solution Man.pdf"
+    "2 - Digital logic/10 - MSI Circuits.md",
+    "3 - Microprocessor and Microcontroller/attachments/TMOD.png",
+    "3 - Microprocessor and Microcontroller/attachments/TCON.png",
+    "3 - Microprocessor and Microcontroller/attachments/Registers.png",
+    "3 - Microprocessor and Microcontroller/attachments/Programmer Model.png",
+    "3 - Microprocessor and Microcontroller/attachments/Architecture.png",
+    "3 - Microprocessor and Microcontroller/attachments",
+    "3 - Microprocessor and Microcontroller/40 - Interrupts.md",
+    "3 - Microprocessor and Microcontroller/30 - Timer and Counter Concepts.md",
+    "3 - Microprocessor and Microcontroller/20 - Clocks, Frequency, and Machine Cycles.md",
+    "3 - Microprocessor and Microcontroller/10 - Architecture, Registers and Instructions.md"
   ]
 }

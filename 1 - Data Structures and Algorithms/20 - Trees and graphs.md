@@ -65,6 +65,7 @@ Tree traversals are ways to "walk through" the tree. There are three main types:
 
 ### 1. Inorder (Left → Root → Right)
 
+	Inorder moves from the smallest value to the biggest value, assuming the left child      is smaller than the parent and the right child is bigger than both.
 ```ts
 function inorder(node: TreeNode | null) {
   if (!node) return;
@@ -73,12 +74,26 @@ function inorder(node: TreeNode | null) {
   inorder(node.right);
 }
 ```
+```mermaid
+graph TD
+    A[A] -->|2nd| B[B]
+    A -->|6th| C[C]
+    B -->|1st| D[D]
+    B -->|3rd| E[E]
+    B -.-> |4th| A[A]
+    C -->|5th| F[F]
+    C -->|7th| G[G]
+
+```
+
+> **OUTPUT** > D, B, E, **A**, F, C, G 
 
 > [!tip] In BSTs, inorder gives you values in **sorted order**.
 > A way of sorting an array of numbers is to push its elements into a new BST and then traverse and pop them back using inorder traversal! :D
 
 ### 2. Preorder (Root → Left → Right)
 
+	In preoder traversal the root is ALWAYS the first element traversed!
 ```ts
 function preorder(node: TreeNode | null) {
   if (!node) return;
@@ -87,9 +102,22 @@ function preorder(node: TreeNode | null) {
   preorder(node.right);
 }
 ```
+```mermaid
+graph TD
+    A[A] -->|2nd| B[B]
+    A -->|5th| C[C]
+    B -->|3rd| D[D]
+    B -->|4th| E[E]
+    C -->|6th| F[F]
+    C -->|7th| G[G]
+
+```
+
+> **OUTPUT** > **A**, B, D, E, C, F, G
 
 ### 3. Postorder (Left → Right → Root)
 
+	In postorder traversal the root is ALWAYS the last element traversed!
 ```ts
 function postorder(node: TreeNode | null) {
   if (!node) return;
@@ -97,11 +125,24 @@ function postorder(node: TreeNode | null) {
   postorder(node.right);
   console.log(node.value);
 }
+
 ```
+```mermaid
+graph TD
+    A[A] -->|3rd| B[B]
+    A -->|6th| C[C]
+    C -.->|7th| A[A]
+    B -->|1st| D[D]
+    B -->|2nd| E[E]
+    C -->|4th| F[F]
+    C -->|5th| G[G]
+```
+
+> **OUTPUT** >  D, E, B, F, G, C, **A**
 
 > [!Note]
 > All of these are example of Depth-First Search (DFS).
-> I left out Breadth-First Search (BFS), used for finding the shortest path, as it wasn't mentioned in the topics list, however it might be useful to go throw it.
+> I left out Breadth-First Search (BFS), used for finding the shortest path, as it wasn't mentioned in the topics list, however it might be useful to go through it.
 > We will also visit it briefly in Graph traversals.
 
 ---
@@ -422,11 +463,11 @@ graph LR
 ```
 
 Undirected Graph:
-
+`Same thing as directed graph but without arrow heads.`
 ```mermaid
 graph LR
-    A((A)) ---|"5"| B((B))
-    B ---|"3"| C((C))
+    A((A)) --- |"5"| B((B))
+    B --- |"3"| C((C))
     A ---|"2"| C
 ```
 
@@ -532,6 +573,36 @@ const weightedMatrix = [
 
 - Always requires O(V²) space
 - O(V) time to find all neighbors of a vertex
+
+**Visualizing the matrix:**
+Lets say we have this undirected graph right here:
+`If the arrow heads are shown just imagine they're not there..`
+
+```mermaid
+graph LR
+	A((2)) --- B((3))
+	C((5)) --- B((3))
+	D((4)) --- B((3))
+	D((4)) --- A((2))
+	D((4)) --- C((5))
+	D((4)) --- E((1))
+	A((2)) --- E((1))
+
+```
+If every edge costs us 1, and the root node is 2 then this will be the matrix:
+
+$$
+\begin{bmatrix}
+0 & 1 & 0 & 1 & 0\\
+1 & 0 & 1 & 1 & 0\\
+0 & 1 & 0 & 1 & 1\\
+1 & 1 & 1 & 0 & 1\\
+0 & 0 & 1 & 1 & 0\\
+\end{bmatrix}
+$$
+
+> [!tip] The diagonal is always 0.
+>  if the graph was directed then replace the 1's with the actual cost. To solve this take a row by column approach and see if there is an edge between the intersection point, if so then add a cost.
 
 ### 2. Adjacency List
 
