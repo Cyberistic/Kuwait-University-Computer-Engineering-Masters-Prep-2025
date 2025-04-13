@@ -19,7 +19,7 @@ To configure the timer, we use the TMOD register.
 - TLx: Lower 5 bits
 - THx: Upper 8 bits
 - Maximum count: 8192 (2¹³)
-- مو مهم بالامتحان
+- اتوقع مو مهم بالامتحان
 
 ### Mode 1: 16-bit Timer
 
@@ -37,6 +37,11 @@ To configure the timer, we use the TMOD register.
 - TLx: Contains reload value
 - THx: Counts and reloads from TLx
 - Good for fixed timing intervals
+
+- Value in THx copied to TLx when TLx overflows
+- TLx is reloaded with THx value
+- When TLx overflows, TFx flag is set
+- Need to clear TFx flag to reuse timer
 
 ### Mode 3: Split Timer
 
@@ -102,116 +107,6 @@ CLR TR0          ; Stop Timer 0
 
 ```
 
-### Timer Interrupt
+## Counter
 
-```assembly
-TIMER0_ISR:
-    MOV TH0, #3CH     ; Reload values
-    MOV TL0, #AFH
-    ; Your code here
-    RETI
-```
-
-## Timer Applications
-
-### 1. Pulse Generation
-
-```mermaid
-graph LR
-    A[Timer Start] -->|Count| B[Toggle Output]
-    B -->|Reload| A
-```
-
-### 2. PWM Generation
-
-```mermaid
-graph TD
-    A[Set Output] -->|Count to Compare| B[Clear Output]
-    B -->|Count to Overflow| A
-```
-
-### 3. Baud Rate Generation
-
-```
-Baud_Rate = Timer_Frequency ÷ 16
-```
-
-## Counter Operations
-
-### External Event Counting
-
-```assembly
-MOV TMOD, #06H    ; Mode 2, Counter
-MOV TH0, #00H     ; Initial count
-SETB TR0          ; Start counting
-```
-
-### Frequency Measurement
-
-```
-Input_Frequency = Count × (1 / Measurement_Time)
-```
-
-## Common Issues and Solutions
-
-### 1. Timer Overflow
-
-- Use interrupt handling
-- Implement software counters
-
-### 2. Timing Accuracy
-
-- Consider crystal accuracy
-- Account for interrupt latency
-- Use proper prescaler values
-
-### 3. Maximum Time Limits
-
-16-bit timer maximum time at 12MHz:
-
-```
-Max_Time = 65536 × (1/1000000)
-        = 65.536 ms
-```
-
-For longer intervals:
-
-- Use software counters
-- Cascade multiple timers
-- Use auto-reload mode
-
-> [!tip] Debugging Timer Code
->
-> 1. Check prescaler settings
-> 2. Verify initial values
-> 3. Monitor overflow flags
-> 4. Use oscilloscope for verification
-
-## Timer Control Registers
-
-### TMOD (Timer Mode) Register
-
-```
-Bit 7: Timer1 Gate
-Bit 6: Timer1 C/T
-Bit 5-4: Timer1 Mode
-Bit 3: Timer0 Gate
-Bit 2: Timer0 C/T
-Bit 1-0: Timer0 Mode
-```
-
-### TCON (Timer Control) Register
-
-```
-Bit 7: TF1 (Timer1 Overflow Flag)
-Bit 6: TR1 (Timer1 Run Control)
-Bit 5: TF0 (Timer0 Overflow Flag)
-Bit 4: TR0 (Timer0 Run Control)
-```
-
-> [!important] Programming Tips
->
-> - Always disable interrupts while configuring timers
-> - Clear timer flags before starting
-> - Use appropriate prescaler values for desired timing
-> - Consider interrupt priorities if using multiple timers
+Same as timer, but you need to increment the count based on external events.
