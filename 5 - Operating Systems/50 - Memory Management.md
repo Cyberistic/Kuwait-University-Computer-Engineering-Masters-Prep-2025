@@ -115,7 +115,8 @@ $$
 m - n = 6 - 2 = 4 \text{ bits}
 $$
 
-> [!NOTE] Personally i don't think this will come in the exam ;)
+> [!NOTE] Personally i don't think this will come in the exam...
+
 
 ______________
 ### 4. Paging Vs Fragmentation 
@@ -131,6 +132,9 @@ ______________
 _______
 >[!warning] Skipped these sections.. your on your own soldier!
 >	virtual memory (replacement algorithms, page-frame allocation relation, and thrashing), file system (access methods, file and directory structures, and file and directory implementation).
+
+![[INEEDABREAK.png]]
 ________
 
-> 🖋️ Author: Asmaa Alazmi
+> 🖋️ Author: Asmaa Alazmi. 
+> 4 more notes to go haha (my 4th cup of coffee otw)
