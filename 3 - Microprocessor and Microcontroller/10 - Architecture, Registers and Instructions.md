@@ -87,6 +87,12 @@ Fast storage locations within the CPU:
 - Special Purpose Registers (PC, SP, etc.)
 - Status Registers (Flags)
 
+> [!Important]- Fun fact: RAM uses registers to give data instantly, given the address it will directly access the data in the register (using a bunch of MUXes/Logic gates). This is why registers are so fast.
+> Things such as HDDs and SSDs are slower because they have to access the data from a physical location. In case of an HDD, it has to spin the disk until it finds the data!
+> It's called "Random Access Memory" (RAM) because it can access any random location in memory instantly, while ROM (Read-Only Memory) has to traverse the memory to find the data.
+> Here is an interesting video of this usage:
+> [https://www.youtube.com/watch?v=HGkuRp5HfH8](https://www.youtube.com/watch?v=HGkuRp5HfH8)
+
 ### 2. Instruction Set
 
 The vocabulary of the processor:
@@ -96,6 +102,16 @@ Arithmetic: ADD, SUB, MUL, DIV
 Logic: AND, OR, NOT, XOR
 Data Movement: MOV, LOAD, STORE
 Control: JUMP, BRANCH, CALL
+```
+
+Example of an instruction:
+
+```assembly
+LABEL:  ; Label for jump
+MOV R0, R1  ; Move value from R1 to R0
+ADD R0, R2  ; Add value in R2 to R0
+SUB R0, #5   ; Subtract 5 from R0
+JUMP LABEL   ; Jump to LABEL
 ```
 
 ### 3. Memory Interface
