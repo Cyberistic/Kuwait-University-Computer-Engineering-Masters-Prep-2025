@@ -19,6 +19,7 @@ To configure the timer, we use the TMOD register.
 - TLx: Lower 5 bits
 - THx: Upper 8 bits
 - Maximum count: 8192 (2¹³)
+- مو مهم بالامتحان
 
 ### Mode 1: 16-bit Timer
 
@@ -36,6 +37,9 @@ To configure the timer, we use the TMOD register.
 
 - Timer 0 splits into two 8-bit timers
 - Timer 1 can be used normally
+
+> [!Important] TCON
+> ![[TCON.png]]
 
 ## Timer Calculations
 
