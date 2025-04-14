@@ -140,7 +140,7 @@ $$
 \begin{aligned}
 f(x,y,z) &= m1 + m2 + m3 + m5 + m7\\
 &= \overline{x}\overline{y}z + \overline{x}y\overline{z} + x\overline{y}\overline{z} + x\overline{y}z + xyz \\
-&= \overline{y}z \cdot f(x, 0, 0) + \overline{y}z \cdot f(x, 0, 1) + y\overline{z} \cdot f(x, 1, 0) + yz \cdot f(x, 1, 1)\\
+&= \overline{y}\overline{z} \cdot f(x, 0, 0) + \overline{y}z \cdot f(x, 0, 1) + y\overline{z} \cdot f(x, 1, 0) + yz \cdot f(x, 1, 1)\\
 \end{aligned}
 $$
 
