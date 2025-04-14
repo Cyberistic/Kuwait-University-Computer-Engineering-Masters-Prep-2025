@@ -65,7 +65,7 @@ Tree traversals are ways to "walk through" the tree. There are three main types:
 
 ### 1. Inorder (Left → Root → Right)
 
-	Inorder moves from the smallest value to the biggest value, assuming the left child      is smaller than the parent and the right child is bigger than both.
+Inorder moves from the smallest value to the biggest value, assuming the left child      is smaller than the parent and the right child is bigger than both.
 ```ts
 function inorder(node: TreeNode | null) {
   if (!node) return;
