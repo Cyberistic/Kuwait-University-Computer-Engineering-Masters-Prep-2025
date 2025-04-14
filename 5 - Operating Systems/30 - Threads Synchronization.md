@@ -5,7 +5,7 @@ Process synchronization: classical synchronization problems (critical-section, r
 
 ---
 
-### 1. Race Condition:
+## Race Condition:
 
 [Race Condition] is the name we give when we face this problem:
 
@@ -14,7 +14,7 @@ Process synchronization: classical synchronization problems (critical-section, r
 
   ![[thinkmarkthink.png]]
 
-### 2. Critical Section Problem (C.S)
+## Critical Section Problem (C.S)
 
 - Each code has a critical section (shared resources).. whats that? when one process is in the C.S no other may be in its C.S [A single process territory]. Keep in mind this problem only happens when **THREADING** is present.
 - Each process must ask permission to enter critical section in entry section, may follow critical section with exit section, then remainder section
@@ -34,32 +34,32 @@ REMINDER SECTION
 }
 ```
 
-#### 2.1 Sol1: Mutual Exclusion
+### Sol1: Mutual Exclusion
 
 - If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.
 
-#### 2.2 Sol2: Progress
+### Sol2: Progress
 
 - If no one is currently using the shared resource (critical section), and some programs (processes) are waiting to use it, then one of them must be allowed to go in soon. We **can't keep delaying** or ignoring them forever.
 
-#### 2.3 Sol3: Bounded Waiting
+### Sol3: Bounded Waiting
 
 - If a process (let’s call it **P1**) asks to enter the critical section, there must be a **limit** on how many other processes (like **P2**, **P3**, etc.) can go ahead of it **before P1 gets its turn**. In other words, **P1 shouldn't have to wait forever** while others keep going in.
 
-#### 2.4 Hardware Solutions:
+### Hardware Solutions:
 
 1. **Test-and-Set Instruction:** Sets a lock variable and checks it in one step.
 2. **Compare-and-Swap:** Updates memory only if the current value matches an expected value.
 
 ---
 
-### 2. Software Locks (Solutions to C.S)
+## Software Locks (Solutions to C.S)
 
 - These locks also work as a C.S solution but they are more diverse they can be implemented in multiple problems that will be discussed later on.
 
 - Computers HATE resting! it needs to run 24/7 that's why having an idle state is BAD! hence, A **busy wait** occurs when a process repeatedly checks for a condition to be true (like checking if a lock is available) without releasing the CPU. It **keeps running** and **consuming CPU time** while waiting, instead of being put to sleep or paused until the condition is met.
 
-#### 2.1 MUTEX locks
+### MUTEX locks
 
 **Key Operations of Mutex Locks:**
 
@@ -89,7 +89,7 @@ do {
 } while (true);
 ```
 
-#### 2.2 Semaphores
+### Semaphores
 
 - A **semaphore** is a **synchronization primitive** used to control access to shared resources in a concurrent system, like multithreading or multiprogramming environments.
 
@@ -134,7 +134,7 @@ ThreadFinish {
 
 > [!Info] There is an implementation for semaphores with no busy waiting.. more on that in the book.
 
-#### 2.4 Monitors
+### Monitors
 
 - Basically does the same job as the ones above [too lazy to over explain it].
 
@@ -163,7 +163,7 @@ monitor PrinterMonitor {
 
 ---
 
-### 3. Readers-Writers Problem
+### Readers-Writers Problem
 
 A data set is shared among a number of concurrent processes
 
@@ -218,7 +218,7 @@ do {
 
 ---
 
-#### 4. Dining-Philosophers Problem
+### Dining-Philosophers Problem
 
 >     It’s a classic **synchronization problem** in computer science used to illustrate **deadlock**, **starvation**, and **resource sharing**.
 
