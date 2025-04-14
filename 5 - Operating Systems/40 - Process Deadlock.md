@@ -1,8 +1,9 @@
+Process deadlock: deadlock model and methods for handling deadlocks: prevention, avoidance, and detection and recovery.
 `Referencing` [book](<obsidian://open?vault=Kuwait-University-Computer-Engineering-Masters-Prep-2025&file=books%2F5%20-%20Operating%20Systems%2FAbraham%20Silberschatz%2C%20Greg%20Gagne%2C%20Peter%20B.%20Galvin%20-%20Operating%20System%20Concepts-Wiley%20(2018).pdf>)
 
 ---
 
-### 1. Deadlock Characterization
+## Deadlock Characterization
 
 Deadlock only happens when all the following are **true**:
 
@@ -13,7 +14,7 @@ Deadlock only happens when all the following are **true**:
 
 ---
 
-### 2. Deadlock Prevention (Break one of the above!)
+## Deadlock Prevention (Break one of the above!)
 
 Enduring that the system will **NEVER** enter a deadlock state!
 
@@ -30,9 +31,9 @@ Enduring that the system will **NEVER** enter a deadlock state!
 
 ---
 
-### 3. Deadlock Avoidance
+## Deadlock Avoidance
 
-Enduring that the system will **NEVER** enter a deadlock state!
+Ensuring that the system will **NEVER** enter a deadlock state!
 **🎯 Key Idea:**
 Before allocating resources, the system checks if doing so keeps it in a **safe state** (where all processes can finish eventually).
 **🧠 How It's Done:**

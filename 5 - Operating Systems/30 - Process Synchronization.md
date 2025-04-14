@@ -173,7 +173,7 @@ A data set is shared among a number of concurrent processes
 
 The following abstract codes describes each structure:
 
-```C++
+```C
 //The structure of a **writer** process
 do {
 
@@ -187,7 +187,7 @@ do {
 } while (true);
 ```
 
-```C++
+```C
 //The structure of a **reader** process
 do {
 
@@ -275,7 +275,7 @@ graph TD
 3. Pick up **both forks at once** (atomic action).
 4. Philosopher picks up **left if right is available** (prevents hold-and-wait).
 
-```C++
+```C
 //The structure of Philosopher i:
 do {
 
