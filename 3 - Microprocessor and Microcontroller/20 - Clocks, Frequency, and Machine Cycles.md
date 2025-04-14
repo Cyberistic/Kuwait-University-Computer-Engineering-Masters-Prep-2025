@@ -11,13 +11,13 @@ Assume that 1 machine cycle = 12 oscillator cycles for this note.
 1. **Execution Time**: Time taken to execute an instruction
 
    - Execution Time = # of Machine Cycles × Machine cycle Time
-     $$$ T_{exec} = \text{# cycles} \times T_{machine cycle} $$$
+     $$ T_{exec} = \text{cycles} \times T_{machine cycle} $$
 
 2. System Clock Frequency: Number of clock cycles per second
 
    - System Clock Frequency = 1 / Machine cycle Time
-     $$$ f_{clock} = \frac{1}{T_{machine cycle}} $$$
-     $$$ T_{machine cycle} = \frac{1}{f_{clock}} $$$
+     $$ f_{clock} = \frac{1}{T_{machine cycle}} $$
+     $$ T_{machine cycle} = \frac{1}{f_{clock}} $$
 
 3. **Machine Cycle**:
 
@@ -32,8 +32,8 @@ First, system clock frequency:
 $$
 \begin{align}
 F_{SYS} &= F_{OSC} / x  \\
-&= 11.0592 \text{ MHz} / 12 \\
-&= 0.9216 \text{ MHz} \\
+&= 11.0592 \text{MHz} / 12 \\
+&= 0.9216 \text{MHz} \\
 \end{align}
 $$
 
@@ -51,7 +51,7 @@ Finally, execution time:
 
 $$
 \begin{align}
-T_{exec} &= \text{# of Machine Cycles} \times T_{machine cycle} \\
+T_{exec} &= \text{n of Machine Cycles} \times T_{machine cycle} \\
 &= 2 \times 1.084 \mu s \\
 &= 2.168 \mu s \\
 \end{align}
