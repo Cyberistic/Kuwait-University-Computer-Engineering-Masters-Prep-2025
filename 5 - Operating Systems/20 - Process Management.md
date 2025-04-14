@@ -4,11 +4,13 @@ Process management: Process versus thread, CPU scheduling algorithms, threads an
 
 ---
 
-### 1. Process Vs Thread
+## Process Vs Thread
 
 > 📖 **Process?** A process is a program in execution. It represents an independent unit of work with its own memory space, system resources, and execution context. Each process operates in its own address space and has at least one thread of execution.
 
 > 🧵 **Thread?** A thread, sometimes called a lightweight process, is the smallest unit of CPU execution within a process. Threads within the same process share the same memory and resources, allowing for more efficient communication.
+
+
 
 **Story time!**
 
@@ -52,7 +54,7 @@ So basically, the thread is dependent on the process. Each process is independen
 
 ---
 
-### 2. Process State (Review)
+## Process State (Review)
 
 Before jumping into other topics its good to know what a process goes through.
 
@@ -85,9 +87,17 @@ The core things you need to understand about the graph above are:
 
 5.  What are **CORES** you might ask? imagine a human with two heads, theoretically they can think TWICE as much! so more cores = more thoughts per second (throughput)!
 
+### Scheduling Queues
+OS Maintains *scheduling queues* of processes
+1. Job queue: set of all processes in the system.
+2. Ready queue: set of all processes in main memory, ready and waiting to execute.
+3. Device queue: set of processes waiting for an I/O device
+Processes switch among the various queues.
+
+
 ---
 
-### 3. CPU Scheduling Algorithms
+## CPU Scheduling Algorithms
 
 > 🦉 **CPU Scheduling?** A process migrates among the ready queue and various wait queues through- out its lifetime. The role of the CPU scheduler is to select from among the processes that are in the ready queue and allocate a CPU core to one of them.
 
@@ -119,7 +129,7 @@ The core things you need to understand about the graph above are:
 5. **Response time** – the time the process first started executing.
 6. **Burst time (execution time)** - The total time a process needs on the CPU to finish execution — without interruption.
 
-#### 3.1 First Come First Served FCFS Algorithm
+### First Come First Served FCFS Algorithm
 
 | Process | Arrival time | Burst Time | Start Time | Completion Time | Turnaround Time | Waiting Time |
 | ------- | ------------ | ---------- | ---------- | --------------- | --------------- | ------------ |
@@ -141,7 +151,7 @@ gantt
 
 ```
 
-### 3.2 Shortest Job First (SJF - Non-Preemptive)
+### Shortest Job First (SJF - Non-Preemptive)
 
 | Process | Arrival time | Burst Time | Start Time | Completion Time | Turnaround Time | Waiting Time |
 | ------- | ------------ | ---------- | ---------- | --------------- | --------------- | ------------ |
@@ -165,7 +175,7 @@ gantt
 
 ```
 
-### 3.3 Priority Scheduling (Non-Preemptive)
+## Priority Scheduling (Non-Preemptive)
 
 | Process | Arrival time | Burst Time | Priority | Start Time | Completion Time | Turnaround Time | Waiting Time |
 | ------- | ------------ | ---------- | -------- | ---------- | --------------- | --------------- | ------------ |
@@ -189,7 +199,7 @@ gantt
 
 ```
 
-### 3.4 Round Robin (Time Quantum = 4)
+## Round Robin (Time Quantum = 4)
 
 There is a context switch whenever the Quantum finishes, the process goes back into the back of the waiting queue. The Q decreases by 1 with each time unit.
 
@@ -221,7 +231,7 @@ gantt
 
 > [!INFO] the smaller the QT the more context switches occur.
 
-### 3.5 Shortest Job First (Preemptive!)
+## Shortest Job First (Preemptive!)
 
 | **Process** | **Arrival Time** | **Burst Time** | **Start Time** | **Completion Time** | **Turnaround Time** | **Waiting Time** |
 | ----------- | ---------------- | -------------- | -------------- | ------------------- | ------------------- | ---------------- |
@@ -250,7 +260,7 @@ gantt
 
 ---
 
-### 4. **Comparing the Non-Preemptive Algorithms:**
+## **Comparing the Non-Preemptive Algorithms:**
 
 - **First-Come, First-Served (FCFS)**:
 
@@ -319,7 +329,7 @@ gantt
 
 ---
 
-### 5. Threads & Concurrency
+## Threads & Concurrency
 
 Single-threaded and multithreaded processes overview:
 ![[Single-threaded and multithreaded processes.png]]
