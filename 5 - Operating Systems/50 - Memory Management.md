@@ -1,8 +1,10 @@
+ Memory management: Memory allocation techniques (paging vs segmentation), virtual memory (replacement algorithms, page-frame allocation relation, and thrashing), file system (access methods, file and directory structures, and file and directory implementation).
+ 
 `Referencing` [book](<obsidian://open?vault=Kuwait-University-Computer-Engineering-Masters-Prep-2025&file=books%2F5%20-%20Operating%20Systems%2FAbraham%20Silberschatz%2C%20Greg%20Gagne%2C%20Peter%20B.%20Galvin%20-%20Operating%20System%20Concepts-Wiley%20(2018).pdf>)
 
 ---
 
-### 1. Background
+## Background
 
 - Program must be brought (from disk) into memory and placed within a process for it to be run.
 - Main memory and registers are only storage CPU can access directly.
@@ -13,7 +15,7 @@ Storage-device hierarchy:
 
 ---
 
-### 2. Fragmentation (مقطع)
+## Fragmentation (مقطع)
 
 When memory is allocated and freed, it can become **broken into pieces**, leading to **fragmentation**.
 
@@ -32,7 +34,7 @@ When memory is allocated and freed, it can become **broken into pieces**, leadin
    - **Wasted space** _between_ allocated memory blocks.
    - Example: Enough total free memory, but not in one big chunk.
 
-**2.1 Internal Fragmentation (Horizontal Layout)**
+### Internal Fragmentation (Horizontal Layout)**
 
 ```mermaid
 graph TB
@@ -57,7 +59,7 @@ graph TB
 
 `As you can see a lot of empty space that's not used properly!
 
-**2.2 External Fragmentation (Horizontal Layout)**:
+### External Fragmentation (Horizontal Layout)**:
 
 ```mermaid
 graph TB
@@ -85,7 +87,7 @@ graph TB
 
 ---
 
-### 3. Paging
+## Paging
 
 We take our **virtual memory** and divide it into chunks called **PAGES**.
 Then we take our **physical memory** and divide it into chunks called **FRAMES**.
@@ -118,7 +120,7 @@ $$
 
 ---
 
-### 4. Paging Vs Fragmentation
+## Paging Vs Fragmentation
 
 | Feature                | Paging                                         | Fragmentation            |
 | ---------------------- | ---------------------------------------------- | ------------------------ |

@@ -14,8 +14,8 @@ Deadlock only happens when all the following are **true**:
 
 ### Resource-Allocation graph
 
-R = {R1, R2, R3, R4}
-P = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3}
+R = {1xR1, 2xR2, 1xR3, 3xR4}
+E = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3}
 
 ```mermaid
 
@@ -32,8 +32,8 @@ graph TD
 ```
 
 with deadlock:
-R = {R1, R2, R3, R4}
-P = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3, P3 -> R2}
+R = {1xR1, 2xR2, 1xR3, 3xR4}
+E = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3, P3 -> R2}
 
 ```mermaid
 graph TD
@@ -45,6 +45,20 @@ graph TD
     D -->|Allocation| F[P3]
     G[3xR4]
     F -->|Request| E
+```
+
+With cycle but no deadlock:
+R = {2xR1, 2xR2}
+E = {P1 -> R1, R1 -> P2, R1 -> P3, P3 -> R2, R2 -> P1, R2 -> P4}
+
+```mermaid
+graph TD
+    A[2xR1] -->|Allocation| B[P2]
+    A -->|Allocation| C[P3]
+    C -->|Request| D[2xR2]
+    D -->|Allocation| E[P1]
+    D -->|Allocation| F[P4]
+    E -->|Request| A
 
 ```
 
