@@ -99,7 +99,7 @@ Processes switch among the various queues.e
 
 ## CPU Scheduling Algorithms
 
-> 🦉 **CPU Scheduling?** A process migrates among the ready queue and various wait queues through-out its lifetime. The role of the CPU scheduler is to select from among the processes that are in the ready queue and allocate a CPU core to one of them.
+> 🦉 **CPU Scheduling?** A process migrates among the ready queue and various wait queues through-eout its lifetime. The role of the CPU scheduler is to select from among the processes that are in the ready queue and allocate a CPU core to one of them.
 
 **CPU scheduling may take place when a process:**
 
@@ -139,7 +139,7 @@ Processes switch among the various queues.e
 
 ```mermaid
 gantt
-    title FIFO Scheduling - Gantt Chart
+    title FCFO Scheduling - Gantt Chart
     dateFormat  YYYY-MM-DD HH:mm
     axisFormat  %M
     tickInterval 1minute
