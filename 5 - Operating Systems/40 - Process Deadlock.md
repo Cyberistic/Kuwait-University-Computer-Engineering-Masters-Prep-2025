@@ -12,6 +12,7 @@ Deadlock only happens when all the following are **true**:
 3. **No preemption:** a resource can be released only voluntarily by the process holding it, after that process has completed its task.
 4. **Circular wait:** there exists a set {P0, P1, …, Pn} of waiting processes such that P0 is waiting for a resource that is held by P1, P1 is waiting for a resource that is held by P2, …, Pn–1 is waiting for a resource that is held by Pn, and Pn is waiting or a resource that is held by P0 (بطتنا بطت بطتكم).
 
+### Resource-Allocation graph
 ---
 
 ## Deadlock Prevention (Break one of the above!)
