@@ -1,6 +1,6 @@
 Protection and security
 
-Again, we haven't taken t
+Again, we haven't taken this in class and the topic is way too vague..
 
 > [!warning] This section is AI slop because i lack the notes for it.. feel free to replace it with your notes.
 
@@ -33,3 +33,5 @@ Again, we haven't taken t
     - **Asymmetric** (public/private key pairs)
   - **Security Policies**: Rules for secure system behavior.
   - **Firewalls & Intrusion Detection**: Block or alert on suspicious activity.
+---
+> 🖋️ Author: Asmaa Alazmi (ChatGPT)

@@ -1,3 +1,7 @@
+Virtual Machines: Benefits and features, types of VM’s and their implementations, and virtualization and operating-system concepts.
+
+Again, super vague on what is actually needed.. will provide headers only. 
+
 **Brief Recap on VMs:**
 Virtual machines are one instance of this trend. Generally, with a virtual machine, guest operating systems and applications run in an environment that appears to them to be native hardware. This environment behaves toward them as native hardware would but also protects, manages, and limits them. Basically, the programs running inside a VM don't know they are in one! they think its the real hardware.. scary i know.
 
@@ -27,7 +31,7 @@ Virtual machines are one instance of this trend. Generally, with a virtual machi
 
 ### 3. OS Support of Virtualization
 
-T**ypes of OS:**
+**Types of OS:**
 
 1. **Guest OS:** runs inside the VM (thinks its the real PC)
 2. **Host OS (Hypervisor):** Manages VMs (the real PC)
