@@ -92,14 +92,14 @@ OS Maintains *scheduling queues* of processes
 1. Job queue: set of all processes in the system.
 2. Ready queue: set of all processes in main memory, ready and waiting to execute.
 3. Device queue: set of processes waiting for an I/O device
-Processes switch among the various queues.
+Processes switch among the various queues.e
 
 
 ---
 
 ## CPU Scheduling Algorithms
 
-> 🦉 **CPU Scheduling?** A process migrates among the ready queue and various wait queues through- out its lifetime. The role of the CPU scheduler is to select from among the processes that are in the ready queue and allocate a CPU core to one of them.
+> 🦉 **CPU Scheduling?** A process migrates among the ready queue and various wait queues through-out its lifetime. The role of the CPU scheduler is to select from among the processes that are in the ready queue and allocate a CPU core to one of them.
 
 **CPU scheduling may take place when a process:**
 
