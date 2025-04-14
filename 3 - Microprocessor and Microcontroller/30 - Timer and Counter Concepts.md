@@ -67,10 +67,10 @@ Example:
 Say you have a 11.0592 MHz crystal and you want a 5ms delay.
 
 1. Freq of microcontroller:
-   $$$ F_{SYS} = \frac{F_{OSC}}{12} = \frac{11.0592 \text{ MHz}}{12} = 0.9216 \text{ MHz} $$$
+   $$ F_{SYS} = \frac{F_{OSC}}{12} = \frac{11.0592 \text{ MHz}}{12} = 0.9216 \text{ MHz} $$
 
 2. Cycle time:  
-   $$$ T_{SYS} = \frac{1}{F_{SYS}} = \frac{1}{0.9216 \text{ MHz}} = 1.085 \mu s $$$
+   $$ T_{SYS} = \frac{1}{F_{SYS}} = \frac{1}{0.9216 \text{ MHz}} = 1.085 \mu s $$
 3. Delay needed: 5ms = 5000us
 4. Calculate THTLx:
    $$
