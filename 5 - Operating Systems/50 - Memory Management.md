@@ -92,7 +92,7 @@ graph TB
 We take our **virtual memory** and divide it into chunks called **PAGES**.
 Then we take our **physical memory** and divide it into chunks called **FRAMES**.
 👉 Page size will always be qual to frame size!
-Unlike Fragmentation paging happens in non contiguous system were data don't need to be stored all together in one block.
+Unlike Fragmentation paging happens in non contiguous system where data don't need to be stored all together in one block.
 
 ![[Paging hardware-1.png]]
 

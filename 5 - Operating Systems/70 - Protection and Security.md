@@ -1,3 +1,7 @@
+Protection and security
+
+Again, we haven't taken t
+
 > [!warning] This section is AI slop because i lack the notes for it.. feel free to replace it with your notes.
 
 ---
