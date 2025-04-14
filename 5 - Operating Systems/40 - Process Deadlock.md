@@ -13,6 +13,58 @@ Deadlock only happens when all the following are **true**:
 4. **Circular wait:** there exists a set {P0, P1, …, Pn} of waiting processes such that P0 is waiting for a resource that is held by P1, P1 is waiting for a resource that is held by P2, …, Pn–1 is waiting for a resource that is held by Pn, and Pn is waiting or a resource that is held by P0 (بطتنا بطت بطتكم).
 
 ### Resource-Allocation graph
+
+R = {R1, R2, R3, R4}
+P = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3
+
+```mermaid
+
+
+graph TD
+    A[Process] -->|Request| B[Resource]
+    B -->|Allocation| C[Process]
+    C -->|Release| A
+    D[Process] -->|Request| E[Resource]
+    E -->|Allocation| F[Process]
+    F -->|Release| D
+    A --> D
+    D --> A
+
+
+```
+
+with deadlock:
+
+```mermaid
+graph TD
+    A[Process] -->|Request| B[Resource]
+    B -->|Allocation| C[Process]
+    C -->|Release| A
+    D[Process] -->|Request| E[Resource]
+    E -->|Allocation| F[Process]
+    F -->|Release| D
+    A --> D
+    D --> A
+```
+
+without deadlock:
+
+```mermaid
+graph TD
+    A[Process] -->|Request| B[Resource]
+    B -->|Allocation| C[Process]
+    C -->|Release| A
+    D[Process] -->|Request| E[Resource]
+    E -->|Allocation| F[Process]
+    F -->|Release| D
+    A --> D
+```
+
+> [!NOTE] If graph has no cycles, then it is **safe**.
+> If graph has cycles, then it is **unsafe**.
+> If only one insstance of a resouve type exists in the system, then the system is in a **deadlock** state.
+> If multiple instances of a resource type exist, then the system has a possibility to be in a **deadlock**
+
 ---
 
 ## Deadlock Prevention (Break one of the above!)
