@@ -1,5 +1,4 @@
-Process synchronization: classical synchronization problems (critical-section, readers-writers, dining philosophers, etc.), and synchronization tools (semaphores, monitors, etc.).  
-
+Process synchronization: classical synchronization problems (critical-section, readers-writers, dining philosophers, etc.), and synchronization tools (semaphores, monitors, etc.).
 
 `Referencing` [book](<obsidian://open?vault=Kuwait-University-Computer-Engineering-Masters-Prep-2025&file=books%2F5%20-%20Operating%20Systems%2FAbraham%20Silberschatz%2C%20Greg%20Gagne%2C%20Peter%20B.%20Galvin%20-%20Operating%20System%20Concepts-Wiley%20(2018).pdf>)
 
@@ -8,9 +7,9 @@ Process synchronization: classical synchronization problems (critical-section, r
 ## Race Condition:
 
 When multiple processes try to access or change (read/write) data at the same time.
-  So lets say we have process A which reads data1, process B write data1.. What will A have when it reads data1? the new data or the old data?
+So lets say we have process A which reads data1, process B write data1.. What will A have when it reads data1? the new data or the old data?
 
-  ![[thinkmarkthink.png | center | 300]]
+![[thinkmarkthink.png | center | 300]]
 
 ## Critical Section Problem (C.S)
 
@@ -116,12 +115,12 @@ Initial value of semaphore = 0
 ThreadJoin {
 	// if semaphore = 0 then wait
 	wait(semaphore);
-	// semaphore = 1
+	// runs if semaphore = 1
 }
 
 ThreadFinish {
 	signal(semaphore);
-	// semaphore now = 0
+	// decrements semaphore and runs
 }
 ```
 
@@ -134,12 +133,12 @@ ThreadFinish {
 
 ### Monitors
 
-- Basically does the same job as the ones above [too lazy to over explain it].
+Programming language level construct for the above. Basically the same thing but handled by the programming language and not the OS. In other words, a higher-level abstraction for synchronization.
 
 **Monitor vs Mutex/Semaphore**
 
-- **Monitor**: Provides a higher-level abstraction and automatically handles mutual exclusion and synchronization (Monitor is a class).
-- **Mutex/Semaphore**: Lower-level constructs that require manual handling of synchronization.
+- **Monitor**: Provides a higher-level abstraction and automatically handles mutual exclusion and synchronization (Monitor is a class). (Programming language level).
+- **Mutex/Semaphore**: Lower-level constructs that require manual handling of synchronization. (OS level).
 
 ```C
 monitor PrinterMonitor {
