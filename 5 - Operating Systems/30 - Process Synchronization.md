@@ -34,7 +34,7 @@ REMINDER SECTION
 
 ### Sol1: Mutual Exclusion
 
-- If process Pi is executing in its critical section, then no other processes can be executing in their critical sections.
+- If a process is executing in its critical section, then no other processes can be executing in their critical sections.
 
 ### Sol2: Progress
 
@@ -67,7 +67,7 @@ REMINDER SECTION
 2. **Unlock (release)**:
    - After completing its task, the thread **releases the lock**, making it available for other threads.
 
-```C++
+```C
 acquire() {
 	while (!available)
 		; /* busy wait */
@@ -110,7 +110,7 @@ do {
 
 This is an abstract way of showing how a semaphore locks/unlocks a CS:
 
-```C++
+```C
 Initial value of semaphore = 0
 
 ThreadJoin {
@@ -141,7 +141,7 @@ ThreadFinish {
 - **Monitor**: Provides a higher-level abstraction and automatically handles mutual exclusion and synchronization (Monitor is a class).
 - **Mutex/Semaphore**: Lower-level constructs that require manual handling of synchronization.
 
-```C++
+```C
 monitor PrinterMonitor {
     int printer = 1; // 1 = available, 0 = in use
 
