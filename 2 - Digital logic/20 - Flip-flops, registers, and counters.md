@@ -145,6 +145,7 @@ Similar to D flip-flop BUT it _flips_ its current state on every clock edge if T
 Especially useful for counters.
 
 Truth Table:
+
 | T | CLK | Q(next) | Comment |
 |---|-----|---------|-----------|
 | 0 | 0 | Q | No change |
