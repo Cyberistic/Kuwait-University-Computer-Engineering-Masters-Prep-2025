@@ -81,7 +81,8 @@ Suppose you have this boolean table:
 | 1   | 1   | 0      |
 
 The output in term of f(x,y) is:
-$$\( f(x,y) = \overline{x}y + x\overline{y} = (\overline{x} + y)(x + \overline{y}) \)$$
+$$
+( f(x,y) = \overline{x}y + x\overline{y} = (\overline{x} + y)(x + \overline{y}) )$$
 This can be implemented using a 2-to-1 MUX as follows:
 
 ![[Weird Mux thing.png | center | 300]]
