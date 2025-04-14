@@ -1,4 +1,3 @@
-
 ## Basic Performance Measures
 
 ### Clock Speed (Frequency)
@@ -17,7 +16,10 @@
 ### MIPS (Million Instructions Per Second)
 
 $$
-MIPS = \frac{\text{Instruction Count}}{\text{Execution Time} \times 10^6}
+\begin{align}
+MIPS &= \frac{\text{Instruction Count}}{\text{Execution Time} \times 10^6} \\ \\
+&= \frac{\text{Instruction Count}}{\frac{\text{Instruction Count} \times \text{CPI}}{\text{Clock Rate}} \times 10^6} \\
+\end{align}
 $$
 
 ### CPI (Cycles Per Instruction)
