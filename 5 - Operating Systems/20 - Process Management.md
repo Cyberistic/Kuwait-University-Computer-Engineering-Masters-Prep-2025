@@ -351,6 +351,8 @@ Single-threaded and multithreaded processes overview:
 **Parallel execution on a multicore system:**
 ![[Parallel execution on a multicore system.png]]
 
+
+> [!Note] Note how data, files and code are shared between multiple threads.
 ---
 
 > 🖋️ Author: Asmaa Alazmi
