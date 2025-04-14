@@ -43,7 +43,7 @@ If you're also studying for the exam, feel free to contribute and submit PRs. I 
 Special thanks to:
 - me
 - [xXAsoomaVIP906Xx](https://github.com/ProjectCodeKw)
-
+- [g6no](https://github.com/g6no)
 ## Ending remarks?
 uhh follow [@sudo_kw](https://instagram.com/@sudo_kw) thank u :)
 
