@@ -7,19 +7,17 @@ Process synchronization: classical synchronization problems (critical-section, r
 
 ## Race Condition:
 
-[Race Condition] is the name we give when we face this problem:
-
-- When multiple processes try to access or change (read/write) data at the same time.
+When multiple processes try to access or change (read/write) data at the same time.
   So lets say we have process A which reads data1, process B write data1.. What will A have when it reads data1? the new data or the old data?
 
-  ![[thinkmarkthink.png]]
+  ![[thinkmarkthink.png | center | 300]]
 
 ## Critical Section Problem (C.S)
 
 - Each code has a critical section (shared resources).. whats that? when one process is in the C.S no other may be in its C.S [A single process territory]. Keep in mind this problem only happens when **THREADING** is present.
 - Each process must ask permission to enter critical section in entry section, may follow critical section with exit section, then remainder section
 
-```C++
+```C
 // General structure of a typical process.
 while (true)
 {
