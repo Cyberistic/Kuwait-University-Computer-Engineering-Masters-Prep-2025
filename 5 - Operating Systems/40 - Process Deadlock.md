@@ -15,48 +15,37 @@ Deadlock only happens when all the following are **true**:
 ### Resource-Allocation graph
 
 R = {R1, R2, R3, R4}
-P = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3
+P = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3}
 
 ```mermaid
 
 
 graph TD
-    A[R1] -->|Allocation| B[P2]
+    A[1xR1] -->|Allocation| B[P2]
     C[P1] -->|Request| A
-    B -->|Request| D[R3]
-    E[R2] -->|Allocation| C
+    B -->|Request| D[1xR3]
+    E[2xR2] -->|Allocation| C
     E -->|Allocation| B
     D -->|Allocation| F[P3]
-    F[R4]
+    G[3xR4]
 
-]
 ```
 
 with deadlock:
+R = {R1, R2, R3, R4}
+P = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3, P3 -> R2}
 
 ```mermaid
 graph TD
-    A[Process] -->|Request| B[Resource]
-    B -->|Allocation| C[Process]
-    C -->|Release| A
-    D[Process] -->|Request| E[Resource]
-    E -->|Allocation| F[Process]
-    F -->|Release| D
-    A --> D
-    D --> A
-```
+    A[1xR1] -->|Allocation| B[P2]
+    C[P1] -->|Request| A
+    B -->|Request| D[1xR3]
+    E[2xR2] -->|Allocation| C
+    E -->|Allocation| B
+    D -->|Allocation| F[P3]
+    G[3xR4]
+    F -->|Request| E
 
-without deadlock:
-
-```mermaid
-graph TD
-    A[Process] -->|Request| B[Resource]
-    B -->|Allocation| C[Process]
-    C -->|Release| A
-    D[Process] -->|Request| E[Resource]
-    E -->|Allocation| F[Process]
-    F -->|Release| D
-    A --> D
 ```
 
 > [!NOTE] If graph has no cycles, then it is **safe**.
