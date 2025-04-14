@@ -21,16 +21,15 @@ P = {P1 -> R1, P2 -> R3, R1 -> P2, R2 -> P2, R2 -> P1, R3 -> P3
 
 
 graph TD
-    A[Process] -->|Request| B[Resource]
-    B -->|Allocation| C[Process]
-    C -->|Release| A
-    D[Process] -->|Request| E[Resource]
-    E -->|Allocation| F[Process]
-    F -->|Release| D
-    A --> D
-    D --> A
+    A[R1] -->|Allocation| B[P2]
+    C[P1] -->|Request| A
+    B -->|Request| D[R3]
+    E[R2] -->|Allocation| C
+    E -->|Allocation| B
+    D -->|Allocation| F[P3]
+    F[R4]
 
-
+]
 ```
 
 with deadlock:
