@@ -602,7 +602,7 @@ $$
 $$
 
 > [!tip] The diagonal is always 0.
->  if the graph was directed then replace the 1's with the actual cost. To solve this take a row by column approach and see if there is an edge between the intersection point, if so then add a cost.
+>  if the graph was weighted then replace the 1's with the actual cost. To solve this take a row by column approach and see if there is an edge between the intersection point, if so then add a cost.
 
 ### 2. Adjacency List
 
