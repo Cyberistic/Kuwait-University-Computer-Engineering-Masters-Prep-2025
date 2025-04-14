@@ -115,7 +115,7 @@ $$
 
 ![[Shannons-theorem.png| center | 300]]
 
-Given the folloing equation:
+Given the following equation:
 
 $$
 f(x,y,z) = m1 + m2 + m3 + m5 + m7
