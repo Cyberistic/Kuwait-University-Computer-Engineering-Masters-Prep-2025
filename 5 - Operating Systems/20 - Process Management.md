@@ -157,8 +157,8 @@ gantt
 | ------- | ------------ | ---------- | ---------- | --------------- | --------------- | ------------ |
 | P1      | 0            | 8          | 0          | 8               | 8               | 0            |
 | P2      | 1            | 4          | 8          | 12              | 11              | 7            |
-| P4      | 3            | 5          | 12         | 17              | 14              | 9            |
-| P3      | 2            | 9          | 17         | 26              | 24              | 15           |
+| P4      | 2            | 5          | 12         | 17              | 14              | 9            |
+| P3      | 3            | 9          | 17         | 26              | 24              | 15           |
 
 ```mermaid
 gantt
@@ -175,14 +175,16 @@ gantt
 
 ```
 
+Acts like FCFS since it's non-preemptive, unless we know burst time ahead and can schedule arrival time based on burst time.
+
 ## Priority Scheduling (Non-Preemptive)
 
 | Process | Arrival time | Burst Time | Priority | Start Time | Completion Time | Turnaround Time | Waiting Time |
 | ------- | ------------ | ---------- | -------- | ---------- | --------------- | --------------- | ------------ |
 | P1      | 0            | 8          | 2        | 0          | 8               | 8               | 0            |
 | P2      | 1            | 4          | 1        | 8          | 12              | 11              | 7            |
-| P4      | 3            | 5          | 2        | 12         | 17              | 14              | 9            |
-| P3      | 2            | 9          | 3        | 17         | 26              | 24              | 15           |
+| P4      | 2            | 5          | 2        | 12         | 17              | 14              | 9            |
+| P3      | 3            | 9          | 3        | 17         | 26              | 24              | 15           |
 
 ```mermaid
 gantt
@@ -199,6 +201,7 @@ gantt
 
 ```
 
+Acts like FCFS since it's non-preemptive, unless we know priority ahead and can schedule arrival time based on priority.
 ## Round Robin (Time Quantum = 4)
 
 There is a context switch whenever the Quantum finishes, the process goes back into the back of the waiting queue. The Q decreases by 1 with each time unit.
@@ -229,7 +232,9 @@ gantt
 
 ```
 
-> [!INFO] the smaller the QT the more context switches occur.
+> [!INFO] The smaller the QT the more context switches occur.
+
+> [!Important] Hey QT :)
 
 ## Shortest Job First (Preemptive!)
 
