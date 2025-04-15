@@ -1,4 +1,4 @@
-# Memory Technology and Cache Design
+Memory Technology and Cache Design
 
 ## Memory Hierarchy
 
@@ -47,6 +47,66 @@ Average Access Time = 1 + (0.2 × 10) = 3 cycles
 ```
 
 ## Virtual Memory
+
+### Address Structure
+
+A virtual address consists of two parts:
+
+1. Virtual Page Number (VPN)
+2. Page Offset
+
+For example, in a system with:
+
+- Virtual address size = m bits
+- Page size = 2^n bytes
+- Page offset = n bits
+- Virtual page number = (m-n) bits
+
+### Virtual to Physical Translation
+
+![[Virtual-Physical-Translation.png]]
+
+1. **Page Offset**:
+
+   - Determined by page size
+   - Same in both virtual and physical addresses
+   - Example: For 16KB pages
+     ```
+     Page Offset = log2(16KB) = log2(16384) = 14 bits
+     ```
+
+2. **Page Number**:
+   - Virtual Page # = Total bits - Offset bits
+   - Physical Page # = Physical address bits - Offset bits
+   - Example: For 40-bit virtual, 32-bit physical addresses
+     ```
+     Virtual Page # = 40 - 14 = 26 bits
+     Physical Page # = 32 - 14 = 18 bits
+     ```
+
+### Example Calculation
+
+Given:
+
+- 40-bit virtual address
+- 16KB pages
+- 32-bit physical address
+- TLB: 8 entries, fully associative
+- 4 bits for control (Valid, protection, dirty, use)
+
+Calculate:
+
+1. Page Offset = log2(page size) = log2(16KB) = 14 bits
+2. Virtual Page Number = 40 - 14 = 26 bits
+3. Physical Page Number = 32 - 14 = 18 bits
+
+TLB Entry size:
+
+```
+|Valid,Dirty,etc|Virtual Page #|Physical Page #|
+|      4       |     26      |      18      | bits
+Total = 48 bits per entry
+```
 
 ### Page Size Calculations
 
