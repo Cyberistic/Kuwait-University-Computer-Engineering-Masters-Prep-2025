@@ -1,0 +1,1 @@
+Introduction to pipelining, pipelined processor design and pipelining hazards: structural, data and control and their solution techniques (data forwarding and register renaming).
