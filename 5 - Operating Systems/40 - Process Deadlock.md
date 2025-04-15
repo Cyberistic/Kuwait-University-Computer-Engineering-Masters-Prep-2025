@@ -64,7 +64,7 @@ graph TD
 
 > [!NOTE] If graph has no cycles, then it is **safe**.
 > If graph has cycles, then it is **unsafe**.
-> If only one insstance of a resouve type exists in the system, then the system is in a **deadlock** state.
+> If only one insstance of a resource type exists in the system, then the system is in a **deadlock** state.
 > If multiple instances of a resource type exist, then the system has a possibility to be in a **deadlock**
 
 ---
