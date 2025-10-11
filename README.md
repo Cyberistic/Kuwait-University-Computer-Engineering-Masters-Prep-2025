@@ -1,6 +1,6 @@
 # Kuwait University Computer Engineering Masters Prep
 
-![attachments/README-HEADER.png](attachments/README-HEADER.png)
+![README-HEADER](attachments/README-HEADER.png)
 
 As the Master's exam in Kuwait University approaches, I've created this repository to keep all my notes and study material here. These are _not_ introductory notes, but rather revisions to help remember the topics required in the exam. As such, prior experience and knowledge is required. For example, I won't go over what "binary" is, how to count with it, This is **NOT** a replacement for the official study books.
 
@@ -8,7 +8,7 @@ As the Master's exam in Kuwait University approaches, I've created this reposito
 > These notes include my thoughts and ideas, fun facts, sometimes jokes, sometimes "professional" explanations.
 > If you're looking for a more serious tone, I recommend you create your own set of notes:)
 
-![attachments/Notes-Preview.png](attachments/Notes-Preview.png)
+![Notes-Preview](attachments/Notes-Preview.png)
 
 ## How to use these notes
 

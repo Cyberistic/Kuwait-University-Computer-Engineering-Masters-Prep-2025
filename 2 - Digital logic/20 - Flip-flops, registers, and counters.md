@@ -295,7 +295,7 @@ The counters above are **asynchronous**. They are easy to build but very slow. A
 ![Synchronous-Counters](attachments/Synchronous-Counters.png)
 
 > [!Warning] Note..
-> I am ending it here, but the book [](../books/2%20-%20Digital%20Logic/Stephen%20Brown,%20Zvonko%20Vranesic%20-%20Fundamentals%20of%20Digital%20Logic%20with%20Verilog%20Design-McGraw-Hill%20(2014).pdf#page=273) goes into more details about:
+> I am ending it here, but the book [../books/2 - Digital Logic/Stephen Brown, Zvonko Vranesic - Fundamentals of Digital Logic with Verilog Design-McGraw-Hill (2014](../books/2%20-%20Digital%20Logic/Stephen%20Brown,%20Zvonko%20Vranesic%20-%20Fundamentals%20of%20Digital%20Logic%20with%20Verilog%20Design-McGraw-Hill%20(2014).pdf#page=273) goes into more details about:
 >
 > 1.  Inclusion of Enable and Clear capability
 > 2.  Synchronous Counter with D Flip-Flops
