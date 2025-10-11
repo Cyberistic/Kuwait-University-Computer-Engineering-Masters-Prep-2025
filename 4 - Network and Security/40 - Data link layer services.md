@@ -1,6 +1,6 @@
 Data link layer services (error detection, error correction, and multiple access).  
 
-[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=493]]
+[](../books/4%20-%20Network%20&%20Security/James%20Kurose,%20Keith%20Ross%20-%20Computer%20Networking_%20A%20Top-Down%20Approach,%207th%20Edition.pdf#page=493)
 
 
 The **Link Layer** is the second layer in the OSI model and is responsible for establishing, maintaining, and terminating connections between devices on the same network. It handles communication between directly connected devices, like computers or routers, over physical links (e.g., Ethernet, Wi-Fi protocols).
@@ -45,13 +45,13 @@ Example: with even parity, suppose you have 3 ones `1010100`, so the parity bit 
 
 <br/>
 
- ![[Even-Parity.png | center | 300]]
+ ![ center | 300](Even-Parity.png%20)
 
 
 <br/>
 
 > [!Note] But what if more than one bit flips?!
-> You can use two-dimensional parity checks, mentioned in the book: [[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=503]]
+> You can use two-dimensional parity checks, mentioned in the book: [](../books/4%20-%20Network%20&%20Security/James%20Kurose,%20Keith%20Ross%20-%20Computer%20Networking_%20A%20Top-Down%20Approach,%207th%20Edition.pdf#page=503)
 > Or Hamming codes (Mentioned below)!
 > ![https://www.youtube.com/watch?v=X8jsijhllIA](https://www.youtube.com/watch?v=X8jsijhllIA)
 
@@ -117,7 +117,7 @@ A more robust error detection method that treats the data as a large binary numb
 
 >[!Important] Important..
 > We won't go into details assuming it's out of the exam's scope, however, I've provided a simple example here:
-> [[Cyclic Redundancy Check]]
+> [Cyclic Redundancy Check](../misc/Cyclic%20Redundancy%20Check.md)
 
 
 
@@ -149,7 +149,7 @@ The **data link layer** must coordinate how multiple devices share a common comm
 
 This coordination is handled by **Multiple Access Protocols**, which determine **who gets to talk, and when**.
 
-![[multiple-channels.png | center | 300]]
+![ center | 300](multiple-channels.png%20)
 SPEAK WHEN SPOKEN TO!
 
 Imagine a bunch of people in a room all trying to talk over walkie-talkies on the same frequency — we need some rules, or chaos will ensue.
@@ -212,7 +212,7 @@ A central controller or a token (a special frame) decides who gets to send data 
 
 > [!Warning] Important.. Again..
 > I won't go into details of how they work cuz exam scope blahbnlagblah
-> book reference: [[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=507]] 
+> book reference: [](../books/4%20-%20Network%20&%20Security/James%20Kurose,%20Keith%20Ross%20-%20Computer%20Networking_%20A%20Top-Down%20Approach,%207th%20Edition.pdf#page=507) 
 ---
 
 

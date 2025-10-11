@@ -1,5 +1,5 @@
 Transport Layer Protocols (UDP and TCP).
-[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=223]]
+[](../books/4%20-%20Network%20&%20Security/James%20Kurose,%20Keith%20Ross%20-%20Computer%20Networking_%20A%20Top-Down%20Approach,%207th%20Edition.pdf#page=223)
 
 
 The **Transport Layer** sits above the **network layer** (like IP) and is responsible for **end-to-end communication** between processes on different hosts.
@@ -125,8 +125,8 @@ After this, data transfer begins.
 > I did not include the way TCP resolves lost packets etc as they are probably outside the scope of this exam.
 > But maybe they are not? ¯\\_(ツ)_/¯ 
 > You can read more about them here:
-> [[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=256]]
-> ![[TCP-JOKE.png | center | 300]]
+> [](../books/4%20-%20Network%20&%20Security/James%20Kurose,%20Keith%20Ross%20-%20Computer%20Networking_%20A%20Top-Down%20Approach,%207th%20Edition.pdf#page=256)
+> ![ center | 300](TCP-JOKE.png%20)
 
 ## 🔍 Comparison Table
 

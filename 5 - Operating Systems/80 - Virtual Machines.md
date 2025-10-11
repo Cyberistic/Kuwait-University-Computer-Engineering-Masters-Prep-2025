@@ -5,7 +5,7 @@ Again, super vague on what is actually needed.. will provide headers only.
 **Brief Recap on VMs:**
 Virtual machines are one instance of this trend. Generally, with a virtual machine, guest operating systems and applications run in an environment that appears to them to be native hardware. This environment behaves toward them as native hardware would but also protects, manages, and limits them. Basically, the programs running inside a VM don't know they are in one! they think its the real hardware.. scary i know.
 
-![[redpillFinalBoss.png]]
+![redpillFinalBoss](attachments/redpillFinalBoss.png)
 
 ---
 

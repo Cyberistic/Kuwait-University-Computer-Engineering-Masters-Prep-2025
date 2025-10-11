@@ -2,7 +2,7 @@ Trees and graphs: Binary trees; binary tree representation; binary tree traversa
 
 Before you get started, make sure you remember the following:
 
-1. [[Calculating Height & Width of a Tree]]
+1. [Calculating Height & Width of a Tree](../misc/Calculating%20Height%20&%20Width%20of%20a%20Tree.md)
 2. The meaning of `root`, `child`, `leaf`, `edge`, `siblings`
 3. An **ordered tree** is a tree where the **children of each node have a specific order** — like first child, second child, third child, and so on.
    We usually show this by drawing the children **from left to right** in the order they belong.
@@ -412,7 +412,7 @@ function extractMin(heap: Heap): number {
 ```
 
 > [!Important] Heap Sort (O(n log n))
-> Covered in [[30 - Sorting#Heap Sort]]
+> Covered in [](30%20-%20Sorting.md#Heap%20Sort)
 
 ---
 
@@ -758,7 +758,7 @@ function bfs(graph: Graph, start: string) {
 Finds the shortest path between nodes in a weighted graph.
 
 Since i'm not sure if it's required, I've created a separate note for it with its code implementation:
-[[Dijkstra's Algorithm]]
+[Dijkstra's Algorithm](../misc/Dijkstra's%20Algorithm.md)
 
 > [!Important] Fun fact..
 > Dijkstra's algorithm is very important in networks.. Think of nodes as "machines", the ID as their "IP", and weighted edges as "connection strength".
@@ -775,7 +775,7 @@ Since every edge has equal weight, BFS gives the shortest path in `O(V + E)` tim
 ```ts
 function findShortestPath(graph: Graph, start: string, end: string) {
   // Track distances and paths
-  const distances = new Map([[start, 0]]);
+  const distances = new Map([start, 0](start,%200));
   const previous = new Map();
   const queue = [start];
   const visited = new Set([start]);

@@ -1,11 +1,11 @@
 Singly linked lists; circularly linked lists; applications - polynomial addition, sparse matrices; doubly linked lists, and complexities of linked list operations.
 
 > [!info] Note
-> This requires understanding of Time Complexity. For a refresher, check out [[Time Complexities & Recursion]].
+> This requires understanding of Time Complexity. For a refresher, check out [Time Complexities & Recursion](../misc/Time%20Complexities%20&%20Recursion.md).
 
 ## Singly Linked Lists
 
-![[Singly Linked List.png]]
+![Singly Linked List](attachments/Singly%20Linked%20List.png)
 
 A _Singly Linked Lists_ is a list of nodes, each node has 2 properties:
 
@@ -158,7 +158,7 @@ function pop(linkedList: LinkedList) {
 }
 ```
 
-I added full code for [[Implementing A Stack using Python]], take a quick look at it.
+I added full code for [Implementing A Stack using Python](../misc/Implementing%20A%20Stack%20using%20Python.md), take a quick look at it.
 
 #### Queue
 
@@ -323,7 +323,7 @@ type SparseMatrix = {
 ---
 ## Circular Linked List
 
-![[Circularly-Linked-List.png]]
+![Circularly-Linked-List](attachments/Circularly-Linked-List.png)
 
 Instead of keeping track of head and tail, the last element points to the first, forming a loop.
 
@@ -339,7 +339,7 @@ type LinkedList = {
 
 > [!tip] Fun fact
 > If a list has a single node, it literally points to itself.
-> ![[Single-Node-Circular-List.png|center|100]]
+> ![center|100](attachments/Single-Node-Circular-List.png)
 
 Here is a fun challenge, implement the _Round Robin Scheduler_ with a Circular linked list.
 
@@ -347,7 +347,7 @@ Here is a fun challenge, implement the _Round Robin Scheduler_ with a Circular l
 
 ## Doubly Linked List
 
-![[Doubly Linked Lists.png]]
+![Doubly Linked Lists](attachments/Doubly%20Linked%20Lists.png)
 A doubly linked list is a linked list where each node has a reference to both the next and previous nodes. This allows for more efficient traversal in both directions.
 
 ```ts

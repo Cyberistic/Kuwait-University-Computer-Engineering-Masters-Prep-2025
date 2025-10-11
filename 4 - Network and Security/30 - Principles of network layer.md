@@ -1,7 +1,7 @@
 
 Principles of network layer addressing and routing.
 
-[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=348]]
+[](../books/4%20-%20Network%20&%20Security/James%20Kurose,%20Keith%20Ross%20-%20Computer%20Networking_%20A%20Top-Down%20Approach,%207th%20Edition.pdf#page=348)
 
 ##  Network layer:
 
@@ -15,7 +15,7 @@ The **network layer** is the third layer in the **OSI model**. Its main function
     
 - **Fragment and reassemble packets** if necessary.
 
-![[network_layer.png]]
+![network_layer](attachments/network_layer.png)
 						(host, router network layer functions)
 ## Key Responsibilities:
 
@@ -36,7 +36,7 @@ The **network layer** is the third layer in the **OSI model**. Its main function
 _________
 ##  Data vs Control Plane
 
-![[Data-vs-Control-Plane.png]]
+![Data-vs-Control-Plane](attachments/Data-vs-Control-Plane.png)
 
 | Feature                   | Data Plane                                                                                              | Control Plane                                                                                           |
 | ------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -75,12 +75,12 @@ _________
 When a router receives a packet that's larger than the allowed transmission of the outgoing link, it splits the datagram into smaller pieces (fragments). These fragments are sent separately and reassembled at the final destination.
 
 ### NAT
-![[NAT.png]]
+![NAT](attachments/NAT.png)
 Allows multiple devices on a private network to share one public IP address when accessing the Internet, uses NAT translation table to keep track of IPs.
 
 
 ### DHCP 
-![[DHCP.png]]
+![DHCP](attachments/DHCP.png)
 
  Dynamic Host Configuration Protocol, allows host to dynamically obtain its IP address from network server when it joins network.
 
@@ -88,7 +88,7 @@ Allows multiple devices on a private network to share one public IP address when
 
 ### Why IPv6 and not IPv4?
 
-![[IP_datagram.png]]
+![IP_datagram](attachments/IP_datagram.png)
 - **Address exhaustion**: IPv4 has a limited number of IP addresses (about 4.3 billion), and with the growing number of internet-connected devices, we are running out of IPv4 addresses.
 
 

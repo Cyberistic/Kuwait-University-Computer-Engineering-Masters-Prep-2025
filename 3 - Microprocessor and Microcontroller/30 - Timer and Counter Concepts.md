@@ -9,7 +9,7 @@ A timer/counter is a register whose content is automatically incremented/decreme
 
 To configure the timer, we use the TMOD register.
 
-![[TMOD.png]]
+![TMOD](attachments/TMOD.png)
 
 - C/T: Counter/Timer select (0 = Timer, 1 = Counter)
 - GATE: Timer Gate control (0 = Timer always running, 1 = Timer starts/stops with external signal)
@@ -49,7 +49,7 @@ To configure the timer, we use the TMOD register.
 - Timer 1 can be used normally
 
 > [!Important] TCON
-> ![[TCON.png]]
+> ![TCON](attachments/TCON.png)
 
 ### Timer Calculations
 

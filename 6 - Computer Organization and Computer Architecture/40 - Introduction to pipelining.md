@@ -31,7 +31,7 @@ Inst3:       |IF|ID|EX|MEM|WB|
 
 ## Pipeline Hazards
 
-![[Forwarding-in-Hazard.png]]
+![Forwarding-in-Hazard](attachments/Forwarding-in-Hazard.png)
 
 ### 1. Structural Hazards
 

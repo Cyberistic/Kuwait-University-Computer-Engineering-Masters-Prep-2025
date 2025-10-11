@@ -7,7 +7,7 @@ These are all sequential circuits that store and process binary information. Unl
 > Sequential: output = f(input, previous_output)
 > So sequential has memory of the past
 
-![[Memory-symbol.png]]
+![Memory-symbol](attachments/Memory-symbol.png)
 
 ## Basic Latches
 
@@ -15,7 +15,7 @@ Latches are basic memory elements that can store one bit of information.
 
 ### SR Latch (Set-Reset)
 
-![[SR Latch.png]]
+![SR Latch](attachments/SR%20Latch.png)
 
 The most basic memory element. Has two inputs and clock:
 
@@ -59,7 +59,7 @@ endmodule
 
 ### D Latch
 
-![[D-Latch-Symbol.png]]
+![D-Latch-Symbol](attachments/D-Latch-Symbol.png)
 
 Improved version of SR latch that prevents invalid states. Has:
 
@@ -110,7 +110,7 @@ endmodule
 
 #### Master-Slave
 
-![[Master-Slave-Symbol.png]]
+![Master-Slave-Symbol](attachments/Master-Slave-Symbol.png)
 
 By chaining multiple D flip-flops, and inverting the clock for the second one, we create a master-slave flip-flop. The first flip-flop (master) captures the input on the rising edge of the clock, and the second flip-flop (slave) captures the output of the master on the falling edge of the clock.
 
@@ -138,7 +138,7 @@ We can chain this as many times as we want, this is how we create registers.
 
 ### T Flip-Flop (Toggle)
 
-![[T-Flip-Flop-Symbol.png]]
+![T-Flip-Flop-Symbol](attachments/T-Flip-Flop-Symbol.png)
 
 Similar to D flip-flop BUT it _flips_ its current state on every clock edge if T=1. If T=0, it retains its state.
 
@@ -168,14 +168,14 @@ endmodule
 > [!Important]- Fun fact..
 > I learned about T-flip-flops looong (2012-ish) before joining the CE world; because of Minecraft...
 > It was the simplest way to make a redstone button act as a toggle switch.
-> ![[Minecraft-T-Flip-Flop.png | center | 300]]
+> ![ center | 300](Minecraft-T-Flip-Flop.png%20)
 >
 > As I wrote this, I got curious so I spent like 15 minutes looking for the video.. here is where I learned it (1:15 to 3:40):
 > ![Redstone stuff](https://www.youtube.com/watch?v=4Y2oPNSdqNI&t=75s)
 
 ### JK Flip-Flop
 
-![[JK-Flip-Flop-Symbol.png]]
+![JK-Flip-Flop-Symbol](attachments/JK-Flip-Flop-Symbol.png)
 
 It combines the behaviors of SR and T flip-flops in a useful way. It behaves as the SR flip-flop, where J = S and K = R, for all input values except J = K = 1. For the latter case, which has to be avoided in the SR flip-flop, the JK flip-flop toggles its state like the T flip-flop.
 
@@ -233,7 +233,7 @@ endmodule
 
 ### Shift Register
 
-![[Simple-Shift-Register.png]]
+![Simple-Shift-Register](attachments/Simple-Shift-Register.png)
 Can shift bits left or right.
 
 ```verilog
@@ -258,14 +258,14 @@ endmodule
 
 ### Parallel Reads Register
 
-![[Parallel-Register.png]]
+![Parallel-Register](attachments/Parallel-Register.png)
 
 Same as above, but has output at every "stage" or flip-flip.
 
 > [!Important] Fun fact..
 > Parallel Shift Registers (TPIC6B595) are perhaps my **FAVORITE** ESP32 components. It always you to control an (almost) INFINITE number of output GPIO pins using only 3 ESP32 pins!!!
 > Each Register gives you 8 outputs AND THEY ARE CHAINABLE, IT IS SO GOOD AND I HATE HOW NO ONE KNOWS ABOUT THEM!!
-> [![[TPIC6B595N.png|center|300]]
+> [![center|300](attachments/TPIC6B595N.png)
 
 ## Counters
 
@@ -276,8 +276,8 @@ Counters count.
 Example:
 3 T-Flip-flops give you 3 bits, counting up to 7, which is what we call a modulo-8 counter:
 
-![[Up-counter.png]]
-![[Up-Counter-Timing.png]]
+![Up-counter](attachments/Up-counter.png)
+![Up-Counter-Timing](attachments/Up-Counter-Timing.png)
 
 Notice how the first bit corresponds directly to the clock, while the other bits change after a delay.
 
@@ -285,17 +285,17 @@ Notice how the first bit corresponds directly to the clock, while the other bits
 
 Slight modification of the above counter gives you a down counter:
 
-![[Down-Counter.png]]
-![[Down-Counter-Timing.png]]
+![Down-Counter](attachments/Down-Counter.png)
+![Down-Counter-Timing](attachments/Down-Counter-Timing.png)
 
 ### Synchronous Counters
 
 The counters above are **asynchronous**. They are easy to build but very slow. As more bits are added, delays from the chained clocking become too long. To make faster counters, we can clock all flip-flops at the same time:
 
-![[Synchronous-Counters.png]]
+![Synchronous-Counters](attachments/Synchronous-Counters.png)
 
 > [!Warning] Note..
-> I am ending it here, but the book [[Stephen Brown, Zvonko Vranesic - Fundamentals of Digital Logic with Verilog Design-McGraw-Hill (2014).pdf#page=273]] goes into more details about:
+> I am ending it here, but the book [](../books/2%20-%20Digital%20Logic/Stephen%20Brown,%20Zvonko%20Vranesic%20-%20Fundamentals%20of%20Digital%20Logic%20with%20Verilog%20Design-McGraw-Hill%20(2014).pdf#page=273) goes into more details about:
 >
 > 1.  Inclusion of Enable and Clear capability
 > 2.  Synchronous Counter with D Flip-Flops

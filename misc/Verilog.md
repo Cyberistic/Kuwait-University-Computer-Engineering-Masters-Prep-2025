@@ -1,4 +1,4 @@
-![[Multiplexer-example.png|center|400]]
+![center|400](attachments/Multiplexer-example.png)
 
 The code for the multiplexer above is given by:
 

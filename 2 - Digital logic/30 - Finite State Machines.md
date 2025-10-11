@@ -8,7 +8,7 @@ FSMs are sequential circuits used to model systems that transition between state
 
 ### Moore Machine
 
-![[Moore.png | center|300 ]]
+![ center|300 ](Moore.png%20)
 
 - Outputs depend **only** on the current state.
 - More stable, as output changes only on state changes.
@@ -38,7 +38,7 @@ endmodule
 
 ### Mealy Machine
 
-![[Mealy.png | center | 200]]
+![ center | 200](Mealy.png%20)
 
 - Outputs depend on **current state + input**.
 - Usually more compact and reacts faster.
@@ -117,17 +117,17 @@ Example FSM States:
 Inputs: `A`, `B` (1-bit at a time)  
 Outputs: `Sum`
 
-![[FSM-Adder.png]]
+![FSM-Adder](attachments/FSM-Adder.png)
 
 ### Moore Serial Adder Diagram
 
-![[Moore-Adder.png]]
-![[Moore-Adder-1.png]]
+![Moore-Adder](attachments/Moore-Adder.png)
+![Moore-Adder-1](attachments/Moore-Adder-1.png)
 
 ### Mealy Serial Adder Diagram
 
-![[FSM-Adder.png]]
-![[Mealy-Adder.png]]
+![FSM-Adder](attachments/FSM-Adder.png)
+![Mealy-Adder](attachments/Mealy-Adder.png)
 
 
 ---
@@ -212,7 +212,7 @@ endmodule
 8. **Verilog Implementation**  
    Write and simulate your code.
 
-![[Example.png]]
+![Example](attachments/Example.png)
 Special thanks to Eng. Zainab Behbahani, truly one of the best engineers in the department.
 
 
@@ -222,4 +222,4 @@ uhh I have no idea what this means?
 
 ## Extra stuff
 Here is an old HW of mine which has a bunch of these designs..
-![[FSM-HW.pdf]]
+![FSM-HW](attachments/FSM-HW.pdf)

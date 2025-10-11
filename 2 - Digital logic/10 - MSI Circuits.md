@@ -1,12 +1,12 @@
 MSI circuits (Muxes, Cross-bar switches, Decoders, Encoders, Priority Encoders), and the Verilog coding of those circuits.
 
-Before we start, if you don't remember the verilog syntax, here's a quick overview: [[Verilog]]
+Before we start, if you don't remember the verilog syntax, here's a quick overview: [Verilog](../misc/Verilog.md)
 
 Note that I won't explain all the details since you should have a general idea of how they work, instead, I will give a short description, and both typescript and verilog codes.
 
 ## MUX
 
-![[MUX-Symbol.png | center | 500]]
+![ center | 500](MUX-Symbol.png%20)
 
 Based on select line `s`, connect inputs 0 or 1 to f.
 
@@ -30,7 +30,7 @@ module mux2to1 (input1, input2, select, output);
 endmodule
 ```
 
-![[4-to-1-MUX.png]]
+![4-to-1-MUX](attachments/4-to-1-MUX.png)
 
 You can even combine them to make a bigger MUX. For example, a 4-to-1 MUX can be made by combining two 2-to-1 MUXes.
 
@@ -55,7 +55,7 @@ There is no "end" to this.
 > I recently used a 16-to-1 MUX to make a 16 buttons keyboard.
 > In my code I just loop through the inputs and use the select lines to determine which button is pressed.
 > Instead of connecting 16 wires to the esp32, I only needed 5 (4 select and 1 output).
-> ![[ESP32-MUX.png|center|200]]
+> ![center|200](attachments/ESP32-MUX.png)
 
 ### DEMUX
 
@@ -85,7 +85,7 @@ $$
 ( f(x,y) = \overline{x}y + x\overline{y} = (\overline{x} + y)(x + \overline{y}) )$$
 This can be implemented using a 2-to-1 MUX as follows:
 
-![[Weird Mux thing.png | center | 300]]
+![ center | 300](Weird%20Mux%20thing.png%20)
 
 In shannon's theorem, we can use the MUX to implement the function by using the inputs as select lines and the output as the function.
 
@@ -113,7 +113,7 @@ $$
  \end{aligned}
 $$
 
-![[Shannons-theorem.png| center | 300]]
+![ center | 300](attachments/Shannons-theorem.png)
 
 Given the following equation:
 
@@ -163,7 +163,7 @@ f(x,y,z) &= \overline{y}z \cdot [0] + \overline{y}z \cdot [x + \overline{x}] + y
 $$
 
 and the result:
-![[Shannons-theorem-1.png|center|300]]
+![center|300](attachments/Shannons-theorem-1.png)
 
 and we can write the verilog like this:
 
@@ -192,7 +192,7 @@ You're almost there! The explanation is good, but a few grammatical and clarity 
 
 ## Crossbar Switch
 
-![[Crossbar-symbol.png | center | 300]]
+![ center | 300](Crossbar-symbol.png%20)
 
 A **crossbar switch** is a circuit with `n` inputs and `k` outputs, designed to connect any input to any output.  
 When there are two inputs and two outputs, it's called a **2×2 crossbar**.
@@ -286,7 +286,7 @@ endmodule
 
 ## Decoder
 
-![[Decoder-symbol.png | center | 300]]
+![ center | 300](Decoder-symbol.png%20)
 
 A **decoder** is a circuit that converts binary information from `n` input lines to a maximum of `2^n` unique output lines.
 It essentially "decodes" the binary input into a specific output line.
@@ -299,8 +299,8 @@ When the input is `00`, the first output line is activated; when the input is `0
 Usually, it also has an `EN` input.
 
 You can use the `EN` input to combine encoders to build bigger decoders!
-![[combined-decoders.png|center|300]]
-![[combined-decoder.png|center|300]]
+![center|300](attachments/combined-decoders.png)
+![center|300](attachments/combined-decoder.png)
 
 ```typescript
 function decoder2to4(
@@ -350,7 +350,7 @@ endmodule
 
 ## Encoder
 
-![[Encoder-symbol.png|center|300]]
+![center|300](attachments/Encoder-symbol.png)
 An **encoder** is a circuit that converts `2^n` input lines into `n` output lines.
 It essentially "encodes" the input into a binary representation.
 For example, a 4-to-2 encoder has 4 input lines and 2 output lines.  

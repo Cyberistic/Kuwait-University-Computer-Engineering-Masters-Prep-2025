@@ -1,12 +1,12 @@
 Principles of network applications and its protocols (HTTP, Electronic Mail, DNS).  
-[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=112]]
+[](../books/4%20-%20Network%20&%20Security/James%20Kurose,%20Keith%20Ross%20-%20Computer%20Networking_%20A%20Top-Down%20Approach,%207th%20Edition.pdf#page=112)
 
 
 Super vague description, will provide general knowledge about the above.
 
 Remember the 7-layered OSI model:
 
-![[OSI-Model.png]]
+![OSI-Model](attachments/OSI-Model.png)
 [OSI Model Source](https://www.imperva.com/learn/application-security/osi-model/)
 
 We will be covering the TCP/IP model which is similar but skips over *Presentation* and *Session* layers

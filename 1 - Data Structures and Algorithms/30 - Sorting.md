@@ -18,7 +18,7 @@ Given a messy array, make it unmessy by _sorting_. Ascending, descending, alphab
 
 Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
 
-![[Bubble-Sort.png]]
+![Bubble-Sort](attachments/Bubble-Sort.png)
 
 **Time Complexity**: O(n²)
 
@@ -53,7 +53,7 @@ function bubbleSort(arr: number[]): number[] {
 > [!Warning] Warning...
 > If I ever see you use bubble sort in production..
 >
-> ![[Bubble-Sort-In-Prod.png|center|200]]
+> ![center|200](attachments/Bubble-Sort-In-Prod.png)
 
 ## Insertion Sort
 
@@ -61,7 +61,7 @@ Builds the final sorted array one item at a time, by repeatedly inserting a new 
 
 So you pick an element, compare it with the elements before it, and insert it in the right position. Then pick the next element and repeat.
 
-![[Insertion-sort.png]]
+![Insertion-sort](attachments/Insertion-sort.png)
 
 **Time Complexity**: O(n²)
 
@@ -101,7 +101,7 @@ function insertionSort(arr: number[]): number[] {
 Uses a divide-and-conquer strategy. Picks a 'pivot' element and partitions the array around it. Then moves the pivot to the middle.
 The left side of the pivot is less than the pivot, and the right side is greater than the pivot. This process is repeated recursively for the left and right subarrays.
 
-![[Quick-sort.png]]
+![Quick-sort](attachments/Quick-sort.png)
 
 **Time Complexity**: O(n log n) average
 
@@ -140,7 +140,7 @@ function quickSort(arr: number[]): number[] {
 
 Divides the array into smaller subarrays, sorts them, and then merges them back together.
 
-![[Merge-sort.png]]
+![Merge-sort](attachments/Merge-sort.png)
 
 **Time Complexity**: O(n log n)
 
@@ -202,7 +202,7 @@ tl;dr:
    Shrink the heap.
    Re-heapify using bubbleDown() to move the next-largest to the top.
 
-For more info about heaps: [[20 - Trees and graphs#Heaps]]
+For more info about heaps: [](20%20-%20Trees%20and%20graphs.md#Heaps)
 
 **Time Complexity**: O(n log n)
 

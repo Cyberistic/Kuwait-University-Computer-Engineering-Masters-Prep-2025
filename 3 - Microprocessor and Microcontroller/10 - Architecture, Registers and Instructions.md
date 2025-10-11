@@ -4,7 +4,7 @@ General notes.
 
 ## Basic Architecture
 
-![[Architecture.png]]
+![Architecture](attachments/Architecture.png)
 
 A microprocessor is a programmable device that processes data according to instructions stored in memory. The main components are:
 
@@ -100,7 +100,7 @@ MOV R2, R0        ; Move between registers
 
 ## Basic Components
 
-![[Programmer Model.png]]
+![Programmer Model](attachments/Programmer%20Model.png)
 
 ### Registers
 
@@ -116,7 +116,7 @@ Fast storage locations within the CPU:
 > Here is an interesting video of this usage:
 > [https://www.youtube.com/watch?v=HGkuRp5HfH8](https://www.youtube.com/watch?v=HGkuRp5HfH8)
 
-![[Registers.png]]
+![Registers](attachments/Registers.png)
 
 1. PC (Program Counter): Holds the address of the next instruction to be executed. Automatically increments after each instruction fetch.
 2. SP (Stack Pointer): Points to the top of the stack in memory. Data is pushed/popped from the stack using this pointer.

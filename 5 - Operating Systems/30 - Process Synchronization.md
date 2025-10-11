@@ -9,7 +9,7 @@ Process synchronization: classical synchronization problems (critical-section, r
 When multiple processes try to access or change (read/write) data at the same time.
 So lets say we have process A which reads data1, process B write data1.. What will A have when it reads data1? the new data or the old data?
 
-![[thinkmarkthink.png | center | 300]]
+![ center | 300](thinkmarkthink.png%20)
 
 ## Critical Section Problem (C.S)
 

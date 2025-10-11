@@ -1,8 +1,8 @@
 Processor Data Path and Control Unit Design
 
 ## Data Path Components
-![[Datapath.png]]
-![[Abstracted-datapath.png]]
+![Datapath](attachments/Datapath.png)
+![Abstracted-datapath](attachments/Abstracted-datapath.png)
 The data path consists of the hardware elements that process data:
 
 1. **Registers**

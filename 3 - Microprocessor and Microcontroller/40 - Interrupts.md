@@ -57,7 +57,7 @@ Interrupts are signals that cause the processor to temporarily stop its current 
 
 ## Interrupt Enable Register (IE)
 
-![[IE-Register.png]]
+![IE-Register](attachments/IE-Register.png)
 
 ```
 EA  - Enable All (Global enable)

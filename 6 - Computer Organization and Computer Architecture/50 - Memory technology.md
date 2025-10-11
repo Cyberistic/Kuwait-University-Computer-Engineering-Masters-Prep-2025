@@ -64,7 +64,7 @@ For example, in a system with:
 
 ### Virtual to Physical Translation
 
-![[Virtual-Physical-Translation.png]]
+![Virtual-Physical-Translation.png](Virtual-Physical-Translation.png)
 
 1. **Page Offset**:
 

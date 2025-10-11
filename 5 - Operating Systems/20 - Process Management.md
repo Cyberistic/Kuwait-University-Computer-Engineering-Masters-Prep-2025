@@ -337,7 +337,7 @@ gantt
 ## Threads & Concurrency
 
 Single-threaded and multithreaded processes overview:
-![[Single-threaded and multithreaded processes.png]]
+![Single-threaded and multithreaded processes](attachments/Single-threaded%20and%20multithreaded%20processes.png)
 
 > 🤨 **Concurrency?** Doing **multiple things at once** by **interleaving** tasks. Only one task may actually run at a time, but they **appear to run simultaneously**.
 
@@ -346,10 +346,10 @@ Single-threaded and multithreaded processes overview:
 - A concurrent system supports more than one task by allowing all the tasks to make progress. In contrast, a system is parallel if it can perform more than one task simultaneously. Thus, it is possible to have concurrency without parallelism.
 
 **Concurrent execution on a single-core system:**
-![[Concurrent execution on a single-core system.png]]
+![Concurrent execution on a single-core system](attachments/Concurrent%20execution%20on%20a%20single-core%20system.png)
 
 **Parallel execution on a multicore system:**
-![[Parallel execution on a multicore system.png]]
+![Parallel execution on a multicore system](attachments/Parallel%20execution%20on%20a%20multicore%20system.png)
 
 
 > [!Note] Note how data, files and code are shared between multiple threads.

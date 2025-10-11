@@ -77,7 +77,7 @@ const phoneBook: HashTable<string, string> = {
 
 > [!Warning]
 > I don't think the code implementation of hash-tables is required, but you can take a look at it here:
-> [[Hash-Table & Dynamic Hash-Table implementation#Hash-Table]]
+> [](../misc/Hash-Table%20&%20Dynamic%20Hash-Table%20implementation.md#Hash-Table)
 
 > [!Important] Fun fact..
 > Want to test out how fast hash-tables are? try misspelling a word. You see that red squiggly line? it appeared instantly, but your device had to search through thousands of words saved in a hash-table.

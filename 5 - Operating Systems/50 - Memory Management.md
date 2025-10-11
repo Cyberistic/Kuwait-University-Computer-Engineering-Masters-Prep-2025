@@ -11,7 +11,7 @@
 - Register access is done in one CPU clock (or less).
 
 Storage-device hierarchy:
-![[Storage-device hierarchy.png]]
+![Storage-device hierarchy](attachments/Storage-device%20hierarchy.png)
 
 ---
 
@@ -94,7 +94,7 @@ Then we take our **physical memory** and divide it into chunks called **FRAMES**
 👉 Page size will always be qual to frame size!
 Unlike Fragmentation paging happens in non contiguous system where data don't need to be stored all together in one block.
 
-![[Paging hardware-1.png]]
+![Paging hardware-1](attachments/Paging%20hardware-1.png)
 
 **How do we implement it?**
 Lets just jump into an example problem:

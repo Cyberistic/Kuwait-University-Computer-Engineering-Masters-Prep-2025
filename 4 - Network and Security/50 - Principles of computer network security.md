@@ -3,7 +3,7 @@ Principles of computer network security (cryptography and message integrity).
 Once again, suuuper vague description, so I will only go through the basics. This is like an ENTIRE field!
 check the book for more details I guess. 
 
-[[James Kurose, Keith Ross - Computer Networking_ A Top-Down Approach, 7th Edition.pdf#page=655]]
+[](../books/4%20-%20Network%20&%20Security/James%20Kurose,%20Keith%20Ross%20-%20Computer%20Networking_%20A%20Top-Down%20Approach,%207th%20Edition.pdf#page=655)
 
 
 Quick reminder of terms:
